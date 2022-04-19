@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
+Created on March 30th, 2022
+Last Modified on March 30th, 2022
+ Understanding Two-pointer Algorithm Intro  The approach optimizes the runtime by utilizing some order (not necessarily sorting) of the data. It is generally applied on lists (arrays) and linked lists. Here, pointers represent either index or an iteration attribute like node’s Next.  Main Steps of the Algorithm  Pointer Initialization Pointer Movement Stop Condition  Categories  Old &amp;amp; New State Pointers Slow &amp;amp; Fast Pointers Left &amp;amp; Right Pointers Pointers from Two Sequences Sliding Window   Old &amp;amp; New State Pointers Template 1 2 3 4 5 6  def old_new_state(self, arr): # initialize states old, new = default_val1, default_val2 for item in arr: # process current element with old state old, new = new, self.'><title>[Algorithm] Topic 1: Two Pointers</title>
+
+<link rel='canonical' href='https://tonyfpy.github.io/p/algorithm-topic-1-two-pointers/'>
+
+<link rel="stylesheet" href="/scss/style.min.fcb3dbd0e1d142572adac980a4e6aff78b7b0a93a3a9d4ddbe8d8f9b45b7d6b4.css"><meta property='og:title' content='[Algorithm] Topic 1: Two Pointers'>
+<meta property='og:description' content='Authored by Tony Feng
+Created on March 30th, 2022
+Last Modified on March 30th, 2022
+ Understanding Two-pointer Algorithm Intro  The approach optimizes the runtime by utilizing some order (not necessarily sorting) of the data. It is generally applied on lists (arrays) and linked lists. Here, pointers represent either index or an iteration attribute like node’s Next.  Main Steps of the Algorithm  Pointer Initialization Pointer Movement Stop Condition  Categories  Old &amp;amp; New State Pointers Slow &amp;amp; Fast Pointers Left &amp;amp; Right Pointers Pointers from Two Sequences Sliding Window   Old &amp;amp; New State Pointers Template 1 2 3 4 5 6  def old_new_state(self, arr): # initialize states old, new = default_val1, default_val2 for item in arr: # process current element with old state old, new = new, self.'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/algorithm-topic-1-two-pointers/'>
+<meta property='og:site_name' content='Tony Feng'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Algorithm' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-03-30T22:59:15&#43;08:00'/><meta property='article:modified_time' content='2022-03-30T22:59:15&#43;08:00'/>
+<meta name="twitter:title" content="[Algorithm] Topic 1: Two Pointers">
+<meta name="twitter:description" content="Authored by Tony Feng
+Created on March 30th, 2022
+Last Modified on March 30th, 2022
+ Understanding Two-pointer Algorithm Intro  The approach optimizes the runtime by utilizing some order (not necessarily sorting) of the data. It is generally applied on lists (arrays) and linked lists. Here, pointers represent either index or an iteration attribute like node’s Next.  Main Steps of the Algorithm  Pointer Initialization Pointer Movement Stop Condition  Categories  Old &amp;amp; New State Pointers Slow &amp;amp; Fast Pointers Left &amp;amp; Right Pointers Pointers from Two Sequences Sliding Window   Old &amp;amp; New State Pointers Template 1 2 3 4 5 6  def old_new_state(self, arr): # initialize states old, new = default_val1, default_val2 for item in arr: # process current element with old state old, new = new, self.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu3f3934f12c466389edd8e965eaad18bd_12080_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Tony Feng</a></h1>
+            <h2 class="site-description">Master of Computer Science</h2>
+            <h2 class="site-description">Brown University</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/projects/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/algorithm/" >
+                Algorithm
+            </a>
+        
+            <a href="/categories/python/" >
+                Python
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/algorithm-topic-1-two-pointers/">[Algorithm] Topic 1: Two Pointers</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 30, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    7 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>Authored by Tony Feng</p>
+<p>Created on March 30th, 2022</p>
+<p>Last Modified on March 30th, 2022</p>
+</blockquote>
+<h2 id="understanding-two-pointer-algorithm">Understanding Two-pointer Algorithm</h2>
+<h3 id="intro">Intro</h3>
+<ul>
+<li>The approach optimizes the runtime by utilizing some order (not necessarily sorting) of the data.</li>
+<li>It is generally applied on <strong>lists (arrays)</strong> and <strong>linked lists</strong>.</li>
+<li>Here, pointers represent either index or an iteration attribute like node’s Next.</li>
+</ul>
+<h3 id="main-steps-of-the-algorithm">Main Steps of the Algorithm</h3>
+<ul>
+<li>Pointer Initialization</li>
+<li>Pointer Movement</li>
+<li>Stop Condition</li>
+</ul>
+<h3 id="categories">Categories</h3>
+<ul>
+<li>Old &amp; New State Pointers</li>
+<li>Slow &amp; Fast Pointers</li>
+<li>Left &amp; Right Pointers</li>
+<li>Pointers from Two Sequences</li>
+<li>Sliding Window</li>
+</ul>
+<hr>
+<h2 id="old--new-state-pointers">Old &amp; New State Pointers</h2>
+<h3 id="template">Template</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">old_new_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># initialize states</span>
+</span></span><span class="line"><span class="cl">    <span class="n">old</span><span class="p">,</span> <span class="n">new</span> <span class="o">=</span> <span class="n">default_val1</span><span class="p">,</span> <span class="n">default_val2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># process current element with old state</span>
+</span></span><span class="line"><span class="cl">        <span class="n">old</span><span class="p">,</span> <span class="n">new</span> <span class="o">=</span> <span class="n">new</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">some_func</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">old</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="examples">Examples</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="c1"># Leetcode 509 Fibonacci Number</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Each number is the sum of the two preceding ones, starting from 0 and 1.</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Leetcode 198 House Robber</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Determine the maximum amount of money you can steal tonight without robbing adjacent houses.</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">rob</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="s1">&#39;List[int]&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">last</span><span class="p">,</span> <span class="n">now</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">last</span><span class="p">,</span> <span class="n">now</span> <span class="o">=</span> <span class="n">now</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">last</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">now</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="slow--fast-pointers">Slow &amp; Fast Pointers</h2>
+<h3 id="template-1">Template</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">slow_fast_runner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># initialize slow runner</span>
+</span></span><span class="line"><span class="cl">    <span class="n">slow</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># fast-runner grows each iteration generally</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">fast</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>     
+</span></span><span class="line"><span class="cl">        <span class="c1">#slow-runner grows with some restrictions</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">slow_condition</span><span class="p">(</span><span class="n">slow</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">slow</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="n">next</span>    <span class="c1"># slow += 1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># process logic before or after pointers movement</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">some_func</span><span class="p">(</span><span class="n">slow</span><span class="p">,</span> <span class="n">fast</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="examples-1">Examples</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="c1"># Leetcode 141 Linked List Cycle</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">hasCycle</span><span class="p">(</span><span class="n">head</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">head</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span><span class="p">:</span> <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">slow</span><span class="p">,</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">head</span><span class="p">,</span> <span class="n">head</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">fast</span> <span class="ow">and</span> <span class="n">fast</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">slow</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fast</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">slow</span> <span class="o">==</span> <span class="n">fast</span><span class="p">:</span> <span class="k">return</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Leetcode 881 Boats to Save People</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">numRescueBoats</span><span class="p">(</span><span class="n">people</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">people</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">people</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">people</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">limit</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">res</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Leetcode 26 Remove Duplicates from Sorted Array</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Given a sorted array nums, remove the duplicates in place such</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># that each element appear only once and return the new length.</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">removeDuplicates</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="s1">&#39;List[int]&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">nums</span><span class="p">:</span> <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">slow</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">fast</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># if current element is not duplicate, </span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># slow runner grows one step and copys the current value</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">slow</span><span class="p">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="p">[</span><span class="n">fast</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">slow</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nums</span><span class="p">[</span><span class="n">slow</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">fast</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">slow</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="left--right-pointers">Left &amp; Right Pointers</h2>
+<h3 id="template-2">Template</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">left_right_boundary</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># left index moves when satisfy the condition</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_condition</span><span class="p">(</span><span class="n">left</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># right index move when satisfy the condition</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_condition</span><span class="p">(</span><span class="n">right</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">right</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># process logic before or after pointers movement</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">some_func</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="examples-2">Examples</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="c1"># Leetcode 167 Two Sum II - Input Array Is Sorted</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Given an array of integers that is already sorted in ascending </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># order, find two numbers such that they add up to a specific target number.</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">twoSum</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="s1">&#39;List[int]&#39;</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;List[int]&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">+</span> <span class="n">numbers</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">[</span><span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">right</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">+</span> <span class="n">numbers</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">right</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="pointers-from-two-sequences">Pointers from Two Sequences</h2>
+<h3 id="template-3">Template</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">pointers_from_two_seq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># init pointers</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>       <span class="c1"># or seq1[0], seq2[0]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">p1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">p2</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr2</span><span class="p">):</span>    <span class="c1"># or other condition</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># p1 index moves when satisfy the condition</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p1_condition</span><span class="p">(</span><span class="n">p1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">p1</span> <span class="o">+=</span> <span class="mi">1</span>         <span class="c1"># or p1 = next(seq1)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># p2 index move when satisfy the condition</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">p2_condition</span><span class="p">(</span><span class="n">p2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">p2</span> <span class="o">+=</span> <span class="mi">1</span>         <span class="c1"># or p2 = next(seq2)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># process logic before or after pointers movement</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">some_func</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="examples-3">Examples</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="c1"># Leetcode 244 Shortest Word Distance II</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Design a class which receives a list of words in the constructor </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># and implements a method that takes two words, word1 and word2, and </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># returns the shortest distance between these two words in the list.</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">WordDistance</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">:</span> <span class="s1">&#39;List[str]&#39;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">locations</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Prepare a mapping from a word to all it&#39;s locations (indices).</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">locations</span><span class="p">[</span><span class="n">w</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">shortest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">word2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">loc1</span><span class="p">,</span> <span class="n">loc2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">locations</span><span class="p">[</span><span class="n">word1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">locations</span><span class="p">[</span><span class="n">word2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">min_diff</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&#34;inf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Until the shorter of the two lists is processed</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">l1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">loc1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">l2</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">loc2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">min_diff</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">min_diff</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">loc1</span><span class="p">[</span><span class="n">l1</span><span class="p">]</span> <span class="o">-</span> <span class="n">loc2</span><span class="p">[</span><span class="n">l2</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">loc1</span><span class="p">[</span><span class="n">l1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">loc2</span><span class="p">[</span><span class="n">l2</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">l1</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">l2</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">min_diff</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="sliding-window">Sliding Window</h2>
+<blockquote>
+<p>There are two types of window</p>
+<ul>
+<li>
+<p>The <strong>fixed size window</strong> can be used for problem where you want to determine whether given string contain a specific substring.</p>
+</li>
+<li>
+<p>The <strong>dynamic</strong> one can be used to find the longest or shortest substring of the given string.</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="template-4">Template</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">sliding_window</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">end</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># end pointer grows in the outer loop</span>
+</span></span><span class="line"><span class="cl">        <span class="n">end</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># start pointer grows with some restrict</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_condition</span><span class="p">(</span><span class="n">start</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># process logic before pointers movement</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">some_func</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># start grows in the inner loop</span>
+</span></span><span class="line"><span class="cl">            <span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">        <span class="c1"># or process logic after pointers movement</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">some_func</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="examples-4">Examples</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="c1"># Leetcode 209 Minimum Size Subarray Sum</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Given an array of positive integers nums and a positive integer </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># target, return the minimal length of a contiguous subarray of </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># which the sum is greater than or equal to target.</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">minSubArrayLen</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">nums</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">l</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">res</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">add</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">add</span> <span class="o">+=</span> <span class="n">nums</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">r</span> <span class="o">+=</span> <span class="mi">1</span>                   <span class="c1"># Upsizing the window</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">add</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="p">:</span> <span class="c1"># Downsizing the window iteratively</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">add</span> <span class="o">-=</span> <span class="n">nums</span><span class="p">[</span><span class="n">l</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="n">l</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">res</span> <span class="k">if</span> <span class="n">res</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Leetcode 1456 Maximum Number of Vowels in a Substring of Given Length</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Given a string s and an integer k, return the maximum number of vowel </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># letters in any substring of s with length k.</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">maxVowels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">vl</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">])</span> <span class="c1"># Quick for search</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">res</span><span class="p">,</span> <span class="n">tmp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">j</span> <span class="o">-</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">:</span>          
+</span></span><span class="line"><span class="cl">        <span class="c1"># Get the number of vowel letters in the first sliding window</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">in</span> <span class="n">vl</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tmp</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">res</span> <span class="o">=</span> <span class="n">tmp</span>
+</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># Pop the first item</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">vl</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tmp</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">            <span class="c1"># Add the next item</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">in</span> <span class="n">vl</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">tmp</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">            <span class="n">res</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">res</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a class="link" href="https://www.bilibili.com/video/BV1sy4y1q79M?p=46"  target="_blank" rel="noopener"
+    >手把手带你刷Leetcode力扣 - 双指针 Two Pointers</a></li>
+<li><a class="link" href="https://www.bilibili.com/video/BV1sy4y1q79M?p=47"  target="_blank" rel="noopener"
+    >手把手带你刷Leetcode力扣 - 力扣141</a></li>
+<li><a class="link" href="https://www.bilibili.com/video/BV1sy4y1q79M?p=48"  target="_blank" rel="noopener"
+    >手把手带你刷Leetcode力扣 - 力扣881</a></li>
+<li><a class="link" href="https://www.bilibili.com/video/BV1sy4y1q79M?p=54"  target="_blank" rel="noopener"
+    >手把手带你刷Leetcode力扣 - 滑动窗口 Sliding Window</a></li>
+<li><a class="link" href="https://www.bilibili.com/video/BV1sy4y1q79M?p=55"  target="_blank" rel="noopener"
+    >手把手带你刷Leetcode力扣 - 力扣209</a></li>
+<li><a class="link" href="https://www.bilibili.com/video/BV1sy4y1q79M?p=56"  target="_blank" rel="noopener"
+    >手把手带你刷Leetcode力扣 - 力扣1456</a></li>
+<li><a class="link" href="https://towardsdatascience.com/two-pointer-approach-python-code-f3986b602640"  target="_blank" rel="noopener"
+    >Two Pointers Approach — Python Code</a></li>
+<li><a class="link" href="https://www.pluralsight.com/guides/algorithm-templates:-two-pointers-part-1"  target="_blank" rel="noopener"
+    >Algorithm Templates: Two Pointers - Part 1</a></li>
+<li><a class="link" href="https://www.pluralsight.com/guides/algorithm-templates:-two-pointers-part-2"  target="_blank" rel="noopener"
+    >Algorithm Templates: Two Pointers - Part 2</a></li>
+<li><a class="link" href="https://www.pluralsight.com/guides/algorithm-templates:-two-pointers-part-3"  target="_blank" rel="noopener"
+    >Algorithm Templates: Two Pointers - Part 3</a></li>
+<li><a class="link" href="https://blog.reachsumit.com/posts/2020/10/leetcode-sliding-window/"  target="_blank" rel="noopener"
+    >Effective LeetCode: Understanding the Sliding Window Pattern</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/algorithm/">Algorithm</a>
+        
+            <a href="/tags/python/">Python</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 Tony Feng
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#understanding-two-pointer-algorithm">Understanding Two-pointer Algorithm</a>
+      <ol>
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#main-steps-of-the-algorithm">Main Steps of the Algorithm</a></li>
+        <li><a href="#categories">Categories</a></li>
+      </ol>
+    </li>
+    <li><a href="#old--new-state-pointers">Old &amp; New State Pointers</a>
+      <ol>
+        <li><a href="#template">Template</a></li>
+        <li><a href="#examples">Examples</a></li>
+      </ol>
+    </li>
+    <li><a href="#slow--fast-pointers">Slow &amp; Fast Pointers</a>
+      <ol>
+        <li><a href="#template-1">Template</a></li>
+        <li><a href="#examples-1">Examples</a></li>
+      </ol>
+    </li>
+    <li><a href="#left--right-pointers">Left &amp; Right Pointers</a>
+      <ol>
+        <li><a href="#template-2">Template</a></li>
+        <li><a href="#examples-2">Examples</a></li>
+      </ol>
+    </li>
+    <li><a href="#pointers-from-two-sequences">Pointers from Two Sequences</a>
+      <ol>
+        <li><a href="#template-3">Template</a></li>
+        <li><a href="#examples-3">Examples</a></li>
+      </ol>
+    </li>
+    <li><a href="#sliding-window">Sliding Window</a>
+      <ol>
+        <li><a href="#template-4">Template</a></li>
+        <li><a href="#examples-4">Examples</a></li>
+      </ol>
+    </li>
+    <li><a href="#reference">Reference</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
