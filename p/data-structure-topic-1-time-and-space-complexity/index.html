@@ -3,21 +3,24 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on March 17th, 2022
-Last Modified on March 18th, 2022  Time Complexity Def  The efficiency of the algorithm The relationship between the algorithm&amp;rsquo;s input and its execution time  Common Cases  O(1)  1 2 3 4  def O1(num): i = num j = num * 2 return i &#43; j    O(n)  1 2 3 4 5  def ON(num): total = 0 for i in range(0, num): total &#43;= i return total    O(m&#43;n)  1 2 3 4 5 6 7  def OMN(num1, num2): total = 0 for i in range(0, num1): total &#43;= 1 for j in range(0, num2): total &#43;= 1 return total    O(log(n))  1 2 3 4 5  def OlogN(num): i = 1 while i &amp;lt; num: i = i * 2 return i    O(n*log(n))  1 2 3 4 5 6 7 8  def ONlogN(num1, num2): total = 0 tmp = 1 for i in range(0, num1): while tmp &amp;lt; num2: total = i &#43; tmp tmp = tmp * 2 return total    O(n2)  1 2 3 4 5 6  def ON2(num): total = 0 for i in range(0, num): for j in range(0, num): total &#43;= 1 return total   Comparison  O(1) &amp;lt; O(log(n)) &amp;lt; O(n) &amp;lt; O(n*log(n)) &amp;lt; O(n2) &amp;lt; O(2n) &amp;lt; O(n!'><title>[Data Structure] Topic 1: Time and Space Complexity</title>
+Last Modified on March 18th, 2022
+ Time Complexity Def  The efficiency of the algorithm The relationship between the algorithm&amp;rsquo;s input and its execution time  Common Cases  O(1)  1 2 3 4  def O1(num): i = num j = num * 2 return i &#43; j    O(n)  1 2 3 4 5  def ON(num): total = 0 for i in range(0, num): total &#43;= i return total    O(m&#43;n)  1 2 3 4 5 6 7  def OMN(num1, num2): total = 0 for i in range(0, num1): total &#43;= 1 for j in range(0, num2): total &#43;= 1 return total    O(log(n))  1 2 3 4 5  def OlogN(num): i = 1 while i &amp;lt; num: i = i * 2 return i    O(n*log(n))  1 2 3 4 5 6 7 8  def ONlogN(num1, num2): total = 0 tmp = 1 for i in range(0, num1): while tmp &amp;lt; num2: total = i &#43; tmp tmp = tmp * 2 return total    O(n2)  1 2 3 4 5 6  def ON2(num): total = 0 for i in range(0, num): for j in range(0, num): total &#43;= 1 return total   Comparison  O(1) &amp;lt; O(log(n)) &amp;lt; O(n) &amp;lt; O(n*log(n)) &amp;lt; O(n2) &amp;lt; O(2n) &amp;lt; O(n!'><title>[Data Structure] Topic 1: Time and Space Complexity</title>
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/data-structure-topic-1-time-and-space-complexity/'>
 
-<link rel="stylesheet" href="/scss/style.min.fcb3dbd0e1d142572adac980a4e6aff78b7b0a93a3a9d4ddbe8d8f9b45b7d6b4.css"><meta property='og:title' content='[Data Structure] Topic 1: Time and Space Complexity'>
+<link rel="stylesheet" href="/scss/style.min.caf8dc8d80a359b6fe2a4d33d26bb44a574a28553a5aae61d7e6b334cf3bb0be.css"><meta property='og:title' content='[Data Structure] Topic 1: Time and Space Complexity'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on March 17th, 2022
-Last Modified on March 18th, 2022  Time Complexity Def  The efficiency of the algorithm The relationship between the algorithm&amp;rsquo;s input and its execution time  Common Cases  O(1)  1 2 3 4  def O1(num): i = num j = num * 2 return i &#43; j    O(n)  1 2 3 4 5  def ON(num): total = 0 for i in range(0, num): total &#43;= i return total    O(m&#43;n)  1 2 3 4 5 6 7  def OMN(num1, num2): total = 0 for i in range(0, num1): total &#43;= 1 for j in range(0, num2): total &#43;= 1 return total    O(log(n))  1 2 3 4 5  def OlogN(num): i = 1 while i &amp;lt; num: i = i * 2 return i    O(n*log(n))  1 2 3 4 5 6 7 8  def ONlogN(num1, num2): total = 0 tmp = 1 for i in range(0, num1): while tmp &amp;lt; num2: total = i &#43; tmp tmp = tmp * 2 return total    O(n2)  1 2 3 4 5 6  def ON2(num): total = 0 for i in range(0, num): for j in range(0, num): total &#43;= 1 return total   Comparison  O(1) &amp;lt; O(log(n)) &amp;lt; O(n) &amp;lt; O(n*log(n)) &amp;lt; O(n2) &amp;lt; O(2n) &amp;lt; O(n!'>
+Last Modified on March 18th, 2022
+ Time Complexity Def  The efficiency of the algorithm The relationship between the algorithm&amp;rsquo;s input and its execution time  Common Cases  O(1)  1 2 3 4  def O1(num): i = num j = num * 2 return i &#43; j    O(n)  1 2 3 4 5  def ON(num): total = 0 for i in range(0, num): total &#43;= i return total    O(m&#43;n)  1 2 3 4 5 6 7  def OMN(num1, num2): total = 0 for i in range(0, num1): total &#43;= 1 for j in range(0, num2): total &#43;= 1 return total    O(log(n))  1 2 3 4 5  def OlogN(num): i = 1 while i &amp;lt; num: i = i * 2 return i    O(n*log(n))  1 2 3 4 5 6 7 8  def ONlogN(num1, num2): total = 0 tmp = 1 for i in range(0, num1): while tmp &amp;lt; num2: total = i &#43; tmp tmp = tmp * 2 return total    O(n2)  1 2 3 4 5 6  def ON2(num): total = 0 for i in range(0, num): for j in range(0, num): total &#43;= 1 return total   Comparison  O(1) &amp;lt; O(log(n)) &amp;lt; O(n) &amp;lt; O(n*log(n)) &amp;lt; O(n2) &amp;lt; O(2n) &amp;lt; O(n!'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/data-structure-topic-1-time-and-space-complexity/'>
 <meta property='og:site_name' content='Tony Feng'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Data Structure' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-04-18T22:26:52&#43;08:00'/><meta property='article:modified_time' content='2022-04-18T22:26:52&#43;08:00'/>
 <meta name="twitter:title" content="[Data Structure] Topic 1: Time and Space Complexity">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on March 17th, 2022
-Last Modified on March 18th, 2022  Time Complexity Def  The efficiency of the algorithm The relationship between the algorithm&amp;rsquo;s input and its execution time  Common Cases  O(1)  1 2 3 4  def O1(num): i = num j = num * 2 return i &#43; j    O(n)  1 2 3 4 5  def ON(num): total = 0 for i in range(0, num): total &#43;= i return total    O(m&#43;n)  1 2 3 4 5 6 7  def OMN(num1, num2): total = 0 for i in range(0, num1): total &#43;= 1 for j in range(0, num2): total &#43;= 1 return total    O(log(n))  1 2 3 4 5  def OlogN(num): i = 1 while i &amp;lt; num: i = i * 2 return i    O(n*log(n))  1 2 3 4 5 6 7 8  def ONlogN(num1, num2): total = 0 tmp = 1 for i in range(0, num1): while tmp &amp;lt; num2: total = i &#43; tmp tmp = tmp * 2 return total    O(n2)  1 2 3 4 5 6  def ON2(num): total = 0 for i in range(0, num): for j in range(0, num): total &#43;= 1 return total   Comparison  O(1) &amp;lt; O(log(n)) &amp;lt; O(n) &amp;lt; O(n*log(n)) &amp;lt; O(n2) &amp;lt; O(2n) &amp;lt; O(n!">
+Last Modified on March 18th, 2022
+ Time Complexity Def  The efficiency of the algorithm The relationship between the algorithm&amp;rsquo;s input and its execution time  Common Cases  O(1)  1 2 3 4  def O1(num): i = num j = num * 2 return i &#43; j    O(n)  1 2 3 4 5  def ON(num): total = 0 for i in range(0, num): total &#43;= i return total    O(m&#43;n)  1 2 3 4 5 6 7  def OMN(num1, num2): total = 0 for i in range(0, num1): total &#43;= 1 for j in range(0, num2): total &#43;= 1 return total    O(log(n))  1 2 3 4 5  def OlogN(num): i = 1 while i &amp;lt; num: i = i * 2 return i    O(n*log(n))  1 2 3 4 5 6 7 8  def ONlogN(num1, num2): total = 0 tmp = 1 for i in range(0, num1): while tmp &amp;lt; num2: total = i &#43; tmp tmp = tmp * 2 return total    O(n2)  1 2 3 4 5 6  def ON2(num): total = 0 for i in range(0, num): for j in range(0, num): total &#43;= 1 return total   Comparison  O(1) &amp;lt; O(log(n)) &amp;lt; O(n) &amp;lt; O(n*log(n)) &amp;lt; O(n2) &amp;lt; O(2n) &amp;lt; O(n!">
     </head>
     <body class="
     article-page
@@ -318,11 +321,9 @@ Last Modified on March 18th, 2022  Time Complexity Def  The efficiency of the al
     
     
     <blockquote>
-<p> 
-Authored by Tony Feng</p>
+<p>Authored by Tony Feng</p>
 <p>Created on March 17th, 2022</p>
-<p>Last Modified on March 18th, 2022
- </p>
+<p>Last Modified on March 18th, 2022</p>
 </blockquote>
 <h2 id="time-complexity">Time Complexity</h2>
 <h3 id="def">Def</h3>
