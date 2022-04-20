@@ -2,25 +2,25 @@
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
-Created on April 2nd, 2022
-Last Modified on April 2nd, 2022
- Understanding Recursion Intro  Recursion is the process of defining a problem (or the solution to a problem) in terms of (a simpler version of) itself. Memoization could be used to save computational time.  Components of Recursion  Base Case  The point where you stop applying the recursive case   Recursive Steps  Divide the problem into one or more simpler or smaller parts of the problem; Call the function (recursively) on each part; Combine the solutions of the parts into a solution for the problem.'><title>[Algorithm] Topic 3: Recursion</title>
+Created on April 10th, 2022
+Last Modified on April 10th, 2022
+ Understanding Dynamic Programming Intro  Dynamic Programming helps to efficiently solve a class of problems that have overlapping subproblems and optimal substructure property. Key elements  Initialization State-transition Equation Termination    Characteristics  Overlapping Subproblems  Any problem has overlapping sub-problems if finding its solution involves solving the same subproblem multiple times.'><title>[Algorithm] Topic 10: Dynamic Programming</title>
 
-<link rel='canonical' href='https://tonyfpy.github.io/p/algorithm-topic-3-recursion/'>
+<link rel='canonical' href='https://tonyfpy.github.io/p/algorithm-topic-10-dynamic-programming/'>
 
-<link rel="stylesheet" href="/scss/style.min.e31252c89704f91b1bb2e6d743865a3dfa889f5b482028193e4b69100e3646d0.css"><meta property='og:title' content='[Algorithm] Topic 3: Recursion'>
+<link rel="stylesheet" href="/scss/style.min.e31252c89704f91b1bb2e6d743865a3dfa889f5b482028193e4b69100e3646d0.css"><meta property='og:title' content='[Algorithm] Topic 10: Dynamic Programming'>
 <meta property='og:description' content='Authored by Tony Feng
-Created on April 2nd, 2022
-Last Modified on April 2nd, 2022
- Understanding Recursion Intro  Recursion is the process of defining a problem (or the solution to a problem) in terms of (a simpler version of) itself. Memoization could be used to save computational time.  Components of Recursion  Base Case  The point where you stop applying the recursive case   Recursive Steps  Divide the problem into one or more simpler or smaller parts of the problem; Call the function (recursively) on each part; Combine the solutions of the parts into a solution for the problem.'>
-<meta property='og:url' content='https://tonyfpy.github.io/p/algorithm-topic-3-recursion/'>
+Created on April 10th, 2022
+Last Modified on April 10th, 2022
+ Understanding Dynamic Programming Intro  Dynamic Programming helps to efficiently solve a class of problems that have overlapping subproblems and optimal substructure property. Key elements  Initialization State-transition Equation Termination    Characteristics  Overlapping Subproblems  Any problem has overlapping sub-problems if finding its solution involves solving the same subproblem multiple times.'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/algorithm-topic-10-dynamic-programming/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Algorithm' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-04-02T23:49:58&#43;08:00'/><meta property='article:modified_time' content='2022-04-02T23:49:58&#43;08:00'/>
-<meta name="twitter:title" content="[Algorithm] Topic 3: Recursion">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Algorithm' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-04-10T22:37:31&#43;08:00'/><meta property='article:modified_time' content='2022-04-10T22:37:31&#43;08:00'/>
+<meta name="twitter:title" content="[Algorithm] Topic 10: Dynamic Programming">
 <meta name="twitter:description" content="Authored by Tony Feng
-Created on April 2nd, 2022
-Last Modified on April 2nd, 2022
- Understanding Recursion Intro  Recursion is the process of defining a problem (or the solution to a problem) in terms of (a simpler version of) itself. Memoization could be used to save computational time.  Components of Recursion  Base Case  The point where you stop applying the recursive case   Recursive Steps  Divide the problem into one or more simpler or smaller parts of the problem; Call the function (recursively) on each part; Combine the solutions of the parts into a solution for the problem.">
+Created on April 10th, 2022
+Last Modified on April 10th, 2022
+ Understanding Dynamic Programming Intro  Dynamic Programming helps to efficiently solve a class of problems that have overlapping subproblems and optimal substructure property. Key elements  Initialization State-transition Equation Termination    Characteristics  Overlapping Subproblems  Any problem has overlapping sub-problems if finding its solution involves solving the same subproblem multiple times.">
     </head>
     <body class="
     article-page
@@ -272,7 +272,7 @@ Last Modified on April 2nd, 2022
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/algorithm-topic-3-recursion/">[Algorithm] Topic 3: Recursion</a>
+            <a href="/p/algorithm-topic-10-dynamic-programming/">[Algorithm] Topic 10: Dynamic Programming</a>
         </h2>
     
         
@@ -291,7 +291,7 @@ Last Modified on April 2nd, 2022
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Apr 02, 2022</time>
+                <time class="article-time--published">Apr 10, 2022</time>
             </div>
         
 
@@ -322,51 +322,83 @@ Last Modified on April 2nd, 2022
     
     <blockquote>
 <p>Authored by Tony Feng</p>
-<p>Created on April 2nd, 2022</p>
-<p>Last Modified on April 2nd, 2022</p>
+<p>Created on April 10th, 2022</p>
+<p>Last Modified on April 10th, 2022</p>
 </blockquote>
-<h2 id="understanding-recursion">Understanding Recursion</h2>
+<h2 id="understanding-dynamic-programming">Understanding Dynamic Programming</h2>
 <h3 id="intro">Intro</h3>
 <ul>
-<li>Recursion is the process of defining a problem (or the solution to a problem) in terms of (a simpler version of) <strong>itself</strong>.</li>
-<li><a class="link" href="https://chialunwu.medium.com/wtf-is-memoization-a2979594fb2a"  target="_blank" rel="noopener"
-    >Memoization</a> could be used to save computational time.</li>
-</ul>
-<h3 id="components-of-recursion">Components of Recursion</h3>
+<li>Dynamic Programming helps to efficiently solve a class of problems that have <strong>overlapping subproblems</strong> and <strong>optimal substructure property</strong>.</li>
+<li>Key elements
 <ul>
-<li>Base Case
-<ul>
-<li>The point where you stop applying the recursive case</li>
-</ul>
-</li>
-<li>Recursive Steps
-<ul>
-<li><strong>Divide</strong> the problem into one or more simpler or smaller parts of the problem;</li>
-<li><strong>Call</strong> the function (recursively) on each part;</li>
-<li><strong>Combine</strong> the solutions of the parts into a solution for the problem.</li>
+<li>Initialization</li>
+<li>State-transition Equation</li>
+<li>Termination</li>
 </ul>
 </li>
 </ul>
 <h3 id="characteristics">Characteristics</h3>
 <ul>
-<li>Advantages of Recursion
+<li><strong>Overlapping Subproblems</strong>
 <ul>
-<li>Recursive functions make the code look <strong>clean and elegant</strong>.</li>
-<li>A complex task can be broken down into simpler <strong>sub-problems</strong> using recursion.</li>
-<li><strong>Sequence generation is easier</strong> with recursion than using some nested iteration.</li>
+<li>Any problem has overlapping sub-problems if finding its solution involves solving the same subproblem <strong>multiple times</strong>.</li>
 </ul>
 </li>
-<li>Disadvantages of Recursion
+<li><strong>Optimal Substructure Property</strong>
 <ul>
-<li>Sometimes the <strong>logic</strong> behind recursion is hard to follow through.</li>
-<li>Recursive calls are <strong>expensive</strong> (inefficient) as they take up a lot of memory and time.</li>
-<li>Recursive functions are <strong>hard to debug</strong>.</li>
+<li>Any problem has optimal substructure property if its <strong>overall</strong> optimal solution can be constructed <strong>from the optimal solutions of its subproblems</strong>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="dynamic-programming-methods">Dynamic Programming Methods</h3>
+<ul>
+<li><strong>Top-down with Memoization</strong>
+<ul>
+<li>In this approach, we try to solve the bigger problem by recursively finding the solution to smaller sub-problems.</li>
+<li>Whenever we solve a sub-problem, we <strong>cache</strong> its result so that we can just return the saved result if it’s called multiple times.</li>
+</ul>
+</li>
+<li><strong>Bottom-up with Tabulation</strong>
+<ul>
+<li>Tabulation is the opposite of the top-down approach and <strong>avoids recursion</strong>.</li>
+<li>In this approach, we solve the problem “bottom-up” (i.e. by solving all the related sub-problems first). This is typically done by filling up an n-dimensional table. Based on the results in the table, the solution to the top/original problem is then computed.</li>
 </ul>
 </li>
 </ul>
 <hr>
 <h2 id="examples">Examples</h2>
-<h3 id="the-factorial-of-an-integer">The Factorial of an Integer</h3>
+<h3 id="leetcode-509-fibonacci-number">Leetcode 509 Fibonacci Number</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>   <span class="c1"># State-transition Equation</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="leetcode-62-unique-paths">Leetcode 62 Unique Paths</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -383,91 +415,37 @@ Last Modified on April 2nd, 2022
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">term</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span> <span class="c1"># Memoization</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Fibonacci Series using memoized Recursion</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># base case</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">n</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># if fib(n) has already been computed we do not do further </span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># recursive calls and hence reduce the number of repeated work;</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># else store the computed value of fib(n) in an array term at</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># index n</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">term</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">term</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">term</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">term</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="leetcode-509-fibonacci-number">Leetcode 509 Fibonacci Number</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="c1"># Time: O(N)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Space: O(N) i.e. Recursive Stack</span>
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">n</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="leetcode-206-reverse-linked-list">Leetcode 206 Reverse Linked List</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">reverseList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span> 
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">head</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">head</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reverseList</span><span class="p">(</span><span class="n">head</span><span class="o">.</span><span class="n">next</span><span class="p">)</span>    
-</span></span><span class="line"><span class="cl">        <span class="n">head</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span>
-</span></span><span class="line"><span class="cl">        <span class="n">head</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">            
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">uniquePaths</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="k">elif</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>    
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="reference">Reference</h2>
 <ul>
-<li><a class="link" href="https://www.bilibili.com/video/BV1sy4y1q79M?p=57"  target="_blank" rel="noopener"
-    >手把手带你刷Leetcode力扣 - 递归 Recursion</a></li>
-<li><a class="link" href="https://www.bilibili.com/video/BV1sy4y1q79M?p=58"  target="_blank" rel="noopener"
-    >手把手带你刷Leetcode力扣 - 力扣509</a></li>
-<li><a class="link" href="https://www.bilibili.com/video/BV1sy4y1q79M?p=59"  target="_blank" rel="noopener"
-    >手把手带你刷Leetcode力扣 - 力扣206</a></li>
-<li><a class="link" href="https://www.programiz.com/python-programming/recursion"  target="_blank" rel="noopener"
-    >Programiz - Python Recursion</a></li>
-<li><a class="link" href="https://chialunwu.medium.com/wtf-is-memoization-a2979594fb2a"  target="_blank" rel="noopener"
-    >WTF is Memoization</a></li>
+<li><a class="link" href="https://www.bilibili.com/video/BV1sy4y1q79M?p=77"  target="_blank" rel="noopener"
+    >手把手带你刷Leetcode力扣 - 动态规划 Dynamic Programming</a></li>
+<li><a class="link" href="https://www.bilibili.com/video/BV1sy4y1q79M?p=78"  target="_blank" rel="noopener"
+    >手把手带你刷Leetcode力扣 - Leetcode 509</a></li>
+<li><a class="link" href="https://www.bilibili.com/video/BV1sy4y1q79M?p=79"  target="_blank" rel="noopener"
+    >手把手带你刷Leetcode力扣 - Leetcode 62</a></li>
+<li><a class="link" href="https://www.educative.io/courses/grokking-dynamic-programming-patterns-for-coding-interviews/m2G1pAq0OO0"  target="_blank" rel="noopener"
+    >What is Dynamic Programming?</a></li>
+<li><a class="link" href="https://www.programiz.com/dsa/dynamic-programming"  target="_blank" rel="noopener"
+    >Programiz - Dynamic Programming</a></li>
 </ul>
 
 </section>
@@ -623,18 +601,17 @@ Last Modified on April 2nd, 2022
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#understanding-recursion">Understanding Recursion</a>
+    <li><a href="#understanding-dynamic-programming">Understanding Dynamic Programming</a>
       <ol>
         <li><a href="#intro">Intro</a></li>
-        <li><a href="#components-of-recursion">Components of Recursion</a></li>
         <li><a href="#characteristics">Characteristics</a></li>
+        <li><a href="#dynamic-programming-methods">Dynamic Programming Methods</a></li>
       </ol>
     </li>
     <li><a href="#examples">Examples</a>
       <ol>
-        <li><a href="#the-factorial-of-an-integer">The Factorial of an Integer</a></li>
         <li><a href="#leetcode-509-fibonacci-number">Leetcode 509 Fibonacci Number</a></li>
-        <li><a href="#leetcode-206-reverse-linked-list">Leetcode 206 Reverse Linked List</a></li>
+        <li><a href="#leetcode-62-unique-paths">Leetcode 62 Unique Paths</a></li>
       </ol>
     </li>
     <li><a href="#reference">Reference</a></li>
