@@ -8,7 +8,7 @@ Last Modified on April 6th, 2022
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/algorithm-topic-7-breadth-first-search/'>
 
-<link rel="stylesheet" href="/scss/style.min.faf9708f7ed82c69b77ec50a231de301e120d19917a8cc43255a9e2362bf49c7.css"><meta property='og:title' content='[Algorithm] Topic 7: Breadth-First Search'>
+<link rel="stylesheet" href="/scss/style.min.7fcee8248a6439ad362b28e70709cf7b745831c13e33f1a46224dc5f5b6a0af1.css"><meta property='og:title' content='[Algorithm] Topic 7: Breadth-First Search'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on April 6th, 2022
 Last Modified on April 6th, 2022
@@ -259,11 +259,11 @@ Last Modified on April 6th, 2022
     
     <header class="article-category">
         
-            <a href="/categories/algorithm/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/categories/algorithm/" style="background-color: #df7988; color: #fff;">
                 Algorithm
             </a>
         
-            <a href="/categories/python/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/categories/python/" style="background-color: #0099CC; color: #fff;">
                 Python
             </a>
         
@@ -352,164 +352,164 @@ Last Modified on April 6th, 2022
 </ul>
 <hr>
 <h2 id="template">Template</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">visited</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span> <span class="c1">#function for BFS</span>
-</span></span><span class="line"><span class="cl">    <span class="n">visited</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>          <span class="c1"># Creating loop to visit each node</span>
-</span></span><span class="line"><span class="cl">        <span class="n">m</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&#34; &#34;</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">neighbour</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">m</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">neighbour</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">visited</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neighbour</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neighbour</span><span class="p">)</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">bfs</span>(visited, graph, node): <span style="color:#888">#function for BFS</span>
+</span></span><span style="display:flex;"><span>    visited<span style="color:#333">.</span>append(node)
+</span></span><span style="display:flex;"><span>    queue<span style="color:#333">.</span>append(node)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">while</span> queue:          <span style="color:#888"># Creating loop to visit each node</span>
+</span></span><span style="display:flex;"><span>        m <span style="color:#333">=</span> queue<span style="color:#333">.</span>pop(<span style="color:#00d;font-weight:bold">0</span>) 
+</span></span><span style="display:flex;"><span>        <span style="color:#007020">print</span> (m, end <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34; &#34;</span>) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> neighbour <span style="color:#000;font-weight:bold">in</span> graph[m]:
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> neighbour <span style="color:#000;font-weight:bold">not</span> <span style="color:#000;font-weight:bold">in</span> visited:
+</span></span><span style="display:flex;"><span>                visited<span style="color:#333">.</span>append(neighbour)
+</span></span><span style="display:flex;"><span>                queue<span style="color:#333">.</span>append(neighbour)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="examples">Examples</h2>
 <h3 id="leetcode-102-binary-tree-level-order-traversal">Leetcode 102 Binary Tree Level Order Traversal</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">levelOrder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="n">ans</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">        <span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span> <span class="c1"># Store nodes</span>
-</span></span><span class="line"><span class="cl">        <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>      
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="c1"># Get how many nodes are in current level</span>
-</span></span><span class="line"><span class="cl">            <span class="n">tmp</span> <span class="o">=</span> <span class="p">[]</span>      <span class="c1"># Store nodes in the current level</span>
-</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">node</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">                <span class="n">tmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="n">size</span> <span class="o">-=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="n">ans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[:])</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ans</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">collections</span> <span style="color:#080;font-weight:bold">import</span> deque
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">levelOrder</span>(self, root: Optional[TreeNode]) <span style="color:#333">-&gt;</span> List[List[<span style="color:#007020">int</span>]]:
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> root:
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> []
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        ans <span style="color:#333">=</span> []
+</span></span><span style="display:flex;"><span>        q <span style="color:#333">=</span> deque() <span style="color:#888"># Store nodes</span>
+</span></span><span style="display:flex;"><span>        q<span style="color:#333">.</span>append(root)      
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> <span style="color:#007020">len</span>(q) <span style="color:#333">&gt;</span> <span style="color:#00d;font-weight:bold">0</span>:
+</span></span><span style="display:flex;"><span>            size <span style="color:#333">=</span> <span style="color:#007020">len</span>(q) <span style="color:#888"># Get how many nodes are in current level</span>
+</span></span><span style="display:flex;"><span>            tmp <span style="color:#333">=</span> []      <span style="color:#888"># Store nodes in the current level</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">while</span> size <span style="color:#333">&gt;</span> <span style="color:#00d;font-weight:bold">0</span>:
+</span></span><span style="display:flex;"><span>                node <span style="color:#333">=</span> q<span style="color:#333">.</span>popleft()
+</span></span><span style="display:flex;"><span>                tmp<span style="color:#333">.</span>append(node<span style="color:#333">.</span>val)
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">if</span> node<span style="color:#333">.</span>left:
+</span></span><span style="display:flex;"><span>                    q<span style="color:#333">.</span>append(node<span style="color:#333">.</span>left)
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">if</span> node<span style="color:#333">.</span>right:
+</span></span><span style="display:flex;"><span>                    q<span style="color:#333">.</span>append(node<span style="color:#333">.</span>right)
+</span></span><span style="display:flex;"><span>                size <span style="color:#333">-=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>            ans<span style="color:#333">.</span>append(tmp[:])
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> ans
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="leetcode-200-number-of-islands">Leetcode 200 Number of Islands</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">numIslands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>  
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">grid</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">                
-</span></span><span class="line"><span class="cl">        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">        <span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)):</span>
-</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;1&#34;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;2&#34;</span>
-</span></span><span class="line"><span class="cl">                            
-</span></span><span class="line"><span class="cl">                    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                        <span class="n">cur</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">                        <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">cur</span>
-</span></span><span class="line"><span class="cl">                        
-</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="n">x</span><span class="o">-</span><span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;1&#34;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                            <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">                            <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;2&#34;</span>
-</span></span><span class="line"><span class="cl">                            
-</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> <span class="ow">and</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;1&#34;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                            <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">                            <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;2&#34;</span>
-</span></span><span class="line"><span class="cl">                            
-</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;1&#34;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                            <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">                            <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;2&#34;</span>
-</span></span><span class="line"><span class="cl">                            
-</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">and</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;1&#34;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                            <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">                            <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;2&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">numIslands</span>(self, grid: List[List[<span style="color:#007020">str</span>]]) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:  
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> grid <span style="color:#000;font-weight:bold">or</span> <span style="color:#007020">len</span>(grid) <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">0</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>        res <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>        q <span style="color:#333">=</span> deque()
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#007020">len</span>(grid)):
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#007020">len</span>(grid[<span style="color:#00d;font-weight:bold">0</span>])):
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">if</span> grid[i][j] <span style="color:#333">==</span> <span style="background-color:#fff0f0">&#34;1&#34;</span>:
+</span></span><span style="display:flex;"><span>                    res <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>                    q<span style="color:#333">.</span>append([i,j])
+</span></span><span style="display:flex;"><span>                    grid[i][j] <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;2&#34;</span>
+</span></span><span style="display:flex;"><span>                            
+</span></span><span style="display:flex;"><span>                    <span style="color:#080;font-weight:bold">while</span> <span style="color:#007020">len</span>(q) <span style="color:#333">&gt;</span> <span style="color:#00d;font-weight:bold">0</span>:
+</span></span><span style="display:flex;"><span>                        cur <span style="color:#333">=</span> q<span style="color:#333">.</span>popleft()
+</span></span><span style="display:flex;"><span>                        [x,y] <span style="color:#333">=</span> cur
+</span></span><span style="display:flex;"><span>                        
+</span></span><span style="display:flex;"><span>                        <span style="color:#080;font-weight:bold">if</span> x<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span> <span style="color:#333">&gt;=</span> <span style="color:#00d;font-weight:bold">0</span> <span style="color:#000;font-weight:bold">and</span> grid[x<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>][y] <span style="color:#333">==</span> <span style="background-color:#fff0f0">&#34;1&#34;</span>:
+</span></span><span style="display:flex;"><span>                            q<span style="color:#333">.</span>append([x<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>,y])
+</span></span><span style="display:flex;"><span>                            grid[x<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>][y] <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;2&#34;</span>
+</span></span><span style="display:flex;"><span>                            
+</span></span><span style="display:flex;"><span>                        <span style="color:#080;font-weight:bold">if</span> x<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span> <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(grid) <span style="color:#000;font-weight:bold">and</span> grid[x<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>][y] <span style="color:#333">==</span> <span style="background-color:#fff0f0">&#34;1&#34;</span>:
+</span></span><span style="display:flex;"><span>                            q<span style="color:#333">.</span>append([x<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>,y])
+</span></span><span style="display:flex;"><span>                            grid[x<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>][y] <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;2&#34;</span>
+</span></span><span style="display:flex;"><span>                            
+</span></span><span style="display:flex;"><span>                        <span style="color:#080;font-weight:bold">if</span> y<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span> <span style="color:#333">&gt;=</span> <span style="color:#00d;font-weight:bold">0</span> <span style="color:#000;font-weight:bold">and</span> grid[x][y<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>] <span style="color:#333">==</span> <span style="background-color:#fff0f0">&#34;1&#34;</span>:
+</span></span><span style="display:flex;"><span>                            q<span style="color:#333">.</span>append([x, y<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>])
+</span></span><span style="display:flex;"><span>                            grid[x][y<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>] <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;2&#34;</span>
+</span></span><span style="display:flex;"><span>                            
+</span></span><span style="display:flex;"><span>                        <span style="color:#080;font-weight:bold">if</span> y<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span> <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(grid[<span style="color:#00d;font-weight:bold">0</span>]) <span style="color:#000;font-weight:bold">and</span> grid[x][y<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>] <span style="color:#333">==</span> <span style="background-color:#fff0f0">&#34;1&#34;</span>:
+</span></span><span style="display:flex;"><span>                            q<span style="color:#333">.</span>append([x, y<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>])
+</span></span><span style="display:flex;"><span>                            grid[x][y<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>] <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;2&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> res
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -537,14 +537,6 @@ Last Modified on April 6th, 2022
 
     <footer class="article-footer">
     
-    <section class="article-tags">
-        
-            <a href="/tags/algorithm/">Algorithm</a>
-        
-            <a href="/tags/python/">Python</a>
-        
-    </section>
-
 
     
     <section class="article-copyright">

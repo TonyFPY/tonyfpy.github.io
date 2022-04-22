@@ -8,7 +8,7 @@ Last Modified on April 2nd, 2022
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/algorithm-topic-3-recursion/'>
 
-<link rel="stylesheet" href="/scss/style.min.faf9708f7ed82c69b77ec50a231de301e120d19917a8cc43255a9e2362bf49c7.css"><meta property='og:title' content='[Algorithm] Topic 3: Recursion'>
+<link rel="stylesheet" href="/scss/style.min.7fcee8248a6439ad362b28e70709cf7b745831c13e33f1a46224dc5f5b6a0af1.css"><meta property='og:title' content='[Algorithm] Topic 3: Recursion'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on April 2nd, 2022
 Last Modified on April 2nd, 2022
@@ -259,11 +259,11 @@ Last Modified on April 2nd, 2022
     
     <header class="article-category">
         
-            <a href="/categories/algorithm/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/categories/algorithm/" style="background-color: #df7988; color: #fff;">
                 Algorithm
             </a>
         
-            <a href="/categories/python/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/categories/python/" style="background-color: #0099CC; color: #fff;">
                 Python
             </a>
         
@@ -367,92 +367,92 @@ Last Modified on April 2nd, 2022
 <hr>
 <h2 id="examples">Examples</h2>
 <h3 id="the-factorial-of-an-integer">The Factorial of an Integer</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">term</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span> <span class="c1"># Memoization</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Fibonacci Series using memoized Recursion</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># base case</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">n</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># if fib(n) has already been computed we do not do further </span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># recursive calls and hence reduce the number of repeated work;</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># else store the computed value of fib(n) in an array term at</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># index n</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">term</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">term</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">term</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">term</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>term <span style="color:#333">=</span> [<span style="color:#00d;font-weight:bold">0</span> <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">10</span>)] <span style="color:#888"># Memoization</span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Fibonacci Series using memoized Recursion</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">fib</span>(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#888"># base case</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> n <span style="color:#333">&lt;=</span> <span style="color:#00d;font-weight:bold">1</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> n
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888"># if fib(n) has already been computed we do not do further </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888"># recursive calls and hence reduce the number of repeated work;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888"># else store the computed value of fib(n) in an array term at</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888"># index n</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> term[n] <span style="color:#333">!=</span> <span style="color:#00d;font-weight:bold">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> term[n]
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>        term[n] <span style="color:#333">=</span> fib(n <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>) <span style="color:#333">+</span> fib(n <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">2</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> term[n]
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="leetcode-509-fibonacci-number">Leetcode 509 Fibonacci Number</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="c1"># Time: O(N)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Space: O(N) i.e. Recursive Stack</span>
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">n</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#888"># Time: O(N)</span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Space: O(N) i.e. Recursive Stack</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">fib</span>(self, n: <span style="color:#007020">int</span>) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> n <span style="color:#333">&lt;=</span> <span style="color:#00d;font-weight:bold">1</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> n
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> self<span style="color:#333">.</span>fib(n <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>) <span style="color:#333">+</span> self<span style="color:#333">.</span>fib(n <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">2</span>)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="leetcode-206-reverse-linked-list">Leetcode 206 Reverse Linked List</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">reverseList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span> 
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">head</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">head</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reverseList</span><span class="p">(</span><span class="n">head</span><span class="o">.</span><span class="n">next</span><span class="p">)</span>    
-</span></span><span class="line"><span class="cl">        <span class="n">head</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span>
-</span></span><span class="line"><span class="cl">        <span class="n">head</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">            
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">node</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">reverseList</span>(self, head: Optional[ListNode]) <span style="color:#333">-&gt;</span> Optional[ListNode]: 
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> head <span style="color:#000;font-weight:bold">or</span> <span style="color:#000;font-weight:bold">not</span> head<span style="color:#333">.</span>next:
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> head
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        node <span style="color:#333">=</span> self<span style="color:#333">.</span>reverseList(head<span style="color:#333">.</span>next)    
+</span></span><span style="display:flex;"><span>        head<span style="color:#333">.</span>next<span style="color:#333">.</span>next <span style="color:#333">=</span> head
+</span></span><span style="display:flex;"><span>        head<span style="color:#333">.</span>next <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> node
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -476,14 +476,6 @@ Last Modified on April 2nd, 2022
 
     <footer class="article-footer">
     
-    <section class="article-tags">
-        
-            <a href="/tags/algorithm/">Algorithm</a>
-        
-            <a href="/tags/python/">Python</a>
-        
-    </section>
-
 
     
     <section class="article-copyright">

@@ -8,7 +8,7 @@ Last Modified on April 3rd, 2022
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/algorithm-topic-4-divide-conquer/'>
 
-<link rel="stylesheet" href="/scss/style.min.faf9708f7ed82c69b77ec50a231de301e120d19917a8cc43255a9e2362bf49c7.css"><meta property='og:title' content='[Algorithm] Topic 4: Divide &amp; Conquer'>
+<link rel="stylesheet" href="/scss/style.min.7fcee8248a6439ad362b28e70709cf7b745831c13e33f1a46224dc5f5b6a0af1.css"><meta property='og:title' content='[Algorithm] Topic 4: Divide &amp; Conquer'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on April 3rd, 2022
 Last Modified on April 3rd, 2022
@@ -259,11 +259,11 @@ Last Modified on April 3rd, 2022
     
     <header class="article-category">
         
-            <a href="/categories/algorithm/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/categories/algorithm/" style="background-color: #df7988; color: #fff;">
                 Algorithm
             </a>
         
-            <a href="/categories/python/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/categories/python/" style="background-color: #0099CC; color: #fff;">
                 Python
             </a>
         
@@ -360,175 +360,175 @@ Last Modified on April 3rd, 2022
 <hr>
 <h2 id="examples">Examples</h2>
 <h3 id="tower-of-hanoi">Tower of Hanoi</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">TowerOfHanoi</span><span class="p">(</span><span class="n">n</span> <span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">auxiliary</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span> <span class="p">(</span><span class="s2">&#34;Move disk 1 from source&#34;</span><span class="p">,</span><span class="n">source</span><span class="p">,</span><span class="s2">&#34;to destination&#34;</span><span class="p">,</span><span class="n">destination</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span>
-</span></span><span class="line"><span class="cl">    <span class="n">TowerOfHanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">auxiliary</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span> <span class="p">(</span><span class="s2">&#34;Move disk&#34;</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="s2">&#34;from source&#34;</span><span class="p">,</span><span class="n">source</span><span class="p">,</span><span class="s2">&#34;to destination&#34;</span><span class="p">,</span><span class="n">destination</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">TowerOfHanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">auxiliary</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl"><span class="c1"># Driver code</span>
-</span></span><span class="line"><span class="cl"><span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
-</span></span><span class="line"><span class="cl"><span class="n">TowerOfHanoi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># A, C, B are the name of rods</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
-</span></span></span><span class="line"><span class="cl"><span class="s1">Move disk 1 from source A to destination C
-</span></span></span><span class="line"><span class="cl"><span class="s1">Move disk 2 from source A to destination B
-</span></span></span><span class="line"><span class="cl"><span class="s1">Move disk 1 from source C to destination B
-</span></span></span><span class="line"><span class="cl"><span class="s1">Move disk 3 from source A to destination C
-</span></span></span><span class="line"><span class="cl"><span class="s1">Move disk 1 from source B to destination A
-</span></span></span><span class="line"><span class="cl"><span class="s1">Move disk 2 from source B to destination C
-</span></span></span><span class="line"><span class="cl"><span class="s1">Move disk 1 from source A to destination C
-</span></span></span><span class="line"><span class="cl"><span class="s1">Move disk 4 from source A to destination B
-</span></span></span><span class="line"><span class="cl"><span class="s1">Move disk 1 from source C to destination B
-</span></span></span><span class="line"><span class="cl"><span class="s1">Move disk 2 from source C to destination A
-</span></span></span><span class="line"><span class="cl"><span class="s1">Move disk 1 from source B to destination A
-</span></span></span><span class="line"><span class="cl"><span class="s1">Move disk 3 from source C to destination B
-</span></span></span><span class="line"><span class="cl"><span class="s1">Move disk 1 from source A to destination C
-</span></span></span><span class="line"><span class="cl"><span class="s1">Move disk 2 from source A to destination B
-</span></span></span><span class="line"><span class="cl"><span class="s1">Move disk 1 from source C to destination B
-</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">TowerOfHanoi</span>(n , source, destination, auxiliary):
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> n<span style="color:#333">==</span><span style="color:#00d;font-weight:bold">1</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#007020">print</span> (<span style="background-color:#fff0f0">&#34;Move disk 1 from source&#34;</span>,source,<span style="background-color:#fff0f0">&#34;to destination&#34;</span>,destination)
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>    TowerOfHanoi(n<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>, source, auxiliary, destination)
+</span></span><span style="display:flex;"><span>    <span style="color:#007020">print</span> (<span style="background-color:#fff0f0">&#34;Move disk&#34;</span>,n,<span style="background-color:#fff0f0">&#34;from source&#34;</span>,source,<span style="background-color:#fff0f0">&#34;to destination&#34;</span>,destination)
+</span></span><span style="display:flex;"><span>    TowerOfHanoi(n<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>, auxiliary, destination, source)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span><span style="color:#888"># Driver code</span>
+</span></span><span style="display:flex;"><span>n <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">4</span>
+</span></span><span style="display:flex;"><span>TowerOfHanoi(n,<span style="background-color:#fff0f0">&#39;A&#39;</span>,<span style="background-color:#fff0f0">&#39;B&#39;</span>,<span style="background-color:#fff0f0">&#39;C&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#888"># A, C, B are the name of rods</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source A to destination C
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 2 from source A to destination B
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source C to destination B
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 3 from source A to destination C
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source B to destination A
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 2 from source B to destination C
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source A to destination C
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 4 from source A to destination B
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source C to destination B
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 2 from source C to destination A
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source B to destination A
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 3 from source C to destination B
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source A to destination C
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 2 from source A to destination B
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source C to destination B
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">&#39;&#39;&#39;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="merge-sort">Merge Sort</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">mergeSort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># Finding the mid of the array</span>
-</span></span><span class="line"><span class="cl">        <span class="n">mid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1"># Dividing the array elements into 2 halves</span>
-</span></span><span class="line"><span class="cl">        <span class="n">L</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[:</span><span class="n">mid</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">        <span class="n">R</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">:]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1"># Sort</span>
-</span></span><span class="line"><span class="cl">        <span class="n">mergeSort</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">mergeSort</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># Copy data to temp arrays L[] and R[]</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">                <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1"># Checking if any element was left</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Code to print the list</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">printList</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Driver Code</span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Given array is&#34;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">printList</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">mergeSort</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Sorted array is: &#34;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">printList</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">mergeSort</span>(arr):
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> <span style="color:#007020">len</span>(arr) <span style="color:#333">&gt;</span> <span style="color:#00d;font-weight:bold">1</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># Finding the mid of the array</span>
+</span></span><span style="display:flex;"><span>        mid <span style="color:#333">=</span> <span style="color:#007020">len</span>(arr)<span style="color:#333">//</span><span style="color:#00d;font-weight:bold">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># Dividing the array elements into 2 halves</span>
+</span></span><span style="display:flex;"><span>        L <span style="color:#333">=</span> arr[:mid]
+</span></span><span style="display:flex;"><span>        R <span style="color:#333">=</span> arr[mid:]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># Sort</span>
+</span></span><span style="display:flex;"><span>        mergeSort(L)
+</span></span><span style="display:flex;"><span>        mergeSort(R)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        i <span style="color:#333">=</span> j <span style="color:#333">=</span> k <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># Copy data to temp arrays L[] and R[]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> i <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(L) <span style="color:#000;font-weight:bold">and</span> j <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(R):
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> L[i] <span style="color:#333">&lt;</span> R[j]:
+</span></span><span style="display:flex;"><span>                arr[k] <span style="color:#333">=</span> L[i]
+</span></span><span style="display:flex;"><span>                i <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>                arr[k] <span style="color:#333">=</span> R[j]
+</span></span><span style="display:flex;"><span>                j <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>            k <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># Checking if any element was left</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> i <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(L):
+</span></span><span style="display:flex;"><span>            arr[k] <span style="color:#333">=</span> L[i]
+</span></span><span style="display:flex;"><span>            i <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>            k <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> j <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(R):
+</span></span><span style="display:flex;"><span>            arr[k] <span style="color:#333">=</span> R[j]
+</span></span><span style="display:flex;"><span>            j <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>            k <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Code to print the list</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">printList</span>(arr):
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#007020">len</span>(arr)):
+</span></span><span style="display:flex;"><span>        <span style="color:#007020">print</span>(arr[i], end<span style="color:#333">=</span><span style="background-color:#fff0f0">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#007020">print</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Driver Code</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">if</span> __name__ <span style="color:#333">==</span> <span style="background-color:#fff0f0">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    arr <span style="color:#333">=</span> [<span style="color:#00d;font-weight:bold">12</span>, <span style="color:#00d;font-weight:bold">11</span>, <span style="color:#00d;font-weight:bold">13</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">6</span>, <span style="color:#00d;font-weight:bold">7</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#007020">print</span>(<span style="background-color:#fff0f0">&#34;Given array is&#34;</span>, end<span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;</span><span style="color:#666;background-color:#fff0f0;font-weight:bold">\n</span><span style="background-color:#fff0f0">&#34;</span>)
+</span></span><span style="display:flex;"><span>    printList(arr)
+</span></span><span style="display:flex;"><span>    mergeSort(arr)
+</span></span><span style="display:flex;"><span>    <span style="color:#007020">print</span>(<span style="background-color:#fff0f0">&#34;Sorted array is: &#34;</span>, end<span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;</span><span style="color:#666;background-color:#fff0f0;font-weight:bold">\n</span><span style="background-color:#fff0f0">&#34;</span>)
+</span></span><span style="display:flex;"><span>    printList(arr)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -550,14 +550,6 @@ Last Modified on April 3rd, 2022
 
     <footer class="article-footer">
     
-    <section class="article-tags">
-        
-            <a href="/tags/algorithm/">Algorithm</a>
-        
-            <a href="/tags/python/">Python</a>
-        
-    </section>
-
 
     
     <section class="article-copyright">

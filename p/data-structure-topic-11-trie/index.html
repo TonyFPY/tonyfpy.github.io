@@ -8,7 +8,7 @@ Last Modified on April 10th, 2022
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/data-structure-topic-11-trie/'>
 
-<link rel="stylesheet" href="/scss/style.min.faf9708f7ed82c69b77ec50a231de301e120d19917a8cc43255a9e2362bf49c7.css"><meta property='og:title' content='[Data Structure] Topic 11: Trie'>
+<link rel="stylesheet" href="/scss/style.min.7fcee8248a6439ad362b28e70709cf7b745831c13e33f1a46224dc5f5b6a0af1.css"><meta property='og:title' content='[Data Structure] Topic 11: Trie'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on April 10th, 2022
 Last Modified on April 10th, 2022
@@ -259,11 +259,11 @@ Last Modified on April 10th, 2022
     
     <header class="article-category">
         
-            <a href="/categories/data-structure/" >
+            <a href="/categories/data-structure/" style="background-color: #75A864; color: #fff;">
                 Data Structure
             </a>
         
-            <a href="/categories/python/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/categories/python/" style="background-color: #0099CC; color: #fff;">
                 Python
             </a>
         
@@ -350,149 +350,149 @@ Last Modified on April 10th, 2022
 <hr>
 <h2 id="example">Example</h2>
 <h3 id="leetcode-208-implement-trie-prefix-tree">Leetcode 208 Implement Trie (Prefix Tree)</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TrieNode</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">char</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">char</span> <span class="o">=</span> <span class="n">char</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">{}</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">is_end</span> <span class="o">=</span> <span class="kc">False</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># self.counter = 0</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Trie</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">TrieNode</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">char</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">new_node</span> <span class="o">=</span> <span class="n">TrieNode</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="n">node</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_node</span>
-</span></span><span class="line"><span class="cl">                <span class="n">node</span> <span class="o">=</span> <span class="n">new_node</span>
-</span></span><span class="line"><span class="cl">        <span class="n">node</span><span class="o">.</span><span class="n">is_end</span> <span class="o">=</span> <span class="kc">True</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># node.counter += 1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">char</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kc">False</span>
-</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">char</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1"># Reached at the end of word</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># return True if word is present, i.e is_end = True else False</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">is_end</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">startsWith</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">prefix</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">char</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kc">False</span>
-</span></span><span class="line"><span class="cl">            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">char</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">True</span>   
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">TrieNode</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> __init__(self, char <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;&#34;</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#333">.</span>char <span style="color:#333">=</span> char
+</span></span><span style="display:flex;"><span>        self<span style="color:#333">.</span>children <span style="color:#333">=</span> {}
+</span></span><span style="display:flex;"><span>        self<span style="color:#333">.</span>is_end <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># self.counter = 0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Trie</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#333">.</span>root <span style="color:#333">=</span> TrieNode()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">insert</span>(self, word: <span style="color:#007020">str</span>) <span style="color:#333">-&gt;</span> <span style="color:#080;font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>        node <span style="color:#333">=</span> self<span style="color:#333">.</span>root
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> char <span style="color:#000;font-weight:bold">in</span> word:
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> char <span style="color:#000;font-weight:bold">in</span> node<span style="color:#333">.</span>children:
+</span></span><span style="display:flex;"><span>                node <span style="color:#333">=</span> node<span style="color:#333">.</span>children[char]
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>                new_node <span style="color:#333">=</span> TrieNode(char)
+</span></span><span style="display:flex;"><span>                node<span style="color:#333">.</span>children[char] <span style="color:#333">=</span> new_node
+</span></span><span style="display:flex;"><span>                node <span style="color:#333">=</span> new_node
+</span></span><span style="display:flex;"><span>        node<span style="color:#333">.</span>is_end <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># node.counter += 1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">search</span>(self, word: <span style="color:#007020">str</span>) <span style="color:#333">-&gt;</span> <span style="color:#007020">bool</span>:
+</span></span><span style="display:flex;"><span>        node <span style="color:#333">=</span> self<span style="color:#333">.</span>root
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> char <span style="color:#000;font-weight:bold">in</span> word:
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> char <span style="color:#000;font-weight:bold">not</span> <span style="color:#000;font-weight:bold">in</span> node<span style="color:#333">.</span>children:
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>            node <span style="color:#333">=</span> node<span style="color:#333">.</span>children[char]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># Reached at the end of word</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># return True if word is present, i.e is_end = True else False</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> node<span style="color:#333">.</span>is_end
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">startsWith</span>(self, prefix: <span style="color:#007020">str</span>) <span style="color:#333">-&gt;</span> <span style="color:#007020">bool</span>:
+</span></span><span style="display:flex;"><span>        node <span style="color:#333">=</span> self<span style="color:#333">.</span>root
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> char <span style="color:#000;font-weight:bold">in</span> prefix:
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> char <span style="color:#000;font-weight:bold">not</span> <span style="color:#000;font-weight:bold">in</span> node<span style="color:#333">.</span>children:
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>            node <span style="color:#333">=</span> node<span style="color:#333">.</span>children[char]
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">True</span>   
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="leetcode-720-longest-word-in-dictionary">Leetcode 720 Longest Word in Dictionary</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TrieNode</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">{}</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">val</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">endOfWord</span> <span class="o">=</span> <span class="kc">False</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">longestWord</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">root</span> <span class="o">=</span> <span class="n">TrieNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">maxLen</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">        <span class="n">res</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="n">cur</span> <span class="o">=</span> <span class="n">root</span>
-</span></span><span class="line"><span class="cl">            <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">letter</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">cur</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span> <span class="o">=</span> <span class="n">TrieNode</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">cur</span><span class="o">.</span><span class="n">endOfWord</span><span class="p">:</span> <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="n">cur</span><span class="o">.</span><span class="n">endOfWord</span> <span class="o">=</span> <span class="kc">True</span>
-</span></span><span class="line"><span class="cl">            <span class="n">cur</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">cur</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="ow">and</span> <span class="n">cur</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;</span> <span class="n">maxLen</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">maxLen</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">value</span>
-</span></span><span class="line"><span class="cl">                <span class="n">res</span> <span class="o">=</span> <span class="n">word</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span>   
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">TrieNode</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> __init__(self, val):
+</span></span><span style="display:flex;"><span>        self<span style="color:#333">.</span>children <span style="color:#333">=</span> {}
+</span></span><span style="display:flex;"><span>        self<span style="color:#333">.</span>value <span style="color:#333">=</span> val
+</span></span><span style="display:flex;"><span>        self<span style="color:#333">.</span>endOfWord <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">longestWord</span>(self, words: List[<span style="color:#007020">str</span>]) <span style="color:#333">-&gt;</span> <span style="color:#007020">str</span>:
+</span></span><span style="display:flex;"><span>        root <span style="color:#333">=</span> TrieNode(<span style="color:#00d;font-weight:bold">0</span>)
+</span></span><span style="display:flex;"><span>        maxLen <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>        res <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> word <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">sorted</span>(words):
+</span></span><span style="display:flex;"><span>            cur <span style="color:#333">=</span> root
+</span></span><span style="display:flex;"><span>            count <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">for</span> letter <span style="color:#000;font-weight:bold">in</span> word:
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">if</span> letter <span style="color:#000;font-weight:bold">not</span> <span style="color:#000;font-weight:bold">in</span> cur<span style="color:#333">.</span>children:
+</span></span><span style="display:flex;"><span>                    cur<span style="color:#333">.</span>children[letter] <span style="color:#333">=</span> TrieNode(count)
+</span></span><span style="display:flex;"><span>                cur <span style="color:#333">=</span> cur<span style="color:#333">.</span>children[letter]
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">if</span> cur<span style="color:#333">.</span>endOfWord: count <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>            cur<span style="color:#333">.</span>endOfWord <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>            cur<span style="color:#333">.</span>value <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> cur<span style="color:#333">.</span>value <span style="color:#333">==</span> <span style="color:#007020">len</span>(word) <span style="color:#000;font-weight:bold">and</span> cur<span style="color:#333">.</span>value <span style="color:#333">&gt;</span> maxLen:
+</span></span><span style="display:flex;"><span>                maxLen <span style="color:#333">=</span> cur<span style="color:#333">.</span>value
+</span></span><span style="display:flex;"><span>                res <span style="color:#333">=</span> word
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> res   
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -514,14 +514,6 @@ Last Modified on April 10th, 2022
 
     <footer class="article-footer">
     
-    <section class="article-tags">
-        
-            <a href="/tags/data-structure/">Data Structure</a>
-        
-            <a href="/tags/python/">Python</a>
-        
-    </section>
-
 
     
     <section class="article-copyright">

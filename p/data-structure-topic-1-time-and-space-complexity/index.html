@@ -4,15 +4,15 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on March 17th, 2022
 Last Modified on March 18th, 2022
- Time Complexity Def  The efficiency of the algorithm The relationship between the algorithm&amp;rsquo;s input and its execution time  Common Cases  O(1)  1 2 3 4  def O1(num): i = num j = num * 2 return i &#43; j    O(n)  1 2 3 4 5  def ON(num): total = 0 for i in range(0, num): total &#43;= i return total    O(m&#43;n)  1 2 3 4 5 6 7  def OMN(num1, num2): total = 0 for i in range(0, num1): total &#43;= 1 for j in range(0, num2): total &#43;= 1 return total    O(log(n))  1 2 3 4 5  def OlogN(num): i = 1 while i &amp;lt; num: i = i * 2 return i    O(n*log(n))  1 2 3 4 5 6 7 8  def ONlogN(num1, num2): total = 0 tmp = 1 for i in range(0, num1): while tmp &amp;lt; num2: total = i &#43; tmp tmp = tmp * 2 return total    O(n2)  1 2 3 4 5 6  def ON2(num): total = 0 for i in range(0, num): for j in range(0, num): total &#43;= 1 return total   Comparison  O(1) &amp;lt; O(log(n)) &amp;lt; O(n) &amp;lt; O(n*log(n)) &amp;lt; O(n2) &amp;lt; O(2n) &amp;lt; O(n!'><title>[Data Structure] Topic 1: Time and Space Complexity</title>
+ Time Complexity Def  The efficiency of the algorithm The relationship between the algorithm&amp;rsquo;s input and its execution time  Common Cases  O(1)  1 2 3 4  def O1(num):  i = num  j = num * 2  return i &#43; j    O(n)  1 2 3 4 5  def ON(num):  total = 0  for i in range(0, num):  total &#43;= i  return total    O(m&#43;n)  1 2 3 4 5 6 7  def OMN(num1, num2):  total = 0  for i in range(0, num1):  total &#43;= 1  for j in range(0, num2):  total &#43;= 1  return total    O(log(n))  1 2 3 4 5  def OlogN(num):  i = 1  while i &amp;lt; num:  i = i * 2  return i    O(n*log(n))  1 2 3 4 5 6 7 8  def ONlogN(num1, num2):  total = 0  tmp = 1  for i in range(0, num1):  while tmp &amp;lt; num2:  total = i &#43; tmp  tmp = tmp * 2  return total    O(n2)  1 2 3 4 5 6  def ON2(num):  total = 0  for i in range(0, num):  for j in range(0, num):  total &#43;= 1  return total   Comparison  O(1) &amp;lt; O(log(n)) &amp;lt; O(n) &amp;lt; O(n*log(n)) &amp;lt; O(n2) &amp;lt; O(2n) &amp;lt; O(n!'><title>[Data Structure] Topic 1: Time and Space Complexity</title>
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/data-structure-topic-1-time-and-space-complexity/'>
 
-<link rel="stylesheet" href="/scss/style.min.faf9708f7ed82c69b77ec50a231de301e120d19917a8cc43255a9e2362bf49c7.css"><meta property='og:title' content='[Data Structure] Topic 1: Time and Space Complexity'>
+<link rel="stylesheet" href="/scss/style.min.7fcee8248a6439ad362b28e70709cf7b745831c13e33f1a46224dc5f5b6a0af1.css"><meta property='og:title' content='[Data Structure] Topic 1: Time and Space Complexity'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on March 17th, 2022
 Last Modified on March 18th, 2022
- Time Complexity Def  The efficiency of the algorithm The relationship between the algorithm&amp;rsquo;s input and its execution time  Common Cases  O(1)  1 2 3 4  def O1(num): i = num j = num * 2 return i &#43; j    O(n)  1 2 3 4 5  def ON(num): total = 0 for i in range(0, num): total &#43;= i return total    O(m&#43;n)  1 2 3 4 5 6 7  def OMN(num1, num2): total = 0 for i in range(0, num1): total &#43;= 1 for j in range(0, num2): total &#43;= 1 return total    O(log(n))  1 2 3 4 5  def OlogN(num): i = 1 while i &amp;lt; num: i = i * 2 return i    O(n*log(n))  1 2 3 4 5 6 7 8  def ONlogN(num1, num2): total = 0 tmp = 1 for i in range(0, num1): while tmp &amp;lt; num2: total = i &#43; tmp tmp = tmp * 2 return total    O(n2)  1 2 3 4 5 6  def ON2(num): total = 0 for i in range(0, num): for j in range(0, num): total &#43;= 1 return total   Comparison  O(1) &amp;lt; O(log(n)) &amp;lt; O(n) &amp;lt; O(n*log(n)) &amp;lt; O(n2) &amp;lt; O(2n) &amp;lt; O(n!'>
+ Time Complexity Def  The efficiency of the algorithm The relationship between the algorithm&amp;rsquo;s input and its execution time  Common Cases  O(1)  1 2 3 4  def O1(num):  i = num  j = num * 2  return i &#43; j    O(n)  1 2 3 4 5  def ON(num):  total = 0  for i in range(0, num):  total &#43;= i  return total    O(m&#43;n)  1 2 3 4 5 6 7  def OMN(num1, num2):  total = 0  for i in range(0, num1):  total &#43;= 1  for j in range(0, num2):  total &#43;= 1  return total    O(log(n))  1 2 3 4 5  def OlogN(num):  i = 1  while i &amp;lt; num:  i = i * 2  return i    O(n*log(n))  1 2 3 4 5 6 7 8  def ONlogN(num1, num2):  total = 0  tmp = 1  for i in range(0, num1):  while tmp &amp;lt; num2:  total = i &#43; tmp  tmp = tmp * 2  return total    O(n2)  1 2 3 4 5 6  def ON2(num):  total = 0  for i in range(0, num):  for j in range(0, num):  total &#43;= 1  return total   Comparison  O(1) &amp;lt; O(log(n)) &amp;lt; O(n) &amp;lt; O(n*log(n)) &amp;lt; O(n2) &amp;lt; O(2n) &amp;lt; O(n!'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/data-structure-topic-1-time-and-space-complexity/'>
 <meta property='og:site_name' content='Tony Feng'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Data Structure' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-03-17T22:26:52&#43;08:00'/><meta property='article:modified_time' content='2022-03-17T22:26:52&#43;08:00'/>
@@ -20,7 +20,7 @@ Last Modified on March 18th, 2022
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on March 17th, 2022
 Last Modified on March 18th, 2022
- Time Complexity Def  The efficiency of the algorithm The relationship between the algorithm&amp;rsquo;s input and its execution time  Common Cases  O(1)  1 2 3 4  def O1(num): i = num j = num * 2 return i &#43; j    O(n)  1 2 3 4 5  def ON(num): total = 0 for i in range(0, num): total &#43;= i return total    O(m&#43;n)  1 2 3 4 5 6 7  def OMN(num1, num2): total = 0 for i in range(0, num1): total &#43;= 1 for j in range(0, num2): total &#43;= 1 return total    O(log(n))  1 2 3 4 5  def OlogN(num): i = 1 while i &amp;lt; num: i = i * 2 return i    O(n*log(n))  1 2 3 4 5 6 7 8  def ONlogN(num1, num2): total = 0 tmp = 1 for i in range(0, num1): while tmp &amp;lt; num2: total = i &#43; tmp tmp = tmp * 2 return total    O(n2)  1 2 3 4 5 6  def ON2(num): total = 0 for i in range(0, num): for j in range(0, num): total &#43;= 1 return total   Comparison  O(1) &amp;lt; O(log(n)) &amp;lt; O(n) &amp;lt; O(n*log(n)) &amp;lt; O(n2) &amp;lt; O(2n) &amp;lt; O(n!">
+ Time Complexity Def  The efficiency of the algorithm The relationship between the algorithm&amp;rsquo;s input and its execution time  Common Cases  O(1)  1 2 3 4  def O1(num):  i = num  j = num * 2  return i &#43; j    O(n)  1 2 3 4 5  def ON(num):  total = 0  for i in range(0, num):  total &#43;= i  return total    O(m&#43;n)  1 2 3 4 5 6 7  def OMN(num1, num2):  total = 0  for i in range(0, num1):  total &#43;= 1  for j in range(0, num2):  total &#43;= 1  return total    O(log(n))  1 2 3 4 5  def OlogN(num):  i = 1  while i &amp;lt; num:  i = i * 2  return i    O(n*log(n))  1 2 3 4 5 6 7 8  def ONlogN(num1, num2):  total = 0  tmp = 1  for i in range(0, num1):  while tmp &amp;lt; num2:  total = i &#43; tmp  tmp = tmp * 2  return total    O(n2)  1 2 3 4 5 6  def ON2(num):  total = 0  for i in range(0, num):  for j in range(0, num):  total &#43;= 1  return total   Comparison  O(1) &amp;lt; O(log(n)) &amp;lt; O(n) &amp;lt; O(n*log(n)) &amp;lt; O(n2) &amp;lt; O(2n) &amp;lt; O(n!">
     </head>
     <body class="
     article-page
@@ -259,11 +259,11 @@ Last Modified on March 18th, 2022
     
     <header class="article-category">
         
-            <a href="/categories/data-structure/" >
+            <a href="/categories/data-structure/" style="background-color: #75A864; color: #fff;">
                 Data Structure
             </a>
         
-            <a href="/categories/python/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/categories/python/" style="background-color: #0099CC; color: #fff;">
                 Python
             </a>
         
@@ -335,125 +335,125 @@ Last Modified on March 18th, 2022
 <ul>
 <li>O(1)</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">O1</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="n">num</span>
-</span></span><span class="line"><span class="cl">    <span class="n">j</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">O1</span>(num):
+</span></span><span style="display:flex;"><span>    i <span style="color:#333">=</span> num
+</span></span><span style="display:flex;"><span>    j <span style="color:#333">=</span> num <span style="color:#333">*</span> <span style="color:#00d;font-weight:bold">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> i <span style="color:#333">+</span> j
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>O(n)</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">ON</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="n">total</span> <span class="o">+=</span> <span class="n">i</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">total</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">ON</span>(num):
+</span></span><span style="display:flex;"><span>    total <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">0</span>, num):
+</span></span><span style="display:flex;"><span>        total <span style="color:#333">+=</span> i
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> total
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>O(m+n)</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">OMN</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num1</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">total</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">OMN</span>(num1, num2):
+</span></span><span style="display:flex;"><span>    total <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">0</span>, num1):
+</span></span><span style="display:flex;"><span>        total <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">0</span>, num2):
+</span></span><span style="display:flex;"><span>        total <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> total
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>O(log(n))</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">OlogN</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">i</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">OlogN</span>(num):
+</span></span><span style="display:flex;"><span>    i <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">while</span> i <span style="color:#333">&lt;</span> num:
+</span></span><span style="display:flex;"><span>        i <span style="color:#333">=</span> i <span style="color:#333">*</span> <span style="color:#00d;font-weight:bold">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> i
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>O(n*log(n))</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">ONlogN</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">    <span class="n">tmp</span> <span class="o">=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num1</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">tmp</span> <span class="o">&lt;</span> <span class="n">num2</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">total</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">tmp</span>
-</span></span><span class="line"><span class="cl">            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span> <span class="o">*</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">total</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">ONlogN</span>(num1, num2):
+</span></span><span style="display:flex;"><span>    total <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>    tmp <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">0</span>, num1):
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> tmp <span style="color:#333">&lt;</span> num2:
+</span></span><span style="display:flex;"><span>            total <span style="color:#333">=</span> i <span style="color:#333">+</span> tmp
+</span></span><span style="display:flex;"><span>            tmp <span style="color:#333">=</span> tmp <span style="color:#333">*</span> <span style="color:#00d;font-weight:bold">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> total
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>O(n<sup>2</sup>)</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">ON2</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">total</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">ON2</span>(num):
+</span></span><span style="display:flex;"><span>    total <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">0</span>, num):
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">0</span>, num):
+</span></span><span style="display:flex;"><span>            total <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> total
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="comparison">Comparison</h3>
@@ -470,43 +470,43 @@ Last Modified on March 18th, 2022
 <ul>
 <li>O(1)</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="c1"># total is a int variable with a 4-bytes memory</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">O1</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="n">total</span> <span class="o">+=</span> <span class="n">i</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">total</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#888"># total is a int variable with a 4-bytes memory</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">O1</span>(num):
+</span></span><span style="display:flex;"><span>    total <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">0</span>, num):
+</span></span><span style="display:flex;"><span>        total <span style="color:#333">+=</span> i
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> total
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>O(n)</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="c1"># nodes is a list whose memory depends on the input</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">On</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">nodes</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">nodes</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#888"># nodes is a list whose memory depends on the input</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">On</span>(nums):
+</span></span><span style="display:flex;"><span>    nodes <span style="color:#333">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">for</span> num <span style="color:#000;font-weight:bold">in</span> nums:
+</span></span><span style="display:flex;"><span>        nodes<span style="color:#333">.</span>append(num)
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> nodes
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="analysis-approches">Analysis Approches</h3>
@@ -548,14 +548,6 @@ Last Modified on March 18th, 2022
 
     <footer class="article-footer">
     
-    <section class="article-tags">
-        
-            <a href="/tags/data-structure/">Data Structure</a>
-        
-            <a href="/tags/python/">Python</a>
-        
-    </section>
-
 
     
     <section class="article-copyright">

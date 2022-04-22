@@ -8,7 +8,7 @@ Last Modified on March 28th, 2022
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/data-structure-topic-9-heap/'>
 
-<link rel="stylesheet" href="/scss/style.min.faf9708f7ed82c69b77ec50a231de301e120d19917a8cc43255a9e2362bf49c7.css"><meta property='og:title' content='[Data Structure] Topic 9: Heap'>
+<link rel="stylesheet" href="/scss/style.min.7fcee8248a6439ad362b28e70709cf7b745831c13e33f1a46224dc5f5b6a0af1.css"><meta property='og:title' content='[Data Structure] Topic 9: Heap'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on March 28th, 2022
 Last Modified on March 28th, 2022
@@ -259,15 +259,15 @@ Last Modified on March 28th, 2022
     
     <header class="article-category">
         
-            <a href="/categories/data-structure/" >
+            <a href="/categories/data-structure/" style="background-color: #75A864; color: #fff;">
                 Data Structure
             </a>
         
-            <a href="/categories/python/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/categories/python/" style="background-color: #0099CC; color: #fff;">
                 Python
             </a>
         
-            <a href="/categories/java/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/categories/java/" style="background-color: #6b69d6; color: #fff;">
                 Java
             </a>
         
@@ -384,128 +384,128 @@ Last Modified on March 28th, 2022
 </ul>
 <hr>
 <h2 id="set-implementation-in-python">Set Implementation in Python</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">heapq</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Create a minheap</span>
-</span></span><span class="line"><span class="cl"><span class="n">minheap</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl"><span class="n">heapq</span><span class="o">.</span><span class="n">heapify</span><span class="p">(</span><span class="n">minheap</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="c1"># In Python, there is no maxheap. If maxheap is required, </span>
-</span></span><span class="line"><span class="cl"><span class="c1"># try to multiply each element with -1 and then heapify it.</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># In the operations, the value should be converted back.</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Add elements</span>
-</span></span><span class="line"><span class="cl"><span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">minheap</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">minheap</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">minheap</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">minheap</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">minheap</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">minheap</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="c1"># [1,2,9,10,8,11]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Peek</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">minheap</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Delete</span>
-</span></span><span class="line"><span class="cl"><span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">minheap</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Size</span>
-</span></span><span class="line"><span class="cl"><span class="nb">len</span><span class="p">(</span><span class="n">minheap</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Iteration</span>
-</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">minheap</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">minheap</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">heapq</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Create a minheap</span>
+</span></span><span style="display:flex;"><span>minheap <span style="color:#333">=</span> []
+</span></span><span style="display:flex;"><span>heapq<span style="color:#333">.</span>heapify(minheap) 
+</span></span><span style="display:flex;"><span><span style="color:#888"># In Python, there is no maxheap. If maxheap is required, </span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># try to multiply each element with -1 and then heapify it.</span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># In the operations, the value should be converted back.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Add elements</span>
+</span></span><span style="display:flex;"><span>heapq<span style="color:#333">.</span>heappush(minheap, <span style="color:#00d;font-weight:bold">10</span>)
+</span></span><span style="display:flex;"><span>heapq<span style="color:#333">.</span>heappush(minheap, <span style="color:#00d;font-weight:bold">8</span>)
+</span></span><span style="display:flex;"><span>heapq<span style="color:#333">.</span>heappush(minheap, <span style="color:#00d;font-weight:bold">9</span>)
+</span></span><span style="display:flex;"><span>heapq<span style="color:#333">.</span>heappush(minheap, <span style="color:#00d;font-weight:bold">2</span>)
+</span></span><span style="display:flex;"><span>heapq<span style="color:#333">.</span>heappush(minheap, <span style="color:#00d;font-weight:bold">1</span>)
+</span></span><span style="display:flex;"><span>heapq<span style="color:#333">.</span>heappush(minheap, <span style="color:#00d;font-weight:bold">11</span>) <span style="color:#888"># [1,2,9,10,8,11]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Peek</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(minheap[<span style="color:#00d;font-weight:bold">0</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Delete</span>
+</span></span><span style="display:flex;"><span>heapq<span style="color:#333">.</span>heappop(minheap)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Size</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">len</span>(minheap)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># Iteration</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">while</span> <span style="color:#007020">len</span>(minheap) <span style="color:#333">!=</span> <span style="color:#00d;font-weight:bold">0</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#007020">print</span>(heapq<span style="color:#333">.</span>heappop(minheap))
+</span></span><span style="display:flex;"><span>    
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="set-implementation-in-java">Set Implementation in Java</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Create
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">minheap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;&gt;();</span>
-</span></span><span class="line"><span class="cl"><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">maxheap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;&gt;(</span><span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Add
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">minheap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">2</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">maxheap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">3</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Peek
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">mi</span> <span class="o">=</span> <span class="n">minheap</span><span class="o">.</span><span class="na">peek</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">ma</span> <span class="o">=</span> <span class="n">maxheap</span><span class="o">.</span><span class="na">peek</span><span class="o">();</span>  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Remove the top element
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">mi</span> <span class="o">=</span> <span class="n">minheap</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">ma</span> <span class="o">=</span> <span class="n">maxheap</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Get the size of the heap
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">lenMin</span> <span class="o">=</span> <span class="n">minheap</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">lenMax</span> <span class="o">=</span> <span class="n">maxheap</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Iteration
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">while</span> <span class="o">(!</span><span class="n">minheap</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">minheap</span><span class="o">.</span><span class="na">poll</span><span class="o">());</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888">// Create
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>PriorityQueue<span style="color:#333">&lt;</span>Integer<span style="color:#333">&gt;</span> minheap <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> PriorityQueue<span style="color:#333">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>PriorityQueue<span style="color:#333">&lt;</span>Integer<span style="color:#333">&gt;</span> maxheap <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> PriorityQueue<span style="color:#333">&lt;&gt;(</span>Collections<span style="color:#333">.</span><span style="color:#00c">reverseOrder</span><span style="color:#333">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888">// Add
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>minheap<span style="color:#333">.</span><span style="color:#00c">add</span><span style="color:#333">(</span>2<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>maxheap<span style="color:#333">.</span><span style="color:#00c">add</span><span style="color:#333">(</span>3<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888">// Peek
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#339;font-weight:bold">int</span> mi <span style="color:#333">=</span> minheap<span style="color:#333">.</span><span style="color:#00c">peek</span><span style="color:#333">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#339;font-weight:bold">int</span> ma <span style="color:#333">=</span> maxheap<span style="color:#333">.</span><span style="color:#00c">peek</span><span style="color:#333">();</span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888">// Remove the top element
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#339;font-weight:bold">int</span> mi <span style="color:#333">=</span> minheap<span style="color:#333">.</span><span style="color:#00c">poll</span><span style="color:#333">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#339;font-weight:bold">int</span> ma <span style="color:#333">=</span> maxheap<span style="color:#333">.</span><span style="color:#00c">poll</span><span style="color:#333">();</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888">// Get the size of the heap
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#339;font-weight:bold">int</span> lenMin <span style="color:#333">=</span> minheap<span style="color:#333">.</span><span style="color:#00c">size</span><span style="color:#333">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#339;font-weight:bold">int</span> lenMax <span style="color:#333">=</span> maxheap<span style="color:#333">.</span><span style="color:#00c">size</span><span style="color:#333">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888">// Iteration
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(!</span>minheap<span style="color:#333">.</span><span style="color:#00c">isEmpty</span><span style="color:#333">())</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#333">.</span><span style="color:#00c">out</span><span style="color:#333">.</span><span style="color:#00c">println</span><span style="color:#333">(</span>minheap<span style="color:#333">.</span><span style="color:#00c">poll</span><span style="color:#333">());</span>
+</span></span><span style="display:flex;"><span><span style="color:#333">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -531,16 +531,6 @@ Last Modified on March 28th, 2022
 
     <footer class="article-footer">
     
-    <section class="article-tags">
-        
-            <a href="/tags/data-structure/">Data Structure</a>
-        
-            <a href="/tags/python/">Python</a>
-        
-            <a href="/tags/java/">Java</a>
-        
-    </section>
-
 
     
     <section class="article-copyright">

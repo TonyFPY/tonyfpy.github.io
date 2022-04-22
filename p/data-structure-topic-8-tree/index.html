@@ -8,7 +8,7 @@ Last Modified on March 28th, 2022
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/data-structure-topic-8-tree/'>
 
-<link rel="stylesheet" href="/scss/style.min.faf9708f7ed82c69b77ec50a231de301e120d19917a8cc43255a9e2362bf49c7.css"><meta property='og:title' content='[Data Structure] Topic 8: Tree'>
+<link rel="stylesheet" href="/scss/style.min.7fcee8248a6439ad362b28e70709cf7b745831c13e33f1a46224dc5f5b6a0af1.css"><meta property='og:title' content='[Data Structure] Topic 8: Tree'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on March 27th, 2022
 Last Modified on March 28th, 2022
@@ -259,11 +259,11 @@ Last Modified on March 28th, 2022
     
     <header class="article-category">
         
-            <a href="/categories/data-structure/" >
+            <a href="/categories/data-structure/" style="background-color: #75A864; color: #fff;">
                 Data Structure
             </a>
         
-            <a href="/categories/python/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/categories/python/" style="background-color: #0099CC; color: #fff;">
                 Python
             </a>
         
@@ -428,368 +428,368 @@ Last Modified on March 28th, 2022
 </ul>
 <hr>
 <h2 id="set-implementation-in-python">Set Implementation in Python</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
-</span><span class="lnt">120
-</span><span class="lnt">121
-</span><span class="lnt">122
-</span><span class="lnt">123
-</span><span class="lnt">124
-</span><span class="lnt">125
-</span><span class="lnt">126
-</span><span class="lnt">127
-</span><span class="lnt">128
-</span><span class="lnt">129
-</span><span class="lnt">130
-</span><span class="lnt">131
-</span><span class="lnt">132
-</span><span class="lnt">133
-</span><span class="lnt">134
-</span><span class="lnt">135
-</span><span class="lnt">136
-</span><span class="lnt">137
-</span><span class="lnt">138
-</span><span class="lnt">139
-</span><span class="lnt">140
-</span><span class="lnt">141
-</span><span class="lnt">142
-</span><span class="lnt">143
-</span><span class="lnt">144
-</span><span class="lnt">145
-</span><span class="lnt">146
-</span><span class="lnt">147
-</span><span class="lnt">148
-</span><span class="lnt">149
-</span><span class="lnt">150
-</span><span class="lnt">151
-</span><span class="lnt">152
-</span><span class="lnt">153
-</span><span class="lnt">154
-</span><span class="lnt">155
-</span><span class="lnt">156
-</span><span class="lnt">157
-</span><span class="lnt">158
-</span><span class="lnt">159
-</span><span class="lnt">160
-</span><span class="lnt">161
-</span><span class="lnt">162
-</span><span class="lnt">163
-</span><span class="lnt">164
-</span><span class="lnt">165
-</span><span class="lnt">166
-</span><span class="lnt">167
-</span><span class="lnt">168
-</span><span class="lnt">169
-</span><span class="lnt">170
-</span><span class="lnt">171
-</span><span class="lnt">172
-</span><span class="lnt">173
-</span><span class="lnt">174
-</span><span class="lnt">175
-</span><span class="lnt">176
-</span><span class="lnt">177
-</span><span class="lnt">178
-</span><span class="lnt">179
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">145
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">146
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">147
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">148
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">149
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">150
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">151
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">152
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">153
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">154
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">155
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">156
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">157
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">158
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">159
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">160
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">161
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">162
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">163
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">164
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">165
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">166
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">167
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">168
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">169
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">170
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">171
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">172
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">173
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">174
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">175
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">176
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">177
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">178
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">179
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="c1"># Binary search tree</span>
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">binarySearchTree</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># check if there is no root</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">==</span> <span class="kc">None</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># check where to insert</span>
-</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="c1"># check for duplicate then stop and return</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="p">:</span> <span class="k">return</span> <span class="s1">&#39;no duplicates allowed in binary search tree&#39;</span>
-</span></span><span class="line"><span class="cl">            <span class="c1"># check if value to be inserted &lt; currentNode&#39;s value</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">                <span class="c1"># check if there is a left node to currentNode if true then recurse</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">                    <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="c1"># insert where left of currentNode when currentNode.left=None</span>
-</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">binarySearchTree</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="c1"># same steps as above here the condition we check is value to be inserted &gt; currentNode&#39;s value</span>
-</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">                    <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">binarySearchTree</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">breadthFirstSearch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="n">currentNode</span> <span class="o">=</span> <span class="bp">self</span>
-</span></span><span class="line"><span class="cl">        <span class="n">bfs_list</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">        <span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">        <span class="n">queue</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">currentNode</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="n">currentNode</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">            <span class="n">bfs_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">currentNode</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">currentNode</span><span class="o">.</span><span class="n">left</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">                <span class="n">queue</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">currentNode</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">currentNode</span><span class="o">.</span><span class="n">right</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">                <span class="n">queue</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">currentNode</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">bfs_list</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># In order means first left child, then parent, at last right child</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">depthFirstSearch_INorder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">traverseInOrder</span><span class="p">([])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># Pre order means first parent, then left child, at last right child</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">depthFirstSearch_PREorder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">traversePreOrder</span><span class="p">([])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># Post order means first left child, then right child , at last parent</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">depthFirstSearch_POSTorder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">traversePostOrder</span><span class="p">([])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">traverseInOrder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">traverseInOrder</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">traverseInOrder</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">lst</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">traversePreOrder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">traversePreOrder</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">traversePreOrder</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">lst</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">traversePostOrder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">traversePostOrder</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">traversePostOrder</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">lst</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">findNodeAndItsParent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">,</span> <span class="n">parent</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># returning the node and its parent so we can delete the node and reconstruct the tree from its parent</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="p">:</span> <span class="k">return</span> <span class="bp">self</span><span class="p">,</span> <span class="n">parent</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">findNodeAndItsParent</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span> <span class="k">return</span> <span class="s1">&#39;Not found&#39;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">                <span class="k">return</span>  <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">findNodeAndItsParent</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span> <span class="k">return</span> <span class="s1">&#39;Not found&#39;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># deleteing a node means we have to rearrange some part of the tree</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># check if the value we want to delete is in the tree</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">findNodeAndItsParent</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="o">==</span><span class="s1">&#39;Not found&#39;</span><span class="p">):</span> <span class="k">return</span> <span class="s1">&#39;Node is not in tree&#39;</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># we get the node we want to delete and its parent-node from findNodeAndItsParent method</span>
-</span></span><span class="line"><span class="cl">        <span class="n">deleteing_node</span><span class="p">,</span> <span class="n">parent_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">findNodeAndItsParent</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># check how many children nodes does the node we are going to delete have by traversePreOrder from the deleteing_node</span>
-</span></span><span class="line"><span class="cl">        <span class="n">nodes_effected</span> <span class="o">=</span> <span class="n">deleteing_node</span><span class="o">.</span><span class="n">traversePreOrder</span><span class="p">([])</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># if len(nodes_effected)==1 means, the node to be deleted doesn&#39;t have any children</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># so we can just check from its parent node the position(left or right) of node we want to delete</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># and point the position to &#39;None&#39; i.e node is deleted</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nodes_effected</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">parent_node</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">val</span> <span class="o">==</span> <span class="n">deleteing_node</span><span class="o">.</span><span class="n">val</span><span class="p">)</span> <span class="p">:</span> <span class="n">parent_node</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span> <span class="n">parent_node</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="s1">&#39;Succesfully deleted&#39;</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># if len(nodes_effected) &gt; 1 which means the node we are going to delete has &#39;children&#39;,</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># so the tree must be rearranged from the deleteing_node</span>
-</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="c1"># if the node we want to delete doesn&#39;t have any parent means the node to be deleted is &#39;root&#39; node</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">parent_node</span> <span class="o">==</span> <span class="kc">None</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">                <span class="n">nodes_effected</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">deleteing_node</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="c1"># make the &#39;root&#39; nodee i.e self value,left,right to None,</span>
-</span></span><span class="line"><span class="cl">                <span class="c1"># this means we need to implement a new tree again without the delted node</span>
-</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">                <span class="c1"># construction of new tree</span>
-</span></span><span class="line"><span class="cl">                <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes_effected</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                    <span class="bp">self</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="s1">&#39;Succesfully deleted&#39;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="c1"># if the node we want to delete has a parent</span>
-</span></span><span class="line"><span class="cl">            <span class="c1"># traverse from parent_node</span>
-</span></span><span class="line"><span class="cl">            <span class="n">nodes_effected</span> <span class="o">=</span> <span class="n">parent_node</span><span class="o">.</span><span class="n">traversePreOrder</span><span class="p">([])</span>
-</span></span><span class="line"><span class="cl">            <span class="c1"># deleting the node</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">parent_node</span><span class="o">.</span><span class="n">left</span> <span class="o">==</span> <span class="n">deleteing_node</span><span class="p">)</span> <span class="p">:</span> <span class="n">parent_node</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span> <span class="n">parent_node</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">            <span class="c1"># removeing the parent_node, deleteing_node and inserting the nodes_effected in the tree</span>
-</span></span><span class="line"><span class="cl">            <span class="n">nodes_effected</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">deleteing_node</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">nodes_effected</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">parent_node</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes_effected</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s1">&#39;Successfully deleted&#39;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">bst</span> <span class="o">=</span> <span class="n">binarySearchTree</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">bst</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">bst</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">bst</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">bst</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">bst</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">bst</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">bst</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#          7</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#        /  \</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#      /     \</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#     4        9</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#    / \      /  \</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#   0   5    8    13</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IN order: &#39;</span><span class="p">,</span><span class="n">bst</span><span class="o">.</span><span class="n">depthFirstSearch_INorder</span><span class="p">())</span> <span class="c1"># useful in sorting the tree in ascending order</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PRE order:&#39;</span> <span class="p">,</span><span class="n">bst</span><span class="o">.</span><span class="n">depthFirstSearch_PREorder</span><span class="p">())</span> <span class="c1"># pre order is useful in reconstructing a tree</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;POST order:&#39;</span><span class="p">,</span> <span class="n">bst</span><span class="o">.</span><span class="n">depthFirstSearch_POSTorder</span><span class="p">())</span> <span class="c1"># useful in finding the leaf nodes</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">bst</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">bst</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">bst</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># after deleting</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IN order: &#39;</span><span class="p">,</span><span class="n">bst</span><span class="o">.</span><span class="n">depthFirstSearch_INorder</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39; Output
-</span></span></span><span class="line"><span class="cl"><span class="s1">IN order:  [0, 4, 5, 7, 8, 9, 13]
-</span></span></span><span class="line"><span class="cl"><span class="s1">
-</span></span></span><span class="line"><span class="cl"><span class="s1">PRE order: [7, 4, 0, 5, 9, 8, 13]
-</span></span></span><span class="line"><span class="cl"><span class="s1">
-</span></span></span><span class="line"><span class="cl"><span class="s1">POST order: [0, 5, 4, 8, 13, 9, 7]
-</span></span></span><span class="line"><span class="cl"><span class="s1">
-</span></span></span><span class="line"><span class="cl"><span class="s1">Successfully deleted
-</span></span></span><span class="line"><span class="cl"><span class="s1">Successfully deleted
-</span></span></span><span class="line"><span class="cl"><span class="s1">Successfully deleted
-</span></span></span><span class="line"><span class="cl"><span class="s1">
-</span></span></span><span class="line"><span class="cl"><span class="s1">IN order:  [0, 4, 8, 13]
-</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#888"># Binary search tree</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">binarySearchTree</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> __init__(self,val<span style="color:#333">=</span><span style="color:#080;font-weight:bold">None</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#333">.</span>val <span style="color:#333">=</span> val
+</span></span><span style="display:flex;"><span>        self<span style="color:#333">.</span>left <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#333">.</span>right <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">insert</span>(self,val):
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># check if there is no root</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> (self<span style="color:#333">.</span>val <span style="color:#333">==</span> <span style="color:#080;font-weight:bold">None</span>):
+</span></span><span style="display:flex;"><span>            self<span style="color:#333">.</span>val <span style="color:#333">=</span> val
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># check where to insert</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#888"># check for duplicate then stop and return</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> val <span style="color:#333">==</span> self<span style="color:#333">.</span>val: <span style="color:#080;font-weight:bold">return</span> <span style="background-color:#fff0f0">&#39;no duplicates allowed in binary search tree&#39;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#888"># check if value to be inserted &lt; currentNode&#39;s value</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> (val <span style="color:#333">&lt;</span> self<span style="color:#333">.</span>val):
+</span></span><span style="display:flex;"><span>                <span style="color:#888"># check if there is a left node to currentNode if true then recurse</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">if</span>(self<span style="color:#333">.</span>left):
+</span></span><span style="display:flex;"><span>                    self<span style="color:#333">.</span>left<span style="color:#333">.</span>insert(val)
+</span></span><span style="display:flex;"><span>                <span style="color:#888"># insert where left of currentNode when currentNode.left=None</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">else</span>: self<span style="color:#333">.</span>left <span style="color:#333">=</span> binarySearchTree(val)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#888"># same steps as above here the condition we check is value to be inserted &gt; currentNode&#39;s value</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">if</span>(self<span style="color:#333">.</span>right):
+</span></span><span style="display:flex;"><span>                    self<span style="color:#333">.</span>right<span style="color:#333">.</span>insert(val)
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">else</span>: self<span style="color:#333">.</span>right <span style="color:#333">=</span> binarySearchTree(val)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">breadthFirstSearch</span>(self):
+</span></span><span style="display:flex;"><span>        currentNode <span style="color:#333">=</span> self
+</span></span><span style="display:flex;"><span>        bfs_list <span style="color:#333">=</span> []
+</span></span><span style="display:flex;"><span>        queue <span style="color:#333">=</span> []
+</span></span><span style="display:flex;"><span>        queue<span style="color:#333">.</span>insert(<span style="color:#00d;font-weight:bold">0</span>,currentNode)
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span>(<span style="color:#007020">len</span>(queue) <span style="color:#333">&gt;</span> <span style="color:#00d;font-weight:bold">0</span>):
+</span></span><span style="display:flex;"><span>            currentNode <span style="color:#333">=</span> queue<span style="color:#333">.</span>pop()
+</span></span><span style="display:flex;"><span>            bfs_list<span style="color:#333">.</span>append(currentNode<span style="color:#333">.</span>val)
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span>(currentNode<span style="color:#333">.</span>left):
+</span></span><span style="display:flex;"><span>                queue<span style="color:#333">.</span>insert(<span style="color:#00d;font-weight:bold">0</span>,currentNode<span style="color:#333">.</span>left)
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span>(currentNode<span style="color:#333">.</span>right):
+</span></span><span style="display:flex;"><span>                queue<span style="color:#333">.</span>insert(<span style="color:#00d;font-weight:bold">0</span>,currentNode<span style="color:#333">.</span>right)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> bfs_list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888"># In order means first left child, then parent, at last right child</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">depthFirstSearch_INorder</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> self<span style="color:#333">.</span>traverseInOrder([])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888"># Pre order means first parent, then left child, at last right child</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">depthFirstSearch_PREorder</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> self<span style="color:#333">.</span>traversePreOrder([])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888"># Post order means first left child, then right child , at last parent</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">depthFirstSearch_POSTorder</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> self<span style="color:#333">.</span>traversePostOrder([])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">traverseInOrder</span>(self, lst):
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> (self<span style="color:#333">.</span>left):
+</span></span><span style="display:flex;"><span>            self<span style="color:#333">.</span>left<span style="color:#333">.</span>traverseInOrder(lst)
+</span></span><span style="display:flex;"><span>        lst<span style="color:#333">.</span>append(self<span style="color:#333">.</span>val)
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> (self<span style="color:#333">.</span>right):
+</span></span><span style="display:flex;"><span>            self<span style="color:#333">.</span>right<span style="color:#333">.</span>traverseInOrder(lst)
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> lst
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">traversePreOrder</span>(self, lst):
+</span></span><span style="display:flex;"><span>        lst<span style="color:#333">.</span>append(self<span style="color:#333">.</span>val)
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> (self<span style="color:#333">.</span>left):
+</span></span><span style="display:flex;"><span>            self<span style="color:#333">.</span>left<span style="color:#333">.</span>traversePreOrder(lst)
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> (self<span style="color:#333">.</span>right):
+</span></span><span style="display:flex;"><span>            self<span style="color:#333">.</span>right<span style="color:#333">.</span>traversePreOrder(lst)
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> lst
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">traversePostOrder</span>(self, lst):
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> (self<span style="color:#333">.</span>left):
+</span></span><span style="display:flex;"><span>            self<span style="color:#333">.</span>left<span style="color:#333">.</span>traversePostOrder(lst)
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> (self<span style="color:#333">.</span>right):
+</span></span><span style="display:flex;"><span>            self<span style="color:#333">.</span>right<span style="color:#333">.</span>traversePostOrder(lst)
+</span></span><span style="display:flex;"><span>        lst<span style="color:#333">.</span>append(self<span style="color:#333">.</span>val)
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> lst
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">findNodeAndItsParent</span>(self,val, parent <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">None</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># returning the node and its parent so we can delete the node and reconstruct the tree from its parent</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> val <span style="color:#333">==</span> self<span style="color:#333">.</span>val: <span style="color:#080;font-weight:bold">return</span> self, parent
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> (val <span style="color:#333">&lt;</span> self<span style="color:#333">.</span>val):
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> (self<span style="color:#333">.</span>left):
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> self<span style="color:#333">.</span>left<span style="color:#333">.</span>findNodeAndItsParent(val, self)
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">else</span>: <span style="color:#080;font-weight:bold">return</span> <span style="background-color:#fff0f0">&#39;Not found&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> (self<span style="color:#333">.</span>right):
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span>  self<span style="color:#333">.</span>right<span style="color:#333">.</span>findNodeAndItsParent(val, self)
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">else</span>: <span style="color:#080;font-weight:bold">return</span> <span style="background-color:#fff0f0">&#39;Not found&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888"># deleteing a node means we have to rearrange some part of the tree</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">delete</span>(self,val):
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># check if the value we want to delete is in the tree</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span>(self<span style="color:#333">.</span>findNodeAndItsParent(val)<span style="color:#333">==</span><span style="background-color:#fff0f0">&#39;Not found&#39;</span>): <span style="color:#080;font-weight:bold">return</span> <span style="background-color:#fff0f0">&#39;Node is not in tree&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># we get the node we want to delete and its parent-node from findNodeAndItsParent method</span>
+</span></span><span style="display:flex;"><span>        deleteing_node, parent_node <span style="color:#333">=</span> self<span style="color:#333">.</span>findNodeAndItsParent(val)
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># check how many children nodes does the node we are going to delete have by traversePreOrder from the deleteing_node</span>
+</span></span><span style="display:flex;"><span>        nodes_effected <span style="color:#333">=</span> deleteing_node<span style="color:#333">.</span>traversePreOrder([])
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># if len(nodes_effected)==1 means, the node to be deleted doesn&#39;t have any children</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># so we can just check from its parent node the position(left or right) of node we want to delete</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># and point the position to &#39;None&#39; i.e node is deleted</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> (<span style="color:#007020">len</span>(nodes_effected)<span style="color:#333">==</span><span style="color:#00d;font-weight:bold">1</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> (parent_node<span style="color:#333">.</span>left<span style="color:#333">.</span>val <span style="color:#333">==</span> deleteing_node<span style="color:#333">.</span>val) : parent_node<span style="color:#333">.</span>left <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">else</span>: parent_node<span style="color:#333">.</span>right <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> <span style="background-color:#fff0f0">&#39;Succesfully deleted&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># if len(nodes_effected) &gt; 1 which means the node we are going to delete has &#39;children&#39;,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888"># so the tree must be rearranged from the deleteing_node</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#888"># if the node we want to delete doesn&#39;t have any parent means the node to be deleted is &#39;root&#39; node</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> (parent_node <span style="color:#333">==</span> <span style="color:#080;font-weight:bold">None</span>):
+</span></span><span style="display:flex;"><span>                nodes_effected<span style="color:#333">.</span>remove(deleteing_node<span style="color:#333">.</span>val)
+</span></span><span style="display:flex;"><span>                <span style="color:#888"># make the &#39;root&#39; nodee i.e self value,left,right to None,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#888"># this means we need to implement a new tree again without the delted node</span>
+</span></span><span style="display:flex;"><span>                self<span style="color:#333">.</span>left <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>                self<span style="color:#333">.</span>right <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>                self<span style="color:#333">.</span>val <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#888"># construction of new tree</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">for</span> node <span style="color:#000;font-weight:bold">in</span> nodes_effected:
+</span></span><span style="display:flex;"><span>                    self<span style="color:#333">.</span>insert(node)
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> <span style="background-color:#fff0f0">&#39;Succesfully deleted&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#888"># if the node we want to delete has a parent</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#888"># traverse from parent_node</span>
+</span></span><span style="display:flex;"><span>            nodes_effected <span style="color:#333">=</span> parent_node<span style="color:#333">.</span>traversePreOrder([])
+</span></span><span style="display:flex;"><span>            <span style="color:#888"># deleting the node</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> (parent_node<span style="color:#333">.</span>left <span style="color:#333">==</span> deleteing_node) : parent_node<span style="color:#333">.</span>left <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">else</span>: parent_node<span style="color:#333">.</span>right <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#888"># removeing the parent_node, deleteing_node and inserting the nodes_effected in the tree</span>
+</span></span><span style="display:flex;"><span>            nodes_effected<span style="color:#333">.</span>remove(deleteing_node<span style="color:#333">.</span>val)
+</span></span><span style="display:flex;"><span>            nodes_effected<span style="color:#333">.</span>remove(parent_node<span style="color:#333">.</span>val)
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">for</span> node <span style="color:#000;font-weight:bold">in</span> nodes_effected:
+</span></span><span style="display:flex;"><span>                self<span style="color:#333">.</span>insert(node)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> <span style="background-color:#fff0f0">&#39;Successfully deleted&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bst <span style="color:#333">=</span> binarySearchTree()
+</span></span><span style="display:flex;"><span>bst<span style="color:#333">.</span>insert(<span style="color:#00d;font-weight:bold">7</span>)
+</span></span><span style="display:flex;"><span>bst<span style="color:#333">.</span>insert(<span style="color:#00d;font-weight:bold">4</span>)
+</span></span><span style="display:flex;"><span>bst<span style="color:#333">.</span>insert(<span style="color:#00d;font-weight:bold">9</span>)
+</span></span><span style="display:flex;"><span>bst<span style="color:#333">.</span>insert(<span style="color:#00d;font-weight:bold">0</span>)
+</span></span><span style="display:flex;"><span>bst<span style="color:#333">.</span>insert(<span style="color:#00d;font-weight:bold">5</span>)
+</span></span><span style="display:flex;"><span>bst<span style="color:#333">.</span>insert(<span style="color:#00d;font-weight:bold">8</span>)
+</span></span><span style="display:flex;"><span>bst<span style="color:#333">.</span>insert(<span style="color:#00d;font-weight:bold">13</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888">#          7</span>
+</span></span><span style="display:flex;"><span><span style="color:#888">#        /  \</span>
+</span></span><span style="display:flex;"><span><span style="color:#888">#      /     \</span>
+</span></span><span style="display:flex;"><span><span style="color:#888">#     4        9</span>
+</span></span><span style="display:flex;"><span><span style="color:#888">#    / \      /  \</span>
+</span></span><span style="display:flex;"><span><span style="color:#888">#   0   5    8    13</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="background-color:#fff0f0">&#39;IN order: &#39;</span>,bst<span style="color:#333">.</span>depthFirstSearch_INorder()) <span style="color:#888"># useful in sorting the tree in ascending order</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="background-color:#fff0f0">&#39;PRE order:&#39;</span> ,bst<span style="color:#333">.</span>depthFirstSearch_PREorder()) <span style="color:#888"># pre order is useful in reconstructing a tree</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="background-color:#fff0f0">&#39;POST order:&#39;</span>, bst<span style="color:#333">.</span>depthFirstSearch_POSTorder()) <span style="color:#888"># useful in finding the leaf nodes</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(bst<span style="color:#333">.</span>delete(<span style="color:#00d;font-weight:bold">5</span>))
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(bst<span style="color:#333">.</span>delete(<span style="color:#00d;font-weight:bold">9</span>))
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(bst<span style="color:#333">.</span>delete(<span style="color:#00d;font-weight:bold">7</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888"># after deleting</span>
+</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="background-color:#fff0f0">&#39;IN order: &#39;</span>,bst<span style="color:#333">.</span>depthFirstSearch_INorder())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">&#39;&#39;&#39; Output
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">IN order:  [0, 4, 5, 7, 8, 9, 13]
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">PRE order: [7, 4, 0, 5, 9, 8, 13]
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">POST order: [0, 5, 4, 8, 13, 9, 7]
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Successfully deleted
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Successfully deleted
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Successfully deleted
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">IN order:  [0, 4, 8, 13]
+</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">&#39;&#39;&#39;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -815,14 +815,6 @@ Last Modified on March 28th, 2022
 
     <footer class="article-footer">
     
-    <section class="article-tags">
-        
-            <a href="/tags/data-structure/">Data Structure</a>
-        
-            <a href="/tags/python/">Python</a>
-        
-    </section>
-
 
     
     <section class="article-copyright">
