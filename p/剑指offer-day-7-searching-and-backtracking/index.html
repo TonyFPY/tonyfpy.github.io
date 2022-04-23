@@ -332,9 +332,9 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution:  def isSubStructure(self
 <h3 id="question">Question</h3>
 <p>输入两棵二叉树A和B，判断B是不是A的子结构。若B是A的子结构，即A中有出现和B相同的结构和节点值。(约定空树不是任意一个树的子结构)</p>
 <h3 id="solution">Solution</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -349,19 +349,19 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution:  def isSubStructure(self
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">isSubStructure</span>(self, A: TreeNode, B: TreeNode) <span style="color:#333">-&gt;</span> <span style="color:#007020">bool</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> B <span style="color:#000;font-weight:bold">or</span> <span style="color:#000;font-weight:bold">not</span> A: 
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">False</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isSubStructure</span>(self, A: TreeNode, B: TreeNode) <span style="color:#f92672">-&gt;</span> bool:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> B <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> A: 
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">compare</span>(nodeA, nodeB):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> nodeB: <span style="color:#888"># Finish checking all nodes in B</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">True</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> nodeA: <span style="color:#888"># nodeA is empty but nodeB not</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">False</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> nodeA<span style="color:#333">.</span>val <span style="color:#333">==</span> nodeB<span style="color:#333">.</span>val <span style="color:#000;font-weight:bold">and</span> compare(nodeA<span style="color:#333">.</span>left, nodeB<span style="color:#333">.</span>left) <span style="color:#000;font-weight:bold">and</span> compare(nodeA<span style="color:#333">.</span>right, nodeB<span style="color:#333">.</span>right)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compare</span>(nodeA, nodeB):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> nodeB: <span style="color:#75715e"># Finish checking all nodes in B</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> nodeA: <span style="color:#75715e"># nodeA is empty but nodeB not</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> nodeA<span style="color:#f92672">.</span>val <span style="color:#f92672">==</span> nodeB<span style="color:#f92672">.</span>val <span style="color:#f92672">and</span> compare(nodeA<span style="color:#f92672">.</span>left, nodeB<span style="color:#f92672">.</span>left) <span style="color:#f92672">and</span> compare(nodeA<span style="color:#f92672">.</span>right, nodeB<span style="color:#f92672">.</span>right)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> (compare(A, B) <span style="color:#000;font-weight:bold">or</span> self<span style="color:#333">.</span>isSubStructure(A<span style="color:#333">.</span>left, B) <span style="color:#000;font-weight:bold">or</span> self<span style="color:#333">.</span>isSubStructure(A<span style="color:#333">.</span>right, B))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (compare(A, B) <span style="color:#f92672">or</span> self<span style="color:#f92672">.</span>isSubStructure(A<span style="color:#f92672">.</span>left, B) <span style="color:#f92672">or</span> self<span style="color:#f92672">.</span>isSubStructure(A<span style="color:#f92672">.</span>right, B))
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="explanation">Explanation</h3>
@@ -379,9 +379,9 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution:  def isSubStructure(self
 <h3 id="question-1">Question</h3>
 <p>请完成一个函数，输入一个二叉树，该函数输出它的镜像。(类似于水平翻转)</p>
 <h3 id="solution-1">Solution</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -425,48 +425,48 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution:  def isSubStructure(self
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">MySolution</span>: <span style="color:#888"># BFS</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">mirrorTree</span>(self, root: TreeNode) <span style="color:#333">-&gt;</span> TreeNode:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> root:
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">None</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MySolution</span>: <span style="color:#75715e"># BFS</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mirrorTree</span>(self, root: TreeNode) <span style="color:#f92672">-&gt;</span> TreeNode:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        mRoot <span style="color:#333">=</span> TreeNode(root<span style="color:#333">.</span>val)
-</span></span><span style="display:flex;"><span>        que <span style="color:#333">=</span> [root]
-</span></span><span style="display:flex;"><span>        mQue <span style="color:#333">=</span> [mRoot]
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> que:
-</span></span><span style="display:flex;"><span>            node <span style="color:#333">=</span> que<span style="color:#333">.</span>pop(<span style="color:#00d;font-weight:bold">0</span>)
-</span></span><span style="display:flex;"><span>            mNode <span style="color:#333">=</span> mQue<span style="color:#333">.</span>pop(<span style="color:#00d;font-weight:bold">0</span>)
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> node<span style="color:#333">.</span>left:
-</span></span><span style="display:flex;"><span>                mNode<span style="color:#333">.</span>right <span style="color:#333">=</span> TreeNode(node<span style="color:#333">.</span>left<span style="color:#333">.</span>val)
-</span></span><span style="display:flex;"><span>                mQue<span style="color:#333">.</span>append(mNode<span style="color:#333">.</span>right)
-</span></span><span style="display:flex;"><span>                que<span style="color:#333">.</span>append(node<span style="color:#333">.</span>left)
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> node<span style="color:#333">.</span>right:
-</span></span><span style="display:flex;"><span>                mNode<span style="color:#333">.</span>left <span style="color:#333">=</span> TreeNode(node<span style="color:#333">.</span>right<span style="color:#333">.</span>val)
-</span></span><span style="display:flex;"><span>                mQue<span style="color:#333">.</span>append(mNode<span style="color:#333">.</span>left)
-</span></span><span style="display:flex;"><span>                que<span style="color:#333">.</span>append(node<span style="color:#333">.</span>right)
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> mRoot  
+</span></span><span style="display:flex;"><span>        mRoot <span style="color:#f92672">=</span> TreeNode(root<span style="color:#f92672">.</span>val)
+</span></span><span style="display:flex;"><span>        que <span style="color:#f92672">=</span> [root]
+</span></span><span style="display:flex;"><span>        mQue <span style="color:#f92672">=</span> [mRoot]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> que:
+</span></span><span style="display:flex;"><span>            node <span style="color:#f92672">=</span> que<span style="color:#f92672">.</span>pop(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>            mNode <span style="color:#f92672">=</span> mQue<span style="color:#f92672">.</span>pop(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>left:
+</span></span><span style="display:flex;"><span>                mNode<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> TreeNode(node<span style="color:#f92672">.</span>left<span style="color:#f92672">.</span>val)
+</span></span><span style="display:flex;"><span>                mQue<span style="color:#f92672">.</span>append(mNode<span style="color:#f92672">.</span>right)
+</span></span><span style="display:flex;"><span>                que<span style="color:#f92672">.</span>append(node<span style="color:#f92672">.</span>left)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>right:
+</span></span><span style="display:flex;"><span>                mNode<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> TreeNode(node<span style="color:#f92672">.</span>right<span style="color:#f92672">.</span>val)
+</span></span><span style="display:flex;"><span>                mQue<span style="color:#f92672">.</span>append(mNode<span style="color:#f92672">.</span>left)
+</span></span><span style="display:flex;"><span>                que<span style="color:#f92672">.</span>append(node<span style="color:#f92672">.</span>right)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> mRoot  
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution1</span>: <span style="color:#888"># BFS</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">mirrorTree</span>(self, root: TreeNode) <span style="color:#333">-&gt;</span> TreeNode:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> root: 
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>        stack <span style="color:#333">=</span> [root] <span style="color:#888"># FILO</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> stack:
-</span></span><span style="display:flex;"><span>            node <span style="color:#333">=</span> stack<span style="color:#333">.</span>pop()
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> node<span style="color:#333">.</span>left: 
-</span></span><span style="display:flex;"><span>                stack<span style="color:#333">.</span>append(node<span style="color:#333">.</span>left)
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> node<span style="color:#333">.</span>right: 
-</span></span><span style="display:flex;"><span>                stack<span style="color:#333">.</span>append(node<span style="color:#333">.</span>right)
-</span></span><span style="display:flex;"><span>            node<span style="color:#333">.</span>left, node<span style="color:#333">.</span>right <span style="color:#333">=</span> node<span style="color:#333">.</span>right, node<span style="color:#333">.</span>left
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> root
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution1</span>: <span style="color:#75715e"># BFS</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mirrorTree</span>(self, root: TreeNode) <span style="color:#f92672">-&gt;</span> TreeNode:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root: 
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>        stack <span style="color:#f92672">=</span> [root] <span style="color:#75715e"># FILO</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> stack:
+</span></span><span style="display:flex;"><span>            node <span style="color:#f92672">=</span> stack<span style="color:#f92672">.</span>pop()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>left: 
+</span></span><span style="display:flex;"><span>                stack<span style="color:#f92672">.</span>append(node<span style="color:#f92672">.</span>left)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>right: 
+</span></span><span style="display:flex;"><span>                stack<span style="color:#f92672">.</span>append(node<span style="color:#f92672">.</span>right)
+</span></span><span style="display:flex;"><span>            node<span style="color:#f92672">.</span>left, node<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>right, node<span style="color:#f92672">.</span>left
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> root
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution2</span>: <span style="color:#888"># Recursion</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">mirrorTree</span>(self, root: TreeNode) <span style="color:#333">-&gt;</span> TreeNode:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> root: 
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>        root<span style="color:#333">.</span>left <span style="color:#333">=</span> self<span style="color:#333">.</span>mirrorTree(root<span style="color:#333">.</span>right)
-</span></span><span style="display:flex;"><span>        root<span style="color:#333">.</span>right <span style="color:#333">=</span> self<span style="color:#333">.</span>mirrorTree(root<span style="color:#333">.</span>left)
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> root
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution2</span>: <span style="color:#75715e"># Recursion</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mirrorTree</span>(self, root: TreeNode) <span style="color:#f92672">-&gt;</span> TreeNode:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root: 
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>        root<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>mirrorTree(root<span style="color:#f92672">.</span>right)
+</span></span><span style="display:flex;"><span>        root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>mirrorTree(root<span style="color:#f92672">.</span>left)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> root
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="explanation-1">Explanation</h3>
@@ -484,9 +484,9 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution:  def isSubStructure(self
 <h3 id="question-2">Question</h3>
 <p>请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。</p>
 <h3 id="solution-2">Solution</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -498,16 +498,16 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution:  def isSubStructure(self
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">isSymmetric</span>(self, root: TreeNode) <span style="color:#333">-&gt;</span> <span style="color:#007020">bool</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">recur</span>(L, R):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> L <span style="color:#000;font-weight:bold">and</span> <span style="color:#000;font-weight:bold">not</span> R: 
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">True</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> L <span style="color:#000;font-weight:bold">or</span> <span style="color:#000;font-weight:bold">not</span> R: 
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">False</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> L<span style="color:#333">.</span>val <span style="color:#333">==</span> R<span style="color:#333">.</span>val <span style="color:#000;font-weight:bold">and</span> recur(L<span style="color:#333">.</span>left, R<span style="color:#333">.</span>right) <span style="color:#000;font-weight:bold">and</span> recur(L<span style="color:#333">.</span>right, R<span style="color:#333">.</span>left)
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isSymmetric</span>(self, root: TreeNode) <span style="color:#f92672">-&gt;</span> bool:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">recur</span>(L, R):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> L <span style="color:#f92672">and</span> <span style="color:#f92672">not</span> R: 
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> L <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> R: 
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> L<span style="color:#f92672">.</span>val <span style="color:#f92672">==</span> R<span style="color:#f92672">.</span>val <span style="color:#f92672">and</span> recur(L<span style="color:#f92672">.</span>left, R<span style="color:#f92672">.</span>right) <span style="color:#f92672">and</span> recur(L<span style="color:#f92672">.</span>right, R<span style="color:#f92672">.</span>left)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> recur(root<span style="color:#333">.</span>left, root<span style="color:#333">.</span>right) <span style="color:#080;font-weight:bold">if</span> root <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">True</span>   
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> recur(root<span style="color:#f92672">.</span>left, root<span style="color:#f92672">.</span>right) <span style="color:#66d9ef">if</span> root <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">True</span>   
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="explanation-2">Explanation</h3>

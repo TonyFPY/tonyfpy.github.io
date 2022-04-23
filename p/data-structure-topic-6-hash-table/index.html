@@ -354,9 +354,9 @@ Last Modified on March 26th, 2022
 </ul>
 <hr>
 <h2 id="hash-table-implementation-in-python">Hash Table Implementation in Python</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -391,46 +391,46 @@ Last Modified on March 26th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#888"># Create a hash table by Dictionary</span>
-</span></span><span style="display:flex;"><span>D <span style="color:#333">=</span> {}       
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># Create a hash table by Dictionary</span>
+</span></span><span style="display:flex;"><span>D <span style="color:#f92672">=</span> {}       
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Add an element - O(1)</span>
-</span></span><span style="display:flex;"><span>D[<span style="color:#00d;font-weight:bold">1</span>], D[<span style="color:#00d;font-weight:bold">2</span>], D[<span style="color:#00d;font-weight:bold">3</span>] <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;a&#34;</span>, <span style="background-color:#fff0f0">&#34;b&#34;</span>, <span style="background-color:#fff0f0">&#34;d&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add an element - O(1)</span>
+</span></span><span style="display:flex;"><span>D[<span style="color:#ae81ff">1</span>], D[<span style="color:#ae81ff">2</span>], D[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;b&#34;</span>, <span style="color:#e6db74">&#34;d&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Update an element - O(1)</span>
-</span></span><span style="display:flex;"><span>D[<span style="color:#00d;font-weight:bold">3</span>] <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;c&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Update an element - O(1)</span>
+</span></span><span style="display:flex;"><span>D[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;c&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Remove an element - O(1)</span>
-</span></span><span style="display:flex;"><span>D<span style="color:#333">.</span>pop(<span style="color:#00d;font-weight:bold">1</span>) <span style="color:#888"># arg is the key</span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># del D[1]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Remove an element - O(1)</span>
+</span></span><span style="display:flex;"><span>D<span style="color:#f92672">.</span>pop(<span style="color:#ae81ff">1</span>) <span style="color:#75715e"># arg is the key</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># del D[1]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Get the value - O(1)</span>
-</span></span><span style="display:flex;"><span>D[<span style="color:#00d;font-weight:bold">2</span>]
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Get the value - O(1)</span>
+</span></span><span style="display:flex;"><span>D[<span style="color:#ae81ff">2</span>]
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Check if the key exists - O(1)</span>
-</span></span><span style="display:flex;"><span>b <span style="color:#000;font-weight:bold">in</span> D
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check if the key exists - O(1)</span>
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">in</span> D
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Get the length of the hash table</span>
-</span></span><span style="display:flex;"><span><span style="color:#007020">len</span>(D)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Get the length of the hash table</span>
+</span></span><span style="display:flex;"><span>len(D)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Traverse</span>
-</span></span><span style="display:flex;"><span>my_dict<span style="color:#333">=</span>{<span style="background-color:#fff0f0">&#39;Dave&#39;</span> : <span style="background-color:#fff0f0">&#39;001&#39;</span> , <span style="background-color:#fff0f0">&#39;Ava&#39;</span>: <span style="background-color:#fff0f0">&#39;002&#39;</span> , <span style="background-color:#fff0f0">&#39;Joe&#39;</span>: <span style="background-color:#fff0f0">&#39;003&#39;</span>}
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">for</span> k <span style="color:#000;font-weight:bold">in</span> my_dict:
-</span></span><span style="display:flex;"><span>    <span style="color:#007020">print</span>(k)       <span style="color:#888">#prints the keys</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Traverse</span>
+</span></span><span style="display:flex;"><span>my_dict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;Dave&#39;</span> : <span style="color:#e6db74">&#39;001&#39;</span> , <span style="color:#e6db74">&#39;Ava&#39;</span>: <span style="color:#e6db74">&#39;002&#39;</span> , <span style="color:#e6db74">&#39;Joe&#39;</span>: <span style="color:#e6db74">&#39;003&#39;</span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> my_dict:
+</span></span><span style="display:flex;"><span>    print(k)       <span style="color:#75715e">#prints the keys</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">for</span> v <span style="color:#000;font-weight:bold">in</span> my_dict<span style="color:#333">.</span>values():
-</span></span><span style="display:flex;"><span>    <span style="color:#007020">print</span>(v)       <span style="color:#888">#prints values</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> v <span style="color:#f92672">in</span> my_dict<span style="color:#f92672">.</span>values():
+</span></span><span style="display:flex;"><span>    print(v)       <span style="color:#75715e">#prints values</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">for</span> k,v <span style="color:#000;font-weight:bold">in</span> my_dict<span style="color:#333">.</span>items():
-</span></span><span style="display:flex;"><span>    <span style="color:#007020">print</span>(k, <span style="background-color:#fff0f0">&#34;:&#34;</span> , v)       <span style="color:#888">#prints keys and values</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> k,v <span style="color:#f92672">in</span> my_dict<span style="color:#f92672">.</span>items():
+</span></span><span style="display:flex;"><span>    print(k, <span style="color:#e6db74">&#34;:&#34;</span> , v)       <span style="color:#75715e">#prints keys and values</span>
 </span></span><span style="display:flex;"><span>    
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="hash-table-implementation-in-java">Hash Table Implementation in Java</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -454,28 +454,28 @@ Last Modified on March 26th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#888">// Create
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>HashMap<span style="color:#333">&lt;</span>Integer<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> m <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> HashMap<span style="color:#333">&lt;&gt;();</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#75715e">// Create
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>HashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> m <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Add - O(1)
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>m<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>1<span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;alpha&#34;</span><span style="color:#333">);</span>
-</span></span><span style="display:flex;"><span>m<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>2<span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;b&#34;</span><span style="color:#333">);</span>
-</span></span><span style="display:flex;"><span>m<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>3<span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;c&#34;</span><span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Add - O(1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>m<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;alpha&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>m<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>2<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;b&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>m<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>3<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;c&#34;</span><span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Update an element - O(1)
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>m<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>1<span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;a&#34;</span><span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Update an element - O(1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>m<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;a&#34;</span><span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Remove an element - O(1)
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>m<span style="color:#333">.</span><span style="color:#00c">remove</span><span style="color:#333">(</span>1<span style="color:#333">);</span> <span style="color:#888">// arg is the key
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Get the value - O(1)
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>String tmp <span style="color:#333">=</span> m<span style="color:#333">.</span><span style="color:#00c">get</span><span style="color:#333">(</span>2<span style="color:#333">);</span> <span style="color:#888">// arg is the key
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Check if the key exists - O(1)
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>Boolean check <span style="color:#333">=</span> m<span style="color:#333">.</span><span style="color:#00c">containsKey</span><span style="color:#333">(</span>2<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Remove an element - O(1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>m<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span> <span style="color:#75715e">// arg is the key
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Get the value - O(1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>String tmp <span style="color:#f92672">=</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>2<span style="color:#f92672">);</span> <span style="color:#75715e">// arg is the key
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Check if the key exists - O(1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Boolean check <span style="color:#f92672">=</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">containsKey</span><span style="color:#f92672">(</span>2<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Get the length of the hash table
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#339;font-weight:bold">int</span> s <span style="color:#333">=</span> m<span style="color:#333">.</span><span style="color:#00c">size</span><span style="color:#333">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Get the length of the hash table
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> s <span style="color:#f92672">=</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>

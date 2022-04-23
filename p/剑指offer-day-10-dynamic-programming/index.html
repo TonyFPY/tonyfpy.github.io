@@ -335,9 +335,9 @@ e.g. <br/>
 输入: &ldquo;abcabcbb&rdquo;, 输出: 3 <br/>
 解释: 因为无重复字符的最长子串是 &ldquo;abc&rdquo;，所以其长度为 3。<br/></p>
 <h3 id="solution">Solution</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -349,16 +349,16 @@ e.g. <br/>
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">lengthOfLongestSubstring</span>(self, s: <span style="color:#007020">str</span>) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#007020">dict</span> <span style="color:#333">=</span> {}
-</span></span><span style="display:flex;"><span>        res <span style="color:#333">=</span> tmp <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#007020">len</span>(s)):
-</span></span><span style="display:flex;"><span>            i <span style="color:#333">=</span> <span style="color:#007020">dict</span><span style="color:#333">.</span>get(s[j], <span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>) <span style="color:#888"># get index i, the position where s[j] exists</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#007020">dict</span>[s[j]] <span style="color:#333">=</span> j         <span style="color:#888"># update the hash map</span>
-</span></span><span style="display:flex;"><span>            tmp <span style="color:#333">=</span> tmp <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span> <span style="color:#080;font-weight:bold">if</span> tmp <span style="color:#333">&lt;</span> j <span style="color:#333">-</span> i <span style="color:#080;font-weight:bold">else</span> j <span style="color:#333">-</span> i <span style="color:#888"># dp[j - 1] -&gt; dp[j]</span>
-</span></span><span style="display:flex;"><span>            res <span style="color:#333">=</span> <span style="color:#007020">max</span>(res, tmp)    <span style="color:#888"># max(dp[j - 1], dp[j])</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> res
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lengthOfLongestSubstring</span>(self, s: str) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        dict <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>        res <span style="color:#f92672">=</span> tmp <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, len(s)):
+</span></span><span style="display:flex;"><span>            i <span style="color:#f92672">=</span> dict<span style="color:#f92672">.</span>get(s[j], <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e"># get index i, the position where s[j] exists</span>
+</span></span><span style="display:flex;"><span>            dict[s[j]] <span style="color:#f92672">=</span> j         <span style="color:#75715e"># update the hash map</span>
+</span></span><span style="display:flex;"><span>            tmp <span style="color:#f92672">=</span> tmp <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">if</span> tmp <span style="color:#f92672">&lt;</span> j <span style="color:#f92672">-</span> i <span style="color:#66d9ef">else</span> j <span style="color:#f92672">-</span> i <span style="color:#75715e"># dp[j - 1] -&gt; dp[j]</span>
+</span></span><span style="display:flex;"><span>            res <span style="color:#f92672">=</span> max(res, tmp)    <span style="color:#75715e"># max(dp[j - 1], dp[j])</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> res
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="explanation">Explanation</h3>
@@ -376,9 +376,9 @@ e.g. <br/>
 输入: 12258, 输出: 5 <br/>
 解释: 12258有5种不同的翻译，分别是&quot;bccfi&quot;, &ldquo;bwfi&rdquo;, &ldquo;bczi&rdquo;, &ldquo;mcfi&quot;和&quot;mzi&rdquo; <br/></p>
 <h3 id="solution-1">Solution</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -409,35 +409,35 @@ e.g. <br/>
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution2</span>: <span style="color:#888"># dp</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">translateNum</span>(self, num: <span style="color:#007020">int</span>) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:
-</span></span><span style="display:flex;"><span>        num <span style="color:#333">=</span> <span style="color:#007020">list</span>(<span style="color:#007020">str</span>(num))
-</span></span><span style="display:flex;"><span>        dp <span style="color:#333">=</span> [<span style="color:#00d;font-weight:bold">1</span> <span style="color:#080;font-weight:bold">for</span> _ <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#007020">len</span>(num)<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>)] <span style="color:#888"># dp[0] == dp[1] == 1</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution2</span>: <span style="color:#75715e"># dp</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">translateNum</span>(self, num: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        num <span style="color:#f92672">=</span> list(str(num))
+</span></span><span style="display:flex;"><span>        dp <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span> <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, len(num)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)] <span style="color:#75715e"># dp[0] == dp[1] == 1</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">2</span>, <span style="color:#007020">len</span>(num)<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>):
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># dp[i] means the sum of the approaches before num[i] (i.e., num[0] ... num[i-1])</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># Be careful with the index here</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> <span style="color:#007020">int</span>(num[i<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">2</span>] <span style="color:#333">+</span> num[i<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>]) <span style="color:#333">&lt;</span> <span style="color:#00d;font-weight:bold">26</span> <span style="color:#000;font-weight:bold">and</span> <span style="color:#007020">int</span>(num[i<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">2</span>]) <span style="color:#333">!=</span> <span style="color:#00d;font-weight:bold">0</span>: 
-</span></span><span style="display:flex;"><span>                dp[i] <span style="color:#333">=</span> dp[i<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>] <span style="color:#333">+</span> dp[i<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">2</span>]
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">else</span>:
-</span></span><span style="display:flex;"><span>                dp[i] <span style="color:#333">=</span> dp[i<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, len(num)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># dp[i] means the sum of the approaches before num[i] (i.e., num[0] ... num[i-1])</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Be careful with the index here</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> int(num[i<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>] <span style="color:#f92672">+</span> num[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">26</span> <span style="color:#f92672">and</span> int(num[i<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>]) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>: 
+</span></span><span style="display:flex;"><span>                dp[i] <span style="color:#f92672">=</span> dp[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> dp[i<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                dp[i] <span style="color:#f92672">=</span> dp[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> dp[<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> dp[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution2</span>: <span style="color:#888"># Recursion</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">translateNum</span>(self, num: <span style="color:#007020">int</span>) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">recur</span>(arr):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> <span style="color:#007020">len</span>(arr) <span style="color:#333">&lt;=</span> <span style="color:#00d;font-weight:bold">1</span>: <span style="color:#888"># base case</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution2</span>: <span style="color:#75715e"># Recursion</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">translateNum</span>(self, num: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">recur</span>(arr):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> len(arr) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span>: <span style="color:#75715e"># base case</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># no need to count on &#34;01&#34;, &#34;02&#34;, ..., &#34;09&#34; </span>
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># no need to count on num &gt;= 26</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> <span style="color:#007020">int</span>(arr[<span style="color:#00d;font-weight:bold">0</span>] <span style="color:#333">+</span> arr[<span style="color:#00d;font-weight:bold">1</span>]) <span style="color:#333">&lt;</span> <span style="color:#00d;font-weight:bold">26</span> <span style="color:#000;font-weight:bold">and</span> <span style="color:#007020">int</span>(arr[<span style="color:#00d;font-weight:bold">0</span>]) <span style="color:#333">!=</span> <span style="color:#00d;font-weight:bold">0</span>:
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> recur(arr[<span style="color:#00d;font-weight:bold">1</span>:]) <span style="color:#333">+</span> recur(arr[<span style="color:#00d;font-weight:bold">2</span>:])
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">else</span>:
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> recur(arr[<span style="color:#00d;font-weight:bold">1</span>:])
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># no need to count on &#34;01&#34;, &#34;02&#34;, ..., &#34;09&#34; </span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># no need to count on num &gt;= 26</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> int(arr[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> arr[<span style="color:#ae81ff">1</span>]) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">26</span> <span style="color:#f92672">and</span> int(arr[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> recur(arr[<span style="color:#ae81ff">1</span>:]) <span style="color:#f92672">+</span> recur(arr[<span style="color:#ae81ff">2</span>:])
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> recur(arr[<span style="color:#ae81ff">1</span>:])
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> recur(<span style="color:#007020">str</span>(num))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> recur(str(num))
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="explanation-1">Explanation</h3>

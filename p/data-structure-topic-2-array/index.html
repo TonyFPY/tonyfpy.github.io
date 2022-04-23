@@ -350,9 +350,9 @@ Last Modified on March 19th, 2022
 </ul>
 <hr>
 <h2 id="array-implementation-in-python">Array Implementation in Python</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -384,43 +384,43 @@ Last Modified on March 19th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#888"># Create an array</span>
-</span></span><span style="display:flex;"><span>arr <span style="color:#333">=</span> []
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># Create an array</span>
+</span></span><span style="display:flex;"><span>arr <span style="color:#f92672">=</span> []
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Add an element - O(1) if the position is empty; </span>
-</span></span><span style="display:flex;"><span><span style="color:#888">#                  O(N) if the length of the array changes.</span>
-</span></span><span style="display:flex;"><span>arr<span style="color:#333">.</span>append(<span style="color:#00d;font-weight:bold">1</span>)
-</span></span><span style="display:flex;"><span>arr<span style="color:#333">.</span>append(<span style="color:#00d;font-weight:bold">2</span>)
-</span></span><span style="display:flex;"><span>arr<span style="color:#333">.</span>append(<span style="color:#00d;font-weight:bold">3</span>) <span style="color:#888"># [1,2,3]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add an element - O(1) if the position is empty; </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#                  O(N) if the length of the array changes.</span>
+</span></span><span style="display:flex;"><span>arr<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>arr<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>arr<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">3</span>) <span style="color:#75715e"># [1,2,3]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Insert an element - O(N)</span>
-</span></span><span style="display:flex;"><span>arr<span style="color:#333">.</span>insert(<span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">100</span>) <span style="color:#888"># [1,2,100,3]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Insert an element - O(N)</span>
+</span></span><span style="display:flex;"><span>arr<span style="color:#f92672">.</span>insert(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">100</span>) <span style="color:#75715e"># [1,2,100,3]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Remove an element</span>
-</span></span><span style="display:flex;"><span>arr<span style="color:#333">.</span>remove(<span style="color:#00d;font-weight:bold">100</span>) <span style="color:#888"># case 1: [1,2,3] - O(N), where arg is an element</span>
-</span></span><span style="display:flex;"><span>arr<span style="color:#333">.</span>pop(<span style="color:#00d;font-weight:bold">1</span>)      <span style="color:#888"># case 2: [1,3] - O(N), where arg is an index</span>
-</span></span><span style="display:flex;"><span>arr<span style="color:#333">.</span>pop()       <span style="color:#888"># case 3: [1] - O(1), where the last element is removed</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Remove an element</span>
+</span></span><span style="display:flex;"><span>arr<span style="color:#f92672">.</span>remove(<span style="color:#ae81ff">100</span>) <span style="color:#75715e"># case 1: [1,2,3] - O(N), where arg is an element</span>
+</span></span><span style="display:flex;"><span>arr<span style="color:#f92672">.</span>pop(<span style="color:#ae81ff">1</span>)      <span style="color:#75715e"># case 2: [1,3] - O(N), where arg is an index</span>
+</span></span><span style="display:flex;"><span>arr<span style="color:#f92672">.</span>pop()       <span style="color:#75715e"># case 3: [1] - O(1), where the last element is removed</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Traverse an array - O(N)</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">for</span> item <span style="color:#000;font-weight:bold">in</span> arr: <span style="color:#007020">print</span>(item)
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">for</span> <span style="color:#007020">id</span>, item <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">enumerate</span>(arr): <span style="color:#007020">print</span>(<span style="background-color:#fff0f0">&#34;Index at &#34;</span>, <span style="color:#007020">id</span>, <span style="background-color:#fff0f0">&#34; is: &#34;</span>, item)
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">for</span> <span style="color:#007020">id</span> <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#007020">len</span>(arr)): <span style="color:#007020">print</span>(arr[<span style="color:#007020">id</span>])
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Traverse an array - O(N)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> arr: print(item)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> id, item <span style="color:#f92672">in</span> enumerate(arr): print(<span style="color:#e6db74">&#34;Index at &#34;</span>, id, <span style="color:#e6db74">&#34; is: &#34;</span>, item)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> id <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, len(arr)): print(arr[id])
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Find an element - O(N)</span>
-</span></span><span style="display:flex;"><span>arr[<span style="color:#00d;font-weight:bold">1</span>,<span style="color:#00d;font-weight:bold">2</span>,<span style="color:#00d;font-weight:bold">3</span>]
-</span></span><span style="display:flex;"><span><span style="color:#007020">id</span> <span style="color:#333">=</span> arr<span style="color:#333">.</span>index(<span style="color:#00d;font-weight:bold">3</span>) <span style="color:#888"># 2, where arg is an element</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Find an element - O(N)</span>
+</span></span><span style="display:flex;"><span>arr[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>id <span style="color:#f92672">=</span> arr<span style="color:#f92672">.</span>index(<span style="color:#ae81ff">3</span>) <span style="color:#75715e"># 2, where arg is an element</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Sort an array - O(N*log(N))</span>
-</span></span><span style="display:flex;"><span>arr <span style="color:#333">=</span> [<span style="color:#00d;font-weight:bold">3</span>,<span style="color:#00d;font-weight:bold">1</span>,<span style="color:#00d;font-weight:bold">2</span>]
-</span></span><span style="display:flex;"><span>arr<span style="color:#333">.</span>sort()           <span style="color:#888"># [1,2,3]</span>
-</span></span><span style="display:flex;"><span>a<span style="color:#333">.</span>sort(reverse<span style="color:#333">=</span><span style="color:#080;font-weight:bold">True</span>) <span style="color:#888"># [3,2,1]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Sort an array - O(N*log(N))</span>
+</span></span><span style="display:flex;"><span>arr <span style="color:#f92672">=</span> [<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>arr<span style="color:#f92672">.</span>sort()           <span style="color:#75715e"># [1,2,3]</span>
+</span></span><span style="display:flex;"><span>a<span style="color:#f92672">.</span>sort(reverse<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>) <span style="color:#75715e"># [3,2,1]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="array-implementation-in-java">Array Implementation in Java</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -468,52 +468,52 @@ Last Modified on March 19th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#888">// Create an array
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#339;font-weight:bold">int</span><span style="color:#333">[]</span> a <span style="color:#333">=</span> <span style="color:#333">{</span>1<span style="color:#333">,</span>2<span style="color:#333">,</span>3<span style="color:#333">};</span>
-</span></span><span style="display:flex;"><span><span style="color:#339;font-weight:bold">int</span><span style="color:#333">[]</span> b <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#339;font-weight:bold">int</span><span style="color:#333">[]{</span>1<span style="color:#333">,</span>2<span style="color:#333">,</span>3<span style="color:#333">};</span>
-</span></span><span style="display:flex;"><span><span style="color:#339;font-weight:bold">int</span><span style="color:#333">[]</span> c <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#339;font-weight:bold">int</span><span style="color:#333">[</span>3<span style="color:#333">];</span> <span style="color:#888">// The initilization is [0,0,0]
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span><span style="color:#339;font-weight:bold">int</span> i<span style="color:#333">=</span>0<span style="color:#333">,</span> i <span style="color:#333">&lt;</span> c<span style="color:#333">.</span><span style="color:#00c">length</span><span style="color:#333">;</span> i<span style="color:#333">++){</span>
-</span></span><span style="display:flex;"><span>    c<span style="color:#333">[</span>i<span style="color:#333">]</span> <span style="color:#333">=</span> i <span style="color:#333">+</span> 1<span style="color:#333">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#333">}</span>
-</span></span><span style="display:flex;"><span>ArrayList<span style="color:#333">&lt;</span>Integer<span style="color:#333">&gt;</span> d <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> ArrayList<span style="color:#333">&lt;&gt;();</span> <span style="color:#888">// Integer is an object
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span><span style="color:#339;font-weight:bold">int</span> i <span style="color:#333">=</span> 0<span style="color:#333">;</span> i <span style="color:#333">&lt;</span> 3<span style="color:#333">;</span> i<span style="color:#333">++){</span>
-</span></span><span style="display:flex;"><span>    d<span style="color:#333">.</span><span style="color:#00c">add</span><span style="color:#333">(</span>i<span style="color:#333">+</span>1<span style="color:#333">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#333">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#75715e">// Create an array
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> a <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>3<span style="color:#f92672">};</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> b <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]{</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>3<span style="color:#f92672">};</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>3<span style="color:#f92672">];</span> <span style="color:#75715e">// The initilization is [0,0,0]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>0<span style="color:#f92672">,</span> i <span style="color:#f92672">&lt;</span> c<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>    c<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>ArrayList<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> d <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span> <span style="color:#75715e">// Integer is an object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 3<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>    d<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>i<span style="color:#f92672">+</span>1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Add an element
-</span></span></span><span style="display:flex;"><span><span style="color:#888">// An addiotnal empty array should be declared for a, b, c.
-</span></span></span><span style="display:flex;"><span><span style="color:#888">// For ArrayList, the length of the array could be ignored in declaration.
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>d<span style="color:#333">.</span><span style="color:#00c">add</span><span style="color:#333">(</span>100<span style="color:#333">);</span>     <span style="color:#888">// [1,2,3,100] - O(1)
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>d<span style="color:#333">.</span><span style="color:#00c">add</span><span style="color:#333">(</span>3<span style="color:#333">,</span> 99<span style="color:#333">);</span>   <span style="color:#888">// [1,2,3,99,100] - O(N), i.e. 100 should be moved backwards for 99.
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Access an element - O(1)
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#339;font-weight:bold">int</span> item1 <span style="color:#333">=</span> a<span style="color:#333">[</span>1<span style="color:#333">];</span>
-</span></span><span style="display:flex;"><span><span style="color:#339;font-weight:bold">int</span> item2 <span style="color:#333">=</span> d<span style="color:#333">.</span><span style="color:#00c">get</span><span style="color:#333">(</span>1<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Add an element
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// An addiotnal empty array should be declared for a, b, c.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// For ArrayList, the length of the array could be ignored in declaration.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>d<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>100<span style="color:#f92672">);</span>     <span style="color:#75715e">// [1,2,3,100] - O(1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>d<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>3<span style="color:#f92672">,</span> 99<span style="color:#f92672">);</span>   <span style="color:#75715e">// [1,2,3,99,100] - O(N), i.e. 100 should be moved backwards for 99.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Access an element - O(1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> item1 <span style="color:#f92672">=</span> a<span style="color:#f92672">[</span>1<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> item2 <span style="color:#f92672">=</span> d<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Update an element - O(1)
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>a<span style="color:#333">[</span>1<span style="color:#333">]</span> <span style="color:#333">=</span> 0<span style="color:#333">;</span>    <span style="color:#888">// [1,0,3,100]
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>d<span style="color:#333">.</span><span style="color:#00c">set</span><span style="color:#333">(</span>1<span style="color:#333">,</span> 0<span style="color:#333">);</span> <span style="color:#888">// [1,0,3,99,100], where the 1st arg is the index; the 2nd arg is the new value.
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Remove an element for ArrayList - O(N)
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>d<span style="color:#333">.</span><span style="color:#00c">remove</span><span style="color:#333">(</span>99<span style="color:#333">)</span> <span style="color:#888">// [1,2,3,100]
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Get the length of array - O(1), i.e. there is a cnt var inside
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#339;font-weight:bold">int</span> aLen <span style="color:#333">=</span> a<span style="color:#333">.</span><span style="color:#00c">length</span><span style="color:#333">;</span> <span style="color:#888">// String.length(), Array.length
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#339;font-weight:bold">int</span> dLen <span style="color:#333">=</span> d<span style="color:#333">.</span><span style="color:#00c">size</span><span style="color:#333">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Update an element - O(1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>a<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>    <span style="color:#75715e">// [1,0,3,100]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>d<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span> 0<span style="color:#f92672">);</span> <span style="color:#75715e">// [1,0,3,99,100], where the 1st arg is the index; the 2nd arg is the new value.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Remove an element for ArrayList - O(N)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>d<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>99<span style="color:#f92672">)</span> <span style="color:#75715e">// [1,2,3,100]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Get the length of array - O(1), i.e. there is a cnt var inside
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> aLen <span style="color:#f92672">=</span> a<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> <span style="color:#75715e">// String.length(), Array.length
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> dLen <span style="color:#f92672">=</span> d<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Traverse an array - O(N)
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span><span style="color:#339;font-weight:bold">int</span> i <span style="color:#333">=</span> 0<span style="color:#333">;</span> i <span style="color:#333">&lt;</span> a<span style="color:#333">.</span><span style="color:#00c">length</span><span style="color:#333">;</span> i<span style="color:#333">++)</span> <span style="color:#333">{</span> <span style="color:#333">...</span> <span style="color:#333">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span><span style="color:#339;font-weight:bold">int</span> i <span style="color:#333">=</span> 0<span style="color:#333">;</span> i <span style="color:#333">&lt;</span> d<span style="color:#333">.</span><span style="color:#00c">size</span><span style="color:#333">();</span> i<span style="color:#333">++)</span> <span style="color:#333">{</span> <span style="color:#333">...</span> <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Traverse an array - O(N)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> a<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span> <span style="color:#f92672">...</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> d<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span> <span style="color:#f92672">...</span> <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Find an element - O(N)
-</span></span></span><span style="display:flex;"><span><span style="color:#888">// Loop should be adopted for a, b, c;
-</span></span></span><span style="display:flex;"><span><span style="color:#888">// For ArrayList, use .contains()
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#339;font-weight:bold">boolean</span> is100 <span style="color:#333">=</span> d<span style="color:#333">.</span><span style="color:#00c">contains</span><span style="color:#333">(</span>100<span style="color:#333">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Find an element - O(N)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Loop should be adopted for a, b, c;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// For ArrayList, use .contains()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">boolean</span> is100 <span style="color:#f92672">=</span> d<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>100<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Sort an array - O(N*log(N))
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>Array<span style="color:#333">.</span><span style="color:#00c">sort</span><span style="color:#333">(</span>a<span style="color:#333">)</span> <span style="color:#888">// Read from the last to reverse the array
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>Collections<span style="color:#333">.</span><span style="color:#00c">sort</span><span style="color:#333">(</span>d<span style="color:#333">)</span>
-</span></span><span style="display:flex;"><span>Collections<span style="color:#333">.</span><span style="color:#00c">sort</span><span style="color:#333">(</span>d<span style="color:#333">,</span> Collections<span style="color:#333">.</span><span style="color:#00c">reverseOrder</span><span style="color:#333">())</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Sort an array - O(N*log(N))
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Array<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span>a<span style="color:#f92672">)</span> <span style="color:#75715e">// Read from the last to reverse the array
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span>d<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span>d<span style="color:#f92672">,</span> Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">reverseOrder</span><span style="color:#f92672">())</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>

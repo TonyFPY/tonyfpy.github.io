@@ -340,9 +340,9 @@ Last Modified on April 5th, 2022
 </ul>
 <hr>
 <h2 id="template">Template</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -350,20 +350,20 @@ Last Modified on April 5th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">dfs</span>(visited, graph, node):
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> node <span style="color:#000;font-weight:bold">not</span> <span style="color:#000;font-weight:bold">in</span> visited:
-</span></span><span style="display:flex;"><span>        <span style="color:#007020">print</span> (node)
-</span></span><span style="display:flex;"><span>        visited<span style="color:#333">.</span>add(node)
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> neighbour <span style="color:#000;font-weight:bold">in</span> graph[node]:
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dfs</span>(visited, graph, node):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> node <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> visited:
+</span></span><span style="display:flex;"><span>        print (node)
+</span></span><span style="display:flex;"><span>        visited<span style="color:#f92672">.</span>add(node)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> neighbour <span style="color:#f92672">in</span> graph[node]:
 </span></span><span style="display:flex;"><span>            dfs(visited, graph, neighbour) 
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="examples">Examples</h2>
 <h3 id="leetcode-78-subsets">Leetcode 78 Subsets</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -382,29 +382,29 @@ Last Modified on April 5th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">subsets</span>(self, nums: List[<span style="color:#007020">int</span>]) <span style="color:#333">-&gt;</span> List[List[<span style="color:#007020">int</span>]]:
-</span></span><span style="display:flex;"><span>        ans <span style="color:#333">=</span> []
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">subsets</span>(self, nums: List[int]) <span style="color:#f92672">-&gt;</span> List[List[int]]:
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> []
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">dfs</span>(nums, res, index, subset):
-</span></span><span style="display:flex;"><span>            res<span style="color:#333">.</span>append(subset[:])
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dfs</span>(nums, res, index, subset):
+</span></span><span style="display:flex;"><span>            res<span style="color:#f92672">.</span>append(subset[:])
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> index <span style="color:#333">==</span> <span style="color:#007020">len</span>(nums):
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> index <span style="color:#f92672">==</span> len(nums):
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">for</span> <span style="color:#007020">id</span> <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(index, <span style="color:#007020">len</span>(nums)):
-</span></span><span style="display:flex;"><span>                subset<span style="color:#333">.</span>append(nums[<span style="color:#007020">id</span>])
-</span></span><span style="display:flex;"><span>                dfs(nums, res, <span style="color:#007020">id</span><span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>, subset)
-</span></span><span style="display:flex;"><span>                subset<span style="color:#333">.</span>pop()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> id <span style="color:#f92672">in</span> range(index, len(nums)):
+</span></span><span style="display:flex;"><span>                subset<span style="color:#f92672">.</span>append(nums[id])
+</span></span><span style="display:flex;"><span>                dfs(nums, res, id<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, subset)
+</span></span><span style="display:flex;"><span>                subset<span style="color:#f92672">.</span>pop()
 </span></span><span style="display:flex;"><span>                
-</span></span><span style="display:flex;"><span>        dfs(nums, ans, <span style="color:#00d;font-weight:bold">0</span>, [])
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> ans
+</span></span><span style="display:flex;"><span>        dfs(nums, ans, <span style="color:#ae81ff">0</span>, [])
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ans
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="leetcode-200-number-of-islands">Leetcode 200 Number of Islands</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -427,33 +427,33 @@ Last Modified on April 5th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">numIslands</span>(self, grid: List[List[<span style="color:#007020">str</span>]]) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:  
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">dfs</span>(grid, i, j):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> i <span style="color:#333">&lt;</span> <span style="color:#00d;font-weight:bold">0</span> <span style="color:#000;font-weight:bold">or</span> j <span style="color:#333">&lt;</span> <span style="color:#00d;font-weight:bold">0</span> <span style="color:#000;font-weight:bold">or</span> i <span style="color:#333">&gt;=</span> <span style="color:#007020">len</span>(grid) <span style="color:#000;font-weight:bold">or</span> j <span style="color:#333">&gt;=</span> <span style="color:#007020">len</span>(grid[<span style="color:#00d;font-weight:bold">0</span>]) <span style="color:#000;font-weight:bold">or</span> grid[i][j] <span style="color:#333">!=</span> <span style="background-color:#fff0f0">&#39;1&#39;</span>:
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>            grid[i][j] <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#39;2&#39;</span>
-</span></span><span style="display:flex;"><span>            dfs(grid, i<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>, j)
-</span></span><span style="display:flex;"><span>            dfs(grid, i<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>, j)
-</span></span><span style="display:flex;"><span>            dfs(grid, i, j<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>)
-</span></span><span style="display:flex;"><span>            dfs(grid, i, j<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>)
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">numIslands</span>(self, grid: List[List[str]]) <span style="color:#f92672">-&gt;</span> int:  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dfs</span>(grid, i, j):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> j <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> i <span style="color:#f92672">&gt;=</span> len(grid) <span style="color:#f92672">or</span> j <span style="color:#f92672">&gt;=</span> len(grid[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">or</span> grid[i][j] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;1&#39;</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>            grid[i][j] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2&#39;</span>
+</span></span><span style="display:flex;"><span>            dfs(grid, i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, j)
+</span></span><span style="display:flex;"><span>            dfs(grid, i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, j)
+</span></span><span style="display:flex;"><span>            dfs(grid, i, j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>            dfs(grid, i, j<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> grid <span style="color:#000;font-weight:bold">or</span> <span style="color:#007020">len</span>(grid) <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">0</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> grid <span style="color:#f92672">or</span> len(grid) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        count <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#007020">len</span>(grid)):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#007020">len</span>(grid[<span style="color:#00d;font-weight:bold">0</span>])):
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">if</span> grid[i][j] <span style="color:#333">==</span> <span style="background-color:#fff0f0">&#39;1&#39;</span>:
+</span></span><span style="display:flex;"><span>        count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(grid)):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(len(grid[<span style="color:#ae81ff">0</span>])):
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> grid[i][j] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;1&#39;</span>:
 </span></span><span style="display:flex;"><span>                    dfs(grid, i, j)
-</span></span><span style="display:flex;"><span>                    count <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> count
+</span></span><span style="display:flex;"><span>                    count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> count
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="leetcode-102-binary-tree-level-order-traversal">Leetcode 102 Binary Tree Level Order Traversal</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -478,28 +478,28 @@ Last Modified on April 5th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">levelOrder</span>(self, root: Optional[TreeNode]) <span style="color:#333">-&gt;</span> List[List[<span style="color:#007020">int</span>]]:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">dfs</span>(node, ans, level):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> node:
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> 
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">levelOrder</span>(self, root: Optional[TreeNode]) <span style="color:#f92672">-&gt;</span> List[List[int]]:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dfs</span>(node, ans, level):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> node:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> 
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> level <span style="color:#333">&gt;</span> <span style="color:#007020">len</span>(ans) <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>:
-</span></span><span style="display:flex;"><span>                ans<span style="color:#333">.</span>append([])
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> level <span style="color:#f92672">&gt;</span> len(ans) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>                ans<span style="color:#f92672">.</span>append([])
 </span></span><span style="display:flex;"><span>                
-</span></span><span style="display:flex;"><span>            ans[level]<span style="color:#333">.</span>append(node<span style="color:#333">.</span>val)
+</span></span><span style="display:flex;"><span>            ans[level]<span style="color:#f92672">.</span>append(node<span style="color:#f92672">.</span>val)
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> node<span style="color:#333">.</span>left:
-</span></span><span style="display:flex;"><span>                dfs(node<span style="color:#333">.</span>left, ans, level <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>left:
+</span></span><span style="display:flex;"><span>                dfs(node<span style="color:#f92672">.</span>left, ans, level <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>                
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> node<span style="color:#333">.</span>right:
-</span></span><span style="display:flex;"><span>                dfs(node<span style="color:#333">.</span>right, ans, level <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> node<span style="color:#f92672">.</span>right:
+</span></span><span style="display:flex;"><span>                dfs(node<span style="color:#f92672">.</span>right, ans, level <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> root:
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> root
-</span></span><span style="display:flex;"><span>        ans <span style="color:#333">=</span> []
-</span></span><span style="display:flex;"><span>        dfs(root, ans, <span style="color:#00d;font-weight:bold">0</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> ans
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> root
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>        dfs(root, ans, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ans
 </span></span><span style="display:flex;"><span>        
 </span></span></code></pre></td></tr></table>
 </div>

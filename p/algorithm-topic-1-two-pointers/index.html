@@ -349,9 +349,9 @@ Last Modified on March 30th, 2022
 <hr>
 <h2 id="old--new-state-pointers">Old &amp; New State Pointers</h2>
 <h3 id="template">Template</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -360,20 +360,20 @@ Last Modified on March 30th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">old_new_state</span>(self, arr):
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># initialize states</span>
-</span></span><span style="display:flex;"><span>        old, new <span style="color:#333">=</span> default_val1, default_val2
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> item <span style="color:#000;font-weight:bold">in</span> arr:
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># process current element with old state</span>
-</span></span><span style="display:flex;"><span>            old, new <span style="color:#333">=</span> new, self<span style="color:#333">.</span>some_func(item, old)
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">old_new_state</span>(self, arr):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># initialize states</span>
+</span></span><span style="display:flex;"><span>        old, new <span style="color:#f92672">=</span> default_val1, default_val2
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> arr:
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># process current element with old state</span>
+</span></span><span style="display:flex;"><span>            old, new <span style="color:#f92672">=</span> new, self<span style="color:#f92672">.</span>some_func(item, old)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="examples">Examples</h3>
 <h4 id="leetcode-509-fibonacci-number">Leetcode 509 Fibonacci Number</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -382,19 +382,19 @@ Last Modified on March 30th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#888"># Each number is the sum of the two preceding ones, starting from 0 and 1.</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">fibonacci</span>(self, n: <span style="color:#007020">int</span>) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:
-</span></span><span style="display:flex;"><span>        a, b <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(n <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>):
-</span></span><span style="display:flex;"><span>            a, b <span style="color:#333">=</span> b, a <span style="color:#333">+</span> b
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> a
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># Each number is the sum of the two preceding ones, starting from 0 and 1.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fibonacci</span>(self, n: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        a, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>            a, b <span style="color:#f92672">=</span> b, a <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> a
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="leetcode-198-house-robber">Leetcode 198 House Robber</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -404,22 +404,22 @@ Last Modified on March 30th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#888"># Determine the maximum amount of money you can steal tonight </span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># without robbing adjacent houses.</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">rob</span>(self, nums: <span style="background-color:#fff0f0">&#39;List[int]&#39;</span>) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:
-</span></span><span style="display:flex;"><span>        last, now <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> nums:
-</span></span><span style="display:flex;"><span>            last, now <span style="color:#333">=</span> now, <span style="color:#007020">max</span>(last <span style="color:#333">+</span> i, now)
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> now
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># Determine the maximum amount of money you can steal tonight </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># without robbing adjacent houses.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rob</span>(self, nums: <span style="color:#e6db74">&#39;List[int]&#39;</span>) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        last, now <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> nums:
+</span></span><span style="display:flex;"><span>            last, now <span style="color:#f92672">=</span> now, max(last <span style="color:#f92672">+</span> i, now)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> now
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="slow--fast-pointers">Slow &amp; Fast Pointers</h2>
 <h3 id="template-1">Template</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -434,26 +434,26 @@ Last Modified on March 30th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">slow_fast_runner</span>(self, arr):
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># initialize slow runner</span>
-</span></span><span style="display:flex;"><span>        slow <span style="color:#333">=</span> arr[<span style="color:#00d;font-weight:bold">0</span>]   
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">slow_fast_runner</span>(self, arr):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># initialize slow runner</span>
+</span></span><span style="display:flex;"><span>        slow <span style="color:#f92672">=</span> arr[<span style="color:#ae81ff">0</span>]   
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># fast-runner grows each iteration generally</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> fast <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(arr):     
-</span></span><span style="display:flex;"><span>            <span style="color:#888">#slow-runner grows with some restrictions</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> self<span style="color:#333">.</span>slow_condition(slow):
-</span></span><span style="display:flex;"><span>                slow <span style="color:#333">=</span> slow<span style="color:#333">.</span>next    <span style="color:#888"># slow += 1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># fast-runner grows each iteration generally</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> fast <span style="color:#f92672">in</span> range(arr):     
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">#slow-runner grows with some restrictions</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>slow_condition(slow):
+</span></span><span style="display:flex;"><span>                slow <span style="color:#f92672">=</span> slow<span style="color:#f92672">.</span>next    <span style="color:#75715e"># slow += 1</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># process logic before or after pointers movement</span>
-</span></span><span style="display:flex;"><span>            self<span style="color:#333">.</span>some_func(slow, fast)
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># process logic before or after pointers movement</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>some_func(slow, fast)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="examples-1">Examples</h3>
 <h4 id="leetcode-141-linked-list-cycle">Leetcode 141 Linked List Cycle</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -467,24 +467,24 @@ Last Modified on March 30th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">hasCycle</span>(self, head: Optional[ListNode]) <span style="color:#333">-&gt;</span> <span style="color:#007020">bool</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> head <span style="color:#000;font-weight:bold">or</span> <span style="color:#000;font-weight:bold">not</span> head<span style="color:#333">.</span>next: <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">False</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hasCycle</span>(self, head: Optional[ListNode]) <span style="color:#f92672">-&gt;</span> bool:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> head <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> head<span style="color:#f92672">.</span>next: <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        slow, fast <span style="color:#333">=</span> head, head
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> fast <span style="color:#000;font-weight:bold">and</span> fast<span style="color:#333">.</span>next:
-</span></span><span style="display:flex;"><span>            slow <span style="color:#333">=</span> slow<span style="color:#333">.</span>next
-</span></span><span style="display:flex;"><span>            fast <span style="color:#333">=</span> fast<span style="color:#333">.</span>next<span style="color:#333">.</span>next
+</span></span><span style="display:flex;"><span>        slow, fast <span style="color:#f92672">=</span> head, head
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> fast <span style="color:#f92672">and</span> fast<span style="color:#f92672">.</span>next:
+</span></span><span style="display:flex;"><span>            slow <span style="color:#f92672">=</span> slow<span style="color:#f92672">.</span>next
+</span></span><span style="display:flex;"><span>            fast <span style="color:#f92672">=</span> fast<span style="color:#f92672">.</span>next<span style="color:#f92672">.</span>next
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> slow <span style="color:#333">==</span> fast: <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> slow <span style="color:#f92672">==</span> fast: <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="leetcode-881-boats-to-save-people">Leetcode 881 Boats to Save People</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -497,23 +497,23 @@ Last Modified on March 30th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">numRescueBoats</span>(self, people: List[<span style="color:#007020">int</span>], limit: <span style="color:#007020">int</span>) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:
-</span></span><span style="display:flex;"><span>        people <span style="color:#333">=</span> <span style="color:#007020">sorted</span>(people)
-</span></span><span style="display:flex;"><span>        i, j, res <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#007020">len</span>(people)<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> i <span style="color:#333">&lt;=</span> j:
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> people[i] <span style="color:#333">+</span> people[j] <span style="color:#333">&lt;=</span> limit:
-</span></span><span style="display:flex;"><span>                i <span style="color:#333">=</span> i <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>            j <span style="color:#333">=</span> j <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>            res <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">numRescueBoats</span>(self, people: List[int], limit: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        people <span style="color:#f92672">=</span> sorted(people)
+</span></span><span style="display:flex;"><span>        i, j, res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, len(people)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> i <span style="color:#f92672">&lt;=</span> j:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> people[i] <span style="color:#f92672">+</span> people[j] <span style="color:#f92672">&lt;=</span> limit:
+</span></span><span style="display:flex;"><span>                i <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            j <span style="color:#f92672">=</span> j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            res <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> res  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> res  
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="leetcode-26-remove-duplicates-from-sorted-array">Leetcode 26 Remove Duplicates from Sorted Array</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -528,27 +528,27 @@ Last Modified on March 30th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#888"># Given a sorted array nums, remove the duplicates in place such that </span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># each element appear only once and return the new length.</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">removeDuplicates</span>(self, nums: <span style="background-color:#fff0f0">&#39;List[int]&#39;</span>) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> nums: <span style="color:#080;font-weight:bold">return</span> <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>        slow <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> fast <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#007020">len</span>(nums)):
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># if current element is not duplicate, </span>
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># slow runner grows one step and copys the current value</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> nums[slow] <span style="color:#333">!=</span> nums[fast]:
-</span></span><span style="display:flex;"><span>                slow <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>                nums[slow] <span style="color:#333">=</span> nums[fast]
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> slow <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># Given a sorted array nums, remove the duplicates in place such that </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># each element appear only once and return the new length.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">removeDuplicates</span>(self, nums: <span style="color:#e6db74">&#39;List[int]&#39;</span>) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> nums: <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        slow <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> fast <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, len(nums)):
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># if current element is not duplicate, </span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># slow runner grows one step and copys the current value</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> nums[slow] <span style="color:#f92672">!=</span> nums[fast]:
+</span></span><span style="display:flex;"><span>                slow <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                nums[slow] <span style="color:#f92672">=</span> nums[fast]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> slow <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="left--right-pointers">Left &amp; Right Pointers</h2>
 <h3 id="template-2">Template</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -562,25 +562,25 @@ Last Modified on March 30th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">left_right_boundary</span>(self, arr):
-</span></span><span style="display:flex;"><span>        left, right <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#007020">len</span>(arr) <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> left <span style="color:#333">&lt;</span> right:
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># left index moves when satisfy the condition</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> self<span style="color:#333">.</span>left_condition(left):
-</span></span><span style="display:flex;"><span>                left <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># right index move when satisfy the condition</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> self<span style="color:#333">.</span>right_condition(right):
-</span></span><span style="display:flex;"><span>                right <span style="color:#333">-=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># process logic before or after pointers movement</span>
-</span></span><span style="display:flex;"><span>            self<span style="color:#333">.</span>some_func(left, right)
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">left_right_boundary</span>(self, arr):
+</span></span><span style="display:flex;"><span>        left, right <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, len(arr) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> left <span style="color:#f92672">&lt;</span> right:
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># left index moves when satisfy the condition</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>left_condition(left):
+</span></span><span style="display:flex;"><span>                left <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># right index move when satisfy the condition</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>right_condition(right):
+</span></span><span style="display:flex;"><span>                right <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># process logic before or after pointers movement</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>some_func(left, right)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="examples-2">Examples</h3>
 <h4 id="leetcode-167-two-sum-ii---input-array-is-sorted">Leetcode 167 Two Sum II - Input Array Is Sorted</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -595,27 +595,27 @@ Last Modified on March 30th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#888"># Given an array of integers that is already sorted in ascending </span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># order, find two numbers such that they add up to a specific target number.</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">twoSum</span>(self, numbers: <span style="background-color:#fff0f0">&#39;List[int]&#39;</span>, target: <span style="background-color:#fff0f0">&#39;int&#39;</span>) <span style="color:#333">-&gt;</span> <span style="background-color:#fff0f0">&#39;List[int]&#39;</span>:
-</span></span><span style="display:flex;"><span>        left, right <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#007020">len</span>(numbers) <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> left <span style="color:#333">&lt;</span> right:
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> numbers[left] <span style="color:#333">+</span> numbers[right] <span style="color:#333">==</span> target:
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> [left <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>, right <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>]
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> numbers[left] <span style="color:#333">+</span> numbers[right] <span style="color:#333">&lt;</span> target:
-</span></span><span style="display:flex;"><span>                left <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">else</span>:
-</span></span><span style="display:flex;"><span>                right <span style="color:#333">-=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> [<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>]
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># Given an array of integers that is already sorted in ascending </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># order, find two numbers such that they add up to a specific target number.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">twoSum</span>(self, numbers: <span style="color:#e6db74">&#39;List[int]&#39;</span>, target: <span style="color:#e6db74">&#39;int&#39;</span>) <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#39;List[int]&#39;</span>:
+</span></span><span style="display:flex;"><span>        left, right <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, len(numbers) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> left <span style="color:#f92672">&lt;</span> right:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> numbers[left] <span style="color:#f92672">+</span> numbers[right] <span style="color:#f92672">==</span> target:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> [left <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, right <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> numbers[left] <span style="color:#f92672">+</span> numbers[right] <span style="color:#f92672">&lt;</span> target:
+</span></span><span style="display:flex;"><span>                left <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                right <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>]
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="pointers-from-two-sequences">Pointers from Two Sequences</h2>
 <h3 id="template-3">Template</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -631,27 +631,27 @@ Last Modified on March 30th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">pointers_from_two_seq</span>(self, arr1, arr2):
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># init pointers</span>
-</span></span><span style="display:flex;"><span>        p1, p2 <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>       <span style="color:#888"># or seq1[0], seq2[0]</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pointers_from_two_seq</span>(self, arr1, arr2):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># init pointers</span>
+</span></span><span style="display:flex;"><span>        p1, p2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>       <span style="color:#75715e"># or seq1[0], seq2[0]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> p1 <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(arr1) <span style="color:#000;font-weight:bold">and</span> p2 <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(arr2):    <span style="color:#888"># or other condition</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># p1 index moves when satisfy the condition</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> self<span style="color:#333">.</span>p1_condition(p1):
-</span></span><span style="display:flex;"><span>                p1 <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>         <span style="color:#888"># or p1 = next(seq1)</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># p2 index move when satisfy the condition</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> self<span style="color:#333">.</span>p2_condition(p2):
-</span></span><span style="display:flex;"><span>                p2 <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>         <span style="color:#888"># or p2 = next(seq2)</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># process logic before or after pointers movement</span>
-</span></span><span style="display:flex;"><span>            self<span style="color:#333">.</span>some_func(p1, p2)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> p1 <span style="color:#f92672">&lt;</span> len(arr1) <span style="color:#f92672">and</span> p2 <span style="color:#f92672">&lt;</span> len(arr2):    <span style="color:#75715e"># or other condition</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># p1 index moves when satisfy the condition</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>p1_condition(p1):
+</span></span><span style="display:flex;"><span>                p1 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>         <span style="color:#75715e"># or p1 = next(seq1)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># p2 index move when satisfy the condition</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>p2_condition(p2):
+</span></span><span style="display:flex;"><span>                p2 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>         <span style="color:#75715e"># or p2 = next(seq2)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># process logic before or after pointers movement</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>some_func(p1, p2)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="examples-3">Examples</h3>
 <h4 id="leetcode-244-shortest-word-distance-ii">Leetcode 244 Shortest Word Distance II</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -676,29 +676,29 @@ Last Modified on March 30th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#888"># Design a class which receives a list of words in the constructor </span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># and implements a method that takes two words, word1 and word2, and </span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># returns the shortest distance between these two words in the list.</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">WordDistance</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> __init__(self, words: <span style="background-color:#fff0f0">&#39;List[str]&#39;</span>):
-</span></span><span style="display:flex;"><span>        self<span style="color:#333">.</span>locations <span style="color:#333">=</span> defaultdict(<span style="color:#007020">list</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># Prepare a mapping from a word to all it&#39;s locations (indices).</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> i, w <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">enumerate</span>(words):
-</span></span><span style="display:flex;"><span>            self<span style="color:#333">.</span>locations[w]<span style="color:#333">.</span>append(i)
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># Design a class which receives a list of words in the constructor </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># and implements a method that takes two words, word1 and word2, and </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># returns the shortest distance between these two words in the list.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WordDistance</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, words: <span style="color:#e6db74">&#39;List[str]&#39;</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>locations <span style="color:#f92672">=</span> defaultdict(list)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Prepare a mapping from a word to all it&#39;s locations (indices).</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i, w <span style="color:#f92672">in</span> enumerate(words):
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>locations[w]<span style="color:#f92672">.</span>append(i)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">shortest</span>(self, word1: <span style="color:#007020">str</span>, word2: <span style="color:#007020">str</span>) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:
-</span></span><span style="display:flex;"><span>        loc1, loc2 <span style="color:#333">=</span> self<span style="color:#333">.</span>locations[word1], self<span style="color:#333">.</span>locations[word2]
-</span></span><span style="display:flex;"><span>        l1, l2 <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>        min_diff <span style="color:#333">=</span> <span style="color:#007020">float</span>(<span style="background-color:#fff0f0">&#34;inf&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">shortest</span>(self, word1: str, word2: str) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        loc1, loc2 <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>locations[word1], self<span style="color:#f92672">.</span>locations[word2]
+</span></span><span style="display:flex;"><span>        l1, l2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        min_diff <span style="color:#f92672">=</span> float(<span style="color:#e6db74">&#34;inf&#34;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># Until the shorter of the two lists is processed</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> l1 <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(loc1) <span style="color:#000;font-weight:bold">and</span> l2 <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(loc2):
-</span></span><span style="display:flex;"><span>            min_diff <span style="color:#333">=</span> <span style="color:#007020">min</span>(min_diff, <span style="color:#007020">abs</span>(loc1[l1] <span style="color:#333">-</span> loc2[l2]))
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> loc1[l1] <span style="color:#333">&lt;</span> loc2[l2]:
-</span></span><span style="display:flex;"><span>                l1 <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">else</span>:
-</span></span><span style="display:flex;"><span>                l2 <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> min_diff
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Until the shorter of the two lists is processed</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> l1 <span style="color:#f92672">&lt;</span> len(loc1) <span style="color:#f92672">and</span> l2 <span style="color:#f92672">&lt;</span> len(loc2):
+</span></span><span style="display:flex;"><span>            min_diff <span style="color:#f92672">=</span> min(min_diff, abs(loc1[l1] <span style="color:#f92672">-</span> loc2[l2]))
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> loc1[l1] <span style="color:#f92672">&lt;</span> loc2[l2]:
+</span></span><span style="display:flex;"><span>                l1 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                l2 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> min_diff
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -715,9 +715,9 @@ Last Modified on March 30th, 2022
 </ul>
 </blockquote>
 <h3 id="template-4">Template</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -735,29 +735,29 @@ Last Modified on March 30th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">sliding_window</span>(self, arr):
-</span></span><span style="display:flex;"><span>        start, end <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> end <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(arr):
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># end pointer grows in the outer loop</span>
-</span></span><span style="display:flex;"><span>            end <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sliding_window</span>(self, arr):
+</span></span><span style="display:flex;"><span>        start, end <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> end <span style="color:#f92672">&lt;</span> len(arr):
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># end pointer grows in the outer loop</span>
+</span></span><span style="display:flex;"><span>            end <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># start pointer grows with some restrict</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">while</span> self<span style="color:#333">.</span>start_condition(start):
-</span></span><span style="display:flex;"><span>                <span style="color:#888"># process logic before pointers movement</span>
-</span></span><span style="display:flex;"><span>                self<span style="color:#333">.</span>some_func(start, end)
-</span></span><span style="display:flex;"><span>                <span style="color:#888"># start grows in the inner loop</span>
-</span></span><span style="display:flex;"><span>                start <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># start pointer grows with some restrict</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> self<span style="color:#f92672">.</span>start_condition(start):
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># process logic before pointers movement</span>
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>some_func(start, end)
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># start grows in the inner loop</span>
+</span></span><span style="display:flex;"><span>                start <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>                
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># or process logic after pointers movement</span>
-</span></span><span style="display:flex;"><span>            self<span style="color:#333">.</span>some_func(start, end)
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># or process logic after pointers movement</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>some_func(start, end)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="examples-4">Examples</h3>
 <h4 id="leetcode-209-minimum-size-subarray-sum">Leetcode 209 Minimum Size Subarray Sum</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -780,33 +780,33 @@ Last Modified on March 30th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#888"># Given an array of positive integers nums and a positive integer </span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># target, return the minimal length of a contiguous subarray of </span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># which the sum is greater than or equal to target.</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">minSubArrayLen</span>(self, target: <span style="color:#007020">int</span>, nums: List[<span style="color:#007020">int</span>]) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> nums <span style="color:#000;font-weight:bold">or</span> <span style="color:#007020">len</span>(nums) <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">0</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> <span style="color:#00d;font-weight:bold">0</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># Given an array of positive integers nums and a positive integer </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># target, return the minimal length of a contiguous subarray of </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># which the sum is greater than or equal to target.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">minSubArrayLen</span>(self, target: int, nums: List[int]) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> nums <span style="color:#f92672">or</span> len(nums) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        l, r <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>        res <span style="color:#333">=</span> <span style="color:#007020">len</span>(nums) <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>        add <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>        l, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        res <span style="color:#f92672">=</span> len(nums) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        add <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> r <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(nums):
-</span></span><span style="display:flex;"><span>            add <span style="color:#333">+=</span> nums[r]
-</span></span><span style="display:flex;"><span>        r <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>                   <span style="color:#888"># Upsizing the window</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">while</span> add <span style="color:#333">&gt;=</span> target: <span style="color:#888"># Downsizing the window iteratively</span>
-</span></span><span style="display:flex;"><span>                res <span style="color:#333">=</span> <span style="color:#007020">min</span>(res, r <span style="color:#333">-</span> l)
-</span></span><span style="display:flex;"><span>                add <span style="color:#333">-=</span> nums[l]
-</span></span><span style="display:flex;"><span>                l <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> r <span style="color:#f92672">&lt;</span> len(nums):
+</span></span><span style="display:flex;"><span>            add <span style="color:#f92672">+=</span> nums[r]
+</span></span><span style="display:flex;"><span>        r <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>                   <span style="color:#75715e"># Upsizing the window</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> add <span style="color:#f92672">&gt;=</span> target: <span style="color:#75715e"># Downsizing the window iteratively</span>
+</span></span><span style="display:flex;"><span>                res <span style="color:#f92672">=</span> min(res, r <span style="color:#f92672">-</span> l)
+</span></span><span style="display:flex;"><span>                add <span style="color:#f92672">-=</span> nums[l]
+</span></span><span style="display:flex;"><span>                l <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> res <span style="color:#080;font-weight:bold">if</span> res <span style="color:#333">!=</span> <span style="color:#007020">len</span>(nums) <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span> <span style="color:#080;font-weight:bold">else</span> <span style="color:#00d;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> res <span style="color:#66d9ef">if</span> res <span style="color:#f92672">!=</span> len(nums) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="leetcode-1456-maximum-number-of-vowels-in-a-substring-of-given-length">Leetcode 1456 Maximum Number of Vowels in a Substring of Given Length</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -838,36 +838,36 @@ Last Modified on March 30th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#888"># Given a string s and an integer k, return the maximum number of vowel </span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># letters in any substring of s with length k.</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">maxVowels</span>(self, s: <span style="color:#007020">str</span>, k: <span style="color:#007020">int</span>) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> s <span style="color:#000;font-weight:bold">or</span> <span style="color:#007020">len</span>(s) <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">0</span> <span style="color:#000;font-weight:bold">or</span> <span style="color:#007020">len</span>(s) <span style="color:#333">&lt;</span> k:
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> <span style="color:#00d;font-weight:bold">0</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># Given a string s and an integer k, return the maximum number of vowel </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># letters in any substring of s with length k.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">maxVowels</span>(self, s: str, k: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> s <span style="color:#f92672">or</span> len(s) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> len(s) <span style="color:#f92672">&lt;</span> k:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        vl <span style="color:#333">=</span> <span style="color:#007020">set</span>([<span style="background-color:#fff0f0">&#39;a&#39;</span>, <span style="background-color:#fff0f0">&#39;e&#39;</span>, <span style="background-color:#fff0f0">&#39;i&#39;</span>, <span style="background-color:#fff0f0">&#39;o&#39;</span>, <span style="background-color:#fff0f0">&#39;u&#39;</span>]) <span style="color:#888"># Quick for search</span>
-</span></span><span style="display:flex;"><span>        i, j <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>        res, tmp <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> j <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(s):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> j <span style="color:#333">-</span> i <span style="color:#333">&lt;</span> k:          
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># Get the number of vowel letters in the first sliding window</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">if</span> s[j] <span style="color:#000;font-weight:bold">in</span> vl:
-</span></span><span style="display:flex;"><span>                    tmp <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>                    res <span style="color:#333">=</span> tmp
-</span></span><span style="display:flex;"><span>                j <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">else</span>:
-</span></span><span style="display:flex;"><span>                <span style="color:#888"># Pop the first item</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">if</span> s[i] <span style="color:#000;font-weight:bold">in</span> vl:
-</span></span><span style="display:flex;"><span>                    tmp <span style="color:#333">-=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>                i <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>        vl <span style="color:#f92672">=</span> set([<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;i&#39;</span>, <span style="color:#e6db74">&#39;o&#39;</span>, <span style="color:#e6db74">&#39;u&#39;</span>]) <span style="color:#75715e"># Quick for search</span>
+</span></span><span style="display:flex;"><span>        i, j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        res, tmp <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> j <span style="color:#f92672">&lt;</span> len(s):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> j <span style="color:#f92672">-</span> i <span style="color:#f92672">&lt;</span> k:          
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Get the number of vowel letters in the first sliding window</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> s[j] <span style="color:#f92672">in</span> vl:
+</span></span><span style="display:flex;"><span>                    tmp <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                    res <span style="color:#f92672">=</span> tmp
+</span></span><span style="display:flex;"><span>                j <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Pop the first item</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> s[i] <span style="color:#f92672">in</span> vl:
+</span></span><span style="display:flex;"><span>                    tmp <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>                    
-</span></span><span style="display:flex;"><span>                <span style="color:#888"># Add the next item</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">if</span> s[j] <span style="color:#000;font-weight:bold">in</span> vl:
-</span></span><span style="display:flex;"><span>                    tmp <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Add the next item</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> s[j] <span style="color:#f92672">in</span> vl:
+</span></span><span style="display:flex;"><span>                    tmp <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>                    
-</span></span><span style="display:flex;"><span>                res <span style="color:#333">=</span> <span style="color:#007020">max</span>(tmp, res)
-</span></span><span style="display:flex;"><span>                j <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> res
+</span></span><span style="display:flex;"><span>                res <span style="color:#f92672">=</span> max(tmp, res)
+</span></span><span style="display:flex;"><span>                j <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> res
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>

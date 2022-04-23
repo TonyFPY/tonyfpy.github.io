@@ -347,9 +347,9 @@ Last Modified on April 4th, 2022
 </ul>
 <hr>
 <h2 id="template">Template</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -362,25 +362,25 @@ Last Modified on April 4th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#888"># Pseudocode</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># Pseudocode</span>
 </span></span><span style="display:flex;"><span>function backtracking(node, state):
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> state <span style="color:#000;font-weight:bold">is</span> a solution:
-</span></span><span style="display:flex;"><span>        report(state) <span style="color:#888"># e.g. add state to final result list</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> state <span style="color:#f92672">is</span> a solution:
+</span></span><span style="display:flex;"><span>        report(state) <span style="color:#75715e"># e.g. add state to final result list</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">for</span> child <span style="color:#000;font-weight:bold">in</span> children:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> child <span style="color:#000;font-weight:bold">is</span> a part of a potential solution:
-</span></span><span style="display:flex;"><span>            state<span style="color:#333">.</span>add(child) <span style="color:#888"># make move</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> child <span style="color:#f92672">in</span> children:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> child <span style="color:#f92672">is</span> a part of a potential solution:
+</span></span><span style="display:flex;"><span>            state<span style="color:#f92672">.</span>add(child) <span style="color:#75715e"># make move</span>
 </span></span><span style="display:flex;"><span>            backtracking(child, state)
-</span></span><span style="display:flex;"><span>        state<span style="color:#333">.</span>remove(child) <span style="color:#888"># backtrack</span>
+</span></span><span style="display:flex;"><span>        state<span style="color:#f92672">.</span>remove(child) <span style="color:#75715e"># backtrack</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="examples">Examples</h2>
 <h3 id="leetcode-46-permutations">Leetcode 46 Permutations</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -399,29 +399,29 @@ Last Modified on April 4th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">permute</span>(self, nums: List[<span style="color:#007020">int</span>]) <span style="color:#333">-&gt;</span> List[List[<span style="color:#007020">int</span>]]:
-</span></span><span style="display:flex;"><span>        ans <span style="color:#333">=</span> []
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">permute</span>(self, nums: List[int]) <span style="color:#f92672">-&gt;</span> List[List[int]]:
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> []
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">backtrack</span>(path, cnt):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> cnt <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">0</span>:
-</span></span><span style="display:flex;"><span>                ans<span style="color:#333">.</span>append(path[:]) <span style="color:#888"># Copy the content instead of the reference</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">backtrack</span>(path, cnt):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> cnt <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                ans<span style="color:#f92672">.</span>append(path[:]) <span style="color:#75715e"># Copy the content instead of the reference</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">for</span> item <span style="color:#000;font-weight:bold">in</span> nums:
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> item <span style="color:#000;font-weight:bold">in</span> path:
-</span></span><span style="display:flex;"><span>                    path<span style="color:#333">.</span>append(item)
-</span></span><span style="display:flex;"><span>                    backtrack(path, cnt<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>)
-</span></span><span style="display:flex;"><span>                    path<span style="color:#333">.</span>pop()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> nums:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> item <span style="color:#f92672">in</span> path:
+</span></span><span style="display:flex;"><span>                    path<span style="color:#f92672">.</span>append(item)
+</span></span><span style="display:flex;"><span>                    backtrack(path, cnt<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>                    path<span style="color:#f92672">.</span>pop()
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        backtrack([],<span style="color:#007020">len</span>(nums))
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> ans
+</span></span><span style="display:flex;"><span>        backtrack([],len(nums))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ans
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="leetcode-77-combinations">Leetcode 77 Combinations</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -441,30 +441,30 @@ Last Modified on April 4th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">combine</span>(self, n: <span style="color:#007020">int</span>, k: <span style="color:#007020">int</span>) <span style="color:#333">-&gt;</span> List[List[<span style="color:#007020">int</span>]]:
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">combine</span>(self, n: int, k: int) <span style="color:#f92672">-&gt;</span> List[List[int]]:
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        ans <span style="color:#333">=</span> []
-</span></span><span style="display:flex;"><span>        nums <span style="color:#333">=</span> <span style="color:#007020">list</span>(<span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">1</span>, n<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>))
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>        nums <span style="color:#f92672">=</span> list(range(<span style="color:#ae81ff">1</span>, n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>))
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">backtrack</span>(path, m):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> <span style="color:#007020">len</span>(path)<span style="color:#333">==</span>k:
-</span></span><span style="display:flex;"><span>                ans<span style="color:#333">.</span>append(path[:])
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">backtrack</span>(path, m):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> len(path)<span style="color:#f92672">==</span>k:
+</span></span><span style="display:flex;"><span>                ans<span style="color:#f92672">.</span>append(path[:])
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(m, <span style="color:#007020">len</span>(nums)):
-</span></span><span style="display:flex;"><span>                path<span style="color:#333">.</span>append(nums[i])
-</span></span><span style="display:flex;"><span>                backtrack(path, i<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>)
-</span></span><span style="display:flex;"><span>                path<span style="color:#333">.</span>pop()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(m, len(nums)):
+</span></span><span style="display:flex;"><span>                path<span style="color:#f92672">.</span>append(nums[i])
+</span></span><span style="display:flex;"><span>                backtrack(path, i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>                path<span style="color:#f92672">.</span>pop()
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        backtrack([],<span style="color:#00d;font-weight:bold">0</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> ans
+</span></span><span style="display:flex;"><span>        backtrack([],<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ans
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="leetcode-78-subsets">Leetcode 78 Subsets</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -483,29 +483,29 @@ Last Modified on April 4th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">subsets</span>(self, nums: List[<span style="color:#007020">int</span>]) <span style="color:#333">-&gt;</span> List[List[<span style="color:#007020">int</span>]]:
-</span></span><span style="display:flex;"><span>        ans <span style="color:#333">=</span> [[]]
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">subsets</span>(self, nums: List[int]) <span style="color:#f92672">-&gt;</span> List[List[int]]:
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> [[]]
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">backtrack</span>(path, lmt, index):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> <span style="color:#007020">len</span>(path) <span style="color:#333">==</span> lmt:
-</span></span><span style="display:flex;"><span>                ans<span style="color:#333">.</span>append(path[:])
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">backtrack</span>(path, lmt, index):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> len(path) <span style="color:#f92672">==</span> lmt:
+</span></span><span style="display:flex;"><span>                ans<span style="color:#f92672">.</span>append(path[:])
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">for</span> <span style="color:#007020">id</span> <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(index, <span style="color:#007020">len</span>(nums)):
-</span></span><span style="display:flex;"><span>                path<span style="color:#333">.</span>append(nums[<span style="color:#007020">id</span>])
-</span></span><span style="display:flex;"><span>                backtrack(path, lmt, <span style="color:#007020">id</span><span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>)
-</span></span><span style="display:flex;"><span>                path<span style="color:#333">.</span>pop()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> id <span style="color:#f92672">in</span> range(index, len(nums)):
+</span></span><span style="display:flex;"><span>                path<span style="color:#f92672">.</span>append(nums[id])
+</span></span><span style="display:flex;"><span>                backtrack(path, lmt, id<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>                path<span style="color:#f92672">.</span>pop()
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#007020">len</span>(nums)<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>):
-</span></span><span style="display:flex;"><span>            backtrack([], i, <span style="color:#00d;font-weight:bold">0</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> ans
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, len(nums)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>            backtrack([], i, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ans
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="leetcode-22-generate-parentheses">Leetcode 22 Generate Parentheses</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -535,34 +535,34 @@ Last Modified on April 4th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">generateParenthesis</span>(self, n: <span style="color:#007020">int</span>) <span style="color:#333">-&gt;</span> List[<span style="color:#007020">str</span>]:
-</span></span><span style="display:flex;"><span>        left, right <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>        ans <span style="color:#333">=</span> []
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generateParenthesis</span>(self, n: int) <span style="color:#f92672">-&gt;</span> List[str]:
+</span></span><span style="display:flex;"><span>        left, right <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> []
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">backtrack</span>(path, l, r):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> l <span style="color:#333">==</span> n <span style="color:#000;font-weight:bold">and</span> r <span style="color:#333">==</span> n:
-</span></span><span style="display:flex;"><span>                path <span style="color:#333">=</span> (<span style="background-color:#fff0f0">&#34;&#34;</span>)<span style="color:#333">.</span>join(path)
-</span></span><span style="display:flex;"><span>                ans<span style="color:#333">.</span>append(path[:])
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">backtrack</span>(path, l, r):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> n <span style="color:#f92672">and</span> r <span style="color:#f92672">==</span> n:
+</span></span><span style="display:flex;"><span>                path <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#34;&#34;</span>)<span style="color:#f92672">.</span>join(path)
+</span></span><span style="display:flex;"><span>                ans<span style="color:#f92672">.</span>append(path[:])
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#888"># The number of right bracket cannot exceed that of left bracket.</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> l <span style="color:#333">&lt;</span> r:
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># The number of right bracket cannot exceed that of left bracket.</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> l <span style="color:#f92672">&lt;</span> r:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> l <span style="color:#333">&lt;=</span> n:
-</span></span><span style="display:flex;"><span>                path<span style="color:#333">.</span>append(<span style="background-color:#fff0f0">&#34;(&#34;</span>)
-</span></span><span style="display:flex;"><span>                backtrack(path, l<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>, r)
-</span></span><span style="display:flex;"><span>                path<span style="color:#333">.</span>pop()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> l <span style="color:#f92672">&lt;=</span> n:
+</span></span><span style="display:flex;"><span>                path<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#34;(&#34;</span>)
+</span></span><span style="display:flex;"><span>                backtrack(path, l<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, r)
+</span></span><span style="display:flex;"><span>                path<span style="color:#f92672">.</span>pop()
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> l <span style="color:#333">&gt;</span> r:
-</span></span><span style="display:flex;"><span>                path<span style="color:#333">.</span>append(<span style="background-color:#fff0f0">&#34;)&#34;</span>)
-</span></span><span style="display:flex;"><span>                backtrack(path, l, r<span style="color:#333">+</span><span style="color:#00d;font-weight:bold">1</span>)
-</span></span><span style="display:flex;"><span>                path<span style="color:#333">.</span>pop()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> l <span style="color:#f92672">&gt;</span> r:
+</span></span><span style="display:flex;"><span>                path<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#34;)&#34;</span>)
+</span></span><span style="display:flex;"><span>                backtrack(path, l, r<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>                path<span style="color:#f92672">.</span>pop()
 </span></span><span style="display:flex;"><span>            
 </span></span><span style="display:flex;"><span>        
 </span></span><span style="display:flex;"><span>        backtrack([], left, right)
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> ans
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ans
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>

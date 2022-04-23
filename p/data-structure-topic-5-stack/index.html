@@ -356,9 +356,9 @@ Last Modified on March 25th, 2022
 </ul>
 <hr>
 <h2 id="stack-implementation-in-python">Stack Implementation in Python</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -381,34 +381,34 @@ Last Modified on March 25th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#888"># Create</span>
-</span></span><span style="display:flex;"><span>stack <span style="color:#333">=</span> []
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># Create</span>
+</span></span><span style="display:flex;"><span>stack <span style="color:#f92672">=</span> []
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Add an element - O(1)</span>
-</span></span><span style="display:flex;"><span>stack<span style="color:#333">.</span>append(<span style="color:#00d;font-weight:bold">1</span>)
-</span></span><span style="display:flex;"><span>stack<span style="color:#333">.</span>append(<span style="color:#00d;font-weight:bold">2</span>)
-</span></span><span style="display:flex;"><span>stack<span style="color:#333">.</span>append(<span style="color:#00d;font-weight:bold">3</span>) <span style="color:#888"># [1,2,3]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add an element - O(1)</span>
+</span></span><span style="display:flex;"><span>stack<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>stack<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>stack<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">3</span>) <span style="color:#75715e"># [1,2,3]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Get the top of the stack - O(1)</span>
-</span></span><span style="display:flex;"><span>top <span style="color:#333">=</span> stack[<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>]
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Get the top of the stack - O(1)</span>
+</span></span><span style="display:flex;"><span>top <span style="color:#f92672">=</span> stack[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Remove the head of the stack - O(1)</span>
-</span></span><span style="display:flex;"><span>top <span style="color:#333">=</span> stack<span style="color:#333">.</span>pop()
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Remove the head of the stack - O(1)</span>
+</span></span><span style="display:flex;"><span>top <span style="color:#f92672">=</span> stack<span style="color:#f92672">.</span>pop()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Get the size of the stack - O(1)</span>
-</span></span><span style="display:flex;"><span>length <span style="color:#333">=</span> <span style="color:#007020">len</span>(stack)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Get the size of the stack - O(1)</span>
+</span></span><span style="display:flex;"><span>length <span style="color:#f92672">=</span> len(stack)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Traverse the stack - O(N)</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">while</span> <span style="color:#007020">len</span>(stack) <span style="color:#333">!=</span> <span style="color:#00d;font-weight:bold">0</span>:
-</span></span><span style="display:flex;"><span>    tmp <span style="color:#333">=</span> stack<span style="color:#333">.</span>pop()
-</span></span><span style="display:flex;"><span>    <span style="color:#007020">print</span>(tmp)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Traverse the stack - O(N)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> len(stack) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>    tmp <span style="color:#f92672">=</span> stack<span style="color:#f92672">.</span>pop()
+</span></span><span style="display:flex;"><span>    print(tmp)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="stack-implementation-in-java">Stack Implementation in Java</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -432,28 +432,28 @@ Last Modified on March 25th, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#888">// Create
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>Stack<span style="color:#333">&lt;</span>Integer<span style="color:#333">&gt;</span> s <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Stack<span style="color:#333">&lt;&gt;();</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#75715e">// Create
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Stack<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> s <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Stack<span style="color:#f92672">&lt;&gt;();</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Add - O(1)
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>s<span style="color:#333">.</span><span style="color:#00c">push</span><span style="color:#333">(</span>1<span style="color:#333">);</span>
-</span></span><span style="display:flex;"><span>s<span style="color:#333">.</span><span style="color:#00c">push</span><span style="color:#333">(</span>2<span style="color:#333">);</span>
-</span></span><span style="display:flex;"><span>s<span style="color:#333">.</span><span style="color:#00c">push</span><span style="color:#333">(</span>3<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Add - O(1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>2<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>3<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Get the head of the stack - O(1)
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#339;font-weight:bold">int</span> elem <span style="color:#333">=</span> s<span style="color:#333">.</span><span style="color:#00c">peek</span><span style="color:#333">();</span> <span style="color:#888">// 1
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Remove the head of the stack - O(1)
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#339;font-weight:bold">int</span> id <span style="color:#333">=</span> s<span style="color:#333">.</span><span style="color:#00c">pop</span><span style="color:#333">();</span> <span style="color:#888">// 1
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Get the size of the stack - O(1)
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#339;font-weight:bold">int</span> len <span style="color:#333">=</span> s<span style="color:#333">.</span><span style="color:#00c">size</span><span style="color:#333">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Get the head of the stack - O(1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> elem <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">peek</span><span style="color:#f92672">();</span> <span style="color:#75715e">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Remove the head of the stack - O(1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> id <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">();</span> <span style="color:#75715e">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Get the size of the stack - O(1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> len <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Traverse the stack - O(N)
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(!</span>s<span style="color:#333">.</span><span style="color:#00c">isEmpty</span><span style="color:#333">())</span> <span style="color:#333">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#339;font-weight:bold">int</span> tmp <span style="color:#333">=</span> s<span style="color:#333">.</span><span style="color:#00c">pop</span><span style="color:#333">()</span>
-</span></span><span style="display:flex;"><span>    System<span style="color:#333">.</span><span style="color:#00c">out</span><span style="color:#333">.</span><span style="color:#00c">println</span><span style="color:#333">(</span>tmp<span style="color:#333">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Traverse the stack - O(N)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">while</span> <span style="color:#f92672">(!</span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> tmp <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>tmp<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>

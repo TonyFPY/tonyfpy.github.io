@@ -332,9 +332,9 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution1: # Hash Map 
 <h3 id="question">Question</h3>
 <p>在一个长度为 <code>n</code> 的数组 <code>nums</code> 里的所有数字都在 <code>0～n-1</code> 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</p>
 <h3 id="solution">Solution</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -353,23 +353,23 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution1: # Hash Map 
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution1</span>: <span style="color:#888"># Hash Map</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">findRepeatNumber</span>(self, nums: List[<span style="color:#007020">int</span>]) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#007020">dict</span> <span style="color:#333">=</span> {} 
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> n <span style="color:#000;font-weight:bold">in</span> nums:
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> n <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">dict</span>:
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> n
-</span></span><span style="display:flex;"><span>            <span style="color:#007020">dict</span>[n] <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> <span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution1</span>: <span style="color:#75715e"># Hash Map</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">findRepeatNumber</span>(self, nums: List[int]) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        dict <span style="color:#f92672">=</span> {} 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> nums:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> n <span style="color:#f92672">in</span> dict:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> n
+</span></span><span style="display:flex;"><span>            dict[n] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solutio2</span>: <span style="color:#888"># Set</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">findRepeatNumber</span>(self, nums: [<span style="color:#007020">int</span>]) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:
-</span></span><span style="display:flex;"><span>        s <span style="color:#333">=</span> <span style="color:#007020">set</span>()
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">for</span> num <span style="color:#000;font-weight:bold">in</span> nums:
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> num <span style="color:#000;font-weight:bold">in</span> s: 
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> num
-</span></span><span style="display:flex;"><span>            s<span style="color:#333">.</span>add(num)
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> <span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solutio2</span>: <span style="color:#75715e"># Set</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">findRepeatNumber</span>(self, nums: [int]) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        s <span style="color:#f92672">=</span> set()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> nums:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> num <span style="color:#f92672">in</span> s: 
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> num
+</span></span><span style="display:flex;"><span>            s<span style="color:#f92672">.</span>add(num)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="explanation">Explanation</h3>
@@ -383,9 +383,9 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution1: # Hash Map 
 <h3 id="question-1">Question</h3>
 <p>统计一个数字在<strong>排序</strong>数组中出现的次数。</p>
 <h3 id="solution-1">Solution</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -402,21 +402,21 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution1: # Hash Map 
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution1</span>: <span style="color:#888"># Bianry Search</span>
-</span></span><span style="display:flex;"><span>    <span style="background-color:#fff0f0">&#39;&#39;&#39;
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">    Find the right bound of target and target-1
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">    &#39;&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">search</span>(self, nums: [<span style="color:#007020">int</span>], target: <span style="color:#007020">int</span>) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">findR</span>(tar):
-</span></span><span style="display:flex;"><span>            i, j <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#007020">len</span>(nums) <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">while</span> i <span style="color:#333">&lt;=</span> j:
-</span></span><span style="display:flex;"><span>                m <span style="color:#333">=</span> i <span style="color:#333">+</span> (j <span style="color:#333">-</span> i) <span style="color:#333">//</span> <span style="color:#00d;font-weight:bold">2</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">if</span> nums[m] <span style="color:#333">&lt;=</span> tar: 
-</span></span><span style="display:flex;"><span>                    i <span style="color:#333">=</span> m <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">else</span>: 
-</span></span><span style="display:flex;"><span>                    j <span style="color:#333">=</span> m <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> i
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> findR(target) <span style="color:#333">-</span> findR(target <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>)
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution1</span>: <span style="color:#75715e"># Bianry Search</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Find the right bound of target and target-1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">search</span>(self, nums: [int], target: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">findR</span>(tar):
+</span></span><span style="display:flex;"><span>            i, j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, len(nums) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> i <span style="color:#f92672">&lt;=</span> j:
+</span></span><span style="display:flex;"><span>                m <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> (j <span style="color:#f92672">-</span> i) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> nums[m] <span style="color:#f92672">&lt;=</span> tar: 
+</span></span><span style="display:flex;"><span>                    i <span style="color:#f92672">=</span> m <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">else</span>: 
+</span></span><span style="display:flex;"><span>                    j <span style="color:#f92672">=</span> m <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> i
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> findR(target) <span style="color:#f92672">-</span> findR(target <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="explanation-1">Explanation</h3>
@@ -429,9 +429,9 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution1: # Hash Map 
 <h3 id="question-2">Question</h3>
 <p>一个长度为<code>n-1</code>的<strong>递增排序数组</strong>中的所有数字都是唯一的，并且每个数字都在范围<code>0～n-1</code>之内。在范围<code>0～n-1</code>内的<code>n</code>个数字中有且只有一个数字不在该数组中，请找出这个数字。</p>
 <h3 id="solution-2">Solution</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -447,20 +447,20 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution1: # Hash Map 
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="background-color:#fff0f0">&#39;&#39;&#39;
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Find the rightest index that is not equal to its element
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">&#39;&#39;&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">missingNumber</span>(self, nums: List[<span style="color:#007020">int</span>]) <span style="color:#333">-&gt;</span> <span style="color:#007020">int</span>:
-</span></span><span style="display:flex;"><span>        i, j <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#007020">len</span>(nums)<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> i <span style="color:#333">&lt;=</span> j:
-</span></span><span style="display:flex;"><span>            m <span style="color:#333">=</span> i <span style="color:#333">+</span> (j <span style="color:#333">-</span> i) <span style="color:#333">//</span> <span style="color:#00d;font-weight:bold">2</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> m <span style="color:#333">==</span> nums[m]:
-</span></span><span style="display:flex;"><span>                i <span style="color:#333">=</span> m <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">else</span>:
-</span></span><span style="display:flex;"><span>                j <span style="color:#333">=</span> m <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Find the rightest index that is not equal to its element
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">missingNumber</span>(self, nums: List[int]) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>        i, j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, len(nums)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> i <span style="color:#f92672">&lt;=</span> j:
+</span></span><span style="display:flex;"><span>            m <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> (j <span style="color:#f92672">-</span> i) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> m <span style="color:#f92672">==</span> nums[m]:
+</span></span><span style="display:flex;"><span>                i <span style="color:#f92672">=</span> m <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                j <span style="color:#f92672">=</span> m <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> i
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> i
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="explanation-2">Explanation</h3>

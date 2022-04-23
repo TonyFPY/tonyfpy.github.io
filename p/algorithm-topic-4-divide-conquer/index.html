@@ -360,9 +360,9 @@ Last Modified on April 3rd, 2022
 <hr>
 <h2 id="examples">Examples</h2>
 <h3 id="tower-of-hanoi">Tower of Hanoi</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -394,42 +394,42 @@ Last Modified on April 3rd, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">TowerOfHanoi</span>(n , source, destination, auxiliary):
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> n<span style="color:#333">==</span><span style="color:#00d;font-weight:bold">1</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#007020">print</span> (<span style="background-color:#fff0f0">&#34;Move disk 1 from source&#34;</span>,source,<span style="background-color:#fff0f0">&#34;to destination&#34;</span>,destination)
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span>
-</span></span><span style="display:flex;"><span>    TowerOfHanoi(n<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>, source, auxiliary, destination)
-</span></span><span style="display:flex;"><span>    <span style="color:#007020">print</span> (<span style="background-color:#fff0f0">&#34;Move disk&#34;</span>,n,<span style="background-color:#fff0f0">&#34;from source&#34;</span>,source,<span style="background-color:#fff0f0">&#34;to destination&#34;</span>,destination)
-</span></span><span style="display:flex;"><span>    TowerOfHanoi(n<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>, auxiliary, destination, source)
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">TowerOfHanoi</span>(n , source, destination, auxiliary):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> n<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>        print (<span style="color:#e6db74">&#34;Move disk 1 from source&#34;</span>,source,<span style="color:#e6db74">&#34;to destination&#34;</span>,destination)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>    TowerOfHanoi(n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, source, auxiliary, destination)
+</span></span><span style="display:flex;"><span>    print (<span style="color:#e6db74">&#34;Move disk&#34;</span>,n,<span style="color:#e6db74">&#34;from source&#34;</span>,source,<span style="color:#e6db74">&#34;to destination&#34;</span>,destination)
+</span></span><span style="display:flex;"><span>    TowerOfHanoi(n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, auxiliary, destination, source)
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span><span style="color:#888"># Driver code</span>
-</span></span><span style="display:flex;"><span>n <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">4</span>
-</span></span><span style="display:flex;"><span>TowerOfHanoi(n,<span style="background-color:#fff0f0">&#39;A&#39;</span>,<span style="background-color:#fff0f0">&#39;B&#39;</span>,<span style="background-color:#fff0f0">&#39;C&#39;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#888"># A, C, B are the name of rods</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Driver code</span>
+</span></span><span style="display:flex;"><span>n <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>TowerOfHanoi(n,<span style="color:#e6db74">&#39;A&#39;</span>,<span style="color:#e6db74">&#39;B&#39;</span>,<span style="color:#e6db74">&#39;C&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A, C, B are the name of rods</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">&#39;&#39;&#39;
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source A to destination C
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 2 from source A to destination B
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source C to destination B
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 3 from source A to destination C
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source B to destination A
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 2 from source B to destination C
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source A to destination C
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 4 from source A to destination B
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source C to destination B
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 2 from source C to destination A
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source B to destination A
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 3 from source C to destination B
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source A to destination C
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 2 from source A to destination B
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">Move disk 1 from source C to destination B
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Move disk 1 from source A to destination C
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Move disk 2 from source A to destination B
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Move disk 1 from source C to destination B
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Move disk 3 from source A to destination C
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Move disk 1 from source B to destination A
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Move disk 2 from source B to destination C
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Move disk 1 from source A to destination C
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Move disk 4 from source A to destination B
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Move disk 1 from source C to destination B
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Move disk 2 from source C to destination A
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Move disk 1 from source B to destination A
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Move disk 3 from source C to destination B
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Move disk 1 from source A to destination C
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Move disk 2 from source A to destination B
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Move disk 1 from source C to destination B
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="merge-sort">Merge Sort</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -480,54 +480,54 @@ Last Modified on April 3rd, 2022
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">mergeSort</span>(arr):
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> <span style="color:#007020">len</span>(arr) <span style="color:#333">&gt;</span> <span style="color:#00d;font-weight:bold">1</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># Finding the mid of the array</span>
-</span></span><span style="display:flex;"><span>        mid <span style="color:#333">=</span> <span style="color:#007020">len</span>(arr)<span style="color:#333">//</span><span style="color:#00d;font-weight:bold">2</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mergeSort</span>(arr):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> len(arr) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Finding the mid of the array</span>
+</span></span><span style="display:flex;"><span>        mid <span style="color:#f92672">=</span> len(arr)<span style="color:#f92672">//</span><span style="color:#ae81ff">2</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># Dividing the array elements into 2 halves</span>
-</span></span><span style="display:flex;"><span>        L <span style="color:#333">=</span> arr[:mid]
-</span></span><span style="display:flex;"><span>        R <span style="color:#333">=</span> arr[mid:]
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Dividing the array elements into 2 halves</span>
+</span></span><span style="display:flex;"><span>        L <span style="color:#f92672">=</span> arr[:mid]
+</span></span><span style="display:flex;"><span>        R <span style="color:#f92672">=</span> arr[mid:]
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># Sort</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Sort</span>
 </span></span><span style="display:flex;"><span>        mergeSort(L)
 </span></span><span style="display:flex;"><span>        mergeSort(R)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        i <span style="color:#333">=</span> j <span style="color:#333">=</span> k <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># Copy data to temp arrays L[] and R[]</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> i <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(L) <span style="color:#000;font-weight:bold">and</span> j <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(R):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> L[i] <span style="color:#333">&lt;</span> R[j]:
-</span></span><span style="display:flex;"><span>                arr[k] <span style="color:#333">=</span> L[i]
-</span></span><span style="display:flex;"><span>                i <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">else</span>:
-</span></span><span style="display:flex;"><span>                arr[k] <span style="color:#333">=</span> R[j]
-</span></span><span style="display:flex;"><span>                j <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>            k <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>        i <span style="color:#f92672">=</span> j <span style="color:#f92672">=</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Copy data to temp arrays L[] and R[]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> i <span style="color:#f92672">&lt;</span> len(L) <span style="color:#f92672">and</span> j <span style="color:#f92672">&lt;</span> len(R):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> L[i] <span style="color:#f92672">&lt;</span> R[j]:
+</span></span><span style="display:flex;"><span>                arr[k] <span style="color:#f92672">=</span> L[i]
+</span></span><span style="display:flex;"><span>                i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                arr[k] <span style="color:#f92672">=</span> R[j]
+</span></span><span style="display:flex;"><span>                j <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            k <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#888"># Checking if any element was left</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> i <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(L):
-</span></span><span style="display:flex;"><span>            arr[k] <span style="color:#333">=</span> L[i]
-</span></span><span style="display:flex;"><span>            i <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>            k <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Checking if any element was left</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> i <span style="color:#f92672">&lt;</span> len(L):
+</span></span><span style="display:flex;"><span>            arr[k] <span style="color:#f92672">=</span> L[i]
+</span></span><span style="display:flex;"><span>            i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            k <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">while</span> j <span style="color:#333">&lt;</span> <span style="color:#007020">len</span>(R):
-</span></span><span style="display:flex;"><span>            arr[k] <span style="color:#333">=</span> R[j]
-</span></span><span style="display:flex;"><span>            j <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
-</span></span><span style="display:flex;"><span>            k <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> j <span style="color:#f92672">&lt;</span> len(R):
+</span></span><span style="display:flex;"><span>            arr[k] <span style="color:#f92672">=</span> R[j]
+</span></span><span style="display:flex;"><span>            j <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            k <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Code to print the list</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">printList</span>(arr):
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#007020">len</span>(arr)):
-</span></span><span style="display:flex;"><span>        <span style="color:#007020">print</span>(arr[i], end<span style="color:#333">=</span><span style="background-color:#fff0f0">&#34; &#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#007020">print</span>()
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Code to print the list</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">printList</span>(arr):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(arr)):
+</span></span><span style="display:flex;"><span>        print(arr[i], end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>    print()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Driver Code</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">if</span> __name__ <span style="color:#333">==</span> <span style="background-color:#fff0f0">&#39;__main__&#39;</span>:
-</span></span><span style="display:flex;"><span>    arr <span style="color:#333">=</span> [<span style="color:#00d;font-weight:bold">12</span>, <span style="color:#00d;font-weight:bold">11</span>, <span style="color:#00d;font-weight:bold">13</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">6</span>, <span style="color:#00d;font-weight:bold">7</span>]
-</span></span><span style="display:flex;"><span>    <span style="color:#007020">print</span>(<span style="background-color:#fff0f0">&#34;Given array is&#34;</span>, end<span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;</span><span style="color:#666;background-color:#fff0f0;font-weight:bold">\n</span><span style="background-color:#fff0f0">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Driver Code</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    arr <span style="color:#f92672">=</span> [<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>]
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Given array is&#34;</span>, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span>    printList(arr)
 </span></span><span style="display:flex;"><span>    mergeSort(arr)
-</span></span><span style="display:flex;"><span>    <span style="color:#007020">print</span>(<span style="background-color:#fff0f0">&#34;Sorted array is: &#34;</span>, end<span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;</span><span style="color:#666;background-color:#fff0f0;font-weight:bold">\n</span><span style="background-color:#fff0f0">&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Sorted array is: &#34;</span>, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span>    printList(arr)
 </span></span></code></pre></td></tr></table>
 </div>
