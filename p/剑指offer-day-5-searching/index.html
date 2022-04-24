@@ -5,16 +5,16 @@
 Created on April 16th, 2022
 Last Modified on April 16th, 2022
  Task 1 - Q04. 二维数组中的查找 Question 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 e.g.  [1, 4, 7, 11, 15],  [2, 5, 8, 12, 19],  [3, 6, 9, 16, 22],  [10, 13, 14, 17, 24],  [18, 21, 23, 26, 30]
-Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  class Solution:  def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -&amp;gt; bool:  if matrix == [] or matrix == [[]]:  return False   n, m = len(matrix), len(matrix[0])  i, j = 0, m-1  while i &amp;lt;= n-1 and j &amp;gt;= 0:  if matrix[i][j] &amp;gt; target:  j -= 1  elif matrix[i][j] &amp;lt; target:  i &#43;= 1  else:  return True  return False   Explanation  Using the properties of the matrix properly is a trick.'><title>[剑指Offer] Day 5: Searching</title>
+Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  class Solution: def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -&amp;gt; bool: if matrix == [] or matrix == [[]]: return False n, m = len(matrix), len(matrix[0]) i, j = 0, m-1 while i &amp;lt;= n-1 and j &amp;gt;= 0: if matrix[i][j] &amp;gt; target: j -= 1 elif matrix[i][j] &amp;lt; target: i &#43;= 1 else: return True return False   Explanation  Using the properties of the matrix properly is a trick.'><title>[剑指Offer] Day 5: Searching</title>
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-5-searching/'>
 
-<link rel="stylesheet" href="/scss/style.min.b45c4072bb0e5712dc170bd0a8d620aa4522109f0499d25faa00c6cf778a9616.css"><meta property='og:title' content='[剑指Offer] Day 5: Searching'>
+<link rel="stylesheet" href="/scss/style.min.a18c6c5b9562e6a7a8f72e063d459791a2faea82535a69bcd3d2e559d9e60c84.css"><meta property='og:title' content='[剑指Offer] Day 5: Searching'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on April 16th, 2022
 Last Modified on April 16th, 2022
  Task 1 - Q04. 二维数组中的查找 Question 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 e.g.  [1, 4, 7, 11, 15],  [2, 5, 8, 12, 19],  [3, 6, 9, 16, 22],  [10, 13, 14, 17, 24],  [18, 21, 23, 26, 30]
-Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  class Solution:  def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -&amp;gt; bool:  if matrix == [] or matrix == [[]]:  return False   n, m = len(matrix), len(matrix[0])  i, j = 0, m-1  while i &amp;lt;= n-1 and j &amp;gt;= 0:  if matrix[i][j] &amp;gt; target:  j -= 1  elif matrix[i][j] &amp;lt; target:  i &#43;= 1  else:  return True  return False   Explanation  Using the properties of the matrix properly is a trick.'>
+Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  class Solution: def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -&amp;gt; bool: if matrix == [] or matrix == [[]]: return False n, m = len(matrix), len(matrix[0]) i, j = 0, m-1 while i &amp;lt;= n-1 and j &amp;gt;= 0: if matrix[i][j] &amp;gt; target: j -= 1 elif matrix[i][j] &amp;lt; target: i &#43;= 1 else: return True return False   Explanation  Using the properties of the matrix properly is a trick.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-5-searching/'>
 <meta property='og:site_name' content='Tony Feng'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-04-16T22:13:16&#43;08:00'/><meta property='article:modified_time' content='2022-04-16T22:13:16&#43;08:00'/>
@@ -23,7 +23,7 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  class Solution:  def findNumberIn2
 Created on April 16th, 2022
 Last Modified on April 16th, 2022
  Task 1 - Q04. 二维数组中的查找 Question 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 e.g.  [1, 4, 7, 11, 15],  [2, 5, 8, 12, 19],  [3, 6, 9, 16, 22],  [10, 13, 14, 17, 24],  [18, 21, 23, 26, 30]
-Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  class Solution:  def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -&amp;gt; bool:  if matrix == [] or matrix == [[]]:  return False   n, m = len(matrix), len(matrix[0])  i, j = 0, m-1  while i &amp;lt;= n-1 and j &amp;gt;= 0:  if matrix[i][j] &amp;gt; target:  j -= 1  elif matrix[i][j] &amp;lt; target:  i &#43;= 1  else:  return True  return False   Explanation  Using the properties of the matrix properly is a trick.">
+Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  class Solution: def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -&amp;gt; bool: if matrix == [] or matrix == [[]]: return False n, m = len(matrix), len(matrix[0]) i, j = 0, m-1 while i &amp;lt;= n-1 and j &amp;gt;= 0: if matrix[i][j] &amp;gt; target: j -= 1 elif matrix[i][j] &amp;lt; target: i &#43;= 1 else: return True return False   Explanation  Using the properties of the matrix properly is a trick.">
     </head>
     <body class="
     article-page
@@ -356,40 +356,40 @@ e.g. <br/>
 [10, 13, 14, 17, 24], <br/>
 [18, 21, 23, 26, 30]</p>
 <h3 id="solution">Solution</h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">findNumberIn2DArray</span>(self, matrix: List[List[int]], target: int) <span style="color:#f92672">-&gt;</span> bool:
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> matrix <span style="color:#f92672">==</span> [] <span style="color:#f92672">or</span> matrix <span style="color:#f92672">==</span> [[]]:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        n, m <span style="color:#f92672">=</span> len(matrix), len(matrix[<span style="color:#ae81ff">0</span>])
-</span></span><span style="display:flex;"><span>        i, j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, m<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> i <span style="color:#f92672">&lt;=</span> n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">and</span> j <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> matrix[i][j] <span style="color:#f92672">&gt;</span> target:
-</span></span><span style="display:flex;"><span>                j <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">elif</span> matrix[i][j] <span style="color:#f92672">&lt;</span> target:
-</span></span><span style="display:flex;"><span>                i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>   
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">findNumberIn2DArray</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrix</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">matrix</span> <span class="o">==</span> <span class="p">[]</span> <span class="ow">or</span> <span class="n">matrix</span> <span class="o">==</span> <span class="p">[[]]:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">m</span><span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="k">elif</span> <span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">False</span>   
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="explanation">Explanation</h3>
@@ -408,28 +408,28 @@ e.g. <br/>
 <h3 id="question-1">Question</h3>
 <p>在字符串 <code>s</code> 中找出第一个只出现一次的字符。如果没有，返回一个单空格。 <code>s</code> <strong>只包含小写字母</strong>。</p>
 <h3 id="solution-1">Solution</h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">firstUniqChar</span>(self, s: str) <span style="color:#f92672">-&gt;</span> str:
-</span></span><span style="display:flex;"><span>        dict <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> s:
-</span></span><span style="display:flex;"><span>            dict[c] <span style="color:#f92672">=</span> <span style="color:#f92672">not</span> c <span style="color:#f92672">in</span> dict
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> s:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> dict[c]: 
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> c
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39; &#39;</span>    
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">firstUniqChar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">dict</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">dict</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="nb">dict</span><span class="p">[</span><span class="n">c</span><span class="p">]:</span> 
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">c</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s1">&#39; &#39;</span>    
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="explanation-1">Explanation</h3>

@@ -8,7 +8,7 @@ Last Modified on April 9th, 2022
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/algorithm-topic-9-greedy-search/'>
 
-<link rel="stylesheet" href="/scss/style.min.b45c4072bb0e5712dc170bd0a8d620aa4522109f0499d25faa00c6cf778a9616.css"><meta property='og:title' content='[Algorithm] Topic 9: Greedy Search'>
+<link rel="stylesheet" href="/scss/style.min.a18c6c5b9562e6a7a8f72e063d459791a2faea82535a69bcd3d2e559d9e60c84.css"><meta property='og:title' content='[Algorithm] Topic 9: Greedy Search'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on April 9th, 2022
 Last Modified on April 9th, 2022
@@ -379,63 +379,63 @@ Last Modified on April 9th, 2022
 </ul>
 <hr>
 <h2 id="template">Template</h2>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># Pseudocode</span>
-</span></span><span style="display:flex;"><span>Greedy(input I):
-</span></span><span style="display:flex;"><span>begin 
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (solution <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> complete) do
-</span></span><span style="display:flex;"><span>        Select the best element x <span style="color:#f92672">in</span> the 
-</span></span><span style="display:flex;"><span>            remaining input I; 
-</span></span><span style="display:flex;"><span>        Put x next <span style="color:#f92672">in</span> the output;
-</span></span><span style="display:flex;"><span>        Remove x <span style="color:#f92672">from</span> the remaining input;
-</span></span><span style="display:flex;"><span>    endwhile
-</span></span><span style="display:flex;"><span>end  
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="c1"># Pseudocode</span>
+</span></span><span class="line"><span class="cl"><span class="n">Greedy</span><span class="p">(</span><span class="nb">input</span> <span class="n">I</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="n">begin</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">solution</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">complete</span><span class="p">)</span> <span class="n">do</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Select</span> <span class="n">the</span> <span class="n">best</span> <span class="n">element</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">the</span> 
+</span></span><span class="line"><span class="cl">            <span class="n">remaining</span> <span class="nb">input</span> <span class="n">I</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">Put</span> <span class="n">x</span> <span class="nb">next</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">output</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Remove</span> <span class="n">x</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">remaining</span> <span class="nb">input</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">endwhile</span>
+</span></span><span class="line"><span class="cl"><span class="n">end</span>  
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="examples">Examples</h2>
 <h3 id="leetcode-55-jump-game">Leetcode 55 Jump Game</h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">canJump</span>(self, nums):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :type nums: List[int]
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :rtype: bool
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        reach <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i, num <span style="color:#f92672">in</span> enumerate(nums):
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> i <span style="color:#f92672">&gt;</span> reach:
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
-</span></span><span style="display:flex;"><span>            reach <span style="color:#f92672">=</span> max(reach, i <span style="color:#f92672">+</span> num)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">canJump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :type nums: List[int]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        :rtype: bool
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">reach</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">reach</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">            <span class="n">reach</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">reach</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">True</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
