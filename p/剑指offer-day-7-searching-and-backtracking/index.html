@@ -396,7 +396,7 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution: def isSubStructure(self,
 <h2 id="task-2---q27-二叉树的镜像">Task 2 - Q27. 二叉树的镜像</h2>
 <h3 id="question-1">Question</h3>
 <p>请完成一个函数，输入一个二叉树，该函数输出它的镜像。(类似于水平翻转)</p>
-<h3 id="solution-1">Solution</h3>
+<h3 id="solution-1">Solution 1</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -433,14 +433,6 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution: def isSubStructure(self,
 </span><span class="lnt">32
 </span><span class="lnt">33
 </span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MySolution</span><span class="p">:</span> <span class="c1"># BFS</span>
@@ -464,7 +456,7 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution: def isSubStructure(self,
 </span></span><span class="line"><span class="cl">                <span class="n">que</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">mRoot</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution1</span><span class="p">:</span> <span class="c1"># BFS</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span> <span class="c1"># BFS</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">mirrorTree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TreeNode</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span> 
 </span></span><span class="line"><span class="cl">            <span class="k">return</span>
@@ -477,8 +469,21 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution: def isSubStructure(self,
 </span></span><span class="line"><span class="cl">                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">            <span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">root</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution2</span><span class="p">:</span> <span class="c1"># Recursion</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="solution-2">Solution 2</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span> <span class="c1"># Recursion</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">mirrorTree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TreeNode</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span> 
 </span></span><span class="line"><span class="cl">            <span class="k">return</span>
@@ -501,7 +506,7 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution: def isSubStructure(self,
 <h2 id="task-3---q28-对称的二叉树">Task 3 - Q28. 对称的二叉树</h2>
 <h3 id="question-2">Question</h3>
 <p>请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。</p>
-<h3 id="solution-2">Solution</h3>
+<h3 id="solution-3">Solution</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -694,14 +699,15 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution: def isSubStructure(self,
     <li><a href="#task-2---q27-二叉树的镜像">Task 2 - Q27. 二叉树的镜像</a>
       <ol>
         <li><a href="#question-1">Question</a></li>
-        <li><a href="#solution-1">Solution</a></li>
+        <li><a href="#solution-1">Solution 1</a></li>
+        <li><a href="#solution-2">Solution 2</a></li>
         <li><a href="#explanation-1">Explanation</a></li>
       </ol>
     </li>
     <li><a href="#task-3---q28-对称的二叉树">Task 3 - Q28. 对称的二叉树</a>
       <ol>
         <li><a href="#question-2">Question</a></li>
-        <li><a href="#solution-2">Solution</a></li>
+        <li><a href="#solution-3">Solution</a></li>
         <li><a href="#explanation-2">Explanation</a></li>
       </ol>
     </li>
