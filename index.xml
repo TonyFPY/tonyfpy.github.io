@@ -1739,9 +1739,9 @@ e.g. &lt;br/&gt;
 &lt;hr&gt;
 &lt;center&gt;Brown University (Downloaded from the web)&lt;/center&gt;
 &lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/about/Brown_1.jpg&#34;
-	width=&#34;750&#34;
-	height=&#34;1000&#34;
-	srcset=&#34;https://tonyfpy.github.io/about/Brown_1_hu350c3c87960d3c2c39788a6c0731d0ec_687351_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/about/Brown_1_hu350c3c87960d3c2c39788a6c0731d0ec_687351_1024x0_resize_q75_box.jpg 1024w&#34;
+	width=&#34;375&#34;
+	height=&#34;500&#34;
+	srcset=&#34;https://tonyfpy.github.io/about/Brown_1_hu4718f3dd1e0e0feb8ba3022989657d63_196060_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/about/Brown_1_hu4718f3dd1e0e0feb8ba3022989657d63_196060_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1750,9 +1750,9 @@ e.g. &lt;br/&gt;
 		data-flex-basis=&#34;180px&#34;
 	
 &gt;  &lt;img src=&#34;https://tonyfpy.github.io/about/Brown_2.jpg&#34;
-	width=&#34;1000&#34;
-	height=&#34;750&#34;
-	srcset=&#34;https://tonyfpy.github.io/about/Brown_2_hue57b65aefb0192b7dbdc8401272ab34c_893214_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/about/Brown_2_hue57b65aefb0192b7dbdc8401272ab34c_893214_1024x0_resize_q75_box.jpg 1024w&#34;
+	width=&#34;500&#34;
+	height=&#34;375&#34;
+	srcset=&#34;https://tonyfpy.github.io/about/Brown_2_huc40dfd5670970eb7de62682b9f685c9a_235758_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/about/Brown_2_huc40dfd5670970eb7de62682b9f685c9a_235758_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1761,9 +1761,9 @@ e.g. &lt;br/&gt;
 		data-flex-basis=&#34;320px&#34;
 	
 &gt; &lt;img src=&#34;https://tonyfpy.github.io/about/Brown_4.jpg&#34;
-	width=&#34;750&#34;
-	height=&#34;1000&#34;
-	srcset=&#34;https://tonyfpy.github.io/about/Brown_4_hu9344816624c4818332b42778ae63b063_117200_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/about/Brown_4_hu9344816624c4818332b42778ae63b063_117200_1024x0_resize_q75_box.jpg 1024w&#34;
+	width=&#34;375&#34;
+	height=&#34;500&#34;
+	srcset=&#34;https://tonyfpy.github.io/about/Brown_4_hu30461e9487916e604f4c97ac0f337438_33044_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/about/Brown_4_hu30461e9487916e604f4c97ac0f337438_33044_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1772,9 +1772,9 @@ e.g. &lt;br/&gt;
 		data-flex-basis=&#34;180px&#34;
 	
 &gt;  &lt;img src=&#34;https://tonyfpy.github.io/about/Brown_3.jpg&#34;
-	width=&#34;1000&#34;
-	height=&#34;750&#34;
-	srcset=&#34;https://tonyfpy.github.io/about/Brown_3_hu76996997c719a1bff6cc265afa16dcda_878373_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/about/Brown_3_hu76996997c719a1bff6cc265afa16dcda_878373_1024x0_resize_q75_box.jpg 1024w&#34;
+	width=&#34;500&#34;
+	height=&#34;375&#34;
+	srcset=&#34;https://tonyfpy.github.io/about/Brown_3_hu8fe282844f89519e554d5aae46a154d6_236799_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/about/Brown_3_hu8fe282844f89519e554d5aae46a154d6_236799_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	

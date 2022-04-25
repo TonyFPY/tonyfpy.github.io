@@ -24,6 +24,8 @@ Created on April 25th, 2022
 Last Modified on April 25th, 2022
  Task 1 - Q13. 机器人的运动范围 Question 地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于k的格子。例如，当k为18时，机器人能够进入方格 [35, 37] ，因为3&#43;5&#43;3&#43;7=18。但它不能进入方格 [35, 38]，因为3&#43;5&#43;3&#43;8=19。请问该机器人能够到达多少个格子？
 Solution 1 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32  class Solution: # BFS def movingCount(self, m: int, n: int, k: int) -&amp;gt; int: grid = [[0 for _ in range(n)] for _ in range(m)] q, cnt = [], 0 def sumCoord(i, j): total = 0 while i &amp;gt; 0: total &#43;= i % 10 i = i // 10 while j &amp;gt; 0: total &#43;= j % 10 j = j // 10 return total if k &amp;gt;= 0: q.">
+    <link rel="shortcut icon" href="img/favicon.jpeg" />
+
     </head>
     <body class="
     article-page
@@ -67,7 +69,7 @@ Solution 1 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 
                     
                     
                         
-                        <img src="/img/avatar_hu3f3934f12c466389edd8e965eaad18bd_12080_300x0_resize_box_3.png" width="300"
+                        <img src="/img/Brown_hu1b43bb4664aba7c4309526f1ef45ab91_1767_300x0_resize_q75_box.jpeg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 

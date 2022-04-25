@@ -24,6 +24,8 @@ Created on April 16th, 2022
 Last Modified on April 16th, 2022
  Task 1 - Q04. 二维数组中的查找 Question 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 e.g.  [1, 4, 7, 11, 15],  [2, 5, 8, 12, 19],  [3, 6, 9, 16, 22],  [10, 13, 14, 17, 24],  [18, 21, 23, 26, 30]
 Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  class Solution: def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -&amp;gt; bool: if matrix == [] or matrix == [[]]: return False n, m = len(matrix), len(matrix[0]) i, j = 0, m-1 while i &amp;lt;= n-1 and j &amp;gt;= 0: if matrix[i][j] &amp;gt; target: j -= 1 elif matrix[i][j] &amp;lt; target: i &#43;= 1 else: return True return False   Explanation  Using the properties of the matrix properly is a trick.">
+    <link rel="shortcut icon" href="img/favicon.jpeg" />
+
     </head>
     <body class="
     article-page
@@ -67,7 +69,7 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  class Solution: def findNumberIn2D
                     
                     
                         
-                        <img src="/img/avatar_hu3f3934f12c466389edd8e965eaad18bd_12080_300x0_resize_box_3.png" width="300"
+                        <img src="/img/Brown_hu1b43bb4664aba7c4309526f1ef45ab91_1767_300x0_resize_q75_box.jpeg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
