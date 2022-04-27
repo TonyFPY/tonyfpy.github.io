@@ -6,10 +6,10 @@
         <description>Recent content in Categories on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 26 Apr 2022 17:28:50 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 27 Apr 2022 14:09:46 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Leetcode</title>
         <link>https://tonyfpy.github.io/categories/leetcode/</link>
-        <pubDate>Tue, 26 Apr 2022 17:28:50 +0800</pubDate>
+        <pubDate>Wed, 27 Apr 2022 14:09:46 +0800</pubDate>
         
         <guid>https://tonyfpy.github.io/categories/leetcode/</guid>
         <description>&lt;img src="https://tonyfpy.github.io/categories/leetcode/Leetcode.jpeg" alt="Featured image of post Leetcode" /&gt;</description>
@@ -17,10 +17,18 @@
         <item>
         <title>Python</title>
         <link>https://tonyfpy.github.io/categories/python/</link>
-        <pubDate>Tue, 26 Apr 2022 17:28:50 +0800</pubDate>
+        <pubDate>Wed, 27 Apr 2022 14:09:46 +0800</pubDate>
         
         <guid>https://tonyfpy.github.io/categories/python/</guid>
         <description>&lt;img src="https://tonyfpy.github.io/categories/python/Python.jpeg" alt="Featured image of post Python" /&gt;</description>
+        </item>
+        <item>
+        <title>Career</title>
+        <link>https://tonyfpy.github.io/categories/career/</link>
+        <pubDate>Tue, 26 Apr 2022 22:57:49 +0800</pubDate>
+        
+        <guid>https://tonyfpy.github.io/categories/career/</guid>
+        <description>&lt;img src="https://tonyfpy.github.io/categories/career/Career.jpeg" alt="Featured image of post Career" /&gt;</description>
         </item>
         <item>
         <title>Data Structure</title>

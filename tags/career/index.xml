@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Career on Tony Feng</title>
+        <link>https://tonyfpy.github.io/tags/career/</link>
+        <description>Recent content in Career on Tony Feng</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Tue, 26 Apr 2022 22:57:49 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/career/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Career Talk] Topic 1: SDE or DS, How Can I Choose?</title>
+        <link>https://tonyfpy.github.io/p/career-talk-topic-1-sde-or-ds-how-can-i-choose/</link>
+        <pubDate>Tue, 26 Apr 2022 22:57:49 +0800</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/career-talk-topic-1-sde-or-ds-how-can-i-choose/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on April 26th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on April 27th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;Recently, I am preparing for the application of 2023 summer intership in US. Since it might be my last industrial internship, this experience would influence my career path to a large extent and pave the way to my future career development. It&amp;rsquo;s time to conisder it comprehensively.&lt;/p&gt;
+&lt;p&gt;I would like to consider myself as a freshman in job hunting, because it&amp;rsquo;s my first time to seek employment in another country. In order to find a desirable job placement, I&amp;rsquo;ve gone through many related materials online. In this post, I&amp;rsquo;m gonna talk about &lt;strong&gt;Software Devlopment(SD)&lt;/strong&gt; and &lt;strong&gt;Data Science(DS)&lt;/strong&gt;, two popular job directions most CS graduates will choose.&lt;/p&gt;
+&lt;h2 id=&#34;software-development-vs-data-science&#34;&gt;Software Development V.S. Data Science&lt;/h2&gt;
+&lt;h3 id=&#34;number-of-job-opportunities&#34;&gt;Number of Job Opportunities&lt;/h3&gt;
+&lt;p&gt;In general, companies offers more job positions for SD than DS evidently. The ratio is about &lt;strong&gt;10 : 1&lt;/strong&gt; in average.&lt;/p&gt;
+&lt;h3 id=&#34;job-categories&#34;&gt;Job Categories&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;SD&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Software Development Engineer&lt;/li&gt;
+&lt;li&gt;Application Developer&lt;/li&gt;
+&lt;li&gt;Full-stack Web Developer&lt;/li&gt;
+&lt;li&gt;Frontend Developer&lt;/li&gt;
+&lt;li&gt;Backend Developer&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;DS&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Data Scientist&lt;/li&gt;
+&lt;li&gt;Applied Scientist&lt;/li&gt;
+&lt;li&gt;Statistician&lt;/li&gt;
+&lt;li&gt;Business Intelligence Engineer&lt;/li&gt;
+&lt;li&gt;Data/Product/Business Analyst&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Cross Domain&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Machine Learning Engineer&lt;/li&gt;
+&lt;li&gt;Deep Learning Engineer&lt;/li&gt;
+&lt;li&gt;Data Engineer&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;salary&#34;&gt;Salary&lt;/h3&gt;
+&lt;p&gt;The salary may vary depending on your experience, skills, training, certifications and your employer. In general, SD-related professionals are paid higher than DS-related professionals. Reasearch-oriented DS jobs have higher salaries than other kinds of DS jobs, because they are usually demanding and only open for PhDs.&lt;/p&gt;
+&lt;h3 id=&#34;new-graduates-qualifications&#34;&gt;New Graduates Qualifications&lt;/h3&gt;
+&lt;p&gt;SD is &lt;strong&gt;more friendly to new graduates&lt;/strong&gt; than DS in that companies provides more SD placements for them. DS requires the candidates to earn a high education degree or have past working experience.&lt;/p&gt;
+&lt;h3 id=&#34;degree-requirements&#34;&gt;Degree Requirements&lt;/h3&gt;
+&lt;p&gt;SD: Bachlor&amp;rsquo;s degree or higher &lt;br/&gt;
+DS: Master&amp;rsquo;s degree or higher. Many positions even require a Doctoral degree. &lt;br/&gt;&lt;/p&gt;
+&lt;h3 id=&#34;hard-skills&#34;&gt;Hard Skills&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;SD&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Algorithm and Data Structure&lt;/li&gt;
+&lt;li&gt;Programming Paradigms&lt;/li&gt;
+&lt;li&gt;System Design&lt;/li&gt;
+&lt;li&gt;Testing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;DS&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Statistics and Machien Learning&lt;/li&gt;
+&lt;li&gt;Data Manipulation and Modeling&lt;/li&gt;
+&lt;li&gt;Data Visualization&lt;/li&gt;
+&lt;li&gt;Experiemnts Design and Analysis&lt;/li&gt;
+&lt;li&gt;Business Case&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;soft-skills&#34;&gt;Soft Skills&lt;/h3&gt;
+&lt;p&gt;Common soft skills are indispensable for SD and DS in your long-term career development.&lt;/p&gt;
+&lt;p&gt;Besides, DS requires the candidates to have &lt;strong&gt;strong communications skills&lt;/strong&gt;, &lt;strong&gt;data-driven decision making&lt;/strong&gt;, &lt;strong&gt;product sense&lt;/strong&gt;, etc.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;job-descriptions&#34;&gt;Job Descriptions&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Job responsibilities vary based on employers&amp;rsquo; requirements and should be learned case by case.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;sd&#34;&gt;SD&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Full-Stack Engineer&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Front-End + Back-End&lt;/li&gt;
+&lt;li&gt;UI + Server + Database Configuration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mobile App Developer&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Android / IOS&lt;/li&gt;
+&lt;li&gt;Memory + Computational Power&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Graphics Engineer&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;2D and 3D Digital Platforms for Gaming and Video Production&lt;/li&gt;
+&lt;li&gt;Math + CS&lt;/li&gt;
+&lt;li&gt;Unity, OpenGL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Embedded Systems Engineer&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Control of machines&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Software Development Engineer in Test(SDET)&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Dev + Automated Testing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DevOps Engineer&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Dev + Operations + Deployment&lt;/li&gt;
+&lt;li&gt;Network or Sys Admin&lt;/li&gt;
+&lt;li&gt;Source Control / Infrastructure Automation / Cloud&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ds&#34;&gt;DS&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Data Analysts&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Datasets -&amp;gt; Analysis -&amp;gt; Visulization(Reports / Resentations / &amp;hellip;)&lt;/li&gt;
+&lt;li&gt;Experiment (A/B testing) + Statistic + SQL / R / Python&lt;/li&gt;
+&lt;li&gt;Product Interpretation + Actionable Insights + Communication&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data Scientist&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Data Manipulation + Statistical Modeling + Machine Learning&lt;/li&gt;
+&lt;li&gt;Product Improvement&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Applied Scientist / Research Scientist&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Independent Research + Literature Review&lt;/li&gt;
+&lt;li&gt;Model Design + Implementation + Optimization&lt;/li&gt;
+&lt;li&gt;Long-term Research&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Quant Researcher&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Finance + Statistics + Coding&lt;/li&gt;
+&lt;li&gt;Time Series&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;cross-domain&#34;&gt;Cross Domain&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Data Engineer&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Data Pipeline&lt;/li&gt;
+&lt;li&gt;Data Infrastructure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Machine Learning Engineer&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Data Manipulation + Feature Engineering&lt;/li&gt;
+&lt;li&gt;Development + Deployment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;www.xiaogeedu.com&#34; &gt;SDE and DS 的求职难度和就业现状&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.ph-education.com/%e7%95%99%e5%ad%a6%e7%94%b3%e8%af%b7/%e5%b9%b2%e8%b4%a7%e7%bb%8f%e9%aa%8c%e5%90%88%e9%9b%86/%e5%b9%b2%e8%b4%a7-%e4%b8%80%e4%b8%aa%e5%85%b8%e5%9e%8b%e5%8c%97%e7%be%8eds-master%e7%9a%84%e6%b1%82%e8%81%8c%e5%85%a8%e8%bf%87%e7%a8%8b%e5%9b%9e%e9%a1%be/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;一个典型北美DS master的求职全过程回顾&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1Sf4y1p79r?spm_id_from=333.880.my_history.page.click&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;疫情下我是如何拿到FB DS offer 的？&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.coursera.org/introduction-data-science-careers/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;An introduction to data science careers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://intellipaat.com/blog/data-science-vs-software-engineering/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Data Science vs Software Engineering&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.dataapplab.com/differences-between-ds-da-ba-and-de-and-key-points-of-job-interview/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;数据岗位大合集｜DS、DA、BA和DE的区别及求职面试重点&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.1point3acres.com/bbs/thread-850531-1-1.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;你为什么不该选择DS - 可能是2022年最详细的劝退贴&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.1point3acres.com/bbs/thread-601652-1-1.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Data Science相关岗位全面解析(DS vs DA vs MLE vs DE)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.1point3acres.com/bbs/thread-885801-1-1.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DS找工回顾及资料总结&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://analyticsindiamag.com/a-complete-guide-to-data-science-career-path-by-great-learning-aim/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;A Complete Guide To Data Science Career Path – By Great Learning &amp;amp; AIM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.thinkful.com/blog/software-engineer-career-path/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Software Engineer Career Path&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.geeksforgeeks.org/career-paths-for-software-developers-and-programmers-in-2019/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Career Paths For Software Developers and Programmers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

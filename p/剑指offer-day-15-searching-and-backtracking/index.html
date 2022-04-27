@@ -467,7 +467,7 @@ e.g. 输入: [5,3,6,2,4,null,null,1], k = 3; 输出: 4 <br/></p>
 </span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">None</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">):</span> <span class="c1"># Inorder traverse</span>
 </span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">node</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">                <span class="n">dfs</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">                <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
@@ -521,7 +521,7 @@ e.g. 输入: [5,3,6,2,4,null,null,1], k = 3; 输出: 4 <br/></p>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">None</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">cur</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">cur</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">):</span> <span class="c1"># Inorder traverse</span>
 </span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">cur</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">                <span class="n">dfs</span><span class="p">(</span><span class="n">cur</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pre</span><span class="p">:</span>
