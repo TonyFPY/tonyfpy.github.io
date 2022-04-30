@@ -6,10 +6,10 @@
         <description>Recent content in Categories on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 29 Apr 2022 16:22:29 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 30 Apr 2022 16:26:20 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Leetcode</title>
         <link>https://tonyfpy.github.io/categories/leetcode/</link>
-        <pubDate>Fri, 29 Apr 2022 16:22:29 +0800</pubDate>
+        <pubDate>Sat, 30 Apr 2022 16:26:20 +0800</pubDate>
         
         <guid>https://tonyfpy.github.io/categories/leetcode/</guid>
         <description>&lt;img src="https://tonyfpy.github.io/categories/leetcode/Leetcode.jpeg" alt="Featured image of post Leetcode" /&gt;</description>
@@ -17,10 +17,18 @@
         <item>
         <title>Python</title>
         <link>https://tonyfpy.github.io/categories/python/</link>
-        <pubDate>Fri, 29 Apr 2022 16:22:29 +0800</pubDate>
+        <pubDate>Sat, 30 Apr 2022 16:26:20 +0800</pubDate>
         
         <guid>https://tonyfpy.github.io/categories/python/</guid>
         <description>&lt;img src="https://tonyfpy.github.io/categories/python/Python.jpeg" alt="Featured image of post Python" /&gt;</description>
+        </item>
+        <item>
+        <title>Data Analysis</title>
+        <link>https://tonyfpy.github.io/categories/data-analysis/</link>
+        <pubDate>Sat, 30 Apr 2022 10:30:44 +0800</pubDate>
+        
+        <guid>https://tonyfpy.github.io/categories/data-analysis/</guid>
+        <description>&lt;img src="https://tonyfpy.github.io/categories/data-analysis/DA.jpg" alt="Featured image of post Data Analysis" /&gt;</description>
         </item>
         <item>
         <title>Career</title>
@@ -53,6 +61,22 @@
         
         <guid>https://tonyfpy.github.io/categories/java/</guid>
         <description>&lt;img src="https://tonyfpy.github.io/categories/java/Java.jpeg" alt="Featured image of post Java" /&gt;</description>
+        </item>
+        <item>
+        <title>Deep Learning</title>
+        <link>https://tonyfpy.github.io/categories/deep-learning/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://tonyfpy.github.io/categories/deep-learning/</guid>
+        <description>&lt;img src="https://tonyfpy.github.io/categories/deep-learning/DL.jpg" alt="Featured image of post Deep Learning" /&gt;</description>
+        </item>
+        <item>
+        <title>Machine Learning</title>
+        <link>https://tonyfpy.github.io/categories/machine-learning/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://tonyfpy.github.io/categories/machine-learning/</guid>
+        <description>&lt;img src="https://tonyfpy.github.io/categories/machine-learning/ML.jpg" alt="Featured image of post Machine Learning" /&gt;</description>
         </item>
         
     </channel>
