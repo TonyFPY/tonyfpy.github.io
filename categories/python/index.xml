@@ -63,7 +63,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;div align=&#34;center&#34;&gt;
-    &lt;img src=1.png/&gt;
+    &lt;img src=&#34;1.jpg&#34;/&gt;
 &lt;/div&gt;
 &lt;h3 id=&#34;subplots&#34;&gt;Subplots&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -123,7 +123,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;div align=&#34;center&#34;&gt;
-    &lt;img src=2.png/&gt;
+    &lt;img src=&#34;2.jpg&#34;/&gt;
 &lt;/div&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;common-figures&#34;&gt;Common Figures&lt;/h2&gt;
@@ -159,7 +159,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;div align=&#34;center&#34;&gt;
-    &lt;img src=3.png/&gt;
+    &lt;img src=&#34;3.jpg&#34;/&gt;
 &lt;/div&gt;
 &lt;h3 id=&#34;scatter-plot&#34;&gt;Scatter Plot&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -201,7 +201,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;div align=&#34;center&#34;&gt;
-    &lt;img src=4.png/&gt;
+    &lt;img src=&#34;4.jpg&#34;/&gt;
 &lt;/div&gt;
 &lt;h3 id=&#34;box-plot&#34;&gt;Box Plot&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -233,7 +233,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;div align=&#34;center&#34;&gt;
-    &lt;img src=5.png/&gt;
+    &lt;img src=&#34;5.jpg&#34;/&gt;
 &lt;/div&gt;
 &lt;h3 id=&#34;pie-chart&#34;&gt;Pie Chart&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -273,7 +273,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;div align=&#34;center&#34;&gt;
-    &lt;img src=6.png/&gt;
+    &lt;img src=&#34;6.jpg&#34;/&gt;
 &lt;/div&gt;
 &lt;h3 id=&#34;3d-figure&#34;&gt;3D Figure&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -323,7 +323,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;div align=&#34;center&#34;&gt;
-    &lt;img src=7.png/&gt;
+    &lt;img src=&#34;7.jpg&#34;/&gt;
 &lt;/div&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
@@ -412,7 +412,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div align=&#34;center&#34;&gt;
-    &lt;img src=Q15.png/&gt;
+    &lt;img src=&#34;Q15.jpg&#34;/&gt;
 &lt;/div&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;task-2---q65-不用加减乘除做加法&#34;&gt;Task 2 - Q65. 不用加减乘除做加法&lt;/h2&gt;
@@ -488,7 +488,7 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;div align=&#34;center&#34;&gt;
-    &lt;img src=Q65.png/&gt;
+    &lt;img src=&#34;Q65.jpg&#34;/&gt;
 &lt;/div&gt;
 &lt;hr&gt;
 </description>
@@ -2710,7 +2710,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div align=&#34;center&#34;&gt;
-    &lt;img src=Q45.png width=50% /&gt;
+    &lt;img src=&#34;Q45.png&#34; width=50% /&gt;
 &lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;Solution 1 &amp;amp; 2
@@ -2812,7 +2812,7 @@ e.g. 输入: [5,3,6,2,4,null,null,1], k = 3; 输出: 4 &lt;br/&gt;&lt;/p&gt;
 &lt;h3 id=&#34;question-1&#34;&gt;Question&lt;/h3&gt;
 &lt;p&gt;输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的循环双向链表。要求不能创建任何新的节点，只能调整树中节点指针的指向。链表中的每个节点都有一个前驱和后继指针。对于双向循环链表，第一个节点的前驱是最后一个节点，最后一个节点的后继是第一个节点。&lt;code&gt;head&lt;/code&gt; 表示指向链表中有最小元素的节点。&lt;/p&gt;
 &lt;div align=&#34;center&#34;&gt;
-    &lt;img src=Q36.png width=50% /&gt;
+    &lt;img src=&#34;Q36.png&#34; width=50% /&gt;
 &lt;/div&gt;
 &lt;h3 id=&#34;solution-1&#34;&gt;Solution 1&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
