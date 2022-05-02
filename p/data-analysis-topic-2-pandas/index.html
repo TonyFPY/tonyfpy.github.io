@@ -5,16 +5,16 @@
 Created on April 30th, 2022
 Last Modified on May 1st, 2022
  Intro Pandas is great data processing library for table/database-like data. Excellent for things that come in or you wish to output as CSV/Excel. DataFrames make manipulating your data easy, from selecting or replacing columns and indices to reshaping your data.
-Data Preprocessing Create a Dataframe 1 2 3 4 5  data = { &amp;#34;Country&amp;#34;: [&amp;#39;China&amp;#39;, &amp;#39;US&amp;#39;, &amp;#39;India&amp;#39;], &amp;#34;Population&amp;#34;: [14, 3, 14] } df = pd.'><title>[Data Analysis] Topic 2: Pandas</title>
+Data Preprocessing Dataframe Creating 1 2 3 4 5  data = { &amp;#34;Country&amp;#34;: [&amp;#39;China&amp;#39;, &amp;#39;US&amp;#39;, &amp;#39;India&amp;#39;], &amp;#34;Population&amp;#34;: [14, 3, 14] } df = pd.'><title>[Data Analysis] Topic 2: Pandas</title>
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/data-analysis-topic-2-pandas/'>
 
-<link rel="stylesheet" href="/scss/style.min.95ba04fb9e73e82c353651630a48f2ca4d9650a6bcf88f2f98720d2c2e24afdf.css"><meta property='og:title' content='[Data Analysis] Topic 2: Pandas'>
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Data Analysis] Topic 2: Pandas'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on April 30th, 2022
 Last Modified on May 1st, 2022
  Intro Pandas is great data processing library for table/database-like data. Excellent for things that come in or you wish to output as CSV/Excel. DataFrames make manipulating your data easy, from selecting or replacing columns and indices to reshaping your data.
-Data Preprocessing Create a Dataframe 1 2 3 4 5  data = { &amp;#34;Country&amp;#34;: [&amp;#39;China&amp;#39;, &amp;#39;US&amp;#39;, &amp;#39;India&amp;#39;], &amp;#34;Population&amp;#34;: [14, 3, 14] } df = pd.'>
+Data Preprocessing Dataframe Creating 1 2 3 4 5  data = { &amp;#34;Country&amp;#34;: [&amp;#39;China&amp;#39;, &amp;#39;US&amp;#39;, &amp;#39;India&amp;#39;], &amp;#34;Population&amp;#34;: [14, 3, 14] } df = pd.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/data-analysis-topic-2-pandas/'>
 <meta property='og:site_name' content='Tony Feng'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Data Analysis' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-04-30T22:20:26&#43;08:00'/><meta property='article:modified_time' content='2022-04-30T22:20:26&#43;08:00'/>
@@ -23,7 +23,7 @@ Data Preprocessing Create a Dataframe 1 2 3 4 5  data = { &amp;#34;Country&amp;#
 Created on April 30th, 2022
 Last Modified on May 1st, 2022
  Intro Pandas is great data processing library for table/database-like data. Excellent for things that come in or you wish to output as CSV/Excel. DataFrames make manipulating your data easy, from selecting or replacing columns and indices to reshaping your data.
-Data Preprocessing Create a Dataframe 1 2 3 4 5  data = { &amp;#34;Country&amp;#34;: [&amp;#39;China&amp;#39;, &amp;#39;US&amp;#39;, &amp;#39;India&amp;#39;], &amp;#34;Population&amp;#34;: [14, 3, 14] } df = pd.">
+Data Preprocessing Dataframe Creating 1 2 3 4 5  data = { &amp;#34;Country&amp;#34;: [&amp;#39;China&amp;#39;, &amp;#39;US&amp;#39;, &amp;#39;India&amp;#39;], &amp;#34;Population&amp;#34;: [14, 3, 14] } df = pd.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -351,7 +351,7 @@ Data Preprocessing Create a Dataframe 1 2 3 4 5  data = { &amp;#34;Country&amp;#
 <h2 id="intro">Intro</h2>
 <p>Pandas is great data processing library for table/database-like data. Excellent for things that come in or you wish to output as CSV/Excel. DataFrames make manipulating your data easy, from selecting or replacing columns and indices to reshaping your data.</p>
 <h2 id="data-preprocessing">Data Preprocessing</h2>
-<h3 id="create-a-dataframe">Create a Dataframe</h3>
+<h3 id="dataframe-creating">Dataframe Creating</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -368,7 +368,7 @@ Data Preprocessing Create a Dataframe 1 2 3 4 5  data = { &amp;#34;Country&amp;#
 </span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="read-data">Read data</h3>
+</div><h3 id="data-reading">Data Reading</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -988,7 +988,7 @@ Data Preprocessing Create a Dataframe 1 2 3 4 5  data = { &amp;#34;Country&amp;#
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="c1"># Assuming data contains weekdays, we can set same weekday to share the same memory space.</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Assuming data contains weekdays, we can set same weekday to share the same memory space.</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 70 weekdays may result in 70 memory space. we convert the &#39;object&#39; into &#39;category&#39; for data to share memory space.</span>
 </span></span><span class="line"><span class="cl"><span class="n">df_obj</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;object&#39;</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl"><span class="n">dow</span> <span class="o">=</span> <span class="n">df_obj</span><span class="o">.</span><span class="n">weekday</span>    <span class="c1"># Assume there is a column called &#39;weekday&#39;</span>
@@ -1156,8 +1156,8 @@ Data Preprocessing Create a Dataframe 1 2 3 4 5  data = { &amp;#34;Country&amp;#
     <li><a href="#intro">Intro</a></li>
     <li><a href="#data-preprocessing">Data Preprocessing</a>
       <ol>
-        <li><a href="#create-a-dataframe">Create a Dataframe</a></li>
-        <li><a href="#read-data">Read data</a></li>
+        <li><a href="#dataframe-creating">Dataframe Creating</a></li>
+        <li><a href="#data-reading">Data Reading</a></li>
         <li><a href="#data-indexing">Data indexing</a></li>
         <li><a href="#series">Series</a></li>
       </ol>

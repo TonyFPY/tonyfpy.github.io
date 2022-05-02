@@ -2,28 +2,28 @@
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
-Created on April 26th, 2022
-Last Modified on April 28th, 2022
- Intro Recently, I am preparing for the application of 2023 summer intership in US. Since it might be my last industrial internship, this experience would influence my career path to a large extent and pave the way to my future career development. It&amp;rsquo;s time to conisder it comprehensively.
-I would like to consider myself as a freshman in job hunting, because it&amp;rsquo;s my first time to seek employment in another country.'><title>[Career Talk] Topic 1: SDE or DS, How Can I Choose?</title>
+Created on May 2st, 2022
+Last Modified on May 2st, 2022
+ Task 1 - Q15. 二进制中1的个数 Question 编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 &amp;lsquo;1&amp;rsquo; 的个数（也被称为 汉明重量).）。
+Solution 1 1 2 3 4 5 6 7 8  class Solution: # Recursion def hammingWeight(self, n: int) -&amp;gt; int: if n == 0: return 0 elif n &amp;amp; 1 == 0: return self.hammingWeight(n &amp;gt;&amp;gt; 1) else: return 1 &#43; self.hammingWeight(n &amp;gt;&amp;gt; 1)   Solution 2 1 2 3 4 5 6 7  class Solution: # Iteration  def hammingWeight(self, n: int) -&amp;gt; int: res = 0 while n: res &#43;= 1 n = n &amp;amp; (n-1) # Remove leftest 1 in each loop return res   Explanation  Solution 1  Time Complexity: O(log(n)), i.'><title>[剑指Offer] Day 21: Bit Operation</title>
 
-<link rel='canonical' href='https://tonyfpy.github.io/p/career-talk-topic-1-sde-or-ds-how-can-i-choose/'>
+<link rel='canonical' href='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-21-bit-operation/'>
 
-<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Career Talk] Topic 1: SDE or DS, How Can I Choose?'>
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[剑指Offer] Day 21: Bit Operation'>
 <meta property='og:description' content='Authored by Tony Feng
-Created on April 26th, 2022
-Last Modified on April 28th, 2022
- Intro Recently, I am preparing for the application of 2023 summer intership in US. Since it might be my last industrial internship, this experience would influence my career path to a large extent and pave the way to my future career development. It&amp;rsquo;s time to conisder it comprehensively.
-I would like to consider myself as a freshman in job hunting, because it&amp;rsquo;s my first time to seek employment in another country.'>
-<meta property='og:url' content='https://tonyfpy.github.io/p/career-talk-topic-1-sde-or-ds-how-can-i-choose/'>
+Created on May 2st, 2022
+Last Modified on May 2st, 2022
+ Task 1 - Q15. 二进制中1的个数 Question 编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 &amp;lsquo;1&amp;rsquo; 的个数（也被称为 汉明重量).）。
+Solution 1 1 2 3 4 5 6 7 8  class Solution: # Recursion def hammingWeight(self, n: int) -&amp;gt; int: if n == 0: return 0 elif n &amp;amp; 1 == 0: return self.hammingWeight(n &amp;gt;&amp;gt; 1) else: return 1 &#43; self.hammingWeight(n &amp;gt;&amp;gt; 1)   Solution 2 1 2 3 4 5 6 7  class Solution: # Iteration  def hammingWeight(self, n: int) -&amp;gt; int: res = 0 while n: res &#43;= 1 n = n &amp;amp; (n-1) # Remove leftest 1 in each loop return res   Explanation  Solution 1  Time Complexity: O(log(n)), i.'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-21-bit-operation/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Career' /><meta property='article:published_time' content='2022-04-26T22:57:49&#43;08:00'/><meta property='article:modified_time' content='2022-04-26T22:57:49&#43;08:00'/>
-<meta name="twitter:title" content="[Career Talk] Topic 1: SDE or DS, How Can I Choose?">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-02T15:16:33&#43;08:00'/><meta property='article:modified_time' content='2022-05-02T15:16:33&#43;08:00'/>
+<meta name="twitter:title" content="[剑指Offer] Day 21: Bit Operation">
 <meta name="twitter:description" content="Authored by Tony Feng
-Created on April 26th, 2022
-Last Modified on April 28th, 2022
- Intro Recently, I am preparing for the application of 2023 summer intership in US. Since it might be my last industrial internship, this experience would influence my career path to a large extent and pave the way to my future career development. It&amp;rsquo;s time to conisder it comprehensively.
-I would like to consider myself as a freshman in job hunting, because it&amp;rsquo;s my first time to seek employment in another country.">
+Created on May 2st, 2022
+Last Modified on May 2st, 2022
+ Task 1 - Q15. 二进制中1的个数 Question 编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 &amp;lsquo;1&amp;rsquo; 的个数（也被称为 汉明重量).）。
+Solution 1 1 2 3 4 5 6 7 8  class Solution: # Recursion def hammingWeight(self, n: int) -&amp;gt; int: if n == 0: return 0 elif n &amp;amp; 1 == 0: return self.hammingWeight(n &amp;gt;&amp;gt; 1) else: return 1 &#43; self.hammingWeight(n &amp;gt;&amp;gt; 1)   Solution 2 1 2 3 4 5 6 7  class Solution: # Iteration  def hammingWeight(self, n: int) -&amp;gt; int: res = 0 while n: res &#43;= 1 n = n &amp;amp; (n-1) # Remove leftest 1 in each loop return res   Explanation  Solution 1  Time Complexity: O(log(n)), i.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -282,8 +282,12 @@ I would like to consider myself as a freshman in job hunting, because it&amp;rsq
     
     <header class="article-category">
         
-            <a href="/categories/career/" style="background-color: #ff6666; color: #fff;">
-                Career
+            <a href="/categories/leetcode/" style="background-color: #FF9966; color: #fff;">
+                Leetcode
+            </a>
+        
+            <a href="/categories/python/" style="background-color: #0099CC; color: #fff;">
+                Python
             </a>
         
     </header>
@@ -291,7 +295,7 @@ I would like to consider myself as a freshman in job hunting, because it&amp;rsq
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/career-talk-topic-1-sde-or-ds-how-can-i-choose/">[Career Talk] Topic 1: SDE or DS, How Can I Choose?</a>
+            <a href="/p/%E5%89%91%E6%8C%87offer-day-21-bit-operation/">[剑指Offer] Day 21: Bit Operation</a>
         </h2>
     
         
@@ -310,7 +314,7 @@ I would like to consider myself as a freshman in job hunting, because it&amp;rsq
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Apr 26, 2022</time>
+                <time class="article-time--published">May 02, 2022</time>
             </div>
         
 
@@ -325,7 +329,7 @@ I would like to consider myself as a freshman in job hunting, because it&amp;rsq
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -341,181 +345,150 @@ I would like to consider myself as a freshman in job hunting, because it&amp;rsq
     
     <blockquote>
 <p>Authored by Tony Feng</p>
-<p>Created on April 26th, 2022</p>
-<p>Last Modified on April 28th, 2022</p>
+<p>Created on May 2st, 2022</p>
+<p>Last Modified on May 2st, 2022</p>
 </blockquote>
-<h2 id="intro">Intro</h2>
-<p>Recently, I am preparing for the application of 2023 summer intership in US. Since it might be my last industrial internship, this experience would influence my career path to a large extent and pave the way to my future career development. It&rsquo;s time to conisder it comprehensively.</p>
-<p>I would like to consider myself as a freshman in job hunting, because it&rsquo;s my first time to seek employment in another country. In order to find a desirable job placement, I&rsquo;ve gone through many related materials online. In this post, I&rsquo;m gonna talk about <strong>Software Devlopment(SD)</strong> and <strong>Data Science(DS)</strong>, two popular job directions most CS graduates will choose.</p>
-<h2 id="sd-vs-ds">SD V.S. DS</h2>
-<h3 id="number-of-job-opportunities">Number of Job Opportunities</h3>
-<p>In general, companies offers more job positions for SD than DS evidently. The ratio is about <strong>10 : 1</strong> in average. SD is <strong>more friendly to new graduates</strong> than DS in that companies provides more SD placements for them. DS requires the candidates to earn a high education degree or have past working experience.</p>
-<h3 id="job-categories">Job Categories</h3>
-<p><strong>SD</strong>:</p>
+<h2 id="task-1---q15-二进制中1的个数">Task 1 - Q15. 二进制中1的个数</h2>
+<h3 id="question">Question</h3>
+<p>编写一个函数，输入是一个无符号整数（以<em><strong>二进制串</strong></em>的形式），返回其二进制表达式中数字位数为 &lsquo;1&rsquo; 的个数（也被称为 汉明重量).）。</p>
+<h3 id="solution-1">Solution 1</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span> <span class="c1"># Recursion</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">hammingWeight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">n</span> <span class="o">&amp;</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hammingWeight</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">hammingWeight</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="solution-2">Solution 2</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span> <span class="c1"># Iteration </span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">hammingWeight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Remove leftest 1 in each loop</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="explanation">Explanation</h3>
 <ul>
-<li>Software Development Engineer</li>
-<li>Application Developer</li>
-<li>Full-stack Web Developer</li>
-<li>Frontend Developer</li>
-<li>Backend Developer</li>
-<li>&hellip;</li>
-</ul>
-<p><strong>DS</strong>:</p>
+<li>Solution 1
 <ul>
-<li>Data Scientist</li>
-<li>Applied Scientist</li>
-<li>Statistician</li>
-<li>Business Intelligence Engineer</li>
-<li>Data/Product/Business Analyst</li>
-<li>&hellip;</li>
+<li>Time Complexity: O(log(n)), i.e., log(n) means the rightest position of 1 in n</li>
+<li>Space Complexity: O(log(n))</li>
 </ul>
-<p><strong>Cross Domain</strong>:</p>
+</li>
+<li>Solution 2
 <ul>
-<li>Machine Learning Engineer</li>
-<li>Deep Learning Engineer</li>
-<li>Data Engineer</li>
-<li>&hellip;</li>
+<li>Time Complexity: O(M), i.e., it depends on how many 1 in the binary string.</li>
+<li>Space Complexity: O(1)</li>
 </ul>
-<h3 id="salary">Salary</h3>
-<p>The salary may vary depending on your experience, skills, training, certifications and your employer. In general, SD-related professionals are paid higher than DS-related professionals. Reasearch-oriented DS jobs have higher salaries than other kinds of DS jobs, because they are usually demanding and only open for PhDs.</p>
-<h3 id="degree-requirements">Degree Requirements</h3>
-<p>SD: Bachlor&rsquo;s degree or higher <br/>
-DS: Master&rsquo;s degree or higher. Many positions even require a Doctoral degree. <br/></p>
-<h3 id="hard-skills">Hard Skills</h3>
-<p><strong>SD</strong>:</p>
-<ul>
-<li>Algorithm and Data Structure</li>
-<li>Programming Paradigms</li>
-<li>System Design</li>
-<li>Testing</li>
+</li>
 </ul>
-<p><strong>DS</strong>:</p>
-<ul>
-<li>Statistics and Machien Learning</li>
-<li>Data Manipulation and Modeling</li>
-<li>Data Visualization</li>
-<li>Experiemnts Design and Analysis</li>
-<li>Business Case</li>
-</ul>
-<h3 id="soft-skills">Soft Skills</h3>
-<p>Common soft skills are indispensable for SD and DS in your long-term career development.</p>
-<p>Besides, DS requires the candidates to have <strong>strong communications skills</strong>, <strong>data-driven decision making</strong>, <strong>product sense</strong>, etc.</p>
+<div align="center">
+    <img src=Q15.jpg/>
+</div>
 <hr>
-<h2 id="job-descriptions">Job Descriptions</h2>
-<blockquote>
-<p>Job responsibilities vary based on employers&rsquo; requirements and should be learned case by case.</p>
-</blockquote>
-<h3 id="sd">SD</h3>
+<h2 id="task-2---q65-不用加减乘除做加法">Task 2 - Q65. 不用加减乘除做加法</h2>
+<h3 id="question-1">Question</h3>
+<p>写一个函数，求两个整数之和，要求在函数体内不得使用 “+”、“-”、“*”、“/” 四则运算符号。a, b 均可能是负数或 0，并且结果不会溢出 32 位整数</p>
+<h3 id="solution">Solution</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="mh">0xffffffff</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span> <span class="o">&amp;</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">b</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">carry</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="o">&amp;</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">            <span class="n">total</span> <span class="o">=</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">            <span class="n">a</span> <span class="o">=</span> <span class="n">total</span>
+</span></span><span class="line"><span class="cl">            <span class="n">b</span> <span class="o">=</span> <span class="n">carry</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">a</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mh">0x7fffffff</span> <span class="k">else</span> <span class="o">~</span><span class="p">(</span><span class="n">a</span> <span class="o">^</span> <span class="n">x</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="explanation-1">Explanation</h3>
 <ul>
-<li><strong>Full-Stack Engineer</strong>
-<ul>
-<li>Front-End + Back-End</li>
-<li>UI + Server + Database Configuration</li>
+<li>Time Complexity: O(1, i.e., maximum number of iterations is 32</li>
+<li>Space Complexity: O(1)</li>
+<li>sum = a + b =&gt; sum = n + c</li>
 </ul>
-</li>
-<li><strong>Mobile App Developer</strong>
-<ul>
-<li>Android / IOS</li>
-<li>Memory + Computational Power</li>
-</ul>
-</li>
-<li><strong>Graphics Engineer</strong>
-<ul>
-<li>2D and 3D Digital Platforms for Gaming and Video Production</li>
-<li>Math + CS</li>
-<li>Unity, OpenGL</li>
-</ul>
-</li>
-<li><strong>Embedded Systems Engineer</strong>
-<ul>
-<li>Control of machines</li>
-</ul>
-</li>
-<li><strong>Software Development Engineer in Test(SDET)</strong>
-<ul>
-<li>Dev + Automated Testing</li>
-</ul>
-</li>
-<li><strong>DevOps Engineer</strong>
-<ul>
-<li>Dev + Operations + Deployment</li>
-<li>Network or Sys Admin</li>
-<li>Source Control / Infrastructure Automation / Cloud</li>
-</ul>
-</li>
-</ul>
-<h3 id="ds">DS</h3>
-<ul>
-<li><strong>Data Analysts</strong>
-<ul>
-<li>Datasets -&gt; Analysis -&gt; Visulization(Reports / Resentations / &hellip;)</li>
-<li>Experiment (A/B testing) + Statistic + SQL / R / Python</li>
-<li>Product Interpretation + Actionable Insights + Communication</li>
-</ul>
-</li>
-<li><strong>Data Scientist</strong>
-<ul>
-<li>Data Manipulation + Statistical Modeling + Machine Learning</li>
-<li>Product Improvement</li>
-</ul>
-</li>
-<li><strong>Applied Scientist / Research Scientist</strong>
-<ul>
-<li>Independent Research + Literature Review</li>
-<li>Model Design + Implementation + Optimization</li>
-<li>Long-term Research</li>
-</ul>
-</li>
-<li><strong>Quant Researcher</strong>
-<ul>
-<li>Finance + Statistics + Coding</li>
-<li>Time Series</li>
-</ul>
-</li>
-</ul>
-<h3 id="cross-domain">Cross Domain</h3>
-<ul>
-<li><strong>Data Engineer</strong>
-<ul>
-<li>Data Pipeline</li>
-<li>Data Infrastructure</li>
-</ul>
-</li>
-<li><strong>Machine Learning Engineer</strong>
-<ul>
-<li>Mathematics + Statistics + Probability</li>
-<li>Data Modeling and Evaluation</li>
-<li>ML System Design</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="reference">Reference</h2>
-<ul>
-<li><a class="link" href="www.xiaogeedu.com" >SDE and DS 的求职难度和就业现状</a></li>
-<li><a class="link" href="https://www.ph-education.com/%e7%95%99%e5%ad%a6%e7%94%b3%e8%af%b7/%e5%b9%b2%e8%b4%a7%e7%bb%8f%e9%aa%8c%e5%90%88%e9%9b%86/%e5%b9%b2%e8%b4%a7-%e4%b8%80%e4%b8%aa%e5%85%b8%e5%9e%8b%e5%8c%97%e7%be%8eds-master%e7%9a%84%e6%b1%82%e8%81%8c%e5%85%a8%e8%bf%87%e7%a8%8b%e5%9b%9e%e9%a1%be/"  target="_blank" rel="noopener"
-    >一个典型北美DS master的求职全过程回顾</a></li>
-<li><a class="link" href="https://www.bilibili.com/video/BV1Sf4y1p79r?spm_id_from=333.880.my_history.page.click"  target="_blank" rel="noopener"
-    >疫情下我是如何拿到FB DS offer 的？</a></li>
-<li><a class="link" href="https://blog.coursera.org/introduction-data-science-careers/"  target="_blank" rel="noopener"
-    >An introduction to data science careers</a></li>
-<li><a class="link" href="https://intellipaat.com/blog/data-science-vs-software-engineering/"  target="_blank" rel="noopener"
-    >Data Science vs Software Engineering</a></li>
-<li><a class="link" href="https://www.dataapplab.com/differences-between-ds-da-ba-and-de-and-key-points-of-job-interview/"  target="_blank" rel="noopener"
-    >数据岗位大合集｜DS、DA、BA和DE的区别及求职面试重点</a></li>
-<li><a class="link" href="https://www.1point3acres.com/bbs/thread-850531-1-1.html"  target="_blank" rel="noopener"
-    >你为什么不该选择DS - 可能是2022年最详细的劝退贴</a></li>
-<li><a class="link" href="https://www.1point3acres.com/bbs/thread-601652-1-1.html"  target="_blank" rel="noopener"
-    >Data Science相关岗位全面解析(DS vs DA vs MLE vs DE)</a></li>
-<li><a class="link" href="https://www.1point3acres.com/bbs/thread-885801-1-1.html"  target="_blank" rel="noopener"
-    >DS找工回顾及资料总结</a></li>
-<li><a class="link" href="https://analyticsindiamag.com/a-complete-guide-to-data-science-career-path-by-great-learning-aim/"  target="_blank" rel="noopener"
-    >A Complete Guide To Data Science Career Path – By Great Learning &amp; AIM</a></li>
-<li><a class="link" href="https://www.thinkful.com/blog/software-engineer-career-path/"  target="_blank" rel="noopener"
-    >Software Engineer Career Path</a></li>
-<li><a class="link" href="https://www.geeksforgeeks.org/career-paths-for-software-developers-and-programmers-in-2019/"  target="_blank" rel="noopener"
-    >Career Paths For Software Developers and Programmers</a></li>
-</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">a(i)</th>
+<th style="text-align:center">b(i)</th>
+<th style="text-align:center">无进位和 n(i)</th>
+<th style="text-align:center">进位 c(i+1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table></div>
+<div align="center">
+    <img src=Q65.jpg/>
+</div>
 <hr>
 
 </section>
@@ -663,25 +636,21 @@ DS: Master&rsquo;s degree or higher. Many positions even require a Doctoral degr
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#intro">Intro</a></li>
-    <li><a href="#sd-vs-ds">SD V.S. DS</a>
+    <li><a href="#task-1---q15-二进制中1的个数">Task 1 - Q15. 二进制中1的个数</a>
       <ol>
-        <li><a href="#number-of-job-opportunities">Number of Job Opportunities</a></li>
-        <li><a href="#job-categories">Job Categories</a></li>
-        <li><a href="#salary">Salary</a></li>
-        <li><a href="#degree-requirements">Degree Requirements</a></li>
-        <li><a href="#hard-skills">Hard Skills</a></li>
-        <li><a href="#soft-skills">Soft Skills</a></li>
+        <li><a href="#question">Question</a></li>
+        <li><a href="#solution-1">Solution 1</a></li>
+        <li><a href="#solution-2">Solution 2</a></li>
+        <li><a href="#explanation">Explanation</a></li>
       </ol>
     </li>
-    <li><a href="#job-descriptions">Job Descriptions</a>
+    <li><a href="#task-2---q65-不用加减乘除做加法">Task 2 - Q65. 不用加减乘除做加法</a>
       <ol>
-        <li><a href="#sd">SD</a></li>
-        <li><a href="#ds">DS</a></li>
-        <li><a href="#cross-domain">Cross Domain</a></li>
+        <li><a href="#question-1">Question</a></li>
+        <li><a href="#solution">Solution</a></li>
+        <li><a href="#explanation-1">Explanation</a></li>
       </ol>
     </li>
-    <li><a href="#reference">Reference</a></li>
   </ol>
 </nav>
         </div>
