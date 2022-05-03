@@ -2,28 +2,28 @@
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
-Created on May 2st, 2022
-Last Modified on May 2st, 2022
- Task 1 - Q15. 二进制中1的个数 Question 编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 &amp;lsquo;1&amp;rsquo; 的个数（也被称为 汉明重量).）。
-Solution 1 1 2 3 4 5 6 7 8  class Solution: # Recursion def hammingWeight(self, n: int) -&amp;gt; int: if n == 0: return 0 elif n &amp;amp; 1 == 0: return self.hammingWeight(n &amp;gt;&amp;gt; 1) else: return 1 &#43; self.hammingWeight(n &amp;gt;&amp;gt; 1)   Solution 2 1 2 3 4 5 6 7  class Solution: # Iteration  def hammingWeight(self, n: int) -&amp;gt; int: res = 0 while n: res &#43;= 1 n = n &amp;amp; (n-1) # Remove leftest 1 in each loop return res   Explanation  Solution 1  Time Complexity: O(log(n)), i.'><title>[剑指Offer] Day 21: Bit Operation</title>
+Created on May 3rd, 2022
+Last Modified on May 3rd, 2022
+ Task 1 - Q56,I. 数组中数字出现的次数 Question 一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是 O(1)。
+Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: def singleNumbers(self, nums: List[int]) -&amp;gt; List[int]: num1, num2, xo, flag = 0, 0, 0, 1 for num in nums: xo ^= num while xo &amp;amp; flag == 0: # Find the first 1&amp;#39;s position flag = flag &amp;lt;&amp;lt; 1 for num in nums: if num &amp;amp; flag == 0: # Split the nums into two groups num1 ^= num else: num2 ^= num return [num1, num2]   Explanation  Ideas  a XO b XO b XO b &amp;hellip; XO b = a a XO b XO c XO c &amp;hellip; XO c = a XO b Assuming a XO b = 1010, we can find flag = 0010 to split the nums and put a, b in different groups.'><title>[剑指Offer] Day 22: Bit Operation</title>
 
-<link rel='canonical' href='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-21-bit-operation/'>
+<link rel='canonical' href='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-22-bit-operation/'>
 
-<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[剑指Offer] Day 21: Bit Operation'>
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[剑指Offer] Day 22: Bit Operation'>
 <meta property='og:description' content='Authored by Tony Feng
-Created on May 2st, 2022
-Last Modified on May 2st, 2022
- Task 1 - Q15. 二进制中1的个数 Question 编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 &amp;lsquo;1&amp;rsquo; 的个数（也被称为 汉明重量).）。
-Solution 1 1 2 3 4 5 6 7 8  class Solution: # Recursion def hammingWeight(self, n: int) -&amp;gt; int: if n == 0: return 0 elif n &amp;amp; 1 == 0: return self.hammingWeight(n &amp;gt;&amp;gt; 1) else: return 1 &#43; self.hammingWeight(n &amp;gt;&amp;gt; 1)   Solution 2 1 2 3 4 5 6 7  class Solution: # Iteration  def hammingWeight(self, n: int) -&amp;gt; int: res = 0 while n: res &#43;= 1 n = n &amp;amp; (n-1) # Remove leftest 1 in each loop return res   Explanation  Solution 1  Time Complexity: O(log(n)), i.'>
-<meta property='og:url' content='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-21-bit-operation/'>
+Created on May 3rd, 2022
+Last Modified on May 3rd, 2022
+ Task 1 - Q56,I. 数组中数字出现的次数 Question 一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是 O(1)。
+Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: def singleNumbers(self, nums: List[int]) -&amp;gt; List[int]: num1, num2, xo, flag = 0, 0, 0, 1 for num in nums: xo ^= num while xo &amp;amp; flag == 0: # Find the first 1&amp;#39;s position flag = flag &amp;lt;&amp;lt; 1 for num in nums: if num &amp;amp; flag == 0: # Split the nums into two groups num1 ^= num else: num2 ^= num return [num1, num2]   Explanation  Ideas  a XO b XO b XO b &amp;hellip; XO b = a a XO b XO c XO c &amp;hellip; XO c = a XO b Assuming a XO b = 1010, we can find flag = 0010 to split the nums and put a, b in different groups.'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-22-bit-operation/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-02T15:16:33&#43;08:00'/><meta property='article:modified_time' content='2022-05-02T15:16:33&#43;08:00'/>
-<meta name="twitter:title" content="[剑指Offer] Day 21: Bit Operation">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-03T15:35:56&#43;08:00'/><meta property='article:modified_time' content='2022-05-03T15:35:56&#43;08:00'/>
+<meta name="twitter:title" content="[剑指Offer] Day 22: Bit Operation">
 <meta name="twitter:description" content="Authored by Tony Feng
-Created on May 2st, 2022
-Last Modified on May 2st, 2022
- Task 1 - Q15. 二进制中1的个数 Question 编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 &amp;lsquo;1&amp;rsquo; 的个数（也被称为 汉明重量).）。
-Solution 1 1 2 3 4 5 6 7 8  class Solution: # Recursion def hammingWeight(self, n: int) -&amp;gt; int: if n == 0: return 0 elif n &amp;amp; 1 == 0: return self.hammingWeight(n &amp;gt;&amp;gt; 1) else: return 1 &#43; self.hammingWeight(n &amp;gt;&amp;gt; 1)   Solution 2 1 2 3 4 5 6 7  class Solution: # Iteration  def hammingWeight(self, n: int) -&amp;gt; int: res = 0 while n: res &#43;= 1 n = n &amp;amp; (n-1) # Remove leftest 1 in each loop return res   Explanation  Solution 1  Time Complexity: O(log(n)), i.">
+Created on May 3rd, 2022
+Last Modified on May 3rd, 2022
+ Task 1 - Q56,I. 数组中数字出现的次数 Question 一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是 O(1)。
+Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: def singleNumbers(self, nums: List[int]) -&amp;gt; List[int]: num1, num2, xo, flag = 0, 0, 0, 1 for num in nums: xo ^= num while xo &amp;amp; flag == 0: # Find the first 1&amp;#39;s position flag = flag &amp;lt;&amp;lt; 1 for num in nums: if num &amp;amp; flag == 0: # Split the nums into two groups num1 ^= num else: num2 ^= num return [num1, num2]   Explanation  Ideas  a XO b XO b XO b &amp;hellip; XO b = a a XO b XO c XO c &amp;hellip; XO c = a XO b Assuming a XO b = 1010, we can find flag = 0010 to split the nums and put a, b in different groups.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -295,7 +295,7 @@ Solution 1 1 2 3 4 5 6 7 8  class Solution: # Recursion def hammingWeight(self, 
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E5%89%91%E6%8C%87offer-day-21-bit-operation/">[剑指Offer] Day 21: Bit Operation</a>
+            <a href="/p/%E5%89%91%E6%8C%87offer-day-22-bit-operation/">[剑指Offer] Day 22: Bit Operation</a>
         </h2>
     
         
@@ -314,7 +314,7 @@ Solution 1 1 2 3 4 5 6 7 8  class Solution: # Recursion def hammingWeight(self, 
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">May 02, 2022</time>
+                <time class="article-time--published">May 03, 2022</time>
             </div>
         
 
@@ -345,78 +345,12 @@ Solution 1 1 2 3 4 5 6 7 8  class Solution: # Recursion def hammingWeight(self, 
     
     <blockquote>
 <p>Authored by Tony Feng</p>
-<p>Created on May 2st, 2022</p>
-<p>Last Modified on May 2st, 2022</p>
+<p>Created on May 3rd, 2022</p>
+<p>Last Modified on May 3rd, 2022</p>
 </blockquote>
-<h2 id="task-1---q15-二进制中1的个数">Task 1 - Q15. 二进制中1的个数</h2>
+<h2 id="task-1---q56i-数组中数字出现的次数">Task 1 - Q56,I. 数组中数字出现的次数</h2>
 <h3 id="question">Question</h3>
-<p>编写一个函数，输入是一个无符号整数（以<em><strong>二进制串</strong></em>的形式），返回其二进制表达式中数字位数为 &lsquo;1&rsquo; 的个数（也被称为 汉明重量).）。</p>
-<h3 id="solution-1">Solution 1</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span> <span class="c1"># Recursion</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">hammingWeight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">n</span> <span class="o">&amp;</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hammingWeight</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">hammingWeight</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="solution-2">Solution 2</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span> <span class="c1"># Iteration </span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">hammingWeight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">n</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Remove leftest 1 in each loop</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="explanation">Explanation</h3>
-<ul>
-<li>Solution 1
-<ul>
-<li>Time Complexity: O(log(n)), i.e., log(n) means the rightest position of 1 in n</li>
-<li>Space Complexity: O(log(n))</li>
-</ul>
-</li>
-<li>Solution 2
-<ul>
-<li>Time Complexity: O(M), i.e., it depends on how many 1 in the binary string.</li>
-<li>Space Complexity: O(1)</li>
-</ul>
-</li>
-</ul>
-<div align="center">
-    <img src="Q15.jpg"/>
-</div>
-<hr>
-<h2 id="task-2---q65-不用加减乘除做加法">Task 2 - Q65. 不用加减乘除做加法</h2>
-<h3 id="question-1">Question</h3>
-<p>写一个函数，求两个整数之和，要求在函数体内不得使用 “+”、“-”、“*”、“/” 四则运算符号。a, b 均可能是负数或 0，并且结果不会溢出 32 位整数</p>
+<p>一个整型数组 <code>nums</code> 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是<code>O(n)</code>，空间复杂度是 <code>O(1)</code>。</p>
 <h3 id="solution">Solution</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -430,65 +364,108 @@ Solution 1 1 2 3 4 5 6 7 8  class Solution: # Recursion def hammingWeight(self, 
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="mh">0xffffffff</span>
-</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span> <span class="o">&amp;</span> <span class="n">x</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">b</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">carry</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="o">&amp;</span> <span class="n">x</span>
-</span></span><span class="line"><span class="cl">            <span class="n">total</span> <span class="o">=</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span>
-</span></span><span class="line"><span class="cl">            <span class="n">a</span> <span class="o">=</span> <span class="n">total</span>
-</span></span><span class="line"><span class="cl">            <span class="n">b</span> <span class="o">=</span> <span class="n">carry</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">a</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mh">0x7fffffff</span> <span class="k">else</span> <span class="o">~</span><span class="p">(</span><span class="n">a</span> <span class="o">^</span> <span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">singleNumbers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">,</span> <span class="n">xo</span><span class="p">,</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">xo</span> <span class="o">^=</span> <span class="n">num</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">xo</span> <span class="o">&amp;</span> <span class="n">flag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># Find the first 1&#39;s position</span>
+</span></span><span class="line"><span class="cl">            <span class="n">flag</span> <span class="o">=</span> <span class="n">flag</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">num</span> <span class="o">&amp;</span> <span class="n">flag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># Split the nums into two groups</span>
+</span></span><span class="line"><span class="cl">                <span class="n">num1</span> <span class="o">^=</span> <span class="n">num</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">num2</span> <span class="o">^=</span> <span class="n">num</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="explanation">Explanation</h3>
+<ul>
+<li>Ideas
+<ul>
+<li>a XO b XO b XO b &hellip; XO b = a</li>
+<li>a XO b XO c XO c &hellip; XO c = a XO b</li>
+<li>Assuming a XO b = 1010, we can find flag = 0010 to split the nums and put a, b in different groups.</li>
+<li>flag = 0010 means a and b&rsquo;s second bits are different.</li>
+</ul>
+</li>
+</ul>
+<div align="center">
+    <img src="Q56I.jpg"/>
+</div>
+<ul>
+<li>Time Complexity: O(N)</li>
+<li>Space Complexity: O(1)</li>
+</ul>
+<hr>
+<h2 id="task-2---q56ii-数组中数字出现的次数-ii">Task 2 - Q56,II. 数组中数字出现的次数 II</h2>
+<h3 id="question-1">Question</h3>
+<p>在一个数组 <code>nums</code> 中除一个数字只出现1次之外，其他数字都出现了3次。请找出那个只出现一次的数字。</p>
+<h3 id="solution-1">Solution</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">singleNumber</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bits</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">32</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">bits</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">num</span> <span class="o">&amp;</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">num</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">res</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">|</span> <span class="n">bits</span><span class="p">[</span><span class="mi">31</span> <span class="o">-</span> <span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="n">m</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span> <span class="k">if</span> <span class="n">bits</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span> <span class="o">%</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">~</span><span class="p">(</span><span class="n">res</span> <span class="o">^</span> <span class="mh">0xffffffff</span><span class="p">)</span> <span class="c1"># Take measures for negative number</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="explanation-1">Explanation</h3>
 <ul>
-<li>Time Complexity: O(1), i.e., maximum number of iterations is 32</li>
-<li>Space Complexity: O(1)</li>
-<li>sum = a + b =&gt; sum = n + c</li>
+<li>Steps
+<ul>
+<li>Create an array to store counts</li>
+<li>Count how many 1s in each position</li>
+<li>bits[i] % 3</li>
+<li>bits -&gt; binary</li>
+<li>binary -&gt; int</li>
 </ul>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">a(i)</th>
-<th style="text-align:center">b(i)</th>
-<th style="text-align:center">无进位和 n(i)</th>
-<th style="text-align:center">进位 c(i+1)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-</tr>
-</tbody>
-</table></div>
+</li>
+</ul>
 <div align="center">
-    <img src="Q65.jpg"/>
+    <img src="Q56II.jpg"/>
 </div>
+<ul>
+<li>Time Complexity: O(N)</li>
+<li>Space Complexity: O(1)</li>
+</ul>
 <hr>
 
 </section>
@@ -636,18 +613,17 @@ Solution 1 1 2 3 4 5 6 7 8  class Solution: # Recursion def hammingWeight(self, 
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#task-1---q15-二进制中1的个数">Task 1 - Q15. 二进制中1的个数</a>
+    <li><a href="#task-1---q56i-数组中数字出现的次数">Task 1 - Q56,I. 数组中数字出现的次数</a>
       <ol>
         <li><a href="#question">Question</a></li>
-        <li><a href="#solution-1">Solution 1</a></li>
-        <li><a href="#solution-2">Solution 2</a></li>
+        <li><a href="#solution">Solution</a></li>
         <li><a href="#explanation">Explanation</a></li>
       </ol>
     </li>
-    <li><a href="#task-2---q65-不用加减乘除做加法">Task 2 - Q65. 不用加减乘除做加法</a>
+    <li><a href="#task-2---q56ii-数组中数字出现的次数-ii">Task 2 - Q56,II. 数组中数字出现的次数 II</a>
       <ol>
         <li><a href="#question-1">Question</a></li>
-        <li><a href="#solution">Solution</a></li>
+        <li><a href="#solution-1">Solution</a></li>
         <li><a href="#explanation-1">Explanation</a></li>
       </ol>
     </li>

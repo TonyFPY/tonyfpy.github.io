@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Machine Learning on Tony Feng</title>
-        <link>https://tonyfpy.github.io/categories/machine-learning/</link>
+        <link>https://tonyfpy.github.io/tags/machine-learning/</link>
         <description>Recent content in Machine Learning on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 02 May 2022 23:09:54 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 02 May 2022 23:09:54 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>[Machine Learning] Topic 1: Regression</title>
         <link>https://tonyfpy.github.io/p/machine-learning-topic-1-regression/</link>
         <pubDate>Mon, 02 May 2022 23:09:54 +0800</pubDate>
