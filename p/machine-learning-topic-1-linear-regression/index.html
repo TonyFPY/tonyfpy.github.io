@@ -419,11 +419,11 @@ $$</p>
 <p>, where $ 1/2 $ is a constant that helps cancel 2 in derivative of the function.</p>
 <p>The formation above shows that choosing the value of $ \theta $ to minimize the <strong>least squares error cost function</strong>, is equivalent to finding the <strong>MLE</strong> for the parameters $ \theta $ under the set of assumptions that the error terms $ {\epsilon}^{(i)} $ are <strong>Gaussian</strong> and <strong>IID</strong>.</p>
 <hr>
-<h2 id="gradient-descent">Gradient Descent</h2>
+<h2 id="cost-function-minimization">Cost Function Minimization</h2>
 <h3 id="least-mean-square">Least Mean Square</h3>
 <p>To find a set of parameters, one way is to find the optimum that minimizes the cost function. Therefore, we need $ \nabla_{\theta} J(\theta)= 0 $. More specifically, $ \frac{\partial J}{\partial \theta_{1}} = 0, \frac{\partial J}{\partial \theta_{2}} = 0, \frac{\partial J}{\partial \theta_{3}} = 0, &hellip;, \frac{\partial J}{\partial \theta_{n}} = 0 $.</p>
 <p>However, this may generate $ n $ equations and is computationally expensive if there are many features in the dataset. We need to find other ways.</p>
-<h3 id="gradient-descent-1">Gradient Descent</h3>
+<h3 id="gradient-descent">Gradient Descent</h3>
 <p>We can start with some “initial guess” for $ {\theta} $, and that repeatedly changes $ {\theta} $ to make $ J(\theta) $ smaller, until hopefully we converge to a value of $ {\theta} $ that minimizes $ J(\theta) $. For $ j = 0, 1, 2, &hellip;, n $, we <strong>simultaneously</strong> update the $ {\theta} $ and this process will be kept until convergence:</p>
 <p>$$ \theta _{j} \gets \theta _{j} - \alpha \cdot \frac{\partial J}{\partial \theta _{j}}  $$</p>
 <p>Here, $ \alpha$ is the learning rate, a hyperparameter to control the searching speed. Now, we put all the equations together and we coud see:</p>
@@ -460,6 +460,8 @@ $$</p>
 <hr>
 <h2 id="reference">Reference</h2>
 <ul>
+<li><a class="link" href="https://aman.ai/cs229/linear-regression/"  target="_blank" rel="noopener"
+    >Stanford CS229 ML Notes - Linear Regression</a></li>
 <li><a class="link" href="https://www.seldon.io/machine-learning-regression-explained#:~:text=Regression%20is%20a%20technique%20for,used%20to%20predict%20continuous%20outcomes."  target="_blank" rel="noopener"
     >Machine Learning Regression Explained</a></li>
 <li><a class="link" href="https://machinelearningmastery.com/linear-regression-for-machine-learning/"  target="_blank" rel="noopener"
@@ -469,7 +471,7 @@ $$</p>
 <li><a class="link" href="https://medium.com/swlh/ml-fundamentals-what-is-cost-function-d396129cc611"  target="_blank" rel="noopener"
     >ML Fundamentals: What Is Cost Function?</a></li>
 <li><a class="link" href="https://scruel.gitee.io/ml-andrewng-notes"  target="_blank" rel="noopener"
-    >ML Andrew Ng Notes</a></li>
+    >Coursera ML Andrew Ng Notes</a></li>
 </ul>
 <hr>
 
@@ -662,10 +664,10 @@ $$</p>
         <li><a href="#cost-function-formation">Cost Function Formation</a></li>
       </ol>
     </li>
-    <li><a href="#gradient-descent">Gradient Descent</a>
+    <li><a href="#cost-function-minimization">Cost Function Minimization</a>
       <ol>
         <li><a href="#least-mean-square">Least Mean Square</a></li>
-        <li><a href="#gradient-descent-1">Gradient Descent</a></li>
+        <li><a href="#gradient-descent">Gradient Descent</a></li>
       </ol>
     </li>
     <li><a href="#normal-equation">Normal Equation</a></li>

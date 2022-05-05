@@ -132,7 +132,7 @@
 &lt;h2 id=&#34;face-matching&#34;&gt;Face Matching&lt;/h2&gt;
 &lt;img src=&#34;CV.jpeg&#34; align=&#34;right&#34; width=&#34;320px&#34;/&gt;
 &lt;p&gt;In this project, traditional approaches and a deep learning approach for face matching are evaluated based on a public facial dataset.&lt;/p&gt;
-&lt;p&gt;The main approach to match the facial images consists of: 1) Facial Localisation 2) Facial Feature Extraction 3) Facial Classification. The implementations are based on &lt;strong&gt;MATLAB&lt;/strong&gt; and &lt;strong&gt;Python&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The main steps to match the facial images consist of: 1) Facial Localisation 2) Facial Feature Extraction 3) Facial Classification. The implementations are based on &lt;strong&gt;MATLAB&lt;/strong&gt; and &lt;strong&gt;Python&lt;/strong&gt;.&lt;/p&gt;
 &lt;br clear=&#34;right&#34;/&gt;
 &lt;h2 id=&#34;cell-nuclei-identification&#34;&gt;Cell Nuclei Identification&lt;/h2&gt;
 &lt;img src=&#34;IIP.png&#34; align=&#34;left&#34; width=&#34;300px&#34; style=&#34;padding-right: 15px&#34;/&gt; 
