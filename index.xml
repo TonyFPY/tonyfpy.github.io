@@ -6,7 +6,84 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 06 May 2022 16:30:00 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 06 May 2022 21:25:32 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Machine Learning] Topic 2: Logistic Regression</title>
+        <link>https://tonyfpy.github.io/p/machine-learning-topic-2-logistic-regression/</link>
+        <pubDate>Fri, 06 May 2022 21:25:32 +0800</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/machine-learning-topic-2-logistic-regression/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on May 6nd, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on May 7th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Logistic regression&lt;/strong&gt; is a process of modeling the probability of a discrete outcome given an input variable. The most common logistic regression models a &lt;strong&gt;binary&lt;/strong&gt; outcome. It’s an extension of the linear regression model for classification problems.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;hypothesis-representation&#34;&gt;Hypothesis Representation&lt;/h2&gt;
+&lt;h3 id=&#34;logistic-function&#34;&gt;Logistic Function&lt;/h3&gt;
+&lt;p&gt;Since $\theta^{T}x$ could be $ \ll 0 $ and $ \gg 1 $, which is not very natural for a binary classification problem with labels 0 or 1. Instead of fitting a straight line or hyperplane, the logistic regression model uses the logistic function to squeeze the output of a linear equation between 0 and 1.&lt;/p&gt;
+&lt;p&gt;$$ g(z) = \frac{1}{1+e^{-z}} $$&lt;/p&gt;
+&lt;p&gt;The deravative of the &lt;strong&gt;sigmoid&lt;/strong&gt; functin is:&lt;/p&gt;
+&lt;p&gt;$$ \frac{\partial}{\partial z} g(z) = \frac{1}{(1+e^{-z})} \cdot(1-\frac{1}{(1+e^{-z})}) = g(z)\cdot(1-g(z)) $$&lt;/p&gt;
+&lt;p&gt;From the plot of this function, we could see that &lt;strong&gt;$ g(z) $ starts off really close to 0, then rises and asymptotes towards 1&lt;/strong&gt;. Since we want our hypothesis to output values between 0 and 1, we could combine $ g(z) $ and $ h_{\theta}(x) $:&lt;/p&gt;
+&lt;p&gt;$$ h_{\theta}(x) = g(\theta^{T}x) = \frac{1}{1+e^{-\theta^{T}x}} $$&lt;/p&gt;
+&lt;p&gt;If $ h_{\theta}(x) &amp;gt;= 0.5 $, we could know $ y = 1 $, and vice versa.&lt;/p&gt;
+&lt;h3 id=&#34;estimated-probability&#34;&gt;Estimated Probability&lt;/h3&gt;
+&lt;p&gt;In the logistic regression model, the ouput of $ h_{\theta}(x) $ represents the estimated probability of $ y = 1 $ or $ y = 0 $. Thus, for a single training example $ (x^{(i)},y^{(i)}) $, we have:&lt;/p&gt;
+&lt;p&gt;$$ P(y^{(i)}=1 \mid x^{(i)} ; \theta)=h_{\theta}(x^{(i)}) $$
+$$ P(y^{(i)}=0 \mid x^{(i)} ; \theta)=1-h_{\theta}(x^{(i)}) $$&lt;/p&gt;
+&lt;p&gt;Those can be written more compactly as a single equation as follows:&lt;/p&gt;
+&lt;p&gt;$$ P(y^{(i)} \mid x^{(i)} ; \theta)=(h_{\theta}(x^{(i)}))^{y^{(i)}}(1-h_{\theta}(x^{(i)}))^{1-y^{(i)}} $$&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;cost-function&#34;&gt;Cost Function&lt;/h2&gt;
+&lt;h3 id=&#34;maximum-likelihood-estimation&#34;&gt;Maximum Likelihood Estimation&lt;/h3&gt;
+&lt;p&gt;Assuming that the $m$ training examples were generated independently, we can express the likelihood of the parameters $L(\theta)$ as:&lt;/p&gt;
+&lt;p&gt;$$
+L(\theta) =\prod_{i=1}^{m} P(y^{(i)} \mid x^{(i)} ; \theta) =\prod_{i=1}^{m}(h_{\theta}(x^{(i)}))^{y^{(i)}}(1-h_{\theta}(x^{(i)}))^{1-y^{(i)}}
+$$&lt;/p&gt;
+&lt;p&gt;We can make the calculation simpler by applying logarithm:&lt;/p&gt;
+&lt;p&gt;$$
+\ell(\theta) =\log L(\theta) =\sum_{i=1}^{m} (y^{(i)} \log (h(x^{(i)})) + (1-y^{(i)}) \log (1-h(x^{(i)})))
+$$&lt;/p&gt;
+&lt;h3 id=&#34;cost-function-formation&#34;&gt;Cost Function Formation&lt;/h3&gt;
+&lt;p&gt;Usually, in machine learning, we want to convert the &amp;ldquo;acsent&amp;rdquo; problem into a &amp;ldquo;descent&amp;rdquo; problem. Therefore,&lt;/p&gt;
+&lt;p&gt;$$ J(\theta) = - \ell(\theta) = - \sum_{i=1}^{m} (y^{(i)} \log (h(x^{(i)})) + (1-y^{(i)}) \log (1-h(x^{(i)}))) $$&lt;/p&gt;
+&lt;h3 id=&#34;update-rules&#34;&gt;Update Rules&lt;/h3&gt;
+&lt;p&gt;Now, let&amp;rsquo;s take derivatives to derive the gradient descent rule:&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\delta}{\delta \theta_{j}} J(\theta)=- \sum_{i=1}^{m}(y^{(i)} \frac{1}{h_{\theta}(x^{(i)})} \frac{\delta}{\delta \theta_{j}} h_{\theta}(x^{(i)})-(1-y^{(i)}) \frac{1}{1-h_{\theta}(x^{(i)})} \frac{\delta}{\delta \theta_{j}} h_{\theta}(x^{(i)}))
+$$&lt;/p&gt;
+&lt;p&gt;Becasue $ h_{\theta}(x) = g(\theta^{T}x) $, we have:&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\delta}{\delta \theta_{j}} J(\theta)=- \sum_{i=1}^{m}(y^{(i)} \frac{1}{g(\theta^{\mathrm{T}} x^{(i)})}-(1-y^{(i)}) \frac{1}{1-g(\theta^{\mathrm{T}} x^{(i)})}) \frac{\delta}{\delta \theta_{j}} g(\theta^{\mathrm{T}} x^{(i)})
+$$&lt;/p&gt;
+&lt;p&gt;Previously, we have $ \frac{\partial}{\partial z} g(z) = g(z)\cdot(1-g(z)) $ and $ \frac{\partial}{\partial \theta_{j}} \theta^{T} x^{(i)} = x_{j}^{(i)} $. So,&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\delta}{\delta \theta_{j}} J(\theta)=-\sum_{i=1}^{m}(y^{(i)} \frac{1}{g(z)}-(1-y^{(i)}) \frac{1}{1-g(z)}) g(z)(1-g(z)) x_{j}^{(i)}
+$$&lt;/p&gt;
+&lt;p&gt;Finally, we have&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\delta}{\delta \theta_{j}} J(\theta)=(h_{\theta}(x^{(i)})-y) x_{j}^{(i)}
+$$&lt;/p&gt;
+&lt;p&gt;Thus, the gradient descent rule is&lt;/p&gt;
+&lt;p&gt;$$ \theta_{j}\gets \theta_{j}-\alpha \cdot \sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)}) x_{j}^{(i)} $$&lt;/p&gt;
+&lt;p&gt;If we compare this to the &lt;strong&gt;LMS update rule&lt;/strong&gt;, we see that it looks identical; but this is not the same algorithm, because  $ h_{\theta}\left(x^{(i)}\right) $ is now defined as a non-linear function of $ \theta^{T} x^{(i)} $.&lt;/p&gt;
+&lt;p&gt;It might be a little surprising that we end up with the same update rule for a rather different algorithm and learning problem. This is actually not a coincidence, and is in fact a general property of a much bigger class of algorithms called &lt;strong&gt;generalized linear models&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://aman.ai/cs229/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stanford CS229 ML Notes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://christophm.github.io/interpretable-ml-book/logistic.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Interpretable ML - Logistic Regression&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://scruel.gitee.io/ml-andrewng-notes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Coursera ML Andrew Ng Notes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[剑指Offer] Day 25: Simulation</title>
         <link>https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-25-simulation/</link>
         <pubDate>Fri, 06 May 2022 16:30:00 +0800</pubDate>
@@ -925,7 +1002,7 @@ $$&lt;/p&gt;
 &lt;p&gt;We can start with some “initial guess” for $ {\theta} $, and that repeatedly changes $ {\theta} $ to make $ J(\theta) $ smaller, until hopefully we converge to a value of $ {\theta} $ that minimizes $ J(\theta) $. For $ j = 0, 1, 2, &amp;hellip;, n $, we &lt;strong&gt;simultaneously&lt;/strong&gt; update the $ {\theta} $ and this process will be kept until convergence:&lt;/p&gt;
 &lt;p&gt;$$ \theta _{j} \gets \theta _{j} - \alpha \cdot \frac{\partial J}{\partial \theta _{j}}  $$&lt;/p&gt;
 &lt;p&gt;Here, $ \alpha$ is the learning rate, a hyperparameter to control the searching speed. Now, we put all the equations together and we coud see:&lt;/p&gt;
-&lt;p&gt;$$ \theta_{j}\gets \theta_{j}+\alpha \cdot \sum_{i=1}^{m}(y^{(i)}-h_{\theta}(x^{(i)})) x_{j}^{(i)} $$&lt;/p&gt;
+&lt;p&gt;$$ \theta_{j}\gets \theta_{j}-\alpha \cdot \sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)}) x_{j}^{(i)} $$&lt;/p&gt;
 &lt;p&gt;This is the &lt;strong&gt;Stochastic Gradient Descent&lt;/strong&gt; strategy, because we update the parameters according to the gradient of the error with respect to a single training example only. Beside, there are other strategies, such as &lt;strong&gt;Batch GD&lt;/strong&gt;, &lt;strong&gt;Mini-batch GD&lt;/strong&gt;, etc, which will be discussed in my future posts.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;normal-equation&#34;&gt;Normal Equation&lt;/h2&gt;
@@ -958,8 +1035,8 @@ $$&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://aman.ai/cs229/linear-regression/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Stanford CS229 ML Notes - Linear Regression&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://aman.ai/cs229/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stanford CS229 ML Notes&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.seldon.io/machine-learning-regression-explained#:~:text=Regression%20is%20a%20technique%20for,used%20to%20predict%20continuous%20outcomes.&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Machine Learning Regression Explained&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://machinelearningmastery.com/linear-regression-for-machine-learning/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
