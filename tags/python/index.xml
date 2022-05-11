@@ -6,7 +6,55 @@
         <description>Recent content in Python on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 11 May 2022 16:23:22 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 11 May 2022 20:51:10 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Machine Learning] Topic 3: Decisoin Tree</title>
+        <link>https://tonyfpy.github.io/p/machine-learning-topic-3-decisoin-tree/</link>
+        <pubDate>Wed, 11 May 2022 20:51:10 +0800</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/machine-learning-topic-3-decisoin-tree/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on May 11th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on May 11th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;A decision tree is one of the supervised machine learning algorithms. Decision Tree algorithm belongs to the family of supervised learning algorithms. The goal is to create a model that predicts the value of a target variable by learning &lt;strong&gt;if-else conditions(decision rules)&lt;/strong&gt; inferred from the data features.&lt;/p&gt;
+&lt;h3 id=&#34;types-of-dt&#34;&gt;Types of DT&lt;/h3&gt;
+&lt;p&gt;This algorithm can be used for both &lt;strong&gt;regression&lt;/strong&gt; and &lt;strong&gt;classification&lt;/strong&gt; problems, but it is mostly used for classification problems. Based on the types of target variable, we have 1) &lt;strong&gt;categorical-variable&lt;/strong&gt; DT, and 2) &lt;strong&gt;continuous-variable&lt;/strong&gt; DT.&lt;/p&gt;
+&lt;h3 id=&#34;non-linearity&#34;&gt;Non-linearity&lt;/h3&gt;
+&lt;p&gt;Formally, a method is &lt;strong&gt;linear&lt;/strong&gt; if, for an input $ x \isin {\R}^n $ (with interecept term $ x_0=1 $), it only produces hypothesis functions $ h $ of the form:&lt;/p&gt;
+&lt;p&gt;$$ h(x) = \theta^{T}x, \theta \isin {\R}^n $$&lt;/p&gt;
+&lt;p&gt;Otherwise, it is &lt;strong&gt;non-linear&lt;/strong&gt;. Decision trees, on the other hand, can directly produce non-linear hypothesis functions without the need for first coming up with an appropriate feature mapping.&lt;/p&gt;
+&lt;h3 id=&#34;region-selection&#34;&gt;Region Selection&lt;/h3&gt;
+&lt;p&gt;In general, selecting optimal regions is intractable. Decision trees generate an approximate solution via &lt;strong&gt;greedy&lt;/strong&gt;, &lt;strong&gt;top-down&lt;/strong&gt;, &lt;strong&gt;recursive&lt;/strong&gt; partitioning.  Each node in the tree acts as a &lt;strong&gt;test case&lt;/strong&gt; for some &lt;strong&gt;attribute&lt;/strong&gt;, and each edge descending from that node corresponds to one of the possible answers to the test case.&lt;/p&gt;
+&lt;p&gt;Formally, given a input space $ X $, a parent region $ R_p $, a feature index $ j $, and a threshold $ t \isin {\R}$, we obtain two child regions $R_1$ and $R_2$ as follows:&lt;/p&gt;
+&lt;p&gt;$$ R_{1} = \{X \mid X_{j}&amp;lt;t, X \in R_{p} \} $$ $$ R_{2} = \{X \mid X_{j} \geq t, X \in R_{p} \} $$&lt;/p&gt;
+&lt;p&gt;We can continue in such a manner until we a meet a &lt;strong&gt;pre-defined stop criterion&lt;/strong&gt;, and then predict the majority class at each leaf node.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;attribute-selective-measure-ams&#34;&gt;Attribute Selective Measure (AMS)&lt;/h2&gt;
+&lt;p&gt;An attribute selection measure is a technique used in the data mining process for data reduction. It is a &lt;strong&gt;heuristic&lt;/strong&gt; for choosing the splitting test that “best” separates a given data partition. The two main ASM techniques are 1) &lt;strong&gt;Information Gain&lt;/strong&gt;, and 2) &lt;strong&gt;Gini Index&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;information-gain&#34;&gt;Information Gain&lt;/h3&gt;
+&lt;h3 id=&#34;gini-index&#34;&gt;Gini Index&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.kdnuggets.com/2020/01/decision-tree-algorithm-explained.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Decision Tree Algorithm, Explained&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://aman.ai/cs229/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stanford CS229 ML Notes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.xoriant.com/blog/product-engineering/decision-trees-machine-learning-algorithm.html#:~:text=Introduction%20Decision%20Trees%20are%20a,namely%20decision%20nodes%20and%20leaves.&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Decision Trees for Classification: A Machine Learning Algorithm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.hackerearth.com/practice/machine-learning/machine-learning-algorithms/ml-decision-tree/tutorial/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hack Earth = Decision Tree&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://towardsai.net/p/programming/decision-trees-explained-with-a-practical-example-fe47872d3b53&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Decision Trees Explained With a Practical Example&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.tutorialspoint.com/what-is-attribute-selection-measures#:~:text=An%20attribute%20selection%20measure%20is,training%20tuples%20into%20single%20classes.&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;What is Attribute Selection Measures?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[剑指Offer] Day 30: Divide and Conquer</title>
         <link>https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-30-divide-and-conquer/</link>
         <pubDate>Wed, 11 May 2022 16:23:22 +0800</pubDate>
@@ -1003,7 +1051,7 @@
         <guid>https://tonyfpy.github.io/p/machine-learning-topic-2-logistic-regression/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
-&lt;p&gt;Created on May 6nd, 2022&lt;/p&gt;
+&lt;p&gt;Created on May 6th, 2022&lt;/p&gt;
 &lt;p&gt;Last Modified on May 7th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;

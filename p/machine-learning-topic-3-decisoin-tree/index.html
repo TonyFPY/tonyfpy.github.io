@@ -2,28 +2,28 @@
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
-Created on May 6th, 2022
-Last Modified on May 7th, 2022
- Intro Logistic regression is a process of modeling the probability of a discrete outcome given an input variable. The most common logistic regression models a binary outcome. It’s an extension of the linear regression model for classification problems.
- Hypothesis Representation Logistic Function Since $\theta^{T}x$ could be $ \ll 0 $ and $ \gg 1 $, which is not very natural for a binary classification problem with labels 0 or 1.'><title>[Machine Learning] Topic 2: Logistic Regression</title>
+Created on May 11th, 2022
+Last Modified on May 11th, 2022
+ Intro A decision tree is one of the supervised machine learning algorithms. Decision Tree algorithm belongs to the family of supervised learning algorithms. The goal is to create a model that predicts the value of a target variable by learning if-else conditions(decision rules) inferred from the data features.
+Types of DT This algorithm can be used for both regression and classification problems, but it is mostly used for classification problems.'><title>[Machine Learning] Topic 3: Decisoin Tree</title>
 
-<link rel='canonical' href='https://tonyfpy.github.io/p/machine-learning-topic-2-logistic-regression/'>
+<link rel='canonical' href='https://tonyfpy.github.io/p/machine-learning-topic-3-decisoin-tree/'>
 
-<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Machine Learning] Topic 2: Logistic Regression'>
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Machine Learning] Topic 3: Decisoin Tree'>
 <meta property='og:description' content='Authored by Tony Feng
-Created on May 6th, 2022
-Last Modified on May 7th, 2022
- Intro Logistic regression is a process of modeling the probability of a discrete outcome given an input variable. The most common logistic regression models a binary outcome. It’s an extension of the linear regression model for classification problems.
- Hypothesis Representation Logistic Function Since $\theta^{T}x$ could be $ \ll 0 $ and $ \gg 1 $, which is not very natural for a binary classification problem with labels 0 or 1.'>
-<meta property='og:url' content='https://tonyfpy.github.io/p/machine-learning-topic-2-logistic-regression/'>
+Created on May 11th, 2022
+Last Modified on May 11th, 2022
+ Intro A decision tree is one of the supervised machine learning algorithms. Decision Tree algorithm belongs to the family of supervised learning algorithms. The goal is to create a model that predicts the value of a target variable by learning if-else conditions(decision rules) inferred from the data features.
+Types of DT This algorithm can be used for both regression and classification problems, but it is mostly used for classification problems.'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/machine-learning-topic-3-decisoin-tree/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-06T21:25:32&#43;08:00'/><meta property='article:modified_time' content='2022-05-06T21:25:32&#43;08:00'/>
-<meta name="twitter:title" content="[Machine Learning] Topic 2: Logistic Regression">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-11T20:51:10&#43;08:00'/><meta property='article:modified_time' content='2022-05-11T20:51:10&#43;08:00'/>
+<meta name="twitter:title" content="[Machine Learning] Topic 3: Decisoin Tree">
 <meta name="twitter:description" content="Authored by Tony Feng
-Created on May 6th, 2022
-Last Modified on May 7th, 2022
- Intro Logistic regression is a process of modeling the probability of a discrete outcome given an input variable. The most common logistic regression models a binary outcome. It’s an extension of the linear regression model for classification problems.
- Hypothesis Representation Logistic Function Since $\theta^{T}x$ could be $ \ll 0 $ and $ \gg 1 $, which is not very natural for a binary classification problem with labels 0 or 1.">
+Created on May 11th, 2022
+Last Modified on May 11th, 2022
+ Intro A decision tree is one of the supervised machine learning algorithms. Decision Tree algorithm belongs to the family of supervised learning algorithms. The goal is to create a model that predicts the value of a target variable by learning if-else conditions(decision rules) inferred from the data features.
+Types of DT This algorithm can be used for both regression and classification problems, but it is mostly used for classification problems.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -295,7 +295,7 @@ Last Modified on May 7th, 2022
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/machine-learning-topic-2-logistic-regression/">[Machine Learning] Topic 2: Logistic Regression</a>
+            <a href="/p/machine-learning-topic-3-decisoin-tree/">[Machine Learning] Topic 3: Decisoin Tree</a>
         </h2>
     
         
@@ -314,7 +314,7 @@ Last Modified on May 7th, 2022
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">May 06, 2022</time>
+                <time class="article-time--published">May 11, 2022</time>
             </div>
         
 
@@ -329,7 +329,7 @@ Last Modified on May 7th, 2022
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -345,71 +345,42 @@ Last Modified on May 7th, 2022
     
     <blockquote>
 <p>Authored by Tony Feng</p>
-<p>Created on May 6th, 2022</p>
-<p>Last Modified on May 7th, 2022</p>
+<p>Created on May 11th, 2022</p>
+<p>Last Modified on May 11th, 2022</p>
 </blockquote>
 <h2 id="intro">Intro</h2>
-<p><strong>Logistic regression</strong> is a process of modeling the probability of a discrete outcome given an input variable. The most common logistic regression models a <strong>binary</strong> outcome. It’s an extension of the linear regression model for classification problems.</p>
+<p>A decision tree is one of the supervised machine learning algorithms. Decision Tree algorithm belongs to the family of supervised learning algorithms. The goal is to create a model that predicts the value of a target variable by learning <strong>if-else conditions(decision rules)</strong> inferred from the data features.</p>
+<h3 id="types-of-dt">Types of DT</h3>
+<p>This algorithm can be used for both <strong>regression</strong> and <strong>classification</strong> problems, but it is mostly used for classification problems. Based on the types of target variable, we have 1) <strong>categorical-variable</strong> DT, and 2) <strong>continuous-variable</strong> DT.</p>
+<h3 id="non-linearity">Non-linearity</h3>
+<p>Formally, a method is <strong>linear</strong> if, for an input $ x \isin {\R}^n $ (with interecept term $ x_0=1 $), it only produces hypothesis functions $ h $ of the form:</p>
+<p>$$ h(x) = \theta^{T}x, \theta \isin {\R}^n $$</p>
+<p>Otherwise, it is <strong>non-linear</strong>. Decision trees, on the other hand, can directly produce non-linear hypothesis functions without the need for first coming up with an appropriate feature mapping.</p>
+<h3 id="region-selection">Region Selection</h3>
+<p>In general, selecting optimal regions is intractable. Decision trees generate an approximate solution via <strong>greedy</strong>, <strong>top-down</strong>, <strong>recursive</strong> partitioning.  Each node in the tree acts as a <strong>test case</strong> for some <strong>attribute</strong>, and each edge descending from that node corresponds to one of the possible answers to the test case.</p>
+<p>Formally, given a input space $ X $, a parent region $ R_p $, a feature index $ j $, and a threshold $ t \isin {\R}$, we obtain two child regions $R_1$ and $R_2$ as follows:</p>
+<p>$$ R_{1} = \{X \mid X_{j}&lt;t, X \in R_{p} \} $$ $$ R_{2} = \{X \mid X_{j} \geq t, X \in R_{p} \} $$</p>
+<p>We can continue in such a manner until we a meet a <strong>pre-defined stop criterion</strong>, and then predict the majority class at each leaf node.</p>
 <hr>
-<h2 id="hypothesis-representation">Hypothesis Representation</h2>
-<h3 id="logistic-function">Logistic Function</h3>
-<p>Since $\theta^{T}x$ could be $ \ll 0 $ and $ \gg 1 $, which is not very natural for a binary classification problem with labels 0 or 1. Instead of fitting a straight line or hyperplane, the logistic regression model uses the logistic function to squeeze the output of a linear equation between 0 and 1.</p>
-<p>$$ g(z) = \frac{1}{1+e^{-z}} $$</p>
-<p>The deravative of the <strong>sigmoid</strong> functin is:</p>
-<p>$$ \frac{\partial}{\partial z} g(z) = \frac{1}{(1+e^{-z})} \cdot(1-\frac{1}{(1+e^{-z})}) = g(z)\cdot(1-g(z)) $$</p>
-<p>From the plot of this function, we could see that <strong>$ g(z) $ starts off really close to 0, then rises and asymptotes towards 1</strong>. Since we want our hypothesis to output values between 0 and 1, we could combine $ g(z) $ and $ h_{\theta}(x) $:</p>
-<p>$$ h_{\theta}(x) = g(\theta^{T}x) = \frac{1}{1+e^{-\theta^{T}x}} $$</p>
-<p>If $ h_{\theta}(x) &gt;= 0.5 $, we could know $ y = 1 $, and vice versa.</p>
-<h3 id="estimated-probability">Estimated Probability</h3>
-<p>In the logistic regression model, the ouput of $ h_{\theta}(x) $ represents the estimated probability of $ y = 1 $ or $ y = 0 $. Thus, for a single training example $ (x^{(i)},y^{(i)}) $, we have:</p>
-<p>$$ P(y^{(i)}=1 \mid x^{(i)} ; \theta)=h_{\theta}(x^{(i)}) $$
-$$ P(y^{(i)}=0 \mid x^{(i)} ; \theta)=1-h_{\theta}(x^{(i)}) $$</p>
-<p>Those can be written more compactly as a single equation as follows:</p>
-<p>$$ P(y^{(i)} \mid x^{(i)} ; \theta)=(h_{\theta}(x^{(i)}))^{y^{(i)}}(1-h_{\theta}(x^{(i)}))^{1-y^{(i)}} $$</p>
-<hr>
-<h2 id="cost-function">Cost Function</h2>
-<h3 id="maximum-likelihood-estimation">Maximum Likelihood Estimation</h3>
-<p>Assuming that the $m$ training examples were generated independently, we can express the likelihood of the parameters $L(\theta)$ as:</p>
-<p>$$
-L(\theta) =\prod_{i=1}^{m} P(y^{(i)} \mid x^{(i)} ; \theta) =\prod_{i=1}^{m}(h_{\theta}(x^{(i)}))^{y^{(i)}}(1-h_{\theta}(x^{(i)}))^{1-y^{(i)}}
-$$</p>
-<p>We can make the calculation simpler by applying logarithm:</p>
-<p>$$
-\ell(\theta) =\log L(\theta) =\sum_{i=1}^{m} (y^{(i)} \log (h(x^{(i)})) + (1-y^{(i)}) \log (1-h(x^{(i)})))
-$$</p>
-<h3 id="cost-function-formation">Cost Function Formation</h3>
-<p>Usually, in machine learning, we want to convert the &ldquo;acsent&rdquo; problem into a &ldquo;descent&rdquo; problem. Therefore,</p>
-<p>$$ J(\theta) = - \ell(\theta) = - \sum_{i=1}^{m} (y^{(i)} \log (h(x^{(i)})) + (1-y^{(i)}) \log (1-h(x^{(i)}))) $$</p>
-<h3 id="update-rules">Update Rules</h3>
-<p>Now, let&rsquo;s take derivatives to derive the gradient descent rule:</p>
-<p>$$
-\frac{\delta}{\delta \theta_{j}} J(\theta)=- \sum_{i=1}^{m}(y^{(i)} \frac{1}{h_{\theta}(x^{(i)})} \frac{\delta}{\delta \theta_{j}} h_{\theta}(x^{(i)})-(1-y^{(i)}) \frac{1}{1-h_{\theta}(x^{(i)})} \frac{\delta}{\delta \theta_{j}} h_{\theta}(x^{(i)}))
-$$</p>
-<p>Becasue $ h_{\theta}(x) = g(\theta^{T}x) $, we have:</p>
-<p>$$
-\frac{\delta}{\delta \theta_{j}} J(\theta)=- \sum_{i=1}^{m}(y^{(i)} \frac{1}{g(\theta^{\mathrm{T}} x^{(i)})}-(1-y^{(i)}) \frac{1}{1-g(\theta^{\mathrm{T}} x^{(i)})}) \frac{\delta}{\delta \theta_{j}} g(\theta^{\mathrm{T}} x^{(i)})
-$$</p>
-<p>Previously, we have $ \frac{\partial}{\partial z} g(z) = g(z)\cdot(1-g(z)) $ and $ \frac{\partial}{\partial \theta_{j}} \theta^{T} x^{(i)} = x_{j}^{(i)} $. So,</p>
-<p>$$
-\frac{\delta}{\delta \theta_{j}} J(\theta)=-\sum_{i=1}^{m}(y^{(i)} \frac{1}{g(z)}-(1-y^{(i)}) \frac{1}{1-g(z)}) g(z)(1-g(z)) x_{j}^{(i)}
-$$</p>
-<p>Finally, we have</p>
-<p>$$
-\frac{\delta}{\delta \theta_{j}} J(\theta)=(h_{\theta}(x^{(i)})-y) x_{j}^{(i)}
-$$</p>
-<p>Thus, the gradient descent rule is</p>
-<p>$$ \theta_{j}\gets \theta_{j}-\alpha \cdot \sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)}) x_{j}^{(i)} $$</p>
-<p>If we compare this to the <strong>LMS update rule</strong>, we see that it looks identical; but this is not the same algorithm, because  $ h_{\theta}\left(x^{(i)}\right) $ is now defined as a non-linear function of $ \theta^{T} x^{(i)} $.</p>
-<p>It might be a little surprising that we end up with the same update rule for a rather different algorithm and learning problem. This is actually not a coincidence, and is in fact a general property of a much bigger class of algorithms called <strong>generalized linear models</strong>.</p>
+<h2 id="attribute-selective-measure-ams">Attribute Selective Measure (AMS)</h2>
+<p>An attribute selection measure is a technique used in the data mining process for data reduction. It is a <strong>heuristic</strong> for choosing the splitting test that “best” separates a given data partition. The two main ASM techniques are 1) <strong>Information Gain</strong>, and 2) <strong>Gini Index</strong>.</p>
+<h3 id="information-gain">Information Gain</h3>
+<h3 id="gini-index">Gini Index</h3>
 <hr>
 <h2 id="reference">Reference</h2>
 <ul>
+<li><a class="link" href="https://www.kdnuggets.com/2020/01/decision-tree-algorithm-explained.html"  target="_blank" rel="noopener"
+    >Decision Tree Algorithm, Explained</a></li>
 <li><a class="link" href="https://aman.ai/cs229/"  target="_blank" rel="noopener"
     >Stanford CS229 ML Notes</a></li>
-<li><a class="link" href="https://christophm.github.io/interpretable-ml-book/logistic.html"  target="_blank" rel="noopener"
-    >Interpretable ML - Logistic Regression</a></li>
-<li><a class="link" href="https://scruel.gitee.io/ml-andrewng-notes"  target="_blank" rel="noopener"
-    >Coursera ML Andrew Ng Notes</a></li>
+<li><a class="link" href="https://www.xoriant.com/blog/product-engineering/decision-trees-machine-learning-algorithm.html#:~:text=Introduction%20Decision%20Trees%20are%20a,namely%20decision%20nodes%20and%20leaves."  target="_blank" rel="noopener"
+    >Decision Trees for Classification: A Machine Learning Algorithm</a></li>
+<li><a class="link" href="https://www.hackerearth.com/practice/machine-learning/machine-learning-algorithms/ml-decision-tree/tutorial/"  target="_blank" rel="noopener"
+    >Hack Earth = Decision Tree</a></li>
+<li><a class="link" href="https://towardsai.net/p/programming/decision-trees-explained-with-a-practical-example-fe47872d3b53"  target="_blank" rel="noopener"
+    >Decision Trees Explained With a Practical Example</a></li>
+<li><a class="link" href="https://www.tutorialspoint.com/what-is-attribute-selection-measures#:~:text=An%20attribute%20selection%20measure%20is,training%20tuples%20into%20single%20classes."  target="_blank" rel="noopener"
+    >What is Attribute Selection Measures?</a></li>
 </ul>
 <hr>
 
@@ -581,18 +552,17 @@ $$</p>
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#intro">Intro</a></li>
-    <li><a href="#hypothesis-representation">Hypothesis Representation</a>
+    <li><a href="#intro">Intro</a>
       <ol>
-        <li><a href="#logistic-function">Logistic Function</a></li>
-        <li><a href="#estimated-probability">Estimated Probability</a></li>
+        <li><a href="#types-of-dt">Types of DT</a></li>
+        <li><a href="#non-linearity">Non-linearity</a></li>
+        <li><a href="#region-selection">Region Selection</a></li>
       </ol>
     </li>
-    <li><a href="#cost-function">Cost Function</a>
+    <li><a href="#attribute-selective-measure-ams">Attribute Selective Measure (AMS)</a>
       <ol>
-        <li><a href="#maximum-likelihood-estimation">Maximum Likelihood Estimation</a></li>
-        <li><a href="#cost-function-formation">Cost Function Formation</a></li>
-        <li><a href="#update-rules">Update Rules</a></li>
+        <li><a href="#information-gain">Information Gain</a></li>
+        <li><a href="#gini-index">Gini Index</a></li>
       </ol>
     </li>
     <li><a href="#reference">Reference</a></li>

@@ -6,29 +6,29 @@
         <description>Recent content in Categories on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 11 May 2022 16:23:22 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 11 May 2022 20:51:10 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Machine Learning</title>
+        <link>https://tonyfpy.github.io/categories/machine-learning/</link>
+        <pubDate>Wed, 11 May 2022 20:51:10 +0800</pubDate>
+        
+        <guid>https://tonyfpy.github.io/categories/machine-learning/</guid>
+        <description>&lt;img src="https://tonyfpy.github.io/categories/machine-learning/ML.jpg" alt="Featured image of post Machine Learning" /&gt;</description>
+        </item>
+        <item>
+        <title>Python</title>
+        <link>https://tonyfpy.github.io/categories/python/</link>
+        <pubDate>Wed, 11 May 2022 20:51:10 +0800</pubDate>
+        
+        <guid>https://tonyfpy.github.io/categories/python/</guid>
+        <description>&lt;img src="https://tonyfpy.github.io/categories/python/Python.jpeg" alt="Featured image of post Python" /&gt;</description>
+        </item>
+        <item>
         <title>Leetcode</title>
         <link>https://tonyfpy.github.io/categories/leetcode/</link>
         <pubDate>Wed, 11 May 2022 16:23:22 +0800</pubDate>
         
         <guid>https://tonyfpy.github.io/categories/leetcode/</guid>
         <description>&lt;img src="https://tonyfpy.github.io/categories/leetcode/Leetcode.jpeg" alt="Featured image of post Leetcode" /&gt;</description>
-        </item>
-        <item>
-        <title>Python</title>
-        <link>https://tonyfpy.github.io/categories/python/</link>
-        <pubDate>Wed, 11 May 2022 16:23:22 +0800</pubDate>
-        
-        <guid>https://tonyfpy.github.io/categories/python/</guid>
-        <description>&lt;img src="https://tonyfpy.github.io/categories/python/Python.jpeg" alt="Featured image of post Python" /&gt;</description>
-        </item>
-        <item>
-        <title>Machine Learning</title>
-        <link>https://tonyfpy.github.io/categories/machine-learning/</link>
-        <pubDate>Fri, 06 May 2022 21:25:32 +0800</pubDate>
-        
-        <guid>https://tonyfpy.github.io/categories/machine-learning/</guid>
-        <description>&lt;img src="https://tonyfpy.github.io/categories/machine-learning/ML.jpg" alt="Featured image of post Machine Learning" /&gt;</description>
         </item>
         <item>
         <title>Data Analysis</title>
