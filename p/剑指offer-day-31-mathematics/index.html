@@ -17,7 +17,7 @@ Last Modified on May 11th, 2022
 Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  class Solution: # Quick Power def cuttingRope(self, n: int) -&amp;gt; int: if n &amp;lt;= 3: return n - 1 a, b = n // 3 - 1, n % 3 x, p, rem = 3, 1000000007, 1 while a &amp;gt; 0: if a % 2 == 1: rem = (rem * x) % p x = (x ** 2) % p a = a // 2 if b == 0: rem = (rem * 3) % p # 3^(a&#43;1) % p elif b == 1: rem = (rem * 2 * 2) % p # 3^a * 4 % p else: rem = (rem * 3 * 2) % p # 3^(a&#43;1) * 2 % p return rem   Explanation  Mathematical Theory  When the length sub-line is 3, the product reaches maximum.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-31-mathematics/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-12T16:22:20&#43;08:00'/><meta property='article:modified_time' content='2022-05-12T16:22:20&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-12T16:22:20&#43;08:00'/><meta property='article:modified_time' content='2022-05-13T16:09:17&#43;08:00'/>
 <meta name="twitter:title" content="[剑指Offer] Day 31: Mathematics">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on May 11th, 2022
@@ -329,7 +329,7 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  class Solution: 
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -487,7 +487,7 @@ $$ x^{a} \odot p = [(x^{a-1} \odot p)(x \odot p)] \odot p=[(x^{a-1} \odot p) x] 
 <h2 id="task-3---q44-数字序列中某一位的数字">Task 3 - Q44. 数字序列中某一位的数字</h2>
 <h3 id="question-2">Question</h3>
 <p>数字以0123456789101112131415…的格式序列化到一个字符序列中。在这个序列中，第5位（从下标0开始计数）是5，第13位是1，第19位是4，等等。请写一个函数，求任意第n位对应的数字。</p>
-<h3 id="solution-2">Solution</h3>
+<h3 id="solution-1-1">Solution 1</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -500,6 +500,58 @@ $$ x^{a} \odot p = [(x^{a-1} \odot p)(x \odot p)] \odot p=[(x^{a-1} \odot p) x] 
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">findNthDigit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span> <span class="k">return</span> <span class="n">n</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        The index begins from 0 and the first number is 0, so we can start from 1. 
+</span></span></span><span class="line"><span class="cl"><span class="s1">        1 ~ 9:          9 numbers
+</span></span></span><span class="line"><span class="cl"><span class="s1">        10 ~ 99:        9 * 10 numbers
+</span></span></span><span class="line"><span class="cl"><span class="s1">        100 ~ 999:      9 * 100 numbers
+</span></span></span><span class="line"><span class="cl"><span class="s1">        1000 ~ 9999:    9 * 1000 numbers
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">digit</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="n">cnt</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">start</span> <span class="o">*=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">            <span class="n">digit</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">start</span> <span class="o">*</span> <span class="n">digit</span>   
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">cnt</span> <span class="o">-=</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">start</span> <span class="o">*</span> <span class="n">digit</span>    <span class="c1"># Find the lower bound</span>
+</span></span><span class="line"><span class="cl">        <span class="n">rem</span>  <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">cnt</span><span class="p">)</span> <span class="o">%</span> <span class="n">digit</span>    <span class="c1"># Find which place the single number is in</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num</span> <span class="o">=</span> <span class="n">start</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">cnt</span><span class="p">)</span> <span class="o">//</span> <span class="n">digit</span> <span class="k">if</span> <span class="n">rem</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">start</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">cnt</span><span class="p">)</span> <span class="o">//</span> <span class="n">digit</span>    <span class="c1"># Ceiling 向上取整</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)[</span><span class="n">rem</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="solution-2">Solution 2</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
@@ -510,6 +562,7 @@ $$ x^{a} \odot p = [(x^{a-1} \odot p)(x \odot p)] \odot p=[(x^{a-1} \odot p) x] 
 </span></span><span class="line"><span class="cl">            <span class="n">start</span> <span class="o">*=</span> <span class="mi">10</span>
 </span></span><span class="line"><span class="cl">            <span class="n">digit</span> <span class="o">+=</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">            <span class="n">count</span> <span class="o">=</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">start</span> <span class="o">*</span> <span class="n">digit</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="n">num</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">digit</span> 
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)[(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">digit</span><span class="p">])</span> 
 </span></span></code></pre></td></tr></table>
@@ -539,7 +592,19 @@ $$ x^{a} \odot p = [(x^{a-1} \odot p)(x \odot p)] \odot p=[(x^{a-1} \odot p) x] 
 
         <span>MIT License</span>
     </section>
-    </footer>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on May 13, 2022 16:09 CST
+        </span>
+    </section></footer>
 
 
     
@@ -706,7 +771,8 @@ $$ x^{a} \odot p = [(x^{a-1} \odot p)(x \odot p)] \odot p=[(x^{a-1} \odot p) x] 
     <li><a href="#task-3---q44-数字序列中某一位的数字">Task 3 - Q44. 数字序列中某一位的数字</a>
       <ol>
         <li><a href="#question-2">Question</a></li>
-        <li><a href="#solution-2">Solution</a></li>
+        <li><a href="#solution-1-1">Solution 1</a></li>
+        <li><a href="#solution-2">Solution 2</a></li>
         <li><a href="#explanation-2">Explanation</a></li>
       </ol>
     </li>

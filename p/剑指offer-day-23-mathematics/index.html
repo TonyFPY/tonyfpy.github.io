@@ -17,7 +17,7 @@ Last Modified on May 4th, 2022
 Solution 1 1 2 3 4 5 6 7  class Solution: # Sort and Find the Medium def majorityElement(self, nums: List[int]) -&amp;gt; int: if not nums: return None m = len(nums) // 2 return sorted(nums)[m]   Solution 2 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  class Solution: # Dictionary def majorityElement(self, nums: List[int]) -&amp;gt; int: if not nums: return None dict = {} halfSize = len(nums) // 2 for num in nums: if num in dict: dict[num] &#43;= 1 else: dict[num] = 1 if dict[num] &amp;gt; halfSize: return num   Solution 3 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: # Boyer–Moore majority vote algorithm def majorityElement(self, nums: List[int]) -&amp;gt; int: if not nums: return None votes = 0 ans = None for num in nums: if votes == 0: ans = num if num !'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-23-mathematics/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-04T15:58:13&#43;08:00'/><meta property='article:modified_time' content='2022-05-04T15:58:13&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-04T15:58:13&#43;08:00'/><meta property='article:modified_time' content='2022-05-04T16:57:08&#43;08:00'/>
 <meta name="twitter:title" content="[剑指Offer] Day 23: Mathematics">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on May 4th, 2022
@@ -616,7 +616,19 @@ Solution 1 1 2 3 4 5 6 7  class Solution: # Sort and Find the Medium def majorit
 
         <span>MIT License</span>
     </section>
-    </footer>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on May 04, 2022 16:57 CST
+        </span>
+    </section></footer>
 
 
     

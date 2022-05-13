@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on May 11th, 2022
-Last Modified on May 11th, 2022
+Last Modified on May 13th, 2022
  Intro A decision tree is one of the supervised machine learning algorithms. Decision Tree algorithm belongs to the family of supervised learning algorithms. The goal is to create a model that predicts the value of a target variable by learning if-else conditions(decision rules) inferred from the data features.
 Types of DT This algorithm can be used for both regression and classification problems, but it is mostly used for classification problems.'><title>[Machine Learning] Topic 3: Decisoin Tree</title>
 
@@ -12,16 +12,16 @@ Types of DT This algorithm can be used for both regression and classification pr
 <link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Machine Learning] Topic 3: Decisoin Tree'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on May 11th, 2022
-Last Modified on May 11th, 2022
+Last Modified on May 13th, 2022
  Intro A decision tree is one of the supervised machine learning algorithms. Decision Tree algorithm belongs to the family of supervised learning algorithms. The goal is to create a model that predicts the value of a target variable by learning if-else conditions(decision rules) inferred from the data features.
 Types of DT This algorithm can be used for both regression and classification problems, but it is mostly used for classification problems.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/machine-learning-topic-3-decisoin-tree/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-11T20:51:10&#43;08:00'/><meta property='article:modified_time' content='2022-05-11T20:51:10&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-11T20:51:10&#43;08:00'/><meta property='article:modified_time' content='2022-05-13T17:22:54&#43;08:00'/>
 <meta name="twitter:title" content="[Machine Learning] Topic 3: Decisoin Tree">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on May 11th, 2022
-Last Modified on May 11th, 2022
+Last Modified on May 13th, 2022
  Intro A decision tree is one of the supervised machine learning algorithms. Decision Tree algorithm belongs to the family of supervised learning algorithms. The goal is to create a model that predicts the value of a target variable by learning if-else conditions(decision rules) inferred from the data features.
 Types of DT This algorithm can be used for both regression and classification problems, but it is mostly used for classification problems.">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -346,7 +346,7 @@ Types of DT This algorithm can be used for both regression and classification pr
     <blockquote>
 <p>Authored by Tony Feng</p>
 <p>Created on May 11th, 2022</p>
-<p>Last Modified on May 11th, 2022</p>
+<p>Last Modified on May 13th, 2022</p>
 </blockquote>
 <h2 id="intro">Intro</h2>
 <p>A decision tree is one of the supervised machine learning algorithms. Decision Tree algorithm belongs to the family of supervised learning algorithms. The goal is to create a model that predicts the value of a target variable by learning <strong>if-else conditions(decision rules)</strong> inferred from the data features.</p>
@@ -366,6 +366,11 @@ Types of DT This algorithm can be used for both regression and classification pr
 <p>An attribute selection measure is a technique used in the data mining process for data reduction. It is a <strong>heuristic</strong> for choosing the splitting test that “best” separates a given data partition. The two main ASM techniques are 1) <strong>Information Gain</strong>, and 2) <strong>Gini Index</strong>.</p>
 <h3 id="information-gain">Information Gain</h3>
 <h3 id="gini-index">Gini Index</h3>
+<hr>
+<h2 id="feature-selectin-algorithms">Feature Selectin Algorithms</h2>
+<h3 id="id3">ID3</h3>
+<h3 id="c45">C4.5</h3>
+<h3 id="cart">CART</h3>
 <hr>
 <h2 id="reference">Reference</h2>
 <ul>
@@ -402,7 +407,19 @@ Types of DT This algorithm can be used for both regression and classification pr
 
         <span>MIT License</span>
     </section>
-    </footer>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on May 13, 2022 17:22 CST
+        </span>
+    </section></footer>
 
 
     
@@ -563,6 +580,13 @@ Types of DT This algorithm can be used for both regression and classification pr
       <ol>
         <li><a href="#information-gain">Information Gain</a></li>
         <li><a href="#gini-index">Gini Index</a></li>
+      </ol>
+    </li>
+    <li><a href="#feature-selectin-algorithms">Feature Selectin Algorithms</a>
+      <ol>
+        <li><a href="#id3">ID3</a></li>
+        <li><a href="#c45">C4.5</a></li>
+        <li><a href="#cart">CART</a></li>
       </ol>
     </li>
     <li><a href="#reference">Reference</a></li>

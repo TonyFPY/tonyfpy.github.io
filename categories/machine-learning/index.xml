@@ -5,8 +5,7 @@
         <link>https://tonyfpy.github.io/categories/machine-learning/</link>
         <description>Recent content in Machine Learning on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <lastBuildDate>Wed, 11 May 2022 20:51:10 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
+        <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>[Machine Learning] Topic 3: Decisoin Tree</title>
         <link>https://tonyfpy.github.io/p/machine-learning-topic-3-decisoin-tree/</link>
         <pubDate>Wed, 11 May 2022 20:51:10 +0800</pubDate>
@@ -15,7 +14,7 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on May 11th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on May 11th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on May 13th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;A decision tree is one of the supervised machine learning algorithms. Decision Tree algorithm belongs to the family of supervised learning algorithms. The goal is to create a model that predicts the value of a target variable by learning &lt;strong&gt;if-else conditions(decision rules)&lt;/strong&gt; inferred from the data features.&lt;/p&gt;
@@ -35,6 +34,11 @@
 &lt;p&gt;An attribute selection measure is a technique used in the data mining process for data reduction. It is a &lt;strong&gt;heuristic&lt;/strong&gt; for choosing the splitting test that “best” separates a given data partition. The two main ASM techniques are 1) &lt;strong&gt;Information Gain&lt;/strong&gt;, and 2) &lt;strong&gt;Gini Index&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;information-gain&#34;&gt;Information Gain&lt;/h3&gt;
 &lt;h3 id=&#34;gini-index&#34;&gt;Gini Index&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;feature-selectin-algorithms&#34;&gt;Feature Selectin Algorithms&lt;/h2&gt;
+&lt;h3 id=&#34;id3&#34;&gt;ID3&lt;/h3&gt;
+&lt;h3 id=&#34;c45&#34;&gt;C4.5&lt;/h3&gt;
+&lt;h3 id=&#34;cart&#34;&gt;CART&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
 &lt;ul&gt;
