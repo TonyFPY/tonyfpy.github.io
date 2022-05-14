@@ -17,7 +17,7 @@ Last Modified on May 13th, 2022
 Types of DT This algorithm can be used for both regression and classification problems, but it is mostly used for classification problems.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/machine-learning-topic-3-decisoin-tree/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-11T20:51:10&#43;08:00'/><meta property='article:modified_time' content='2022-05-13T23:10:21&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-11T20:51:10&#43;08:00'/><meta property='article:modified_time' content='2022-05-14T11:26:59&#43;08:00'/>
 <meta name="twitter:title" content="[Machine Learning] Topic 3: Decisoin Tree">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on May 11th, 2022
@@ -358,27 +358,31 @@ Types of DT This algorithm can be used for both regression and classification pr
 <p>Otherwise, it is <strong>non-linear</strong>. Decision trees, on the other hand, can directly produce non-linear hypothesis functions without the need for first coming up with an appropriate feature mapping.</p>
 <h3 id="region-selection">Region Selection</h3>
 <p>In general, selecting optimal regions is intractable. Decision trees generate an approximate solution via <strong>greedy</strong>, <strong>top-down</strong>, <strong>recursive</strong> partitioning.  Each node in the tree acts as a <strong>test case</strong> for some <strong>attribute</strong>, and each edge descending from that node corresponds to one of the possible answers to the test case.</p>
-<p>Formally, given a input space $ X $, a parent region $ R_p $, a feature index $ j $, and a threshold $ t \isin {\R}$, we obtain two child regions $R_1$ and $R_2$ as follows:</p>
+<p>Formally, given a input space $ X $, a parent region $ R_p $, a feature index $ j $, and a threshold $ t \isin {\R}$, we obtain two child regions $R_1$  and $R_2$ as follows:</p>
 <p>$$ R_{1} = \{X \mid X_{j}&lt;t, X \in R_{p} \} $$ $$ R_{2} = \{X \mid X_{j} \geq t, X \in R_{p} \} $$</p>
 <p>We can continue in such a manner until we a meet a <strong>pre-defined stop criterion</strong>, and then predict the majority class at each leaf node.</p>
 <hr>
-<h2 id="attribute-selective-measure-ams">Attribute Selective Measure (AMS)</h2>
-<p>An attribute selection measure is a technique used in the data mining process for data reduction. It is a <strong>heuristic</strong> for choosing the splitting test that “best” separates a given data partition. The three main ASM techniques are 1) <strong>Information Gain</strong>, 2) <strong>Gain Ratio</strong>, and 3) <strong>Gini Index</strong>.</p>
+<h2 id="attribute-selective-measures">Attribute Selective Measures</h2>
+<p>An <strong>attribute selection measure (AMS)</strong> is a technique used in the data mining process for data reduction. It is a <strong>heuristic</strong> for choosing the splitting test that “best” separates a given data partition. The three main ASM techniques are 1) <strong>Information Gain</strong>, 2) <strong>Gain Ratio</strong>, and 3) <strong>Gini Index</strong>.</p>
 <h3 id="information-gain">Information Gain</h3>
 <p><strong>Entropy</strong> is used to measure the level of <strong>impurity</strong> in a group of examples. This concept comes from informatin theory. The higher the entropy, the more the information content. Now, consider a dataset with $n$ classes, then</p>
 <p>$$ E = -\sum_{i=1}^{n} p_{i} \log_{2} (p_{i}) $$</p>
 <p>, where $ p_i $ is the probability of randomly selecting an example in class $i$.</p>
 <p>We can define <strong>information gain (IG)</strong> as a measure of how much information a feature provides about a class. It is the expected reduction in entropy caused by partitioning the examples according to a given attribute. Given a collection of dataset $ S $, we can calculate the $IG(S, A)$ of an attribute $A$ as:</p>
-<p>$$ IG(S, A) = E(S) - \sum_{v \in V(A)} \frac{|S_{v}|}{|S|} E(S_{v}) $$</p>
-<p>, where $V(A)$ is all possible values for attribute $A$ and $S_{v}$ is the subset of $S$ for which attribute $A$ has value $v$.</p>
+<p>$$ IG(S, A) = E(S) - \sum_{v \in V} \frac{|S_{v}|}{|S|} E(S_{v}) $$</p>
+<p>, where $V$ is all possible values for attribute $A$ and $S_{v}$ is the subset of $S$ for which attribute $A$ has value $v$.</p>
 <h3 id="gain-ratio">Gain Ratio</h3>
 <p><strong>Gain Ratio</strong> or <strong>Uncertainty Coefficient</strong> is used to normalize the information gain of an attribute against how much entropy that attribute has. It attempts to lessen the bias of Information Gain on highly branched predictors by introducing a normalizing term called the <strong>Intrinsic Information (II)</strong>.</p>
-<p>$$ II(S, A) = - \sum_{v \in V(A)} \frac{|S_{j}|}{|S|}*II(S_{j}) $$</p>
+<p>$$ II(S, A) = - \sum_{v \in V(A)} \frac{|S_{v}|}{|S|}\log <em>{2} \frac{|s</em>{v}|}{|S|} $$</p>
 <p>Formula of Gain Ration is given by</p>
 <p>$$ GR(S, A) = \frac{IG(S, A)}{II(S, A)} $$</p>
+<p>From this formula, we can see that, with less value in attribute $ A $, $ II(S, A)$ is smaller and thus purity is higher. Informally, the formula of Intrinsic Information is the same as that of Entropy, both of which means the purity of attribute $ A $.</p>
 <h3 id="gini-index">Gini Index</h3>
-<p><strong>Gini Index</strong>, also called <strong>Gini Impurity</strong>, measures the degree or probability of a particular variable being <strong>wrongly</strong> classified when it is randomly chosen. If we have $C$ total classes and $p(i)$ is the probability of picking a datapoint with class $i$, then the Gini Impurity is calculated as</p>
-<p>$$ G=\sum_{i=1}^{C} p(i) *(1-p(i)) $$</p>
+<p><strong>Gini Index</strong>, also called <strong>Gini Impurity</strong>, measures the degree or probability of a particular variable being <strong>wrongly</strong> classified when it is randomly chosen. If we have $C$ total classes and $p_i$ is the probability of picking a datapoint with class $i$, then the Gini Impurity is calculated as</p>
+<p>$$ GI=\sum_{i=1}^{C} p_i(1-p_i) = 1 - \sum_{i=1}^{C} p_i^{2}$$</p>
+<p>For a data sample $ S $, we have an attribute $ A $ with a group of values $V$. Therefore,</p>
+<p>$$ GI(S, A) = \sum_{v \in V} \frac{|S_{v}|}{|S|} GI(S_{v}) $$</p>
+<p>The Gini Index varies between $0$ and $1$, where $0$ represents purity of the classification and $1$ denotes random distribution of elements among various classes. A Gini Index of $0.5$ shows that there is <strong>equal distribution</strong> of elements across some classes.</p>
 <hr>
 <h2 id="feature-selection-algorithms">Feature Selection Algorithms</h2>
 <h3 id="id3">ID3</h3>
@@ -392,7 +396,7 @@ Types of DT This algorithm can be used for both regression and classification pr
 <li>Calculate information gain for the feature.</li>
 </ul>
 </li>
-<li>Find the feature with maximum information gain and split to produce subsets.</li>
+<li>Find the feature with <strong>maximum information gain</strong> and split to produce subsets.</li>
 <li>Continues to recur on each subset until we get the desired tree.</li>
 </ul>
 <h3 id="c45">C4.5</h3>
@@ -449,7 +453,7 @@ Types of DT This algorithm can be used for both regression and classification pr
 
 
         <span>
-            Last updated on May 13, 2022 23:10 CST
+            Last updated on May 14, 2022 11:26 CST
         </span>
     </section></footer>
 
@@ -608,7 +612,7 @@ Types of DT This algorithm can be used for both regression and classification pr
         <li><a href="#region-selection">Region Selection</a></li>
       </ol>
     </li>
-    <li><a href="#attribute-selective-measure-ams">Attribute Selective Measure (AMS)</a>
+    <li><a href="#attribute-selective-measures">Attribute Selective Measures</a>
       <ol>
         <li><a href="#information-gain">Information Gain</a></li>
         <li><a href="#gain-ratio">Gain Ratio</a></li>
