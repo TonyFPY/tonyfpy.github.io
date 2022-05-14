@@ -17,7 +17,7 @@ Last Modified on May 13th, 2022
 Types of DT This algorithm can be used for both regression and classification problems, but it is mostly used for classification problems.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/machine-learning-topic-3-decisoin-tree/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-11T20:51:10&#43;08:00'/><meta property='article:modified_time' content='2022-05-14T11:26:59&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-11T20:51:10&#43;08:00'/><meta property='article:modified_time' content='2022-05-14T17:46:16&#43;08:00'/>
 <meta name="twitter:title" content="[Machine Learning] Topic 3: Decisoin Tree">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on May 11th, 2022
@@ -329,7 +329,7 @@ Types of DT This algorithm can be used for both regression and classification pr
 
 
                 <time class="article-time--reading">
-                    5 minute read
+                    7 minute read
                 </time>
             </div>
         
@@ -373,7 +373,7 @@ Types of DT This algorithm can be used for both regression and classification pr
 <p>, where $V$ is all possible values for attribute $A$ and $S_{v}$ is the subset of $S$ for which attribute $A$ has value $v$.</p>
 <h3 id="gain-ratio">Gain Ratio</h3>
 <p><strong>Gain Ratio</strong> or <strong>Uncertainty Coefficient</strong> is used to normalize the information gain of an attribute against how much entropy that attribute has. It attempts to lessen the bias of Information Gain on highly branched predictors by introducing a normalizing term called the <strong>Intrinsic Information (II)</strong>.</p>
-<p>$$ II(S, A) = - \sum_{v \in V(A)} \frac{|S_{v}|}{|S|}\log <em>{2} \frac{|s</em>{v}|}{|S|} $$</p>
+<p>$$ II(S, A) = - \sum_{v \in V(A)} \frac{|S_{v}|}{|S|} \log_2 \frac{|s_{v}|}{|S|} $$</p>
 <p>Formula of Gain Ration is given by</p>
 <p>$$ GR(S, A) = \frac{IG(S, A)}{II(S, A)} $$</p>
 <p>From this formula, we can see that, with less value in attribute $ A $, $ II(S, A)$ is smaller and thus purity is higher. Informally, the formula of Intrinsic Information is the same as that of Entropy, both of which means the purity of attribute $ A $.</p>
@@ -386,8 +386,8 @@ Types of DT This algorithm can be used for both regression and classification pr
 <hr>
 <h2 id="feature-selection-algorithms">Feature Selection Algorithms</h2>
 <h3 id="id3">ID3</h3>
-<p>The <strong>ID3</strong> algorithm builds decision trees using a <strong>top-down greedy search</strong> approach through the space of possible branches with no backtracking. It constructs a decision tree by finding an attribute that returns the highest information gain and the smallest entropy.</p>
-<p>Steps of ID3:</p>
+<p>The <strong>ID3</strong> algorithm builds decision trees using a <strong>top-down greedy search</strong> approach through the space of possible branches with no backtracking.</p>
+<p><strong>Steps of ID3</strong></p>
 <ul>
 <li>Begin with the original datset as the root node and calculte its entropy.</li>
 <li>For each attribute/feature:
@@ -399,12 +399,59 @@ Types of DT This algorithm can be used for both regression and classification pr
 <li>Find the feature with <strong>maximum information gain</strong> and split to produce subsets.</li>
 <li>Continues to recur on each subset until we get the desired tree.</li>
 </ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>ID3 has no pruning strategy and is easy to <strong>overfit</strong>.</li>
+<li>The IG criterion has a preference for features with a number of possible values.</li>
+<li>It can only be used to deal with <strong>discretely</strong> distributed features;</li>
+<li>It does not consider missing values.</li>
+</ul>
 <h3 id="c45">C4.5</h3>
-<p>C4.5 decision tree is a modification over the ID3 Decision Tree and removed the restriction that features must be <strong>categorical</strong> by dynamically defining a discrete attribute (based on numerical variables) that partitions the <strong>continuous</strong> attribute value into a discrete set of intervals. C4.5 uses the <strong>Gain Ratio</strong> as the goodness function to split the dataset.</p>
+<p>Compared with the shortcomings of ID3, C4.5 has the following improvements:</p>
+<ul>
+<li>C4.5 overcomes is the shortcoming of ID3&rsquo;s emphasis on the number of feature by using the <strong>Gain Ratio</strong> as the goodness function to split the dataset.</li>
+<li>C4.5 is able to handle both <strong>continuous</strong> and <strong>discrete</strong> attributes.</li>
+<li>C4.5 has a <strong>pruning</strong> strategy, which replaces the helpless branches with leaf nodes after the tree is created.</li>
+<li>C4.5 takes <strong>missing values</strong> into account.</li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>C4.5 uses a <strong>polytree</strong> which is less efficient than a binary tree.</li>
+<li>C4.5 can only be used for <strong>classification</strong>.</li>
+<li>C4.5 is <strong>computaionally expensive</strong> both in time and space.</li>
+</ul>
 <h3 id="cart">CART</h3>
-<p><strong>Classification And Regression Trees (CART)</strong> algorithm is a classification algorithm for building a decision tree based on <strong>Gini impurity</strong> as splitting criterion.</p>
+<p><strong>Classification And Regression Trees (CART)</strong> is a recursive partitioning method, builds classification and regression trees for predicting <strong>continuous dependent variables (regression)</strong> and <strong>categorical predictor variables (classification)</strong>.</p>
+<p>The <a class="link" href="http://rollingdeep.github.io/2020/11/02/CART%E5%88%86%E7%B1%BB%E6%A0%91%E4%BE%8B%E5%AD%90%E8%AE%B2%E8%A7%A3/"  target="_blank" rel="noopener"
+    >classification algorithm</a> for building a decision tree is based on <strong>Gini impurity</strong> as splitting criterion, while the <a class="link" href="http://rollingdeep.github.io/2020/11/02/CART%E5%9B%9E%E5%BD%92%E6%A0%91%E4%BE%8B%E5%AD%90%E8%AE%B2%E8%A7%A3/"  target="_blank" rel="noopener"
+    >regression tree</a>  uses <strong>square error</strong>.</p>
 <hr>
-<h2 id="pruning">Pruning</h2>
+<h2 id="tricks-in-decision-tree-construction">Tricks in Decision Tree Construction</h2>
+<h3 id="pruning">Pruning</h3>
+<p><strong>Pre-pruning</strong>:</p>
+<ul>
+<li>The size of nodes is smaller than the threshold.</li>
+<li>The depth of the tree is deeper than the threshold.</li>
+<li>All the attributes have been checked.</li>
+<li>Accuracy on the validation set becomes lower after splitting.</li>
+</ul>
+<p><strong>Post-pruning</strong> (<a class="link" href="https://wizardforcel.gitbooks.io/dm-algo-top10/content/cart.html"  target="_blank" rel="noopener"
+    >Readings</a>):</p>
+<ul>
+<li>Reduced-Error Pruning</li>
+<li>Pessimistic Error Pruning</li>
+</ul>
+<h3 id="continuous-variables">Continuous Variables</h3>
+<p>Since some attributes has a continuous property, we dealt with the continuous values according to the following manner. Suppose the attribute $ A $ has $ a_1, a_2, &hellip; , a_n $, then $ v $ equals $ n − 1 $. The values are sorted in an ascending order to calculate each threshold.</p>
+<p>$$ threshold(k)=\frac{a_{k}+a_{k+1}}{2} $$</p>
+<p>, where $ a_{k}&lt;a_{k+1} $ and $ 1 \leq k \leq n-1 $. The optimal split will be found when it achieves the maximum purity.</p>
+<h3 id="missing-values">Missing Values</h3>
+<p><strong>Case 1</strong>
+When an attribute has missing values, we calulate the ASM without considering the data with missing values. Then, we normalize the ASM based on the proportion of data with missing values.</p>
+<p><strong>Case 2</strong>
+We find a split criterion, but some data samples don&rsquo;t have the value of that attribute. We distribute those data into sub-nodes based on the ratio of the size of those sub-nodes created by normal data.</p>
+<p><strong>Case 3</strong>
+When the testing data has missing values, let each abnormal data go through every branch and see which branch results in the highest probability.</p>
 <hr>
 <h2 id="reference">Reference</h2>
 <ul>
@@ -453,7 +500,7 @@ Types of DT This algorithm can be used for both regression and classification pr
 
 
         <span>
-            Last updated on May 14, 2022 11:26 CST
+            Last updated on May 14, 2022 17:46 CST
         </span>
     </section></footer>
 
@@ -626,7 +673,13 @@ Types of DT This algorithm can be used for both regression and classification pr
         <li><a href="#cart">CART</a></li>
       </ol>
     </li>
-    <li><a href="#pruning">Pruning</a></li>
+    <li><a href="#tricks-in-decision-tree-construction">Tricks in Decision Tree Construction</a>
+      <ol>
+        <li><a href="#pruning">Pruning</a></li>
+        <li><a href="#continuous-variables">Continuous Variables</a></li>
+        <li><a href="#missing-values">Missing Values</a></li>
+      </ol>
+    </li>
     <li><a href="#reference">Reference</a></li>
   </ol>
 </nav>
