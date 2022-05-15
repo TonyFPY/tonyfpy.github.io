@@ -252,7 +252,7 @@ $$ x^{a} \odot p = [(x^{a-1} \odot p)(x \odot p)] \odot p=[(x^{a-1} \odot p) x] 
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on May 11th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on May 13th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on May 14th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;A decision tree is one of the supervised machine learning algorithms. Decision Tree algorithm belongs to the family of supervised learning algorithms. The goal is to create a model that predicts the value of a target variable by learning &lt;strong&gt;if-else conditions(decision rules)&lt;/strong&gt; inferred from the data features.&lt;/p&gt;

@@ -6,7 +6,29 @@
         <description>Recent content in Machine Learning on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 11 May 2022 20:51:10 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 15 May 2022 22:31:29 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Career Talk] Topic 2: An Overview of MLE Interviews</title>
+        <link>https://tonyfpy.github.io/p/career-talk-topic-2-an-overview-of-mle-interviews/</link>
+        <pubDate>Sun, 15 May 2022 22:31:29 +0800</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/career-talk-topic-2-an-overview-of-mle-interviews/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on May 15th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on May 15th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;Machine Learning Engineer is one job direction that I would like to try. These days, I am searching for stuff about MLE interviews in order to find out what skills a MLE must need and what should be noticed in preparation for this job placement. According to the web, every company will have a slightly different focus, when it comes to the interviews for a MLE position. I am going to outline some general infomation in this post, hoping to make it clearer and show you a big picture.&lt;/p&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;referrence&#34;&gt;Referrence&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://huyenchip.com/ml-interviews-book/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MLE Interview Book&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>[Machine Learning] Topic 3: Decisoin Tree</title>
         <link>https://tonyfpy.github.io/p/machine-learning-topic-3-decisoin-tree/</link>
         <pubDate>Wed, 11 May 2022 20:51:10 +0800</pubDate>
@@ -15,7 +37,7 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on May 11th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on May 13th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on May 14th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;A decision tree is one of the supervised machine learning algorithms. Decision Tree algorithm belongs to the family of supervised learning algorithms. The goal is to create a model that predicts the value of a target variable by learning &lt;strong&gt;if-else conditions(decision rules)&lt;/strong&gt; inferred from the data features.&lt;/p&gt;

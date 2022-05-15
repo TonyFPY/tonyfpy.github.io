@@ -2,10 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Deep Learning on Tony Feng</title>
-        <link>https://tonyfpy.github.io/categories/deep-learning/</link>
+        <link>https://tonyfpy.github.io/tags/deep-learning/</link>
         <description>Recent content in Deep Learning on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/deep-learning/index.xml" rel="self" type="application/rss+xml" /><item>
+        <language>en-us</language>
+        <lastBuildDate>Sun, 15 May 2022 22:31:29 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>[Career Talk] Topic 2: An Overview of MLE Interviews</title>
         <link>https://tonyfpy.github.io/p/career-talk-topic-2-an-overview-of-mle-interviews/</link>
         <pubDate>Sun, 15 May 2022 22:31:29 +0800</pubDate>
