@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on April 12th, 2022
-Last Modified on April 12th, 2022
+Last Modified on May 16th, 2022
  Task 1 - Q09. 用两个栈实现队列 Question 用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 appendTail 和 deleteHead ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，deleteHead 操作返回 -1 )
 Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  class CQueue: def __init__(self): self.que = [] self.tmp = [] # Buffer def appendTail(self, value: int) -&amp;gt; None: self.'><title>[剑指Offer] Day 1: Stack and Queue</title>
 
@@ -12,16 +12,16 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  class CQueue: def _
 <link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[剑指Offer] Day 1: Stack and Queue'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on April 12th, 2022
-Last Modified on April 12th, 2022
+Last Modified on May 16th, 2022
  Task 1 - Q09. 用两个栈实现队列 Question 用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 appendTail 和 deleteHead ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，deleteHead 操作返回 -1 )
 Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  class CQueue: def __init__(self): self.que = [] self.tmp = [] # Buffer def appendTail(self, value: int) -&amp;gt; None: self.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-1-stack-and-queue/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-04-12T22:12:52&#43;08:00'/><meta property='article:modified_time' content='2022-04-22T23:01:09&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-04-12T22:12:52&#43;08:00'/><meta property='article:modified_time' content='2022-05-16T15:31:18&#43;08:00'/>
 <meta name="twitter:title" content="[剑指Offer] Day 1: Stack and Queue">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on April 12th, 2022
-Last Modified on April 12th, 2022
+Last Modified on May 16th, 2022
  Task 1 - Q09. 用两个栈实现队列 Question 用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 appendTail 和 deleteHead ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，deleteHead 操作返回 -1 )
 Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  class CQueue: def __init__(self): self.que = [] self.tmp = [] # Buffer def appendTail(self, value: int) -&amp;gt; None: self.">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -346,7 +346,7 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  class CQueue: def _
     <blockquote>
 <p>Authored by Tony Feng</p>
 <p>Created on April 12th, 2022</p>
-<p>Last Modified on April 12th, 2022</p>
+<p>Last Modified on May 16th, 2022</p>
 </blockquote>
 <h2 id="task-1---q09-用两个栈实现队列">Task 1 - Q09. 用两个栈实现队列</h2>
 <h3 id="question">Question</h3>
@@ -418,7 +418,7 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  class CQueue: def _
 <h2 id="task-2---q30-包含min函数的栈">Task 2 - Q30. 包含min函数的栈</h2>
 <h3 id="question-1">Question</h3>
 <p>定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 <code>min</code> 函数在该栈中，调用 <code>min</code>、<code>push</code> 及 <code>pop</code> 的时间复杂度都是 <code>O(1)</code>。</p>
-<h3 id="solution-1">Solution</h3>
+<h3 id="solution-1">Solution 1</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -483,6 +483,63 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  class CQueue: def _
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">minVal</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h3 id="solution-2">Solution 2</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MinStack</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">r</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">min</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        
+</span></span></code></pre></td></tr></table>
+</div>
 </div><h3 id="explanation-1">Explanation</h3>
 <ul>
 <li>Two Stacks: One is for storage and the other is for tracing the minimum value.</li>
@@ -519,7 +576,7 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  class CQueue: def _
 
 
         <span>
-            Last updated on Apr 22, 2022 23:01 CST
+            Last updated on May 16, 2022 15:31 CST
         </span>
     </section></footer>
 
@@ -681,7 +738,8 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  class CQueue: def _
     <li><a href="#task-2---q30-包含min函数的栈">Task 2 - Q30. 包含min函数的栈</a>
       <ol>
         <li><a href="#question-1">Question</a></li>
-        <li><a href="#solution-1">Solution</a></li>
+        <li><a href="#solution-1">Solution 1</a></li>
+        <li><a href="#solution-2">Solution 2</a></li>
         <li><a href="#explanation-1">Explanation</a></li>
       </ol>
     </li>
