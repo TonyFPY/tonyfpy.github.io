@@ -6,7 +6,27 @@
         <description>Recent content in Python on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 16 May 2022 10:45:51 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 18 May 2022 22:45:07 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Machine Learning] Topic 4: K-Nearest Neighbours</title>
+        <link>https://tonyfpy.github.io/p/machine-learning-topic-4-k-nearest-neighbours/</link>
+        <pubDate>Wed, 18 May 2022 22:45:07 +0800</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/machine-learning-topic-4-k-nearest-neighbours/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on May 18th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on May 18th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;K-nearest neighbors (KNN)&lt;/strong&gt; is a type of &lt;strong&gt;supervised&lt;/strong&gt; learning algorithm used for both &lt;strong&gt;regression&lt;/strong&gt; and &lt;strong&gt;classification&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In classification, it tries to predict the correct class for the test data by a &lt;strong&gt;majority vote&lt;/strong&gt; from K amount of neighbours to classify.&lt;/p&gt;
+&lt;p&gt;In the case of regression, the value is the &lt;strong&gt;mean&lt;/strong&gt; of the K selected training points.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;referrence&#34;&gt;Referrence&lt;/h2&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[剑指Offer] Review</title>
         <link>https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-review/</link>
         <pubDate>Mon, 16 May 2022 10:45:51 +0800</pubDate>
@@ -15,7 +35,7 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on May 16th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on May 16th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on May 18th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;It&amp;rsquo;s been a month since I started to practice coding on Leetcode. I selected &amp;ldquo;剑指Offer&amp;rdquo; from the question libarary and followed the given daily plan to practice, hoping to gain familiarity with the problem-solving patterns.  After the first-round coding, it is still hard for me to digest all the knowledge points, and I found it necessary to review them to consolidate my coding skills. Therefore, I&amp;rsquo;ve created a table to record my daily review routine.&lt;/p&gt;
@@ -495,11 +515,11 @@ $$ x^{a} \odot p = [(x^{a-1} \odot p)(x \odot p)] \odot p=[(x^{a-1} \odot p) x] 
 &lt;p&gt;$$ threshold(k)=\frac{a_{k}+a_{k+1}}{2} $$&lt;/p&gt;
 &lt;p&gt;, where $ a_{k}&amp;lt;a_{k+1} $ and $ 1 \leq k \leq n-1 $. The optimal split will be found when it achieves the maximum purity.&lt;/p&gt;
 &lt;h3 id=&#34;missing-values&#34;&gt;Missing Values&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Case 1&lt;/strong&gt;
+&lt;p&gt;&lt;strong&gt;Case 1&lt;/strong&gt;:
 When an attribute has missing values, we calulate the ASM without considering the data with missing values. Then, we normalize the ASM based on the proportion of data with missing values.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Case 2&lt;/strong&gt;
+&lt;p&gt;&lt;strong&gt;Case 2&lt;/strong&gt;:
 We find a split criterion, but some data samples don&amp;rsquo;t have the value of that attribute. We distribute those data into sub-nodes based on the ratio of the size of those sub-nodes created by normal data.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Case 3&lt;/strong&gt;
+&lt;p&gt;&lt;strong&gt;Case 3&lt;/strong&gt;:
 When the testing data has missing values, let each abnormal data go through every branch and see which branch results in the highest probability.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
