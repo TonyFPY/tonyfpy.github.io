@@ -23,6 +23,14 @@
 &lt;p&gt;In the case of regression, the value is the &lt;strong&gt;mean&lt;/strong&gt; of the K selected training points.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;referrence&#34;&gt;Referrence&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/swlh/k-nearest-neighbor-ca2593d7a3c4&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;K-Nearest Neighbor - Medium&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.javatpoint.com/k-nearest-neighbor-algorithm-for-machine-learning&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;K-Nearest Neighbor(KNN) Algorithm for Machine Learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.datadriveninvestor.com/k-nearest-neighbours-knn-a9f8ba09cb8b&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Intro to K-Nearest Neighbours (KNN) — Machine Learning 101&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 </description>
         </item>
