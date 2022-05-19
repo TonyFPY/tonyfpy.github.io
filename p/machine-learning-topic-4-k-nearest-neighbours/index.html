@@ -3,30 +3,27 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on May 18th, 2022
-Last Modified on May 18th, 2022
- Intro K-nearest neighbors (KNN) is a type of supervised learning algorithm used for both regression and classification.
-In classification, it tries to predict the correct class for the test data by a majority vote from K amount of neighbours to classify.
-In the case of regression, the value is the mean of the K selected training points.'><title>[Machine Learning] Topic 4: K-Nearest Neighbours</title>
+Last Modified on May 19th, 2022
+ Intro K-nearest neighbors (KNN) is a simple, easy to understand machine learning algorithms. It examines the labels of a chosen number of data points surrounding a target data point, in order to make a prediction about the class that the data point falls into.
+It is a type of supervised learning algorithm used for both regression and classification.'><title>[Machine Learning] Topic 4: K-Nearest Neighbours</title>
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/machine-learning-topic-4-k-nearest-neighbours/'>
 
 <link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Machine Learning] Topic 4: K-Nearest Neighbours'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on May 18th, 2022
-Last Modified on May 18th, 2022
- Intro K-nearest neighbors (KNN) is a type of supervised learning algorithm used for both regression and classification.
-In classification, it tries to predict the correct class for the test data by a majority vote from K amount of neighbours to classify.
-In the case of regression, the value is the mean of the K selected training points.'>
+Last Modified on May 19th, 2022
+ Intro K-nearest neighbors (KNN) is a simple, easy to understand machine learning algorithms. It examines the labels of a chosen number of data points surrounding a target data point, in order to make a prediction about the class that the data point falls into.
+It is a type of supervised learning algorithm used for both regression and classification.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/machine-learning-topic-4-k-nearest-neighbours/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-18T22:45:07&#43;08:00'/><meta property='article:modified_time' content='2022-05-18T23:27:40&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-18T22:45:07&#43;08:00'/><meta property='article:modified_time' content='2022-05-19T21:23:13&#43;08:00'/>
 <meta name="twitter:title" content="[Machine Learning] Topic 4: K-Nearest Neighbours">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on May 18th, 2022
-Last Modified on May 18th, 2022
- Intro K-nearest neighbors (KNN) is a type of supervised learning algorithm used for both regression and classification.
-In classification, it tries to predict the correct class for the test data by a majority vote from K amount of neighbours to classify.
-In the case of regression, the value is the mean of the K selected training points.">
+Last Modified on May 19th, 2022
+ Intro K-nearest neighbors (KNN) is a simple, easy to understand machine learning algorithms. It examines the labels of a chosen number of data points surrounding a target data point, in order to make a prediction about the class that the data point falls into.
+It is a type of supervised learning algorithm used for both regression and classification.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -332,7 +329,7 @@ In the case of regression, the value is the mean of the K selected training poin
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -349,12 +346,72 @@ In the case of regression, the value is the mean of the K selected training poin
     <blockquote>
 <p>Authored by Tony Feng</p>
 <p>Created on May 18th, 2022</p>
-<p>Last Modified on May 18th, 2022</p>
+<p>Last Modified on May 19th, 2022</p>
 </blockquote>
 <h2 id="intro">Intro</h2>
-<p><strong>K-nearest neighbors (KNN)</strong> is a type of <strong>supervised</strong> learning algorithm used for both <strong>regression</strong> and <strong>classification</strong>.</p>
-<p>In classification, it tries to predict the correct class for the test data by a <strong>majority vote</strong> from K amount of neighbours to classify.</p>
-<p>In the case of regression, the value is the <strong>mean</strong> of the K selected training points.</p>
+<p><strong>K-nearest neighbors (KNN)</strong> is a simple, easy to understand machine learning algorithms. It examines the labels of a chosen number of data points surrounding a target data point, in order to make a prediction about the class that the data point falls into.</p>
+<p>It is a type of <strong>supervised</strong> learning algorithm used for both <strong>regression</strong> and <strong>classification</strong>. 1) In classification, it tries to predict the class for the test data by a <strong>majority vote</strong> from K amount of neighbours. 2) In the case of regression, the prediction is the <strong>mean</strong> of the K selected training points.</p>
+<hr>
+<h2 id="characteristics">Characteristics</h2>
+<h3 id="non-parametic">Non-parametic</h3>
+<p>KNN is <strong>non-parametric</strong>, which means there is <strong>no assumption</strong> for underlying data distribution (i.e. the model structure is determined from the dataset).</p>
+<h3 id="lazy">Lazy</h3>
+<p>It is called <strong>Lazy algorithm</strong> because it does not need any training data points for model generation. All training data is used in the testing phase. This makes training faster, but making the testing phase slower and costlier.</p>
+<h3 id="similarity-measure">Similarity Measure</h3>
+<p>KNN stores all the available cases and predicts the new data based on a <strong>similarity measure</strong>.</p>
+<hr>
+<h2 id="knn-details">KNN Details</h2>
+<h3 id="steps">Steps</h3>
+<ul>
+<li>Choosing a K and a distance metric</li>
+<li>Calculating the distance between a test example and each training examples</li>
+<li>Sorting the calculated distances</li>
+<li>Returning a prediction
+<ul>
+<li>Classification: Assigning the most frequent label of the top K neighbors</li>
+<li>Regression: Outputing the mean (average) of K-nearest neighbours</li>
+</ul>
+</li>
+</ul>
+<h3 id="k-selection">K Selection</h3>
+<p>There are no pre-defined statistical methods to find the most favorable value of K. Sometimes, we may apply a <strong>domain knowledge</strong> to select a K. Additionally, we can derive <strong>a plot between error rate and K denoting values</strong> in a defined range.</p>
+<p>A smaller K will lead to overfitting, while a larger K results in smooth decision boundaries or underfitting.</p>
+<p>In some cases, the algorithm faces a dilemma in majority vote. One solution, which will be discussed later, is to change to another decision rule. Besides, we can consider the <strong>parity</strong> of the number of classes and the value of K.</p>
+<ul>
+<li>If the number of classes is even, then K should be odd;</li>
+<li>If the number of classed is odd, then K should be even.</li>
+</ul>
+<h3 id="distance-metric">Distance Metric</h3>
+<p>There are various methods for calculating this distance, of which the most commonly known methods are Euclidian, Manhattan (for <strong>continuous</strong> variables) and Hamming distance (for <strong>categorical</strong> variables).</p>
+<p><strong>Euclidean Distance</strong></p>
+<p>$$ ED = \sqrt{\sum_{i=1}^{k}(x_{i}-y_{i})^{2}} $$</p>
+<p><strong>Manhattan Distance</strong></p>
+<p>$$ MD = \sum_{i=1}^{k}|x_{i}-y_{i}| $$</p>
+<p><strong>Hamming Distance</strong></p>
+<p>$$ HD = \sum_{i=1}^{k} M_i $$</p>
+<p>, where $ M_i = 0 $ if $ x_i = y_i $, else $ M_i = 1 $.</p>
+<h3 id="decision-rules">Decision Rules</h3>
+<p>When combining the class labels, the simplest method is to take the <strong>majority vote</strong>, but this can be a problem if the nearest neighbors vary widely in their distance and the closest neighbors more reliably indicate the class of the object.</p>
+<p>To overcome the issue, we can assign weights to the nearest k points . The intuition behind <strong>weighted KNN</strong> is to give more weight to the points which are nearby and less weight to the points which are farther away.</p>
+<hr>
+<h2 id="evaluation">Evaluation</h2>
+<h3 id="pros">Pros</h3>
+<ul>
+<li>KNN is straightforward and <strong>easy to implement</strong>.</li>
+<li><strong>No &ldquo;training&rdquo; process</strong> are needed  in the traditional sense.</li>
+<li>KNN doesn’t function with emphasis on assumptions.</li>
+<li>KNN can quickly adapt to new data.</li>
+<li>This algorithm can be used for both regression and classification.</li>
+</ul>
+<h3 id="cons">Cons</h3>
+<ul>
+<li>KNN algorithm is computationally expensive and slow.</li>
+<li>It needs a <strong>large memory storage</strong>.</li>
+<li>The efficiency of KNN is inversely proportional to the number of features.</li>
+<li>It is highly susceptible to <strong>the curse of dimensionality</strong></li>
+<li>It cannot function properly with <strong>missing values</strong>.</li>
+<li><strong>Outliers</strong> are especially impactful for KNN.</li>
+</ul>
 <hr>
 <h2 id="referrence">Referrence</h2>
 <ul>
@@ -364,6 +421,12 @@ In the case of regression, the value is the mean of the K selected training poin
     >K-Nearest Neighbor(KNN) Algorithm for Machine Learning</a></li>
 <li><a class="link" href="https://medium.datadriveninvestor.com/k-nearest-neighbours-knn-a9f8ba09cb8b"  target="_blank" rel="noopener"
     >Intro to K-Nearest Neighbours (KNN) — Machine Learning 101</a></li>
+<li><a class="link" href="https://medium.datadriveninvestor.com/k-nearest-neighbors-knn-algorithm-bd375d14eec7"  target="_blank" rel="noopener"
+    >K-Nearest Neighbors (KNN) Algorithm</a></li>
+<li><a class="link" href="https://www.unite.ai/what-is-k-nearest-neighbors/"  target="_blank" rel="noopener"
+    >What is a KNN (K-Nearest Neighbors)?</a></li>
+<li><a class="link" href="https://mysweetindulgence.com/easy-writing/what-is-distance-weighted-knn/"  target="_blank" rel="noopener"
+    >What is distance weighted KNN?</a></li>
 </ul>
 <hr>
 
@@ -395,7 +458,7 @@ In the case of regression, the value is the mean of the K selected training poin
 
 
         <span>
-            Last updated on May 18, 2022 23:27 CST
+            Last updated on May 19, 2022 21:23 CST
         </span>
     </section></footer>
 
@@ -548,6 +611,27 @@ In the case of regression, the value is the mean of the K selected training poin
             <nav id="TableOfContents">
   <ol>
     <li><a href="#intro">Intro</a></li>
+    <li><a href="#characteristics">Characteristics</a>
+      <ol>
+        <li><a href="#non-parametic">Non-parametic</a></li>
+        <li><a href="#lazy">Lazy</a></li>
+        <li><a href="#similarity-measure">Similarity Measure</a></li>
+      </ol>
+    </li>
+    <li><a href="#knn-details">KNN Details</a>
+      <ol>
+        <li><a href="#steps">Steps</a></li>
+        <li><a href="#k-selection">K Selection</a></li>
+        <li><a href="#distance-metric">Distance Metric</a></li>
+        <li><a href="#decision-rules">Decision Rules</a></li>
+      </ol>
+    </li>
+    <li><a href="#evaluation">Evaluation</a>
+      <ol>
+        <li><a href="#pros">Pros</a></li>
+        <li><a href="#cons">Cons</a></li>
+      </ol>
+    </li>
     <li><a href="#referrence">Referrence</a></li>
   </ol>
 </nav>
