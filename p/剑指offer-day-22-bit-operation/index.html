@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on May 3rd, 2022
-Last Modified on May 3rd, 2022
+Last Modified on May 29th, 2022
  Task 1 - Q56,I. 数组中数字出现的次数 Question 一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是 O(1)。
 Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: def singleNumbers(self, nums: List[int]) -&amp;gt; List[int]: num1, num2, xo, flag = 0, 0, 0, 1 for num in nums: xo ^= num while xo &amp;amp; flag == 0: # Find the first 1&amp;#39;s position flag = flag &amp;lt;&amp;lt; 1 for num in nums: if num &amp;amp; flag == 0: # Split the nums into two groups num1 ^= num else: num2 ^= num return [num1, num2]   Explanation  Ideas  a XO b XO b XO b &amp;hellip; XO b = a a XO b XO c XO c &amp;hellip; XO c = a XO b Assuming a XO b = 1010, we can find flag = 0010 to split the nums and put a, b in different groups.'><title>[剑指Offer] Day 22: Bit Operation</title>
 
@@ -12,16 +12,16 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: def singleNu
 <link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[剑指Offer] Day 22: Bit Operation'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on May 3rd, 2022
-Last Modified on May 3rd, 2022
+Last Modified on May 29th, 2022
  Task 1 - Q56,I. 数组中数字出现的次数 Question 一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是 O(1)。
 Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: def singleNumbers(self, nums: List[int]) -&amp;gt; List[int]: num1, num2, xo, flag = 0, 0, 0, 1 for num in nums: xo ^= num while xo &amp;amp; flag == 0: # Find the first 1&amp;#39;s position flag = flag &amp;lt;&amp;lt; 1 for num in nums: if num &amp;amp; flag == 0: # Split the nums into two groups num1 ^= num else: num2 ^= num return [num1, num2]   Explanation  Ideas  a XO b XO b XO b &amp;hellip; XO b = a a XO b XO c XO c &amp;hellip; XO c = a XO b Assuming a XO b = 1010, we can find flag = 0010 to split the nums and put a, b in different groups.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-22-bit-operation/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-03T15:35:56&#43;08:00'/><meta property='article:modified_time' content='2022-05-03T16:59:39&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-03T15:35:56&#43;08:00'/><meta property='article:modified_time' content='2022-05-29T18:01:23&#43;08:00'/>
 <meta name="twitter:title" content="[剑指Offer] Day 22: Bit Operation">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on May 3rd, 2022
-Last Modified on May 3rd, 2022
+Last Modified on May 29th, 2022
  Task 1 - Q56,I. 数组中数字出现的次数 Question 一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是 O(1)。
 Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: def singleNumbers(self, nums: List[int]) -&amp;gt; List[int]: num1, num2, xo, flag = 0, 0, 0, 1 for num in nums: xo ^= num while xo &amp;amp; flag == 0: # Find the first 1&amp;#39;s position flag = flag &amp;lt;&amp;lt; 1 for num in nums: if num &amp;amp; flag == 0: # Split the nums into two groups num1 ^= num else: num2 ^= num return [num1, num2]   Explanation  Ideas  a XO b XO b XO b &amp;hellip; XO b = a a XO b XO c XO c &amp;hellip; XO c = a XO b Assuming a XO b = 1010, we can find flag = 0010 to split the nums and put a, b in different groups.">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -346,7 +346,7 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: def singleNu
     <blockquote>
 <p>Authored by Tony Feng</p>
 <p>Created on May 3rd, 2022</p>
-<p>Last Modified on May 3rd, 2022</p>
+<p>Last Modified on May 29th, 2022</p>
 </blockquote>
 <h2 id="task-1---q56i-数组中数字出现的次数">Task 1 - Q56,I. 数组中数字出现的次数</h2>
 <h3 id="question">Question</h3>
@@ -414,7 +414,7 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: def singleNu
 <h2 id="task-2---q56ii-数组中数字出现的次数-ii">Task 2 - Q56,II. 数组中数字出现的次数 II</h2>
 <h3 id="question-1">Question</h3>
 <p>在一个数组 <code>nums</code> 中除一个数字只出现1次之外，其他数字都出现了3次。请找出那个只出现一次的数字。</p>
-<h3 id="solution-1">Solution</h3>
+<h3 id="solution-1">Solution 1</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -447,8 +447,53 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: def singleNu
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span> <span class="k">if</span> <span class="n">bits</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span> <span class="o">%</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">~</span><span class="p">(</span><span class="n">res</span> <span class="o">^</span> <span class="mh">0xffffffff</span><span class="p">)</span> <span class="c1"># Take measures for negative number</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h3 id="solution-2">Solution 2</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">Three cases: a) 333 444 5; b) 333 4 555; c) 3 444 555 
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">singleNumber</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">nums</span><span class="p">:</span> <span class="k">return</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">nums</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="k">elif</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
 </div><h3 id="explanation-1">Explanation</h3>
 <ul>
+<li>Solution 1
+<ul>
+<li>Time Complexity: O(N)</li>
+<li>Space Complexity: O(1)</li>
 <li>Steps
 <ul>
 <li>Create an array to store counts</li>
@@ -459,12 +504,18 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: def singleNu
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <div align="center">
     <img src="Q56II.jpg"/>
 </div>
 <ul>
+<li>Solution 2
+<ul>
 <li>Time Complexity: O(N)</li>
-<li>Space Complexity: O(1)</li>
+<li>Space Complexity: O(N)</li>
+</ul>
+</li>
 </ul>
 <hr>
 
@@ -496,7 +547,7 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: def singleNu
 
 
         <span>
-            Last updated on May 03, 2022 16:59 CST
+            Last updated on May 29, 2022 18:01 CST
         </span>
     </section></footer>
 
@@ -658,7 +709,8 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: def singleNu
     <li><a href="#task-2---q56ii-数组中数字出现的次数-ii">Task 2 - Q56,II. 数组中数字出现的次数 II</a>
       <ol>
         <li><a href="#question-1">Question</a></li>
-        <li><a href="#solution-1">Solution</a></li>
+        <li><a href="#solution-1">Solution 1</a></li>
+        <li><a href="#solution-2">Solution 2</a></li>
         <li><a href="#explanation-1">Explanation</a></li>
       </ol>
     </li>
