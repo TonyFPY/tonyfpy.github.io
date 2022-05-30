@@ -604,6 +604,46 @@
 &lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;58&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-24-mathematics/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;和为s的连续正数序列 II&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;Mathematics&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;05-30-2022&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;59&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-24-mathematics/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;圆圈中最后剩下的数字&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;Mathematics&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;05-30-2022&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;60&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-25-simulation/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;顺时针打印矩阵&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;Simulation&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;05-30-2022&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;61&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-25-simulation/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;栈的压入、弹出序列&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;Simulation&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;05-30-2022&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;&#34; &gt;TBC&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -1852,7 +1892,7 @@ $$ x^{a} \odot p = [(x^{a-1} \odot p)(x \odot p)] \odot p=[(x^{a-1} \odot p) x] 
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on May 6th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on May 6th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on May 30th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;task-1---q29-顺时针打印矩阵&#34;&gt;Task 1 - Q29. 顺时针打印矩阵&lt;/h2&gt;
 &lt;h3 id=&#34;question&#34;&gt;Question&lt;/h3&gt;
@@ -1926,7 +1966,7 @@ $$ x^{a} \odot p = [(x^{a-1} \odot p)(x \odot p)] \odot p=[(x^{a-1} \odot p) x] 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;spiralOrder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;matrix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]])&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;matrix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;matrix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;matrix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;matrix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;matrix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;ans&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Follows the clockwise oreder and shrink the range&lt;/span&gt;
@@ -2018,7 +2058,7 @@ $$ x^{a} \odot p = [(x^{a-1} \odot p)(x \odot p)] \odot p=[(x^{a-1} \odot p) x] 
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on May 5th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on May 5th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on May 30th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;task-1---q14i-剪绳子&#34;&gt;Task 1 - Q14,I. 剪绳子&lt;/h2&gt;
 &lt;h3 id=&#34;question&#34;&gt;Question&lt;/h3&gt;
@@ -2255,9 +2295,29 @@ $$ x^{a} \odot p = [(x^{a-1} \odot p)(x \odot p)] \odot p=[(x^{a-1} \odot p) x] 
 &lt;ul&gt;
 &lt;li&gt;F(curNum, m) = (F(curNum−1, m) + m) % curNum&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div align=&#34;center&#34;&gt;
-    &lt;img src=&#34;Q62.jpg&#34;/&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-24-mathematics/Q62,I.jpg&#34;
+	width=&#34;1054&#34;
+	height=&#34;628&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-24-mathematics/Q62,I_hueb05526cb80d9eb113525c068b4e365f_53853_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-24-mathematics/Q62,I_hueb05526cb80d9eb113525c068b4e365f_53853_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;167&#34;
+		data-flex-basis=&#34;402px&#34;
+	
+&gt; &lt;img src=&#34;https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-24-mathematics/Q62,II.jpg&#34;
+	width=&#34;1963&#34;
+	height=&#34;1096&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-24-mathematics/Q62,II_hu3ed4159c2f54da2005fc40852ea05c2d_153413_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-24-mathematics/Q62,II_hu3ed4159c2f54da2005fc40852ea05c2d_153413_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;179&#34;
+		data-flex-basis=&#34;429px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Solution 1
 &lt;ul&gt;

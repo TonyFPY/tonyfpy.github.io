@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on May 5th, 2022
-Last Modified on May 5th, 2022
+Last Modified on May 30th, 2022
  Task 1 - Q14,I. 剪绳子 Question 给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&amp;gt;1并且m&amp;gt;1），每段绳子的长度记为 k[0],k[1]...k[m-1] 。请问 k[0]*k[1]*...*k[m-1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。其中，2 &amp;lt;= n &amp;lt;= 58
 Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: # Dynamic Programming def cuttingRope(self, n: int) -&amp;gt; int: dp = [0] * (n&#43;1) dp[2] = 1 # 2 = 1 &#43; 1; res = 1 * 1 = 1 for i in range(3, n&#43;1): for j in range(2, i): # Starting from 2 because 1 doesn&amp;#39;t change the result in multiplication dp[i] = max(dp[i], j*(i-j), j*dp[i-j]) # 1) Keep unchanged # 2) Cut length of j and keep the rest line unchanged # 3) Cut length of j and continue to cut following the way of dp[i-j] return dp[n]   Solution 2 1 2 3 4 5 6 7 8 9 10 11  class Solution: # Optimized Dynamic Programming def cuttingRope(self, n: int) -&amp;gt; int: dp = [0, 1, 1] for i in range(3, n&#43;1): res1 = max(1*dp[(i-1)%3], 1*(i-1)) res2 = max(2*dp[(i-2)%3], 2*(i-2)) res3 = max(3*dp[(i-3)%3], 3*(i-3)) dp[i%3] = max(res1, res2, res3) return dp[n%3]   Solution 3 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  class Solution: &amp;#39;&amp;#39;&amp;#39; 1) The length of each sub-line should be as equal as possible.'><title>[剑指Offer] Day 24: Mathematics</title>
 
@@ -12,16 +12,16 @@ Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: # Dynamic Programming def cu
 <link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[剑指Offer] Day 24: Mathematics'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on May 5th, 2022
-Last Modified on May 5th, 2022
+Last Modified on May 30th, 2022
  Task 1 - Q14,I. 剪绳子 Question 给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&amp;gt;1并且m&amp;gt;1），每段绳子的长度记为 k[0],k[1]...k[m-1] 。请问 k[0]*k[1]*...*k[m-1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。其中，2 &amp;lt;= n &amp;lt;= 58
 Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: # Dynamic Programming def cuttingRope(self, n: int) -&amp;gt; int: dp = [0] * (n&#43;1) dp[2] = 1 # 2 = 1 &#43; 1; res = 1 * 1 = 1 for i in range(3, n&#43;1): for j in range(2, i): # Starting from 2 because 1 doesn&amp;#39;t change the result in multiplication dp[i] = max(dp[i], j*(i-j), j*dp[i-j]) # 1) Keep unchanged # 2) Cut length of j and keep the rest line unchanged # 3) Cut length of j and continue to cut following the way of dp[i-j] return dp[n]   Solution 2 1 2 3 4 5 6 7 8 9 10 11  class Solution: # Optimized Dynamic Programming def cuttingRope(self, n: int) -&amp;gt; int: dp = [0, 1, 1] for i in range(3, n&#43;1): res1 = max(1*dp[(i-1)%3], 1*(i-1)) res2 = max(2*dp[(i-2)%3], 2*(i-2)) res3 = max(3*dp[(i-3)%3], 3*(i-3)) dp[i%3] = max(res1, res2, res3) return dp[n%3]   Solution 3 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  class Solution: &amp;#39;&amp;#39;&amp;#39; 1) The length of each sub-line should be as equal as possible.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-24-mathematics/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-05T21:44:05&#43;08:00'/><meta property='article:modified_time' content='2022-05-12T16:23:31&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-05T21:44:05&#43;08:00'/><meta property='article:modified_time' content='2022-05-30T23:16:48&#43;08:00'/>
 <meta name="twitter:title" content="[剑指Offer] Day 24: Mathematics">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on May 5th, 2022
-Last Modified on May 5th, 2022
+Last Modified on May 30th, 2022
  Task 1 - Q14,I. 剪绳子 Question 给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&amp;gt;1并且m&amp;gt;1），每段绳子的长度记为 k[0],k[1]...k[m-1] 。请问 k[0]*k[1]*...*k[m-1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。其中，2 &amp;lt;= n &amp;lt;= 58
 Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: # Dynamic Programming def cuttingRope(self, n: int) -&amp;gt; int: dp = [0] * (n&#43;1) dp[2] = 1 # 2 = 1 &#43; 1; res = 1 * 1 = 1 for i in range(3, n&#43;1): for j in range(2, i): # Starting from 2 because 1 doesn&amp;#39;t change the result in multiplication dp[i] = max(dp[i], j*(i-j), j*dp[i-j]) # 1) Keep unchanged # 2) Cut length of j and keep the rest line unchanged # 3) Cut length of j and continue to cut following the way of dp[i-j] return dp[n]   Solution 2 1 2 3 4 5 6 7 8 9 10 11  class Solution: # Optimized Dynamic Programming def cuttingRope(self, n: int) -&amp;gt; int: dp = [0, 1, 1] for i in range(3, n&#43;1): res1 = max(1*dp[(i-1)%3], 1*(i-1)) res2 = max(2*dp[(i-2)%3], 2*(i-2)) res3 = max(3*dp[(i-3)%3], 3*(i-3)) dp[i%3] = max(res1, res2, res3) return dp[n%3]   Solution 3 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  class Solution: &amp;#39;&amp;#39;&amp;#39; 1) The length of each sub-line should be as equal as possible.">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -346,7 +346,7 @@ Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: # Dynamic Programming def cu
     <blockquote>
 <p>Authored by Tony Feng</p>
 <p>Created on May 5th, 2022</p>
-<p>Last Modified on May 5th, 2022</p>
+<p>Last Modified on May 30th, 2022</p>
 </blockquote>
 <h2 id="task-1---q14i-剪绳子">Task 1 - Q14,I. 剪绳子</h2>
 <h3 id="question">Question</h3>
@@ -583,9 +583,29 @@ Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: # Dynamic Programming def cu
 <ul>
 <li>F(curNum, m) = (F(curNum−1, m) + m) % curNum</li>
 </ul>
-<div align="center">
-    <img src="Q62.jpg"/>
-</div>
+<p><img src="/p/%E5%89%91%E6%8C%87offer-day-24-mathematics/Q62,I.jpg"
+	width="1054"
+	height="628"
+	srcset="/p/%E5%89%91%E6%8C%87offer-day-24-mathematics/Q62,I_hueb05526cb80d9eb113525c068b4e365f_53853_480x0_resize_q75_box.jpg 480w, /p/%E5%89%91%E6%8C%87offer-day-24-mathematics/Q62,I_hueb05526cb80d9eb113525c068b4e365f_53853_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="167"
+		data-flex-basis="402px"
+	
+> <img src="/p/%E5%89%91%E6%8C%87offer-day-24-mathematics/Q62,II.jpg"
+	width="1963"
+	height="1096"
+	srcset="/p/%E5%89%91%E6%8C%87offer-day-24-mathematics/Q62,II_hu3ed4159c2f54da2005fc40852ea05c2d_153413_480x0_resize_q75_box.jpg 480w, /p/%E5%89%91%E6%8C%87offer-day-24-mathematics/Q62,II_hu3ed4159c2f54da2005fc40852ea05c2d_153413_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="179"
+		data-flex-basis="429px"
+	
+></p>
 <ul>
 <li>Solution 1
 <ul>
@@ -630,7 +650,7 @@ Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: # Dynamic Programming def cu
 
 
         <span>
-            Last updated on May 12, 2022 16:23 CST
+            Last updated on May 30, 2022 23:16 CST
         </span>
     </section></footer>
 

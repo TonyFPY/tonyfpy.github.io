@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on May 6th, 2022
-Last Modified on May 6th, 2022
+Last Modified on May 30th, 2022
  Task 1 - Q29. 顺时针打印矩阵 Question 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
 Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: def spiralOrder(self, matrix: List[List[int]]) -&amp;gt; List[int]: ans = [] while matrix: &amp;#39;&amp;#39;&amp;#39; 1) Extract the top of the matrix 2) Reverse the matrix in a counter-clockwise direction &amp;#39;&amp;#39;&amp;#39; ans.append(matrix.pop(0)) matrix = list(zip(*matrix))[::-1] # zip(*a) is equal to zip(a[0], a[1], a[2], .'><title>[剑指Offer] Day 25: Simulation</title>
 
@@ -12,16 +12,16 @@ Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: def spiralOrder(self, matrix
 <link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[剑指Offer] Day 25: Simulation'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on May 6th, 2022
-Last Modified on May 6th, 2022
+Last Modified on May 30th, 2022
  Task 1 - Q29. 顺时针打印矩阵 Question 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
 Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: def spiralOrder(self, matrix: List[List[int]]) -&amp;gt; List[int]: ans = [] while matrix: &amp;#39;&amp;#39;&amp;#39; 1) Extract the top of the matrix 2) Reverse the matrix in a counter-clockwise direction &amp;#39;&amp;#39;&amp;#39; ans.append(matrix.pop(0)) matrix = list(zip(*matrix))[::-1] # zip(*a) is equal to zip(a[0], a[1], a[2], .'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-25-simulation/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-06T16:30:00&#43;08:00'/><meta property='article:modified_time' content='2022-05-06T18:21:58&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-06T16:30:00&#43;08:00'/><meta property='article:modified_time' content='2022-05-30T23:35:53&#43;08:00'/>
 <meta name="twitter:title" content="[剑指Offer] Day 25: Simulation">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on May 6th, 2022
-Last Modified on May 6th, 2022
+Last Modified on May 30th, 2022
  Task 1 - Q29. 顺时针打印矩阵 Question 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
 Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: def spiralOrder(self, matrix: List[List[int]]) -&amp;gt; List[int]: ans = [] while matrix: &amp;#39;&amp;#39;&amp;#39; 1) Extract the top of the matrix 2) Reverse the matrix in a counter-clockwise direction &amp;#39;&amp;#39;&amp;#39; ans.append(matrix.pop(0)) matrix = list(zip(*matrix))[::-1] # zip(*a) is equal to zip(a[0], a[1], a[2], .">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -346,7 +346,7 @@ Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: def spiralOrder(self, matrix
     <blockquote>
 <p>Authored by Tony Feng</p>
 <p>Created on May 6th, 2022</p>
-<p>Last Modified on May 6th, 2022</p>
+<p>Last Modified on May 30th, 2022</p>
 </blockquote>
 <h2 id="task-1---q29-顺时针打印矩阵">Task 1 - Q29. 顺时针打印矩阵</h2>
 <h3 id="question">Question</h3>
@@ -420,7 +420,7 @@ Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: def spiralOrder(self, matrix
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">spiralOrder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrix</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">matrix</span><span class="p">:</span> <span class="k">return</span> <span class="p">[]</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
 </span></span><span class="line"><span class="cl">        <span class="n">ans</span> <span class="o">=</span> <span class="p">[]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1"># Follows the clockwise oreder and shrink the range</span>
@@ -530,7 +530,7 @@ Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: def spiralOrder(self, matrix
 
 
         <span>
-            Last updated on May 06, 2022 18:21 CST
+            Last updated on May 30, 2022 23:35 CST
         </span>
     </section></footer>
 
