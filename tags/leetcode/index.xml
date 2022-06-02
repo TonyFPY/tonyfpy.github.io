@@ -15,7 +15,7 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on May 16th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on May 24th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on June 2nd, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;It&amp;rsquo;s been a month since I started to practice coding on Leetcode. I selected &amp;ldquo;剑指Offer&amp;rdquo; from the question libarary and followed the given daily plan to practice, hoping to gain familiarity with the problem-solving patterns.  After the first-round coding, it is still hard for me to digest all the knowledge points, and I found it necessary to review them to consolidate my coding skills. Therefore, I&amp;rsquo;ve created a table to record my daily review routine.&lt;/p&gt;
@@ -651,6 +651,16 @@
 &lt;td&gt;String&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/ba-zi-fu-chuan-zhuan-huan-cheng-zheng-shu-lcof/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;05-31-2022&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;63&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-26-string/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;表示数值的字符串&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;06-02-2022&lt;/a&gt;&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
