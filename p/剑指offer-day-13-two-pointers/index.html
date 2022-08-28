@@ -17,7 +17,7 @@ Last Modified on April 24th, 2022
 Solution 1 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution: # Head &amp;amp; Tail def exchange(self, nums: List[int]) -&amp;gt; List[int]: i, j = 0, len(nums) - 1 while i &amp;lt; j: # Traverse the array from two sides if nums[i] % 2 == 1: i &#43;= 1 elif nums[j] % 2 == 0: j -= 1 else: nums[i], nums[j] = nums[j], nums[i] i &#43;= 1 j -= 1 return nums   Solution 2 1 2 3 4 5 6 7 8 9  class Solution: # Fast &amp;amp; Slow def exchange(self, nums: List[int]) -&amp;gt; List[int]: slow = fast = 0 while fast &amp;lt; len(nums): if nums[fast] % 2 == 1: # Find odd number and swap no matter what slow points to nums[slow], nums[fast] = nums[fast], nums[slow] slow &#43;= 1 fast &#43;= 1 return nums   Explanation  Solution 1 &amp;amp; 2  Time Complexity: O(N) Space Complexity: O(1)     Task 2 - Q57.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-13-two-pointers/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-04-24T17:27:01&#43;08:00'/><meta property='article:modified_time' content='2022-04-25T20:52:05&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-04-24T17:27:01&#43;08:00'/><meta property='article:modified_time' content='2022-04-25T08:52:05-04:00'/>
 <meta name="twitter:title" content="[剑指Offer] Day 13: Two Pointers">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on April 24th, 2022
@@ -533,7 +533,7 @@ Solution 1 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution: # Head &amp;amp; Tail 
 
 
         <span>
-            Last updated on Apr 25, 2022 20:52 CST
+            Last updated on Apr 25, 2022 08:52 EDT
         </span>
     </section></footer>
 

@@ -17,7 +17,7 @@ Last Modified on May 29th, 2022
 Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: def singleNumbers(self, nums: List[int]) -&amp;gt; List[int]: num1, num2, xo, flag = 0, 0, 0, 1 for num in nums: xo ^= num while xo &amp;amp; flag == 0: # Find the first 1&amp;#39;s position flag = flag &amp;lt;&amp;lt; 1 for num in nums: if num &amp;amp; flag == 0: # Split the nums into two groups num1 ^= num else: num2 ^= num return [num1, num2]   Explanation  Ideas  a XO b XO b XO b &amp;hellip; XO b = a a XO b XO c XO c &amp;hellip; XO c = a XO b Assuming a XO b = 1010, we can find flag = 0010 to split the nums and put a, b in different groups.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-22-bit-operation/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-03T15:35:56&#43;08:00'/><meta property='article:modified_time' content='2022-05-29T18:01:23&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-03T15:35:56&#43;08:00'/><meta property='article:modified_time' content='2022-05-29T06:01:23-04:00'/>
 <meta name="twitter:title" content="[剑指Offer] Day 22: Bit Operation">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on May 3rd, 2022
@@ -547,7 +547,7 @@ Solution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  class Solution: def singleNu
 
 
         <span>
-            Last updated on May 29, 2022 18:01 CST
+            Last updated on May 29, 2022 06:01 EDT
         </span>
     </section></footer>
 

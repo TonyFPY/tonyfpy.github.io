@@ -17,7 +17,7 @@ Last Modified on May 30th, 2022
 Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: # Dynamic Programming def cuttingRope(self, n: int) -&amp;gt; int: dp = [0] * (n&#43;1) dp[2] = 1 # 2 = 1 &#43; 1; res = 1 * 1 = 1 for i in range(3, n&#43;1): for j in range(2, i): # Starting from 2 because 1 doesn&amp;#39;t change the result in multiplication dp[i] = max(dp[i], j*(i-j), j*dp[i-j]) # 1) Keep unchanged # 2) Cut length of j and keep the rest line unchanged # 3) Cut length of j and continue to cut following the way of dp[i-j] return dp[n]   Solution 2 1 2 3 4 5 6 7 8 9 10 11  class Solution: # Optimized Dynamic Programming def cuttingRope(self, n: int) -&amp;gt; int: dp = [0, 1, 1] for i in range(3, n&#43;1): res1 = max(1*dp[(i-1)%3], 1*(i-1)) res2 = max(2*dp[(i-2)%3], 2*(i-2)) res3 = max(3*dp[(i-3)%3], 3*(i-3)) dp[i%3] = max(res1, res2, res3) return dp[n%3]   Solution 3 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  class Solution: &amp;#39;&amp;#39;&amp;#39; 1) The length of each sub-line should be as equal as possible.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-24-mathematics/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-05T21:44:05&#43;08:00'/><meta property='article:modified_time' content='2022-05-30T23:16:48&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Leetcode' /><meta property='article:tag' content='Python' /><meta property='article:published_time' content='2022-05-05T21:44:05&#43;08:00'/><meta property='article:modified_time' content='2022-05-30T11:16:48-04:00'/>
 <meta name="twitter:title" content="[剑指Offer] Day 24: Mathematics">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on May 5th, 2022
@@ -650,7 +650,7 @@ Solution 1 1 2 3 4 5 6 7 8 9 10 11  class Solution: # Dynamic Programming def cu
 
 
         <span>
-            Last updated on May 30, 2022 23:16 CST
+            Last updated on May 30, 2022 11:16 EDT
         </span>
     </section></footer>
 

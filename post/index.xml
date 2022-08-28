@@ -6,7 +6,69 @@
         <description>Recent content in Posts on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 18 May 2022 22:45:07 +0800</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 26 Aug 2022 16:47:17 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Leetcode] Top Interview Questions</title>
+        <link>https://tonyfpy.github.io/p/leetcode-top-interview-questions/</link>
+        <pubDate>Fri, 26 Aug 2022 16:47:17 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/leetcode-top-interview-questions/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Aug 26th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Aug 27th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;Today is my BIRTHDAY!!! Everything has been set up since I arrived in the US. From now on, I am going to spend more time on seeking the 2023 summer internship opportunities. Leetcode provides an official curated list of Top classic interview questions to help us practice, so I decide to focus on it in the following days. Let&amp;rsquo;s GO GO GO!&lt;/p&gt;
+&lt;h2 id=&#34;table-of-questions&#34;&gt;Table of Questions&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;ID&lt;/th&gt;
+&lt;th&gt;Question&lt;/th&gt;
+&lt;th&gt;Level&lt;/th&gt;
+&lt;th&gt;Update Date&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Count&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;001&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/two-sum/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Two Sum&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;08-26-2022&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;002&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/add-two-numbers/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Add Two Numbers&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;08-26-2022&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;003&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/longest-substring-without-repeating-characters/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Longest Substring Without Repeating Characters&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;08-27-2022&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;004&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/median-of-two-sorted-arrays/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Median of Two Sorted Arrays&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;font color=#EB5353&gt;&lt;strong&gt;Hard&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;08-27-2022&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Machine Learning] Topic 4: K-Nearest Neighbours</title>
         <link>https://tonyfpy.github.io/p/machine-learning-topic-4-k-nearest-neighbours/</link>
         <pubDate>Wed, 18 May 2022 22:45:07 +0800</pubDate>
