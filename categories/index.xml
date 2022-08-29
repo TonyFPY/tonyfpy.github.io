@@ -15,6 +15,14 @@
         <description>&lt;img src="https://tonyfpy.github.io/categories/algorithm/Algorithm.jpeg" alt="Featured image of post Algorithm" /&gt;</description>
         </item>
         <item>
+        <title>Android Dev</title>
+        <link>https://tonyfpy.github.io/categories/android-dev/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://tonyfpy.github.io/categories/android-dev/</guid>
+        <description>&lt;img src="https://tonyfpy.github.io/categories/android-dev/android.jpeg" alt="Featured image of post Android Dev" /&gt;</description>
+        </item>
+        <item>
         <title>Career</title>
         <link>https://tonyfpy.github.io/categories/career/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -47,6 +55,14 @@
         <description>&lt;img src="https://tonyfpy.github.io/categories/deep-learning/DL.jpg" alt="Featured image of post Deep Learning" /&gt;</description>
         </item>
         <item>
+        <title>IOS Dev</title>
+        <link>https://tonyfpy.github.io/categories/ios-dev/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://tonyfpy.github.io/categories/ios-dev/</guid>
+        <description>&lt;img src="https://tonyfpy.github.io/categories/ios-dev/apple.jpeg" alt="Featured image of post IOS Dev" /&gt;</description>
+        </item>
+        <item>
         <title>Java</title>
         <link>https://tonyfpy.github.io/categories/java/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -77,6 +93,14 @@
         
         <guid>https://tonyfpy.github.io/categories/python/</guid>
         <description>&lt;img src="https://tonyfpy.github.io/categories/python/Python.jpeg" alt="Featured image of post Python" /&gt;</description>
+        </item>
+        <item>
+        <title>Raspberry Pi</title>
+        <link>https://tonyfpy.github.io/categories/raspberry-pi/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://tonyfpy.github.io/categories/raspberry-pi/</guid>
+        <description>&lt;img src="https://tonyfpy.github.io/categories/raspberry-pi/rpi.jpeg" alt="Featured image of post Raspberry Pi" /&gt;</description>
         </item>
         
     </channel>
