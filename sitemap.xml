@@ -2,20 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tonyfpy.github.io/p/ios-dev-tutorial-for-beginners/</loc>
+    <lastmod>2022-08-29T22:56:58-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/categories/</loc>
+    <lastmod>2022-08-29T22:56:58-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/tags/ios-dev/</loc>
+    <lastmod>2022-08-29T22:56:58-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/post/</loc>
+    <lastmod>2022-08-29T22:56:58-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/tags/</loc>
+    <lastmod>2022-08-29T22:56:58-04:00</lastmod>
+  </url><url>
     <loc>https://tonyfpy.github.io/p/an-intro-to-kalman-filter/</loc>
     <lastmod>2022-08-28T23:15:13-04:00</lastmod>
   </url><url>
-    <loc>https://tonyfpy.github.io/categories/</loc>
-    <lastmod>2022-08-29T22:48:22-04:00</lastmod>
-  </url><url>
     <loc>https://tonyfpy.github.io/tags/machine-learning/</loc>
     <lastmod>2022-08-28T23:15:13-04:00</lastmod>
-  </url><url>
-    <loc>https://tonyfpy.github.io/post/</loc>
-    <lastmod>2022-08-29T22:48:22-04:00</lastmod>
-  </url><url>
-    <loc>https://tonyfpy.github.io/tags/</loc>
-    <lastmod>2022-08-29T22:48:22-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/leetcode-top-interview-questions/</loc>
     <lastmod>2022-08-29T22:48:22-04:00</lastmod>
@@ -258,7 +264,7 @@
     <lastmod>2022-05-15T10:35:10-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/ios-dev/</loc>
-    <lastmod>2022-08-29T11:39:03-04:00</lastmod>
+    <lastmod>2022-08-29T22:56:50-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/java/</loc>
     <lastmod>2022-04-22T09:40:00-04:00</lastmod>

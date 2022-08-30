@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>iOS Dev on Tony Feng</title>
-        <link>https://tonyfpy.github.io/categories/ios-dev/</link>
-        <description>Recent content in iOS Dev on Tony Feng</description>
+        <title>iOS-Dev on Tony Feng</title>
+        <link>https://tonyfpy.github.io/tags/ios-dev/</link>
+        <description>Recent content in iOS-Dev on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/ios-dev/index.xml" rel="self" type="application/rss+xml" /><item>
+        <language>en-us</language>
+        <lastBuildDate>Mon, 29 Aug 2022 22:51:41 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/ios-dev/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>[iOS Dev] Tutorial for Beginners</title>
         <link>https://tonyfpy.github.io/p/ios-dev-tutorial-for-beginners/</link>
         <pubDate>Mon, 29 Aug 2022 22:51:41 -0400</pubDate>

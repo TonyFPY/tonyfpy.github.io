@@ -6,6 +6,35 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[iOS Dev] Tutorial for Beginners</title>
+        <link>https://tonyfpy.github.io/p/ios-dev-tutorial-for-beginners/</link>
+        <pubDate>Mon, 29 Aug 2022 22:51:41 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/ios-dev-tutorial-for-beginners/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Feb 14th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Aug 29th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;content&#34;&gt;Content&lt;/h2&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-1.png&#34; width=80%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-2.png&#34; width=80%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-3.png&#34; width=80%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-4.png&#34; width=80%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-5.png&#34; width=80%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-6.png&#34; width=80%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-7.png&#34; width=80%/&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Learn Swift For iOS Development](&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1vi4y1G7SM?from=search&amp;amp;seid=3629352035606976183&amp;amp;spm_id_from=333.337.0.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.bilibili.com/video/BV1vi4y1G7SM?from=search&amp;seid=3629352035606976183&amp;spm_id_from=333.337.0.0&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>An Intro to Kalman Filter</title>
         <link>https://tonyfpy.github.io/p/an-intro-to-kalman-filter/</link>
         <pubDate>Sun, 28 Aug 2022 22:57:10 -0400</pubDate>
