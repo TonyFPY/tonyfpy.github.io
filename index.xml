@@ -6,6 +6,41 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Raspberry Pi] Tutorial for Beginners</title>
+        <link>https://tonyfpy.github.io/p/raspberry-pi-tutorial-for-beginners/</link>
+        <pubDate>Tue, 30 Aug 2022 20:11:53 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/raspberry-pi-tutorial-for-beginners/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Feb 14th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Aug 30th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;content&#34;&gt;Content&lt;/h2&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Raspberry Pi Tutorial for Beginners-1.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34;&gt;&lt;img src=&#34;Raspberry Pi Tutorial for Beginners-2.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34;&gt;&lt;img src=&#34;Raspberry Pi Tutorial for Beginners-3.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34;&gt;&lt;img src=&#34;Raspberry Pi Tutorial for Beginners-4.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34;&gt;&lt;img src=&#34;Raspberry Pi Tutorial for Beginners-5.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34;&gt;&lt;img src=&#34;Raspberry Pi Tutorial for Beginners-6.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34;&gt;&lt;img src=&#34;Raspberry Pi Tutorial for Beginners-7.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34;&gt;&lt;img src=&#34;Raspberry Pi Tutorial for Beginners-8.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV16U4y1879Q?from=search&amp;amp;seid=13080645285407605889&amp;amp;spm_id_from=333.337.0.0&amp;amp;vd_source=1ae341fb4db23a179ea74ae1c14cdf00&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;树莓派教程第一课 树莓派简介 十分钟玩转系列入门篇&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.jianshu.com/p/ec552ffb84fc&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mac 电脑安装putty&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.ssh.com/academy/ssh/putty/mac&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PuTTY SSH client for Mac OSX - download and tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://shumeipai.nxez.com/raspberry-pi-pins-version-40&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;树莓派 40Pin 引脚对照表&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[iOS Dev] Tutorial for Beginners</title>
         <link>https://tonyfpy.github.io/p/ios-dev-tutorial-for-beginners/</link>
         <pubDate>Mon, 29 Aug 2022 22:51:41 -0400</pubDate>
@@ -17,13 +52,13 @@
 &lt;p&gt;Last Modified on Aug 29th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;content&#34;&gt;Content&lt;/h2&gt;
-&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-1.png&#34; width=80%/&gt;&lt;/div&gt;
-&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-2.png&#34; width=80%/&gt;&lt;/div&gt;
-&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-3.png&#34; width=80%/&gt;&lt;/div&gt;
-&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-4.png&#34; width=80%/&gt;&lt;/div&gt;
-&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-5.png&#34; width=80%/&gt;&lt;/div&gt;
-&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-6.png&#34; width=80%/&gt;&lt;/div&gt;
-&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-7.png&#34; width=80%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-1.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-2.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-3.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-4.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-5.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-6.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;IOS Dev Tutorial for Beginners-7.png&#34; width=100%/&gt;&lt;/div&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
 &lt;ul&gt;
@@ -47,13 +82,13 @@
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;content&#34;&gt;Content&lt;/h2&gt;
 &lt;div align=&#34;center&#34; &gt;
-    &lt;img src=&#34;KF1_1.png&#34; width=80%/&gt;
+    &lt;img src=&#34;KF1_1.png&#34; width=100%/&gt;
 &lt;/div&gt;
 &lt;div align=&#34;center&#34;&gt;
-    &lt;img src=&#34;KF1_2.png&#34; width=80%/&gt;
+    &lt;img src=&#34;KF1_2.png&#34; width=100%/&gt;
 &lt;/div&gt;
 &lt;div align=&#34;center&#34;&gt;
-    &lt;img src=&#34;KF1_3.png&#34; width=80%/&gt;
+    &lt;img src=&#34;KF1_3.png&#34; width=100%/&gt;
 &lt;/div&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
@@ -83,7 +118,7 @@
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Leetcode ID&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;ID&lt;/th&gt;
 &lt;th&gt;Question&lt;/th&gt;
 &lt;th&gt;Level&lt;/th&gt;
 &lt;th&gt;Update Date&lt;/th&gt;
