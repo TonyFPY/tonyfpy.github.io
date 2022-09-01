@@ -6,6 +6,61 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[iOS Dev] Advanced Swift Tutorial </title>
+        <link>https://tonyfpy.github.io/p/ios-dev-advanced-swift-tutorial/</link>
+        <pubDate>Wed, 31 Aug 2022 20:11:53 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/ios-dev-advanced-swift-tutorial/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Jan 20th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Aug 31th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;content&#34;&gt;Content&lt;/h2&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-01.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-02.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-03.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-04.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-05.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-06.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-07.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-08.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-09.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-10.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-11.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-12.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-13.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-14.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-15.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-16.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-17.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-18.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-19.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-20.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-21.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-22.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-23.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-24.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-25.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-26.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-27.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-28.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-29.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-30.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-31.png&#34; width=100%/&gt;&lt;/div&gt;
+&lt;div align=&#34;center&#34; &gt;&lt;img src=&#34;Swift Tutorial for Beginners-32.png&#34; width=100%/&gt;&lt;/div&gt;
+---
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.runoob.com/swift/swift-tutorial.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Swift 菜鸟教程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.codeleading.com/article/6959505677/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Swift中convenience和required关键字用法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Raspberry Pi] Tutorial for Beginners</title>
         <link>https://tonyfpy.github.io/p/raspberry-pi-tutorial-for-beginners/</link>
         <pubDate>Tue, 30 Aug 2022 20:11:53 -0400</pubDate>
@@ -41,11 +96,11 @@
 </description>
         </item>
         <item>
-        <title>[iOS Dev] Tutorial for Beginners</title>
-        <link>https://tonyfpy.github.io/p/ios-dev-tutorial-for-beginners/</link>
+        <title>[iOS Dev] Swift Tutorial for Beginners</title>
+        <link>https://tonyfpy.github.io/p/ios-dev-swift-tutorial-for-beginners/</link>
         <pubDate>Mon, 29 Aug 2022 22:51:41 -0400</pubDate>
         
-        <guid>https://tonyfpy.github.io/p/ios-dev-tutorial-for-beginners/</guid>
+        <guid>https://tonyfpy.github.io/p/ios-dev-swift-tutorial-for-beginners/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Feb 14th, 2022&lt;/p&gt;
@@ -65,7 +120,6 @@
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1vi4y1G7SM?from=search&amp;amp;seid=3629352035606976183&amp;amp;spm_id_from=333.337.0.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Learn Swift For iOS Development&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr&gt;
 &lt;hr&gt;
 </description>
         </item>
