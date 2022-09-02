@@ -2,20 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tonyfpy.github.io/categories/</loc>
+    <lastmod>2022-09-01T22:08:00-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/tags/deep-learning/</loc>
+    <lastmod>2022-09-01T22:08:00-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/p/deep-learning-framework-deployment-ubuntu/</loc>
+    <lastmod>2022-09-01T22:08:00-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/post/</loc>
+    <lastmod>2022-09-01T22:08:00-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/tags/</loc>
+    <lastmod>2022-09-01T22:08:00-04:00</lastmod>
+  </url><url>
     <loc>https://tonyfpy.github.io/p/ios-dev-advanced-swift-tutorial/</loc>
     <lastmod>2022-08-31T20:18:21-04:00</lastmod>
   </url><url>
-    <loc>https://tonyfpy.github.io/categories/</loc>
-    <lastmod>2022-09-01T21:58:16-04:00</lastmod>
-  </url><url>
     <loc>https://tonyfpy.github.io/tags/ios-dev/</loc>
     <lastmod>2022-08-31T20:18:21-04:00</lastmod>
-  </url><url>
-    <loc>https://tonyfpy.github.io/post/</loc>
-    <lastmod>2022-09-01T21:58:16-04:00</lastmod>
-  </url><url>
-    <loc>https://tonyfpy.github.io/tags/</loc>
-    <lastmod>2022-09-01T21:58:16-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/raspberry-pi-tutorial-for-beginners/</loc>
     <lastmod>2022-08-30T20:26:31-04:00</lastmod>
