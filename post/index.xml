@@ -815,7 +815,8 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;076&lt;/td&gt;
-&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;&#34; &gt;Minimum Window Substring&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/minimum-window-substring/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Minimum Window Substring&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#EB5353&gt;&lt;strong&gt;Hard&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
 &lt;td&gt;09-08-2022&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
@@ -838,7 +839,8 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;084&lt;/td&gt;
-&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;&#34; &gt;Largest Rectangle in Histogram&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/largest-rectangle-in-histogram/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Largest Rectangle in Histogram&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#EB5353&gt;&lt;strong&gt;Hard&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
 &lt;td&gt;09-07-2022&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
