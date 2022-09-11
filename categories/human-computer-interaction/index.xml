@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Human Computer Interaction on Tony Feng</title>
+        <link>https://tonyfpy.github.io/categories/human-computer-interaction/</link>
+        <description>Recent content in Human Computer Interaction on Tony Feng</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/human-computer-interaction/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Design Taxonomy</title>
+        <link>https://tonyfpy.github.io/p/design-taxonomy/</link>
+        <pubDate>Sun, 11 Sep 2022 16:32:54 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/design-taxonomy/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Sept 11th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Sept 11th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings course &lt;strong&gt;CSCI 1951C Design Humanity Centered Technology&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore creative strategies for the prototyping and critique of emerging and speculative technologies. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;h2 id=&#34;content&#34;&gt;Content&lt;/h2&gt;
+&lt;p&gt;The development of design as a discipline is iterative and ongoing. The following is an incomplete taxonomy of interrelated design strategies.&lt;/p&gt;
+&lt;h3 id=&#34;design-thinking&#34;&gt;Design Thinking&lt;/h3&gt;
+&lt;p&gt;It could be characterized as the scientific method applied to the creative process from the &lt;strong&gt;abstract&lt;/strong&gt; to the &lt;strong&gt;concrete&lt;/strong&gt; through iterative prototyping.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Empathize&lt;/li&gt;
+&lt;li&gt;Define the problem&lt;/li&gt;
+&lt;li&gt;Ideate&lt;/li&gt;
+&lt;li&gt;Prototype&lt;/li&gt;
+&lt;li&gt;Test&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;human-centered-design&#34;&gt;Human Centered Design&lt;/h3&gt;
+&lt;p&gt;It focuses on cultivating empathy with the user. Methods, like &lt;strong&gt;visual thinking&lt;/strong&gt; and &lt;strong&gt;storytelling&lt;/strong&gt;, are especially important for this collaborative process.&lt;/p&gt;
+&lt;h3 id=&#34;participatory-design&#34;&gt;Participatory Design&lt;/h3&gt;
+&lt;p&gt;It attempts to engage all stakeholders by developing outcomes that &lt;strong&gt;benefit everyone&lt;/strong&gt;, blurring the differences between the designer, the engineer, and the user.&lt;/p&gt;
+&lt;h3 id=&#34;critical-design&#34;&gt;Critical Design&lt;/h3&gt;
+&lt;p&gt;Affirmative design is &lt;strong&gt;problem solving&lt;/strong&gt; that provides answers, while critical design, on the other hand, is &lt;strong&gt;problem finding&lt;/strong&gt; that proposes questions.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Critical Design&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Affirmative Design&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;problem finding&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;problem solving&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;design as medium&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;design as process&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;asks questions&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;provides answers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;for how the world could be&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;how the world is&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;social fiction&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;science fiction&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;parallel worlds&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;futures&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;functional fictions&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;fictional functions&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;change us to suit the world&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;change the world to suit us&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;narratives of consumption&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;narratives of production&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;applied art&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;anti-art&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;research through design&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;research for design&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;implications&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;applications&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;design for debate&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;design for production&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;satire&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;fun&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;conceptual design&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;concept design&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;citizen&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;consumer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;person&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;user&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;education&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;training&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;makes us think&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;makes us buy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;provocation&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;innovation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;rhetoric&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ergonomics&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;discursive-design&#34;&gt;Discursive Design&lt;/h3&gt;
+&lt;p&gt;It is closely related to Critical Design. It implies that the function of the object is secondary to how it makes us think about the context. It often brings the viewer a &lt;strong&gt;new awareness&lt;/strong&gt; of the &lt;strong&gt;social context&lt;/strong&gt; in which it exists.&lt;/p&gt;
+&lt;h3 id=&#34;speculative-design&#34;&gt;Speculative Design&lt;/h3&gt;
+&lt;p&gt;It is also related to Critical Design and Discursive Design. However, it is explicitly oriented towards future scenarios that allow us to imagine things not as they are, but as they might be.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What does the object do?&lt;/li&gt;
+&lt;li&gt;For whom?&lt;/li&gt;
+&lt;li&gt;Where does it do it?&lt;/li&gt;
+&lt;li&gt;When?&lt;/li&gt;
+&lt;li&gt;How does the object do it?&lt;/li&gt;
+&lt;li&gt;Why?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;design-fiction&#34;&gt;Design Fiction&lt;/h3&gt;
+&lt;p&gt;It draws on the power of &lt;strong&gt;storytelling&lt;/strong&gt; for making speculations concrete. In this way, the prototype creates affordances for the behavior of the characters in the story, and responding to the context of which they are a part.&lt;/p&gt;
+&lt;h3 id=&#34;positive-sum-design&#34;&gt;Positive Sum Design&lt;/h3&gt;
+&lt;p&gt;It involves with &lt;strong&gt;empathetic engagement with all stakeholders&lt;/strong&gt; to design affordances for &lt;strong&gt;win/win outcomes&lt;/strong&gt;, and to eschew zero sum bias. It borrows the tools of game theory and behavioral economics to help designers consider the motivations and behaviors of players/users.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.cd-cf.org/articles/beyond-design-thinking/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BEYOND DESIGN THINKING&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://vimeo.com/96809842&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Intro to Creativity&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

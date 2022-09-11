@@ -3,19 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tonyfpy.github.io/categories/</loc>
-    <lastmod>2022-09-10T17:43:52-04:00</lastmod>
+    <lastmod>2022-09-11T19:24:37-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/p/design-taxonomy/</loc>
+    <lastmod>2022-09-11T19:24:37-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/tags/human-computer-interaction/</loc>
+    <lastmod>2022-09-11T19:24:37-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/post/</loc>
+    <lastmod>2022-09-11T19:24:37-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/tags/</loc>
+    <lastmod>2022-09-11T19:24:37-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/deep-learning/</loc>
     <lastmod>2022-09-01T22:08:00-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/deep-learning-framework-deployment-ubuntu/</loc>
     <lastmod>2022-09-01T22:08:00-04:00</lastmod>
-  </url><url>
-    <loc>https://tonyfpy.github.io/post/</loc>
-    <lastmod>2022-09-10T17:43:52-04:00</lastmod>
-  </url><url>
-    <loc>https://tonyfpy.github.io/tags/</loc>
-    <lastmod>2022-09-10T17:43:52-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/ios-dev-advanced-swift-tutorial/</loc>
     <lastmod>2022-08-31T20:18:21-04:00</lastmod>
@@ -277,6 +283,9 @@
   </url><url>
     <loc>https://tonyfpy.github.io/categories/deep-learning/</loc>
     <lastmod>2022-05-15T10:35:10-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/categories/human-computer-interaction/</loc>
+    <lastmod>2022-09-11T16:43:33-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/ios-dev/</loc>
     <lastmod>2022-08-29T22:56:50-04:00</lastmod>

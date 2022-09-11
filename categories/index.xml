@@ -6,7 +6,7 @@
         <description>Recent content in Categories on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 01 Sep 2022 22:02:14 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 11 Sep 2022 16:32:54 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Algorithm</title>
         <link>https://tonyfpy.github.io/categories/algorithm/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -53,6 +53,14 @@
         
         <guid>https://tonyfpy.github.io/categories/deep-learning/</guid>
         <description>&lt;img src="https://tonyfpy.github.io/categories/deep-learning/DL.jpg" alt="Featured image of post Deep Learning" /&gt;</description>
+        </item>
+        <item>
+        <title>Human Computer Interaction</title>
+        <link>https://tonyfpy.github.io/categories/human-computer-interaction/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://tonyfpy.github.io/categories/human-computer-interaction/</guid>
+        <description>&lt;img src="https://tonyfpy.github.io/categories/human-computer-interaction/HCI.jpg" alt="Featured image of post Human Computer Interaction" /&gt;</description>
         </item>
         <item>
         <title>iOS Dev</title>
