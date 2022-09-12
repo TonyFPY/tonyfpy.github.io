@@ -31,7 +31,7 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;001&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0001&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/two-sum/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Two Sum&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -39,7 +39,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;002&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0002&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/add-two-numbers/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Add Two Numbers&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -47,7 +47,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;003&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0003&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/longest-substring-without-repeating-characters/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Longest Substring W/O Repeating Characters&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -55,7 +55,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;004&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0004&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/median-of-two-sorted-arrays/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Median of Two Sorted Arrays&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#EB5353&gt;&lt;strong&gt;Hard&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -63,7 +63,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;005&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0005&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/longest-palindromic-substring/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Longest Palindromic Substring&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -71,7 +71,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;007&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0007&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/reverse-integer/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Reverse Integer&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -79,7 +79,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;008&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0008&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/string-to-integer-atoi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;String to Integer (atoi)&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -87,7 +87,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;010&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0010&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/regular-expression-matching/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Regular Expression Matching&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#EB5353&gt;&lt;strong&gt;Hard&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -95,7 +95,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;011&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0011&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/container-with-most-water/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Container With Most Water&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -103,7 +103,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;013&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0013&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/roman-to-integer/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Roman to Integer&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -111,7 +111,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;014&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0014&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/longest-common-prefix/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Longest Common Prefix&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -119,7 +119,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;015&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0015&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/3sum/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;3Sum&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -127,7 +127,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;017&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0017&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/letter-combinations-of-a-phone-number/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Letter Combinations of a Phone #&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -135,7 +135,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;019&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0019&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/remove-nth-node-from-end-of-list/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Remove Nth Node From End of List&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -143,7 +143,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0020&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/valid-parentheses/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Valid Parentheses&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -151,7 +151,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;021&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0021&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/merge-two-sorted-lists/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Merge Two Sorted Lists&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -159,7 +159,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;022&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0022&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/generate-parentheses/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Generate Parentheses&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -167,7 +167,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;023&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0023&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/merge-k-sorted-lists/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Merge k Sorted Lists&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#EB5353&gt;&lt;strong&gt;Hard&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -175,7 +175,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;026&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0026&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/remove-duplicates-from-sorted-array/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Remove Duplicates from Sorted Array&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -183,7 +183,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;028&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0028&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;ID of the 1st Occurrence in a String&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -191,7 +191,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;026&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0026&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/divide-two-integers/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Divide Two Integers&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -199,7 +199,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;033&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0033&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/search-in-rotated-sorted-array/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Search in Rotated Sorted Array&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -207,7 +207,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;034&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0034&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Find Edge Positions in Sorted Array&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -215,7 +215,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;036&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0036&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/valid-sudoku/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Valid Sudoku&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -223,7 +223,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;038&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0038&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/count-and-say/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Count and Say&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -231,7 +231,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;041&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0041&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/first-missing-positive/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;First Missing Positive&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#EB5353&gt;&lt;strong&gt;Hard&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -239,7 +239,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;042&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0042&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/trapping-rain-water/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Trapping Rain Water&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#EB5353&gt;&lt;strong&gt;Hard&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -247,7 +247,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;044&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0044&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/wildcard-matching/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Wildcard Matching&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#EB5353&gt;&lt;strong&gt;Hard&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -255,7 +255,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;046&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0046&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/permutations/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Permutations&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -263,7 +263,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;048&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0048&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/rotate-image/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Rotate Image&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -271,7 +271,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;049&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0049&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/group-anagrams/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Group Anagrams&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -279,7 +279,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;050&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0050&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/powx-n/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Pow(x, n)&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -287,7 +287,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;053&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0053&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/maximum-subarray/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Maximum Subarray&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -295,7 +295,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;054&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0054&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/spiral-matrix/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Spiral Matrix&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -303,7 +303,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;055&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0055&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/jump-game/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Jump Game&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -311,7 +311,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;056&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0056&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/merge-intervals/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Merge Intervals&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -319,7 +319,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;062&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0062&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/unique-paths/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Unique Paths&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -327,7 +327,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;066&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0066&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/plus-one/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Plus One&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -343,7 +343,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;070&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0070&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/climbing-stairs/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Climbing Stairs&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -351,7 +351,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;073&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0073&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/set-matrix-zeroes/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Set Matrix Zeroes&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -359,7 +359,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;075&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;005&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/sort-colors/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Sort Colors&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -367,7 +367,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;076&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0076&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/minimum-window-substring/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Minimum Window Substring&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#EB5353&gt;&lt;strong&gt;Hard&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -375,7 +375,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;078&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0078&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/subsets/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Subsets&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -383,7 +383,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;079&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0079&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/word-search/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Word Search&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -391,7 +391,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;084&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0084&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/largest-rectangle-in-histogram/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Largest Rectangle in Histogram&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#EB5353&gt;&lt;strong&gt;Hard&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -399,7 +399,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;088&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0088&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/merge-sorted-array/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Merge Sorted Array&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -407,7 +407,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;091&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0091&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/decode-ways/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Decode Ways&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -415,7 +415,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;094&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0094&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/binary-tree-inorder-traversal/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Binary Tree Inorder Traversal&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
@@ -423,11 +423,35 @@
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;098&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0098&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/validate-binary-search-tree/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Validate Binary Search Tree&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
 &lt;td&gt;09-08-2022&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0101&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/symmetric-tree/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Symmetric Tree&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;09-12-2022&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0102&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/binary-tree-level-order-traversal/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Binary Tree Level Order Traversal&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;09-12-2022&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0103&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Binary Tree Zigzag Level Order Traversal&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;09-12-2022&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
