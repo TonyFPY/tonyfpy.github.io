@@ -102,6 +102,73 @@
 </description>
         </item>
         <item>
+        <title>Research</title>
+        <link>https://tonyfpy.github.io/research/</link>
+        <pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://tonyfpy.github.io/research/</guid>
+        <description>&lt;!-- ## Social AR
+&lt;img src=&#34;GRP.jpeg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;
+
+The 
+
+&lt;br clear=&#34;left&#34;/&gt;
+
+## You Draw, I Guess
+&lt;img src=&#34;CV.jpeg&#34; align=&#34;right&#34; width=&#34;320px&#34;/&gt;
+
+In this project, traditional approaches and a deep learning approach for face matching are evaluated based on a public facial dataset. 
+
+&lt;br clear=&#34;right&#34;/&gt; --&gt;
+&lt;h2 id=&#34;papers&#34;&gt;Papers&lt;/h2&gt;
+&lt;h3 id=&#34;social-ar&#34;&gt;Social AR&lt;/h3&gt;
+&lt;img src=&#34;MUAR.jpg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;
+Social AR could enable cross-cultural exchanges in an increasingly virtually connected world. The research has implications for necessitating cross-border and cross-culturally exchanges. We postulate that augmented reality that allows the inspection of cultural heritage objects projected onto the real environment of users can be a better experience in terms of depth of viewing.  
+&lt;p&gt;This work was carried out at the NVIDIA Joint-Lab on Mixed Reality, NVIDIA Technology Centre at the University
+of Nottingham Ningbo China, supported by NVIDIA AI Technology Center (Singapore).
+&lt;br clear=&#34;left&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Timeline&lt;/strong&gt;: Jun. 2021 - Aug. 2022&lt;br&gt;
+&lt;strong&gt;Key Words&lt;/strong&gt;: Augmented Reality, Multi-user Interaction, Digital Heritage, Communication&lt;br&gt;
+&lt;strong&gt;Link&lt;/strong&gt;: &lt;a class=&#34;link&#34; href=&#34;https://drive.google.com/file/d/1vkZvfJkKzVeEst8eFX6vw3u-Ox8LhV6L/view?usp=sharing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Paper (Under Review) - &lt;em&gt;ACM Journal on Computing and Cultural Heritage&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;you-draw-i-guess&#34;&gt;You Draw, I Guess&lt;/h3&gt;
+&lt;img src=&#34;YDIG.jpg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;
+Social AR could enable cross-cultural exchanges in an increasingly virtually connected world. 
+&lt;br clear=&#34;left&#34;/&gt;
+&lt;p&gt;&lt;strong&gt;Timeline&lt;/strong&gt;: Oct. 2020 - May. 2021&lt;br&gt;
+&lt;strong&gt;Key Words&lt;/strong&gt;: Human-AI Interaction, Mobile Intelligence, Sketch Recognition&lt;br&gt;
+&lt;strong&gt;Link&lt;/strong&gt;: &lt;a class=&#34;link&#34; href=&#34;&#34; &gt;Undergraduate Thesis&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://drive.google.com/file/d/1ST01TDxZDLSsceFvIgxTbJ9qoEXcriIG/view?usp=sharing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Presentation&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;deeprelics-dataset&#34;&gt;DeepRelics Dataset&lt;/h3&gt;
+&lt;img src=&#34;DR.jpg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;
+Social AR could enable cross-cultural exchanges in an increasingly virtually connected world. 
+&lt;br clear=&#34;left&#34;/&gt;
+&lt;p&gt;&lt;strong&gt;Timeline&lt;/strong&gt;: Apr. 2020 - Jun. 2020&lt;br&gt;
+&lt;strong&gt;Key Words&lt;/strong&gt;: Data Augmentation, Object Detection, Digital Heritage, Photogrammetry&lt;br&gt;
+&lt;strong&gt;Link&lt;/strong&gt;: &lt;a class=&#34;link&#34; href=&#34;https://drive.google.com/file/d/1ahS-kd4R7vMOgBKrAvu1jJER4oh3ytxx/view?usp=sharing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Paper - &lt;em&gt;The 13th International Conference on Agents and Artificial Intelligence&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;technology-patents&#34;&gt;Technology Patents&lt;/h2&gt;
+&lt;h3 id=&#34;automobile-ble-localization&#34;&gt;Automobile BLE Localization&lt;/h3&gt;
+&lt;img src=&#34;PEPS.jpg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;
+Social AR could enable cross-cultural exchanges in an increasingly virtually connected world. 
+&lt;br clear=&#34;left&#34;/&gt;
+&lt;p&gt;&lt;strong&gt;Timeline&lt;/strong&gt;: Nov. 2021 - Apr. 2022&lt;br&gt;
+&lt;strong&gt;Key Words&lt;/strong&gt;: Bluetooth Low Energy, Signal Localization, Optimization, Smart Key&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;projects&#34;&gt;Projects&lt;/h2&gt;
+&lt;h3 id=&#34;traffic-scene-understanding&#34;&gt;Traffic Scene Understanding&lt;/h3&gt;
+&lt;img src=&#34;BDD.jpg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;
+Social AR could enable cross-cultural exchanges in an increasingly virtually connected world. 
+&lt;br clear=&#34;left&#34;/&gt;
+&lt;p&gt;&lt;strong&gt;Timeline&lt;/strong&gt;: Jun. 2020 - Sept. 2020&lt;br&gt;
+&lt;strong&gt;Key Words&lt;/strong&gt;: Action Detection, Trajectory Prediction, Spatial-temporal Learning&lt;br&gt;
+&lt;strong&gt;Link&lt;/strong&gt;: &lt;a class=&#34;link&#34; href=&#34;https://drive.google.com/file/d/1EYFa-eiq-y-TT-wJG6en9Wds9xO7q8QV/view?usp=sharing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Internship Presentation&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Human-Centred Tech] Design Taxonomy</title>
         <link>https://tonyfpy.github.io/p/human-centred-tech-design-taxonomy/</link>
         <pubDate>Sun, 11 Sep 2022 16:32:54 -0400</pubDate>
