@@ -2,20 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tonyfpy.github.io/p/computational-linguistics-intro-to-nlp/</loc>
+    <lastmod>2022-09-12T23:08:39-04:00</lastmod>
+  </url><url>
     <loc>https://tonyfpy.github.io/categories/</loc>
-    <lastmod>2022-09-12T21:48:36-04:00</lastmod>
+    <lastmod>2022-09-12T23:08:39-04:00</lastmod>
   </url><url>
-    <loc>https://tonyfpy.github.io/p/design-taxonomy/</loc>
-    <lastmod>2022-09-11T20:55:27-04:00</lastmod>
-  </url><url>
-    <loc>https://tonyfpy.github.io/tags/human-computer-interaction/</loc>
-    <lastmod>2022-09-11T20:55:27-04:00</lastmod>
+    <loc>https://tonyfpy.github.io/tags/natural-language-processing/</loc>
+    <lastmod>2022-09-12T23:08:39-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/post/</loc>
-    <lastmod>2022-09-12T21:48:36-04:00</lastmod>
+    <lastmod>2022-09-12T23:08:39-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/</loc>
-    <lastmod>2022-09-12T21:48:36-04:00</lastmod>
+    <lastmod>2022-09-12T23:08:39-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/p/human-centred-tech-design-taxonomy/</loc>
+    <lastmod>2022-09-12T22:13:46-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/tags/human-computer-interaction/</loc>
+    <lastmod>2022-09-12T22:13:46-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/deep-learning/</loc>
     <lastmod>2022-09-01T22:08:00-04:00</lastmod>
@@ -42,7 +48,7 @@
     <lastmod>2022-08-30T20:26:09-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/machine-learning/</loc>
-    <lastmod>2022-08-30T20:26:09-04:00</lastmod>
+    <lastmod>2022-09-12T22:08:27-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/leetcode-top-interview-questions/</loc>
     <lastmod>2022-09-12T21:48:36-04:00</lastmod>
@@ -51,10 +57,10 @@
     <lastmod>2022-09-12T21:48:36-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/python/</loc>
-    <lastmod>2022-09-12T21:48:36-04:00</lastmod>
+    <lastmod>2022-09-12T22:08:27-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/machine-learning-topic-4-k-nearest-neighbours/</loc>
-    <lastmod>2022-05-19T09:23:13-04:00</lastmod>
+    <lastmod>2022-09-12T22:08:27-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-review/</loc>
     <lastmod>2022-06-12T08:33:58-04:00</lastmod>
@@ -282,10 +288,10 @@
     <lastmod>2022-04-29T22:32:46-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/deep-learning/</loc>
-    <lastmod>2022-05-15T10:35:10-04:00</lastmod>
+    <lastmod>2022-09-12T21:57:47-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/human-computer-interaction/</loc>
-    <lastmod>2022-09-11T16:43:33-04:00</lastmod>
+    <lastmod>2022-09-12T21:57:34-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/ios-dev/</loc>
     <lastmod>2022-08-29T22:56:50-04:00</lastmod>
@@ -299,11 +305,14 @@
     <loc>https://tonyfpy.github.io/categories/machine-learning/</loc>
     <lastmod>2022-04-29T10:21:28-04:00</lastmod>
   </url><url>
+    <loc>https://tonyfpy.github.io/categories/natural-language-processing/</loc>
+    <lastmod>2022-09-12T22:10:38-04:00</lastmod>
+  </url><url>
     <loc>https://tonyfpy.github.io/categories/python/</loc>
     <lastmod>2022-04-22T09:37:49-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/raspberry-pi/</loc>
-    <lastmod>2022-08-29T11:38:41-04:00</lastmod>
+    <lastmod>2022-09-12T22:11:17-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/search/</loc>
     <lastmod>2022-04-17T11:03:28-04:00</lastmod>

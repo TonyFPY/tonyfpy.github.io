@@ -6,7 +6,7 @@
         <description>Recent content in Categories on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 11 Sep 2022 16:32:54 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 12 Sep 2022 22:06:54 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Algorithm</title>
         <link>https://tonyfpy.github.io/categories/algorithm/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -93,6 +93,14 @@
         
         <guid>https://tonyfpy.github.io/categories/machine-learning/</guid>
         <description>&lt;img src="https://tonyfpy.github.io/categories/machine-learning/ML.jpg" alt="Featured image of post Machine Learning" /&gt;</description>
+        </item>
+        <item>
+        <title>Natural Language Processing</title>
+        <link>https://tonyfpy.github.io/categories/natural-language-processing/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://tonyfpy.github.io/categories/natural-language-processing/</guid>
+        <description>&lt;img src="https://tonyfpy.github.io/categories/natural-language-processing/NLP.jpg" alt="Featured image of post Natural Language Processing" /&gt;</description>
         </item>
         <item>
         <title>Python</title>
