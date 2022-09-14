@@ -26,7 +26,7 @@
 &lt;strong&gt;Link&lt;/strong&gt;: &lt;a class=&#34;link&#34; href=&#34;https://drive.google.com/file/d/1vkZvfJkKzVeEst8eFX6vw3u-Ox8LhV6L/view?usp=sharing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Paper (Under Review) - &lt;em&gt;ACM Journal on Computing and Cultural Heritage&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;you-draw-i-guess&#34;&gt;You Draw, I Guess&lt;/h3&gt;
-&lt;img src=&#34;YDIG.jpg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;
+&lt;img src=&#34;DRAW.jpg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;
 &lt;p&gt;This &lt;strong&gt;undergraduate final-year project&lt;/strong&gt; is about exploring the interpretability of AI-driven sketch recognition through &lt;strong&gt;human-AI interaction&lt;/strong&gt; based on a lightweight interactive system – &lt;strong&gt;DRAW&lt;/strong&gt; (&lt;strong&gt;D&lt;/strong&gt;oodle &lt;strong&gt;R&lt;/strong&gt;ecognition in an &lt;strong&gt;A&lt;/strong&gt;utomated &lt;strong&gt;W&lt;/strong&gt;ay). A preliminary field study has been conducted to answer the research question: &amp;ldquo;Can humans interpret AI’s inference and draw machine-recognizable sketches through the gameplay?&amp;rdquo; According to the data analysis, the answer to this research question is positive, but not a 100% &amp;ldquo;Yes&amp;rdquo;.This project paves a way for future studies to explore the human understanding of AI&amp;rsquo;s decison making.
 &lt;br clear=&#34;left&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Advisors&lt;/strong&gt;: &lt;a class=&#34;link&#34; href=&#34;https://www.nottingham.ac.uk/research/groups/mixedrealitylab/people/steve.benford&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -49,7 +49,7 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;technology-patents&#34;&gt;Technology Patents&lt;/h2&gt;
 &lt;h3 id=&#34;automobile-ble-localization&#34;&gt;Automobile BLE Localization&lt;/h3&gt;
-&lt;img src=&#34;PEPS.jpg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;
+&lt;img src=&#34;DLE.jpg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;
 &lt;p&gt;This project was part of the work of my internship at &lt;a class=&#34;link&#34; href=&#34;https://www.nio.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;NIO&lt;/strong&gt;&lt;/a&gt;. It&amp;rsquo;s about the optimization of BLE positioning for &lt;strong&gt;&amp;ldquo;Passive Entry Passive Start (PEPS)&amp;rdquo; strategy&lt;/strong&gt;.  The algorithm was deployed in phone key and key fob of NIO car in order to shape a comfortable ingress-egress passenger experience. Due to NIO&amp;rsquo;s Confidentiality Agreement, the details will not be showed.
 &lt;br clear=&#34;left&#34;/&gt;&lt;/p&gt;
