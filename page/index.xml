@@ -49,7 +49,7 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;technology-patents&#34;&gt;Technology Patents&lt;/h2&gt;
 &lt;h3 id=&#34;automobile-ble-localization&#34;&gt;Automobile BLE Localization&lt;/h3&gt;
-&lt;img src=&#34;DLE.jpg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;
+&lt;img src=&#34;BLE.jpg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;
 &lt;p&gt;This project was part of the work of my internship at &lt;a class=&#34;link&#34; href=&#34;https://www.nio.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;NIO&lt;/strong&gt;&lt;/a&gt;. It&amp;rsquo;s about the optimization of BLE positioning for &lt;strong&gt;&amp;ldquo;Passive Entry Passive Start (PEPS)&amp;rdquo; strategy&lt;/strong&gt;.  The algorithm was deployed in phone key and key fob of NIO car in order to shape a comfortable ingress-egress passenger experience. Due to NIO&amp;rsquo;s Confidentiality Agreement, the details will not be showed.
 &lt;br clear=&#34;left&#34;/&gt;&lt;/p&gt;
