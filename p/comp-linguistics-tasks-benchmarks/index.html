@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
+Created on Sept 14th, 2022
+Last Modified on Sept 14th, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Task-Driven Culture NLP research has tended to be organized around &amp;ldquo;tasks&amp;rdquo; with shared ideas.'><title>[Comp Linguistics] Tasks &amp; Benchmarks</title>
+
+<link rel='canonical' href='https://tonyfpy.github.io/p/comp-linguistics-tasks-benchmarks/'>
+
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Comp Linguistics] Tasks &amp; Benchmarks'>
+<meta property='og:description' content='Authored by Tony Feng
+Created on Sept 14th, 2022
+Last Modified on Sept 14th, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Task-Driven Culture NLP research has tended to be organized around &amp;ldquo;tasks&amp;rdquo; with shared ideas.'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-tasks-benchmarks/'>
+<meta property='og:site_name' content='Tony Feng'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-09-14T10:33:24-04:00'/><meta property='article:modified_time' content='2022-09-14T16:11:32-04:00'/>
+<meta name="twitter:title" content="[Comp Linguistics] Tasks &amp; Benchmarks">
+<meta name="twitter:description" content="Authored by Tony Feng
+Created on Sept 14th, 2022
+Last Modified on Sept 14th, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Task-Driven Culture NLP research has tended to be organized around &amp;ldquo;tasks&amp;rdquo; with shared ideas.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/Brown_hu1b43bb4664aba7c4309526f1ef45ab91_1767_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Tony Feng</a></h1>
+            <h2 class="site-description">M.Sc. in Computer Science</h2>
+            <h2 class="site-description">Brown University</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://tonyfpy.github.io/about/'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/TonyFPY'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/pinyuanfeng'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/research/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <line x1="3" y1="6" x2="3" y2="19" />
+  <line x1="12" y1="6" x2="12" y2="19" />
+  <line x1="21" y1="6" x2="21" y2="19" />
+</svg>
+                
+                <span>Research</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/projects/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="7 8 3 12 7 16" />
+  <polyline points="17 8 21 12 17 16" />
+  <line x1="14" y1="4" x2="10" y2="20" />
+</svg>
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/natural-language-processing/" style="background-color: #D7B59C; color: #fff;">
+                Natural Language Processing
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/comp-linguistics-tasks-benchmarks/">[Comp Linguistics] Tasks &amp; Benchmarks</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 14, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>Authored by Tony Feng</p>
+<p>Created on Sept 14th, 2022</p>
+<p>Last Modified on Sept 14th, 2022</p>
+</blockquote>
+<h2 id="intro">Intro</h2>
+<p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1460 Computational Linguistics</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
+<hr>
+<h2 id="task-driven-culture">Task-Driven Culture</h2>
+<p>NLP research has tended to be organized around &ldquo;tasks&rdquo; with shared ideas. Instead of building a whole system themselves, they will justify the problem in relation to some commonly-agreed upon important &ldquo;tasks&rdquo;.</p>
+<h3 id="extrinsic--intrinsic-tasks">Extrinsic &amp; Intrinsic Tasks</h3>
+<p>Here, we take ACL Submission Topics as examples to make a classification.</p>
+<p><strong>Extrinsic Tasks</strong>: An &ldquo;end user&rdquo; might want to use</p>
+<ul>
+<li>Dialog &amp; Interactive Sys</li>
+<li>Info Retrieval &amp; Text Mining</li>
+<li>Language Grounding to Vision, Robotics &amp; Beyond</li>
+<li>Machine Translation &amp; Multilinguality</li>
+<li>NLP Applications</li>
+<li>Question Answering</li>
+<li>Sementiment Analysis, Stylistic Analysis &amp; Argument Mining</li>
+<li>Speech &amp; Multimodality</li>
+<li>Summarization</li>
+</ul>
+<p><strong>Intrinsic Tasks</strong>: Part of a bigger system</p>
+<ul>
+<li>Generation</li>
+<li>ML for NLP</li>
+<li>Info Extraction</li>
+<li>Resources &amp; Evaluation</li>
+<li>Discourses &amp; Pragmatics</li>
+<li>Phonology, Morphology &amp; Word Segmentation</li>
+<li>Syntax: Tagging, Chunking &amp; Parsing</li>
+<li>Semantics: Lexical</li>
+<li>Sementics: Sentence-level Sementics, Textual Inference &amp; Other Areas</li>
+</ul>
+<h3 id="bakeoffs--leaderboards">Bakeoffs &amp; Leaderboards</h3>
+<p>Statistical Revolution uses the same inputs, and compares against the same <strong>ground truth</strong> (standardized test sets) outputs, using the same metric. The filed places a lot of stock in <strong>empirical comparison of ideas</strong> and <strong>applicability of tech</strong>.</p>
+<ul>
+<li>DARPA</li>
+<li>SemEval</li>
+<li>SQuAD</li>
+<li>GLUE</li>
+<li>SuperGlue</li>
+<li>GEM</li>
+<li>DynaBench</li>
+<li>BigBench</li>
+</ul>
+<hr>
+<h2 id="major-downstream-tasks-and-evals">Major &ldquo;Downstream&rdquo; Tasks and Evals</h2>
+<h3 id="classification">Classification</h3>
+<h4 id="input--output">Input &amp; Output</h4>
+<p><strong>Input</strong>: a piece of text<br>
+<strong>Output</strong>: a label</p>
+<h4 id="examples">Examples</h4>
+<p>Sentiment prediction (e.g., for stock trading)<br>
+Language detection (e.g., before machine translation)<br>
+Relevance prediction (e.g., for retrieval or ad targeting)<br>
+Intent classification (e.g., for goal-oriented dialog)</p>
+<h4 id="standard-metrics">Standard Metrics</h4>
+<p><strong>Accuracy</strong>: How often is the label correct?<br>
+<strong>Precision</strong>: Probability that it is spam, given that the model says it is.<br>
+<strong>Recall</strong>: Probability that the model says its spam, given that it actually is spam.<br>
+<strong>F-1 Score</strong>: Harmonic Mean of Precision and Recall<br>
+$$
+F_{1}=2 \times \frac{\text { precision } \times \text { recall }}{\text { precision }+\text { recall }}
+$$
+<strong>AUC</strong>: Area Under the True-Positive vs. False Positive Curve</p>
+<h3 id="info-retrieval">Info Retrieval</h3>
+<h4 id="input--output-1">Input &amp; Output</h4>
+<p><strong>Input</strong>: Query or Doc Collection<br>
+<strong>Output</strong>: Ranked List of Doc</p>
+<h4 id="examples-1">Examples</h4>
+<p>They have increasingly complex goals, which are interwoven with other NLP tasks (summarization, question answering).</p>
+<h4 id="standard-metrics-1">Standard Metrics</h4>
+<p><strong>Precision@K</strong>: How many of the top K documents are relevant?<br>
+<strong>Recall@K</strong>: How many of the relevant documents occur in the top K?<br>
+<strong>Mean Reciprocal Rank</strong>: At what rank does the relevant document appear?<br>
+<strong>Discounted Cumulative Gain (DCG)</strong>: How much benefit with one more rank down the list?
+$$
+DCG_{p}=\sum_{i=1}^{p} \frac{rel_{i}}{\log _{2}(i+1)}
+$$<br>
+<strong>Area Under the Curve (AUC)</strong>: Summary metrics for precision-recall curves
+<strong>Averaged Precision (AP)</strong></p>
+<p>$$
+AP=\sum_{n}\left(R_{n}-R_{n-1}\right) P_{n}
+$$</p>
+<h4 id="ground-truth">Ground Truth</h4>
+<p><strong>Query Relevances (&ldquo;qrels&rdquo;)</strong></p>
+<ul>
+<li>Humans manually annotate documents for relevance, based on description of query</li>
+<li>Too expensive to estimate recall (requires labeling every document for every query)</li>
+<li>Not “ecologically valid”</li>
+</ul>
+<p><strong>User Behavior/AB Testing</strong></p>
+<ul>
+<li>Does the user click on links?</li>
+<li>Do they stay on the page after clicking?</li>
+<li>Do they go back and reword the query?</li>
+</ul>
+<h3 id="questions-answering">Questions Answering</h3>
+<h4 id="variants-of-qa">Variants of QA</h4>
+<ul>
+<li>Open Book</li>
+<li>Cloased Book</li>
+<li>QA over Databases</li>
+</ul>
+<h4 id="open-book-qa">Open Book QA</h4>
+<p><strong>Input</strong>: Question + Doc<br>
+<strong>Output</strong>: Answer / Highlighted Span</p>
+<h4 id="closed-book-qa">Closed Book QA</h4>
+<p><strong>Input</strong>: Question
+<strong>Output</strong>: Answer<br>
+<strong>Note</strong>: Hard to verify answer source</p>
+<h4 id="database-book-qa">Database Book QA</h4>
+<p><strong>Input</strong>: Question + Database<br>
+<strong>Output</strong>: Answer<br>
+<strong>Note</strong>: 1) Good for short, factoid questions 2) Requires formal query languages</p>
+<h4 id="standard-metrics-2">Standard Metrics</h4>
+<p><strong>Accuracy</strong>: What % of questions were correct?<br>
+<strong>Exact Match Accuracy</strong>: % of times model’s answer was string identical to ground truth
+<strong>Precision</strong>: How many of the predicted tokens were correct?<br>
+<strong>Recall</strong>: How many of the correct tokens were predicted?<br>
+<strong>F-1</strong>: Harmonic mean of precision and recall</p>
+<hr>
+<h2 id="important-intrinsic-tasks-and-evals">Important Intrinsic Tasks and Evals</h2>
+<ul>
+<li>Tokenization</li>
+<li>Sentence Splitting</li>
+<li>Part-of-speech Tagging</li>
+<li>Morphological Analysis</li>
+<li>Named Entity Recognition</li>
+<li>Syntactic Parsing</li>
+<li>Coreference Resolution</li>
+<li>Other Annotations</li>
+</ul>
+<hr>
+<h2 id="current-debates">Current Debates</h2>
+<ul>
+<li>Extrinsic vs. Intrinsic</li>
+<li>Scientific Validity</li>
+<li>Leaderboardism</li>
+</ul>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>MIT License</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Sep 14, 2022 16:11 EDT
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 Tony Feng
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#task-driven-culture">Task-Driven Culture</a>
+      <ol>
+        <li><a href="#extrinsic--intrinsic-tasks">Extrinsic &amp; Intrinsic Tasks</a></li>
+        <li><a href="#bakeoffs--leaderboards">Bakeoffs &amp; Leaderboards</a></li>
+      </ol>
+    </li>
+    <li><a href="#major-downstream-tasks-and-evals">Major &ldquo;Downstream&rdquo; Tasks and Evals</a>
+      <ol>
+        <li><a href="#classification">Classification</a>
+          <ol>
+            <li><a href="#input--output">Input &amp; Output</a></li>
+            <li><a href="#examples">Examples</a></li>
+            <li><a href="#standard-metrics">Standard Metrics</a></li>
+          </ol>
+        </li>
+        <li><a href="#info-retrieval">Info Retrieval</a>
+          <ol>
+            <li><a href="#input--output-1">Input &amp; Output</a></li>
+            <li><a href="#examples-1">Examples</a></li>
+            <li><a href="#standard-metrics-1">Standard Metrics</a></li>
+            <li><a href="#ground-truth">Ground Truth</a></li>
+          </ol>
+        </li>
+        <li><a href="#questions-answering">Questions Answering</a>
+          <ol>
+            <li><a href="#variants-of-qa">Variants of QA</a></li>
+            <li><a href="#open-book-qa">Open Book QA</a></li>
+            <li><a href="#closed-book-qa">Closed Book QA</a></li>
+            <li><a href="#database-book-qa">Database Book QA</a></li>
+            <li><a href="#standard-metrics-2">Standard Metrics</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#important-intrinsic-tasks-and-evals">Important Intrinsic Tasks and Evals</a></li>
+    <li><a href="#current-debates">Current Debates</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

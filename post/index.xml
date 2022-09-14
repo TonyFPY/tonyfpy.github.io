@@ -6,12 +6,164 @@
         <description>Recent content in Posts on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 12 Sep 2022 22:06:54 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>[Computational Linguistics] Intro to NLP</title>
-        <link>https://tonyfpy.github.io/p/computational-linguistics-intro-to-nlp/</link>
+        <lastBuildDate>Wed, 14 Sep 2022 10:33:24 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Comp Linguistics] Tasks &amp; Benchmarks</title>
+        <link>https://tonyfpy.github.io/p/comp-linguistics-tasks-benchmarks/</link>
+        <pubDate>Wed, 14 Sep 2022 10:33:24 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/comp-linguistics-tasks-benchmarks/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Sept 14th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Sept 14th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;task-driven-culture&#34;&gt;Task-Driven Culture&lt;/h2&gt;
+&lt;p&gt;NLP research has tended to be organized around &amp;ldquo;tasks&amp;rdquo; with shared ideas. Instead of building a whole system themselves, they will justify the problem in relation to some commonly-agreed upon important &amp;ldquo;tasks&amp;rdquo;.&lt;/p&gt;
+&lt;h3 id=&#34;extrinsic--intrinsic-tasks&#34;&gt;Extrinsic &amp;amp; Intrinsic Tasks&lt;/h3&gt;
+&lt;p&gt;Here, we take ACL Submission Topics as examples to make a classification.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Extrinsic Tasks&lt;/strong&gt;: An &amp;ldquo;end user&amp;rdquo; might want to use&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dialog &amp;amp; Interactive Sys&lt;/li&gt;
+&lt;li&gt;Info Retrieval &amp;amp; Text Mining&lt;/li&gt;
+&lt;li&gt;Language Grounding to Vision, Robotics &amp;amp; Beyond&lt;/li&gt;
+&lt;li&gt;Machine Translation &amp;amp; Multilinguality&lt;/li&gt;
+&lt;li&gt;NLP Applications&lt;/li&gt;
+&lt;li&gt;Question Answering&lt;/li&gt;
+&lt;li&gt;Sementiment Analysis, Stylistic Analysis &amp;amp; Argument Mining&lt;/li&gt;
+&lt;li&gt;Speech &amp;amp; Multimodality&lt;/li&gt;
+&lt;li&gt;Summarization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Intrinsic Tasks&lt;/strong&gt;: Part of a bigger system&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Generation&lt;/li&gt;
+&lt;li&gt;ML for NLP&lt;/li&gt;
+&lt;li&gt;Info Extraction&lt;/li&gt;
+&lt;li&gt;Resources &amp;amp; Evaluation&lt;/li&gt;
+&lt;li&gt;Discourses &amp;amp; Pragmatics&lt;/li&gt;
+&lt;li&gt;Phonology, Morphology &amp;amp; Word Segmentation&lt;/li&gt;
+&lt;li&gt;Syntax: Tagging, Chunking &amp;amp; Parsing&lt;/li&gt;
+&lt;li&gt;Semantics: Lexical&lt;/li&gt;
+&lt;li&gt;Sementics: Sentence-level Sementics, Textual Inference &amp;amp; Other Areas&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bakeoffs--leaderboards&#34;&gt;Bakeoffs &amp;amp; Leaderboards&lt;/h3&gt;
+&lt;p&gt;Statistical Revolution uses the same inputs, and compares against the same &lt;strong&gt;ground truth&lt;/strong&gt; (standardized test sets) outputs, using the same metric. The filed places a lot of stock in &lt;strong&gt;empirical comparison of ideas&lt;/strong&gt; and &lt;strong&gt;applicability of tech&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DARPA&lt;/li&gt;
+&lt;li&gt;SemEval&lt;/li&gt;
+&lt;li&gt;SQuAD&lt;/li&gt;
+&lt;li&gt;GLUE&lt;/li&gt;
+&lt;li&gt;SuperGlue&lt;/li&gt;
+&lt;li&gt;GEM&lt;/li&gt;
+&lt;li&gt;DynaBench&lt;/li&gt;
+&lt;li&gt;BigBench&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;major-downstream-tasks-and-evals&#34;&gt;Major &amp;ldquo;Downstream&amp;rdquo; Tasks and Evals&lt;/h2&gt;
+&lt;h3 id=&#34;classification&#34;&gt;Classification&lt;/h3&gt;
+&lt;h4 id=&#34;input--output&#34;&gt;Input &amp;amp; Output&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Input&lt;/strong&gt;: a piece of text&lt;br&gt;
+&lt;strong&gt;Output&lt;/strong&gt;: a label&lt;/p&gt;
+&lt;h4 id=&#34;examples&#34;&gt;Examples&lt;/h4&gt;
+&lt;p&gt;Sentiment prediction (e.g., for stock trading)&lt;br&gt;
+Language detection (e.g., before machine translation)&lt;br&gt;
+Relevance prediction (e.g., for retrieval or ad targeting)&lt;br&gt;
+Intent classification (e.g., for goal-oriented dialog)&lt;/p&gt;
+&lt;h4 id=&#34;standard-metrics&#34;&gt;Standard Metrics&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Accuracy&lt;/strong&gt;: How often is the label correct?&lt;br&gt;
+&lt;strong&gt;Precision&lt;/strong&gt;: Probability that it is spam, given that the model says it is.&lt;br&gt;
+&lt;strong&gt;Recall&lt;/strong&gt;: Probability that the model says its spam, given that it actually is spam.&lt;br&gt;
+&lt;strong&gt;F-1 Score&lt;/strong&gt;: Harmonic Mean of Precision and Recall&lt;br&gt;
+$$
+F_{1}=2 \times \frac{\text { precision } \times \text { recall }}{\text { precision }+\text { recall }}
+$$
+&lt;strong&gt;AUC&lt;/strong&gt;: Area Under the True-Positive vs. False Positive Curve&lt;/p&gt;
+&lt;h3 id=&#34;info-retrieval&#34;&gt;Info Retrieval&lt;/h3&gt;
+&lt;h4 id=&#34;input--output-1&#34;&gt;Input &amp;amp; Output&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Input&lt;/strong&gt;: Query or Doc Collection&lt;br&gt;
+&lt;strong&gt;Output&lt;/strong&gt;: Ranked List of Doc&lt;/p&gt;
+&lt;h4 id=&#34;examples-1&#34;&gt;Examples&lt;/h4&gt;
+&lt;p&gt;They have increasingly complex goals, which are interwoven with other NLP tasks (summarization, question answering).&lt;/p&gt;
+&lt;h4 id=&#34;standard-metrics-1&#34;&gt;Standard Metrics&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Precision@K&lt;/strong&gt;: How many of the top K documents are relevant?&lt;br&gt;
+&lt;strong&gt;Recall@K&lt;/strong&gt;: How many of the relevant documents occur in the top K?&lt;br&gt;
+&lt;strong&gt;Mean Reciprocal Rank&lt;/strong&gt;: At what rank does the relevant document appear?&lt;br&gt;
+&lt;strong&gt;Discounted Cumulative Gain (DCG)&lt;/strong&gt;: How much benefit with one more rank down the list?
+$$
+DCG_{p}=\sum_{i=1}^{p} \frac{rel_{i}}{\log _{2}(i+1)}
+$$&lt;br&gt;
+&lt;strong&gt;Area Under the Curve (AUC)&lt;/strong&gt;: Summary metrics for precision-recall curves
+&lt;strong&gt;Averaged Precision (AP)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$$
+AP=\sum_{n}\left(R_{n}-R_{n-1}\right) P_{n}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;ground-truth&#34;&gt;Ground Truth&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Query Relevances (&amp;ldquo;qrels&amp;rdquo;)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Humans manually annotate documents for relevance, based on description of query&lt;/li&gt;
+&lt;li&gt;Too expensive to estimate recall (requires labeling every document for every query)&lt;/li&gt;
+&lt;li&gt;Not “ecologically valid”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;User Behavior/AB Testing&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Does the user click on links?&lt;/li&gt;
+&lt;li&gt;Do they stay on the page after clicking?&lt;/li&gt;
+&lt;li&gt;Do they go back and reword the query?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;questions-answering&#34;&gt;Questions Answering&lt;/h3&gt;
+&lt;h4 id=&#34;variants-of-qa&#34;&gt;Variants of QA&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Open Book&lt;/li&gt;
+&lt;li&gt;Cloased Book&lt;/li&gt;
+&lt;li&gt;QA over Databases&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;open-book-qa&#34;&gt;Open Book QA&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Input&lt;/strong&gt;: Question + Doc&lt;br&gt;
+&lt;strong&gt;Output&lt;/strong&gt;: Answer / Highlighted Span&lt;/p&gt;
+&lt;h4 id=&#34;closed-book-qa&#34;&gt;Closed Book QA&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Input&lt;/strong&gt;: Question
+&lt;strong&gt;Output&lt;/strong&gt;: Answer&lt;br&gt;
+&lt;strong&gt;Note&lt;/strong&gt;: Hard to verify answer source&lt;/p&gt;
+&lt;h4 id=&#34;database-book-qa&#34;&gt;Database Book QA&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Input&lt;/strong&gt;: Question + Database&lt;br&gt;
+&lt;strong&gt;Output&lt;/strong&gt;: Answer&lt;br&gt;
+&lt;strong&gt;Note&lt;/strong&gt;: 1) Good for short, factoid questions 2) Requires formal query languages&lt;/p&gt;
+&lt;h4 id=&#34;standard-metrics-2&#34;&gt;Standard Metrics&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Accuracy&lt;/strong&gt;: What % of questions were correct?&lt;br&gt;
+&lt;strong&gt;Exact Match Accuracy&lt;/strong&gt;: % of times model’s answer was string identical to ground truth
+&lt;strong&gt;Precision&lt;/strong&gt;: How many of the predicted tokens were correct?&lt;br&gt;
+&lt;strong&gt;Recall&lt;/strong&gt;: How many of the correct tokens were predicted?&lt;br&gt;
+&lt;strong&gt;F-1&lt;/strong&gt;: Harmonic mean of precision and recall&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;important-intrinsic-tasks-and-evals&#34;&gt;Important Intrinsic Tasks and Evals&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Tokenization&lt;/li&gt;
+&lt;li&gt;Sentence Splitting&lt;/li&gt;
+&lt;li&gt;Part-of-speech Tagging&lt;/li&gt;
+&lt;li&gt;Morphological Analysis&lt;/li&gt;
+&lt;li&gt;Named Entity Recognition&lt;/li&gt;
+&lt;li&gt;Syntactic Parsing&lt;/li&gt;
+&lt;li&gt;Coreference Resolution&lt;/li&gt;
+&lt;li&gt;Other Annotations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;current-debates&#34;&gt;Current Debates&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Extrinsic vs. Intrinsic&lt;/li&gt;
+&lt;li&gt;Scientific Validity&lt;/li&gt;
+&lt;li&gt;Leaderboardism&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
+        <title>[Comp Linguistics] Intro to NLP</title>
+        <link>https://tonyfpy.github.io/p/comp-linguistics-intro-to-nlp/</link>
         <pubDate>Mon, 12 Sep 2022 22:06:54 -0400</pubDate>
         
-        <guid>https://tonyfpy.github.io/p/computational-linguistics-intro-to-nlp/</guid>
+        <guid>https://tonyfpy.github.io/p/comp-linguistics-intro-to-nlp/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Sept 12th, 2022&lt;/p&gt;
@@ -35,10 +187,10 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;a-brief-history&#34;&gt;A Brief History&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computational-linguistics-intro-to-nlp/timeline.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-intro-to-nlp/timeline.jpg&#34;
 	width=&#34;995&#34;
 	height=&#34;464&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/computational-linguistics-intro-to-nlp/timeline_hu58ee0901517331e3436221a7560a45c9_287527_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computational-linguistics-intro-to-nlp/timeline_hu58ee0901517331e3436221a7560a45c9_287527_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-intro-to-nlp/timeline_hu58ee0901517331e3436221a7560a45c9_287527_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-intro-to-nlp/timeline_hu58ee0901517331e3436221a7560a45c9_287527_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;NLP History&#34;
