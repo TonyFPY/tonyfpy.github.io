@@ -2,20 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tonyfpy.github.io/p/comp-linguistics-tasks-benchmarks/</loc>
-    <lastmod>2022-09-14T16:11:32-04:00</lastmod>
+    <loc>https://tonyfpy.github.io/p/comp-linguistics-text-classifier-ml-models/</loc>
+    <lastmod>2022-09-16T16:50:12-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/</loc>
-    <lastmod>2022-09-15T22:37:16-04:00</lastmod>
+    <lastmod>2022-09-16T16:50:12-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/natural-language-processing/</loc>
-    <lastmod>2022-09-14T16:11:32-04:00</lastmod>
+    <lastmod>2022-09-16T16:50:12-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/post/</loc>
-    <lastmod>2022-09-15T22:37:16-04:00</lastmod>
+    <lastmod>2022-09-16T16:50:12-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/</loc>
-    <lastmod>2022-09-15T22:37:16-04:00</lastmod>
+    <lastmod>2022-09-16T16:50:12-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/p/comp-linguistics-tasks-benchmarks/</loc>
+    <lastmod>2022-09-14T16:11:32-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/comp-linguistics-intro-to-nlp/</loc>
     <lastmod>2022-09-14T14:40:05-04:00</lastmod>

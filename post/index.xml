@@ -6,7 +6,120 @@
         <description>Recent content in Posts on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 14 Sep 2022 10:33:24 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 16 Sep 2022 14:27:25 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Comp Linguistics] Text Classifier: ML Models</title>
+        <link>https://tonyfpy.github.io/p/comp-linguistics-text-classifier-ml-models/</link>
+        <pubDate>Fri, 16 Sep 2022 14:27:25 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/comp-linguistics-text-classifier-ml-models/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Sept 16th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Sept 16th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;supervised-classification&#34;&gt;Supervised Classification&lt;/h2&gt;
+&lt;h3 id=&#34;supervised-vs-unsupervised&#34;&gt;Supervised vs. Unsupervised&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Supervised&lt;/strong&gt;: I have lots of sentences. Given words 1…k in a sentence, can I predict word k+1?
+&lt;strong&gt;Unsupervised&lt;/strong&gt;: I have a ton of news articles. Can I cluster them into meaningful groups?&lt;/p&gt;
+&lt;h3 id=&#34;classification-vs-regression&#34;&gt;Classification vs. Regression&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Classification&lt;/strong&gt;: Is the sentiment positive or negative?&lt;br&gt;
+&lt;strong&gt;Regression&lt;/strong&gt;: How many likes will this tweet get?&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;feature-matrices-and-bow-models&#34;&gt;Feature Matrices and BOW Models&lt;/h2&gt;
+&lt;h3 id=&#34;building-feature-matrices&#34;&gt;Building Feature Matrices&lt;/h3&gt;
+&lt;p&gt;ML models require input to be represented as &lt;strong&gt;numeric features&lt;/strong&gt;, which could be encoded in a &lt;strong&gt;feature matrix&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;bag-of-words-mode&#34;&gt;Bag of Words Mode&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s a model that uses the words as features.  &lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-text-classifier-ml-models/BoW.jpg&#34;
+	width=&#34;1148&#34;
+	height=&#34;434&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-text-classifier-ml-models/BoW_hu3480f5b17b16e182c53fb0fad8e46d92_47253_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-text-classifier-ml-models/BoW_hu3480f5b17b16e182c53fb0fad8e46d92_47253_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;BoW&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;264&#34;
+		data-flex-basis=&#34;634px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No information about order or syntax&lt;/li&gt;
+&lt;li&gt;Binary representation&lt;/li&gt;
+&lt;li&gt;High Dimension&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;naive-bayes-text-classifier&#34;&gt;Naive Bayes Text Classifier&lt;/h2&gt;
+&lt;p&gt;It is based on &lt;strong&gt;Bayes Rule&lt;/strong&gt; to estimate/maximize $P(Y|X)$.
+$$ P(Y \mid X)=\frac{P(X,Y)}{P(X)} = \frac{P(X \mid Y) P(Y)}{P(X)} $$&lt;/p&gt;
+&lt;p&gt;We can apply &lt;strong&gt;chain rule&lt;/strong&gt; to compute $ P(Y \mid X) = P(Y \mid x_{1}, x_{2}, \ldots, x_{k}) $ if there are multiple features maching the class:
+$$
+P(Y \mid X) = P(x_{1} \mid x_{2}, \ldots, x_{k}, Y) P(x_{2} \mid x_{3}, \ldots, x_{k}, Y) \ldots P(x_{k} \mid Y) P(Y)
+$$&lt;/p&gt;
+&lt;p&gt;According to &lt;strong&gt;Naive Assumption&lt;/strong&gt;, we assume features are independent.
+$$
+P(Y \mid X) = P(x_{1} \mid Y) P(x_{2} \mid Y) \ldots P(x_{k} \mid Y) P(Y)
+$$&lt;/p&gt;
+&lt;p&gt;Now, we can easily compute the result. Note that $ P(Y) $ could be obtained through &lt;strong&gt;domain knwoledge&lt;/strong&gt; or could be estimated from &lt;strong&gt;data&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;logistic-regression-text-classifier&#34;&gt;Logistic Regression Text Classifier&lt;/h2&gt;
+&lt;h3 id=&#34;lr-vs-nb&#34;&gt;LR vs. NB&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Logistic Regression&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Naive Bayes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Conditional Distribution $P(Y \mid X)$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Joint Distribution $P(X,Y)$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Discriminative Model&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Generative Model&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Maybe better in general&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Better with smaller data&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;logistic-regression-overview&#34;&gt;Logistic Regression Overview&lt;/h3&gt;
+&lt;p&gt;Logistic Regression is based on &lt;strong&gt;Linear Regression&lt;/strong&gt;, and is for &lt;strong&gt;classification&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;$$
+y=\frac{1}{1+e^{-(\vec{w} \cdot \vec{x})}}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+L = -Y \log \hat{Y}+(1-Y) \log (1-\hat{Y})
+$$&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;experimental-design-in-ml&#34;&gt;Experimental Design in ML&lt;/h2&gt;
+&lt;h3 id=&#34;overfitting&#34;&gt;Overfitting&lt;/h3&gt;
+&lt;p&gt;Models overfit when then model idiosyncrasies of the training data
+that don’t necessarily generalize.&lt;/p&gt;
+&lt;h3 id=&#34;train-test-splits&#34;&gt;Train-Test Splits&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Train&lt;/strong&gt;: Used to train the model, i.e., set the parameters&lt;br&gt;
+&lt;strong&gt;Dev&lt;/strong&gt;: Used during development, to inspect and choose &amp;ldquo;hyperparameters&amp;rdquo;&lt;br&gt;
+&lt;strong&gt;Test&lt;/strong&gt;: In good experimental design, only allowed
+to evaluate on test one time to avoid &amp;ldquo;cheating&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;i.i.d.&lt;/strong&gt;: Train and Test data are drawn from the same distribution. In reality, test isn’t always i.i.d.&lt;/p&gt;
+&lt;h3 id=&#34;common-baselines&#34;&gt;Common Baselines&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Guess at random&lt;/li&gt;
+&lt;li&gt;State-of-the-art (SOTA)&lt;/li&gt;
+&lt;li&gt;Task-specific Heuristics&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Most frequent class&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Skylines&amp;rdquo;, e.g. human performance, result under ideal conditions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Comp Linguistics] Tasks &amp; Benchmarks</title>
         <link>https://tonyfpy.github.io/p/comp-linguistics-tasks-benchmarks/</link>
         <pubDate>Wed, 14 Sep 2022 10:33:24 -0400</pubDate>
