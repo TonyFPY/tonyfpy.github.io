@@ -1505,14 +1505,33 @@ $$&lt;/p&gt;
 &lt;td&gt;09-12-2022&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0116&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/populating-next-right-pointers-in-each-node/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Populating Next Right Pointers&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;09-15-2022&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0118&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/pascals-triangle/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pascal&amp;rsquo;s Triangle&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;09-15-2022&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0121&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/best-time-to-buy-and-sell-stock/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Best Time to Buy and Sell Stock&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;09-15-2022&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;0121-best-time-to-buy-and-sell-stockhttpsleetcodecomproblemsbest-time-to-buy-and-sell-stock--font-color36ae7ceasyfont--09-15-2022--1-&#34;&gt;|0116| &lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/populating-next-right-pointers-in-each-node/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Populating Next Right Pointers&lt;/a&gt; | &lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt; | 09-15-2022 | 1 |
-|0118| &lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/pascals-triangle/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Pascal&amp;rsquo;s Triangle&lt;/a&gt; | &lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt; | 09-15-2022 | 1 |
-|0121| &lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/best-time-to-buy-and-sell-stock/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Best Time to Buy and Sell Stock&lt;/a&gt; | &lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt; | 09-15-2022 | 1 |&lt;/h2&gt;
+&lt;hr&gt;
 </description>
         </item>
         <item>
