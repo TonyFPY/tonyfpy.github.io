@@ -6,6 +6,141 @@
         <description>Recent content in Natural Language Processing on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/natural-language-processing/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Comp Linguistics] Tokenization</title>
+        <link>https://tonyfpy.github.io/p/comp-linguistics-tokenization/</link>
+        <pubDate>Thu, 22 Sep 2022 14:43:26 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/comp-linguistics-tokenization/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Sept 22nd, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Sept 22nd, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;morphology&#34;&gt;Morphology&lt;/h2&gt;
+&lt;p&gt;Why can&amp;rsquo;t we just split on white space?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Compounding&lt;/li&gt;
+&lt;li&gt;Many language systems don&amp;rsquo;t use white space&lt;/li&gt;
+&lt;li&gt;Clitics&lt;/li&gt;
+&lt;li&gt;Words formation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;finite-state-machines&#34;&gt;Finite State Machines&lt;/h2&gt;
+&lt;p&gt;This is the main &lt;strong&gt;rule-based&lt;/strong&gt; computational tool for morphological parsing in NLP.&lt;/p&gt;
+&lt;h3 id=&#34;finite-state-automata-fsa&#34;&gt;Finite State Automata (FSA)&lt;/h3&gt;
+&lt;p&gt;It is used to check whether to &amp;lsquo;accept&amp;rsquo; a string.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Formal Definition&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A finite set of states: $ \mathrm{Q}={q_{0}, q_{1}, \ldots q_{N-1} } $&lt;/li&gt;
+&lt;li&gt;A finite set of symbols (alphabet): $ \Sigma={i_{0}, i_{1}, \ldots i_{{M}-1}} $&lt;/li&gt;
+&lt;li&gt;A start state &amp;amp; Final States&lt;/li&gt;
+&lt;li&gt;A transition function that returns the new state, given a state and a symbol: $ \delta(q, i) $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Psuedocode for Implementation&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;recognize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tape&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;machine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Boolean&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tape&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;curState&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;loop&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reach&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tape&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;curState&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;finalState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;False&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;transition&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;curState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tape&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;False&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;curState&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;transition&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;curState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tape&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;of&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;loop&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Non-Determinism&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Multiple links out of the same node&lt;/li&gt;
+&lt;li&gt;Epsilon transitions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-tokenization/fsa.jpg&#34;
+	width=&#34;1200&#34;
+	height=&#34;676&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-tokenization/fsa_hu5392257e4780065f174edec241aef7f5_83429_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-tokenization/fsa_hu5392257e4780065f174edec241aef7f5_83429_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;An example of FSA&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;finite-state-transducer-fst&#34;&gt;Finite State Transducer (FST)&lt;/h3&gt;
+&lt;p&gt;It is used to &amp;rsquo;translate&amp;rsquo; one string into another, which produces a parse as output.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-tokenization/fst.jpg&#34;
+	width=&#34;1216&#34;
+	height=&#34;664&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-tokenization/fst_hud3b660378d7f13fa5005b150d28c6d7d_68404_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-tokenization/fst_hud3b660378d7f13fa5005b150d28c6d7d_68404_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;An example of FST&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;183&#34;
+		data-flex-basis=&#34;439px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;subword-tokenization&#34;&gt;Subword Tokenization&lt;/h2&gt;
+&lt;p&gt;Subword Tokenization is a way to algorithmically identify common sub-sequences of characters and merge them into atomic units.&lt;/p&gt;
+&lt;h3 id=&#34;problems&#34;&gt;Problems&lt;/h3&gt;
+&lt;p&gt;Tokenizers result in many unknown words (OOVs), and morphological analysis can help, but:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Running morphological analyzers is expensive and language
+specific&lt;/li&gt;
+&lt;li&gt;Rare words might be “guessable” from cues&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;byte-pair-encoding&#34;&gt;Byte Pair Encoding&lt;/h3&gt;
+&lt;p&gt;Steps&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Break words into characters&lt;/li&gt;
+&lt;li&gt;Define a number of iterations to run&lt;/li&gt;
+&lt;li&gt;Count the frequency of all pairs of symbols&lt;/li&gt;
+&lt;li&gt;Merge the most frequent pair of characters, treating them as a new token&lt;/li&gt;
+&lt;li&gt;Repeat&lt;/li&gt;
+&lt;li&gt;Tp parse new inputs, just apply merge in order&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://huggingface.co/course/chapter6/5?fw=pt#bytepair-encoding-tokenization&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Byte-Pair Encoding tokenization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://towardsdatascience.com/byte-pair-encoding-subword-based-tokenization-algorithm-77828a70bee0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Byte-Pair Encoding: Subword-based tokenization algorithm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Comp Linguistics] Text Classifier: Features</title>
         <link>https://tonyfpy.github.io/p/comp-linguistics-text-classifier-features/</link>
         <pubDate>Tue, 20 Sep 2022 14:35:51 -0400</pubDate>
