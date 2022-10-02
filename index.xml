@@ -6,6 +6,136 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Machine Learning] Interview Questions - Part 1</title>
+        <link>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-1/</link>
+        <pubDate>Sat, 01 Oct 2022 19:51:42 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-1/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Oct 1st, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 1st, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;The post contains a collection of questions for machine learning interview.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1) Explain bias and variance, and trade-off between them&lt;/strong&gt;&lt;br&gt;
+Bias is the &lt;strong&gt;difference&lt;/strong&gt; between the average prediction of our model and the ground truth.&lt;/p&gt;
+&lt;p&gt;Variance refers to the &lt;strong&gt;variability&lt;/strong&gt; in the model prediction. In other words, it reflects the changes in the model when using different portions of the training dataset.&lt;/p&gt;
+&lt;p&gt;Bias and variance are &lt;strong&gt;inversely connected&lt;/strong&gt;. An underfitting model has high bias and low variance, while an overfitting model has high variance and low bias. So we need to find the right balance.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2) What is gradient descent?&lt;/strong&gt;&lt;br&gt;
+GD is an &lt;strong&gt;optimization&lt;/strong&gt; algorithm that finds the values of parameters (coefficients) of a loss function that minimizes a cost function.&lt;/p&gt;
+&lt;p&gt;GD is best used when the parameters cannot be calculated analytically (e.g. using linear algebra) and must be searched for by an optimization algorithm.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3) Difference between Loss Function, Cost Function&lt;/strong&gt;&lt;br&gt;
+The Loss function is associated with &lt;strong&gt;single training example&lt;/strong&gt;, and the cost function is the average value of the loss function over the &lt;strong&gt;entire training dataset&lt;/strong&gt;. In ML, we usually try to optimize our cost
+function rather than loss function.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4) How to handle overfitting and underfitting&lt;/strong&gt; &lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Handling Overfitting&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Handling Underfitting&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;More Training Data&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Removing Data Noise&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Regularization&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Reducing Regularization&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Reducing Iterations&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Increasing Iterations&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Reducing Features&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Increasing Features&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Increasing Learning Rate&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Reducing Learning Rate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Other Strategies: Pruning, Dropout, etc.&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Increasing Model Complexity&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;5) What is curse of dimensionality? How to prevent it?&lt;/strong&gt;&lt;br&gt;
+CoD basically means that the error increases with the increase in the number of features. It leads to exponential increase in computational efforts.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Improving the ratio of observations over attributes&lt;/li&gt;
+&lt;li&gt;Making distances in feature space more meaningful&lt;/li&gt;
+&lt;li&gt;Removing features that have no correlation with the target distribution&lt;/li&gt;
+&lt;li&gt;Removing or combining features that have redundant correlation with target distribution&lt;/li&gt;
+&lt;li&gt;Extracting new features with a more direct correlation with target distribution&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;6) What is regularization, and give some examples of common methods?&lt;/strong&gt;&lt;br&gt;
+Regularization refers to techniques that are used to calibrate machine learning models so as to &lt;strong&gt;avoid the risk of overfitting&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The obvious disadvantage of ridge is model interpretability. It will shrink the coefficients for least important features, &lt;strong&gt;only close to zero&lt;/strong&gt;. However, for lasso, it can force some of the coefficient estimates to &lt;strong&gt;be zero&lt;/strong&gt; when the weight is sufficiently large. Therefore, the lasso method also performs variable selection and is said to yield sparse models.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 norm (Lasso)&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 norm (Ridge)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Penalizes the sum of absolute values of weights&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Penalizeshe the sum of squares of weights&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Sparse solution&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Non-sparse solution&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Feature selection&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;No feature selection&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Robust to outliers&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Not robust to outliers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Unable to learn complex data patterns&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Able to learn complex data patterns&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;7) Explain Principal Component Analysis (PCA)?&lt;/strong&gt;&lt;br&gt;
+PCA is used for the &lt;strong&gt;dimensionality reduction&lt;/strong&gt;, which tries to find the lower-dimensional surface to project the high-dimensional data.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://builtin.com/data-science/step-step-explanation-principal-component-analysis&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Common Steps&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Standardizing the range of continuous initial variables&lt;/li&gt;
+&lt;li&gt;Computing the covariance matrix to identify correlations&lt;/li&gt;
+&lt;li&gt;Computing the eigenvectors and eigenvalues of the covariance matrix to identify the principal components&lt;/li&gt;
+&lt;li&gt;Creating a feature vector to decide which principal components to keep&lt;/li&gt;
+&lt;li&gt;Recasting the data along the principal components axes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;8) What is data normalization and why do we need it?&lt;/strong&gt;&lt;br&gt;
+Data normalization is a &lt;strong&gt;preprocessing&lt;/strong&gt; step to &lt;strong&gt;re-scale values&lt;/strong&gt; to fit in a specific range to assure better convergence. In general, it boils down to subtracting the &lt;strong&gt;mean&lt;/strong&gt; of each data point and dividing by its &lt;strong&gt;standard deviation&lt;/strong&gt;. The data normalization makes all features weighted equally. Otherwise, some features with high magnitude will be weighted more in the cost function, while other features with lower values will be allocated less weights.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;9) What is the difference between training, validation set and test set?&lt;/strong&gt;&lt;br&gt;
+The training dataset is used for &lt;strong&gt;fitting the model’s parameters&lt;/strong&gt;. However, the accuracy that we achieve on the training set is not reliable for predicting if the model will be accurate on new samples.&lt;/p&gt;
+&lt;p&gt;The validation dataset is used to &lt;strong&gt;measure how well the model does&lt;/strong&gt; on examples that weren’t part of the training dataset and to &lt;strong&gt;provide information&lt;/strong&gt; for adjusting the model. The more evaluations, the more information is leaked. So we can end up overfitting to the validation data.&lt;/p&gt;
+&lt;p&gt;The test dataset is used to measure how well the model does on previously unseen examples. It should &lt;strong&gt;only be used once&lt;/strong&gt; we have tuned the parameters using the validation set.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;10) What is cross-validation?&lt;/strong&gt;&lt;br&gt;
+CV is a statistical &lt;strong&gt;resampling&lt;/strong&gt; technique that uses different parts of the dataset to train and test an ML algorithm on different iterations. The aim of CV provides the ability to estimate model performance on unseen data.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/andrewekhalel/MLQuestions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ML Interview Questions collected by andrewekhalel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Comp Linguistics] Tokenization</title>
         <link>https://tonyfpy.github.io/p/comp-linguistics-tokenization/</link>
         <pubDate>Thu, 22 Sep 2022 14:43:26 -0400</pubDate>
