@@ -6,6 +6,132 @@
         <description>Recent content in Natural Language Processing on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/natural-language-processing/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Comp Linguistics] Distributional Hypothesis</title>
+        <link>https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/</link>
+        <pubDate>Tue, 04 Oct 2022 14:38:34 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Oct 4th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 4th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;theories-of-word-meaning&#34;&gt;Theories of Word Meaning&lt;/h2&gt;
+&lt;h3 id=&#34;the-meaning-of-a-word&#34;&gt;The Meaning of a word&lt;/h3&gt;
+&lt;p&gt;Naive BOW model has no notion of word meaning (e.g. “cat” and “kitten” shoud have similar meanings, but it treats them as different words). Here comes to a problem: How to set boundaries to define words?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Words refer to sets&lt;/li&gt;
+&lt;li&gt;Words refer to things&lt;/li&gt;
+&lt;li&gt;Words refer to concepts&lt;/li&gt;
+&lt;li&gt;Words are defined by the context&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;the-distributional-hypothesis&#34;&gt;The Distributional Hypothesis&lt;/h3&gt;
+&lt;p&gt;The meaning of a word is defined by its context, and this leads to another question: What is context?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Perceptional context / Linguistic context&lt;/li&gt;
+&lt;li&gt;Symbolic features / Real-valued &amp;ldquo;impressions&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;First order associations / Higher-order abstraction&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The distributional hypothesis is that words found in the same contexts usually have similar meanings. It is clear how words are &amp;ldquo;learned&amp;rdquo; according to the theory and the model correlates well with lots of data on humans. However, it is &amp;ldquo;holostic&amp;rdquo;, because the meaning is always changing based on different contextss.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;vector-space-models&#34;&gt;Vector Space Models&lt;/h2&gt;
+&lt;h3 id=&#34;definition&#34;&gt;Definition&lt;/h3&gt;
+&lt;p&gt;Words are represented as vectors, and those have similar meanings are nearby in the space.&lt;/p&gt;
+&lt;h3 id=&#34;term-document-matrix&#34;&gt;Term-document Matrix&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;word meaning = set of documents in which it occurs&lt;/li&gt;
+&lt;li&gt;It can be binary indicators, real value counts, tf-idf values, etc.&lt;/li&gt;
+&lt;li&gt;It captures &lt;strong&gt;broad topical-similarity&lt;/strong&gt; and &lt;strong&gt;co-occurrence&lt;/strong&gt;, rather than the &amp;ldquo;same meaning&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;It is good for document classification tasks, retrieval.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;word-context-matrix&#34;&gt;Word-Context Matrix&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;It finds all sentences containing that word.&lt;/li&gt;
+&lt;li&gt;It can be binary indicators, real value counts, tf-idf values, etc.&lt;/li&gt;
+&lt;li&gt;The similar words don&amp;rsquo;t necessarily co-occur, but they &lt;strong&gt;occur in similar contexts&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;It captures more grammatical similarity and lexical similarity.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;computing-similarity&#34;&gt;Computing Similarity&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Extract Equivalence&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;w1 == w2 iff their vector representations are identical&lt;/li&gt;
+&lt;li&gt;However, the language is too varaible and this would never work&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Jaccard Similarity&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$S= \frac{intersection(v_1, v_2)}{union(v_1, v_2)} $&lt;/li&gt;
+&lt;li&gt;It works well for binary vectos, but needs adjustments for real-valued dimensions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Euclidean Distance&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$E = \sqrt{\sum_{i=0}^{n}\left(v_{1}^{i}-v_{2}^{i}\right)^{2}} $&lt;/li&gt;
+&lt;li&gt;It assumes similar words will be of similar magnitude (i.e., occur with similar frequency).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Cosine Similarity&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$C = \frac{\overrightarrow{v 1} \cdot \overrightarrow{v 2}}{|\overrightarrow{v 1}||\overrightarrow{v 2}|} = \frac{\sum_{i=0}^{n} v_{1}^{i} v_{2}^{i}}{\sqrt{\sum_{i=0}^{n} (v_{1}^{i})^{2}} \sqrt{\sum_{i=0}^{n} (v_{2}^{i})^{2}}}$&lt;/li&gt;
+&lt;li&gt;Dot product (scalar product / inner product) of two words vectors&lt;/li&gt;
+&lt;li&gt;It can be explained as projection of v1 onto v2&lt;/li&gt;
+&lt;li&gt;v1·v2 == 0 if vectos are orthogonal&lt;/li&gt;
+&lt;li&gt;v1·v2 == -1 if they have opposite directions&lt;/li&gt;
+&lt;li&gt;v1·v2 == 1 if they are parallel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;word-embeddings---part-1&#34;&gt;Word Embeddings - Part 1&lt;/h2&gt;
+&lt;h3 id=&#34;word-vectors-vs-embeddings&#34;&gt;Word Vectors vs. Embeddings&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Word Vectors&lt;/strong&gt;: sparse, very high-dimensional&lt;br&gt;
+&lt;strong&gt;Word Embeddings&lt;/strong&gt;: dense, low dimensional, dimensions are not
+directly interpretable&lt;/p&gt;
+&lt;h3 id=&#34;why-word-embeddings&#34;&gt;Why Word Embeddings?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Lower dimensional = less computationally intensive&lt;/li&gt;
+&lt;li&gt;Lower dimensional forces abstraction&lt;/li&gt;
+&lt;li&gt;Lower dimensional removes noise:&lt;/li&gt;
+&lt;li&gt;Dimensionality reduction can capture &amp;ldquo;second order&amp;rdquo; effects (E.g., w1 occurs with c1, w2 occurs with c2, c1 and c2 are similar. Thus, w1 and w2 are
+similar.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We can use Dimensionality Reduction to get them: 1) Matrix Factorization, 2) Neural Networks.&lt;/p&gt;
+&lt;h3 id=&#34;dimensionality-reduction&#34;&gt;Dimensionality Reduction&lt;/h3&gt;
+&lt;p&gt;It represents the data points in a new feature space by transforming the feature matrix. The new feature space is &lt;strong&gt;more informative for ML&lt;/strong&gt; but is &lt;strong&gt;less interpretable to humans&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Principle Component Analysis (PCA)&lt;/strong&gt;
+Low Rank Assumptioin: we typically assume that our features contain a large amount of redundant information.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/SVD1.jpg&#34;
+	width=&#34;1216&#34;
+	height=&#34;680&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/SVD1_hu145470b727ffd71a718b1cff761b8a2a_67007_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/SVD1_hu145470b727ffd71a718b1cff761b8a2a_67007_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Singular Value Decomposition&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;178&#34;
+		data-flex-basis=&#34;429px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/SVD2.jpg&#34;
+	width=&#34;1210&#34;
+	height=&#34;660&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/SVD2_hu16d14cfb5d054156bb43770858c1a3d9_56031_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/SVD2_hu16d14cfb5d054156bb43770858c1a3d9_56031_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Truncated Singular Value Decomposition&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;183&#34;
+		data-flex-basis=&#34;440px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;For more info, please read this article: &lt;a class=&#34;link&#34; href=&#34;https://www.enjoyalgorithms.com/blog/principal-component-analysis-in-ml&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Principal Component Analysis in Machine Learning&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Comp Linguistics] Tokenization</title>
         <link>https://tonyfpy.github.io/p/comp-linguistics-tokenization/</link>
         <pubDate>Thu, 22 Sep 2022 14:43:26 -0400</pubDate>
