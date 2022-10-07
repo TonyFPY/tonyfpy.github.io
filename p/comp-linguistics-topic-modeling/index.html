@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
+Created on Oct 6th, 2022
+Last Modified on Oct 6th, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Topic Model What is Topic Model?'><title>[Comp Linguistics] Topic Modeling</title>
+
+<link rel='canonical' href='https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/'>
+
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Comp Linguistics] Topic Modeling'>
+<meta property='og:description' content='Authored by Tony Feng
+Created on Oct 6th, 2022
+Last Modified on Oct 6th, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Topic Model What is Topic Model?'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/'>
+<meta property='og:site_name' content='Tony Feng'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-10-06T14:31:09-04:00'/><meta property='article:modified_time' content='2022-10-07T00:28:32-04:00'/>
+<meta name="twitter:title" content="[Comp Linguistics] Topic Modeling">
+<meta name="twitter:description" content="Authored by Tony Feng
+Created on Oct 6th, 2022
+Last Modified on Oct 6th, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Topic Model What is Topic Model?">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/Brown_hu1b43bb4664aba7c4309526f1ef45ab91_1767_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Tony Feng</a></h1>
+            <h2 class="site-description">M.Sc. in Computer Science</h2>
+            <h2 class="site-description">Brown University</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://tonyfpy.github.io/about/'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/TonyFPY'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/pinyuanfeng'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/research/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <line x1="3" y1="6" x2="3" y2="19" />
+  <line x1="12" y1="6" x2="12" y2="19" />
+  <line x1="21" y1="6" x2="21" y2="19" />
+</svg>
+                
+                <span>Research</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/projects/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="7 8 3 12 7 16" />
+  <polyline points="17 8 21 12 17 16" />
+  <line x1="14" y1="4" x2="10" y2="20" />
+</svg>
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/natural-language-processing/" style="background-color: #D7B59C; color: #fff;">
+                Natural Language Processing
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/comp-linguistics-topic-modeling/">[Comp Linguistics] Topic Modeling</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 06, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>Authored by Tony Feng</p>
+<p>Created on Oct 6th, 2022</p>
+<p>Last Modified on Oct 6th, 2022</p>
+</blockquote>
+<h2 id="intro">Intro</h2>
+<p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1460 Computational Linguistics</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
+<hr>
+<h2 id="topic-model">Topic Model</h2>
+<h3 id="what-is-topic-model">What is Topic Model?</h3>
+<p>It&rsquo;s a method for <strong>automatically</strong> organizing a collection of a text and is used for <strong>unlabled</strong> document collections.</p>
+<ul>
+<li>Topics are defined as combinations of words.</li>
+<li>Documents are defined as combinations of topics.</li>
+</ul>
+<p>&ldquo;Since you read an article about basketball, you might also like other articles about basketball.&rdquo;<br>
+&ldquo;In the past year, people have been talking more about the economy than about schools.&rdquo;</p>
+<hr>
+<h2 id="latent-semantic-analysis-lsa">Latent Semantic Analysis (LSA)</h2>
+<p>It uses dimensionality reduction/linear algebra to generate a topic model.</p>
+<p><img src="/p/comp-linguistics-topic-modeling/white.jpg"
+	width="461"
+	height="340"
+	srcset="/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="135"
+		data-flex-basis="325px"
+	
+><img src="/p/comp-linguistics-topic-modeling/LSA1.jpg"
+	width="1214"
+	height="572"
+	srcset="/p/comp-linguistics-topic-modeling/LSA1_hudd945732388ab9a80e4531bfe814f0c5_58892_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-topic-modeling/LSA1_hudd945732388ab9a80e4531bfe814f0c5_58892_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="LSA via SVD"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="212"
+		data-flex-basis="509px"
+	
+><img src="/p/comp-linguistics-topic-modeling/white.jpg"
+	width="461"
+	height="340"
+	srcset="/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="135"
+		data-flex-basis="325px"
+	
+></p>
+<hr>
+<h2 id="latent-dirichelet-allocation-lda">Latent Dirichelet Allocation (LDA)</h2>
+<p>It uses <strong>probability</strong> models/<strong>graphical</strong> models in contrast to LSA which has no notion of probability.</p>
+<h3 id="generative-stories">Generative Stories</h3>
+<p>It&rsquo;s the first step to build models that makes <strong>assumptions</strong> about the structure of the data or problem, <strong>which tells a story about how the observed data came to be</strong>.</p>
+<p>Repeat:</p>
+<ul>
+<li>Sampling a topic</li>
+<li>Sampling a word from that topic</li>
+</ul>
+<p>However, we need to further associate them with syntax, word order, semantics, discourse, etc.</p>
+<p>$$ P\left(w_{i}\right)=\sum_{j=1}^{T} P\left(w_{i} \mid z_{i}=j\right) P\left(z_{i}=j\right) $$</p>
+<p>, where $ P\left(w_{i}\right)$ is the probability of the data (a given word), $P\left(w_{i} \mid z_{i}=j\right)$ is the probability of that word for a given topic, $P\left(z_{i}=j\right)$ is overall probability of that topic.</p>
+<p>Given the observed word, find the $P(z)$ and $P(w|z)$ that make the observed word most likely.</p>
+<p><img src="/p/comp-linguistics-topic-modeling/white.jpg"
+	width="461"
+	height="340"
+	srcset="/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="135"
+		data-flex-basis="325px"
+	
+><img src="/p/comp-linguistics-topic-modeling/LDA1.jpg"
+	width="450"
+	height="434"
+	srcset="/p/comp-linguistics-topic-modeling/LDA1_hu73037c3c3ed415d4cc33db37d347d6d2_12247_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-topic-modeling/LDA1_hu73037c3c3ed415d4cc33db37d347d6d2_12247_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="103"
+		data-flex-basis="248px"
+	
+><img src="/p/comp-linguistics-topic-modeling/white.jpg"
+	width="461"
+	height="340"
+	srcset="/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="135"
+		data-flex-basis="325px"
+	
+></p>
+<h3 id="graphical-model-notation">Graphical Model Notation</h3>
+<p><img src="/p/comp-linguistics-topic-modeling/white.jpg"
+	width="461"
+	height="340"
+	srcset="/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="135"
+		data-flex-basis="325px"
+	
+><img src="/p/comp-linguistics-topic-modeling/LDA2.jpg"
+	width="834"
+	height="396"
+	srcset="/p/comp-linguistics-topic-modeling/LDA2_hu32140dd3780aa1e1ae6b68e026366931_22000_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-topic-modeling/LDA2_hu32140dd3780aa1e1ae6b68e026366931_22000_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="210"
+		data-flex-basis="505px"
+	
+><img src="/p/comp-linguistics-topic-modeling/white.jpg"
+	width="461"
+	height="340"
+	srcset="/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="135"
+		data-flex-basis="325px"
+	
+></p>
+<p>$z$ and $w$ depend on multinomial distribution of $P(z)$ and $P(w|z)$ respectively. Then, we assume those distributions come from a Dirichlet distributions $ \alpha $ and $\beta$.</p>
+<p><img src="/p/comp-linguistics-topic-modeling/LDA3.jpg"
+	width="532"
+	height="468"
+	srcset="/p/comp-linguistics-topic-modeling/LDA3_hu8a110922baa2438ab93c6d006c03b40a_28035_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-topic-modeling/LDA3_hu8a110922baa2438ab93c6d006c03b40a_28035_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="113"
+		data-flex-basis="272px"
+	
+><img src="/p/comp-linguistics-topic-modeling/LDA4.jpg"
+	width="562"
+	height="472"
+	srcset="/p/comp-linguistics-topic-modeling/LDA4_hua31bab57eba8c059a0b1800f0458295c_29613_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-topic-modeling/LDA4_hua31bab57eba8c059a0b1800f0458295c_29613_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="119"
+		data-flex-basis="285px"
+	
+><img src="/p/comp-linguistics-topic-modeling/LDA5.jpg"
+	width="500"
+	height="464"
+	srcset="/p/comp-linguistics-topic-modeling/LDA5_hu92f0328f358a786dba36e38c3a619f9e_25416_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-topic-modeling/LDA5_hu92f0328f358a786dba36e38c3a619f9e_25416_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="107"
+		data-flex-basis="258px"
+	
+><img src="/p/comp-linguistics-topic-modeling/LDA6.jpg"
+	width="512"
+	height="460"
+	srcset="/p/comp-linguistics-topic-modeling/LDA6_hue7524b16b9304a7b336f35b5369d13b7_30121_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-topic-modeling/LDA6_hue7524b16b9304a7b336f35b5369d13b7_30121_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="111"
+		data-flex-basis="267px"
+	
+></p>
+<h3 id="training--evaluation">Training &amp; Evaluation</h3>
+<p>We resort to approximate methods for posterior estimation.</p>
+<ul>
+<li>Sampling Methods (MCMC, Gibbs Sampling)</li>
+<li>Variational Inference</li>
+</ul>
+<hr>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a class="link" href="https://www.youtube.com/watch?v=fCmIceNqVog"  target="_blank" rel="noopener"
+    >Topic Models: Introduction</a></li>
+</ul>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>MIT License</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Oct 07, 2022 00:28 EDT
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 Tony Feng
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#topic-model">Topic Model</a>
+      <ol>
+        <li><a href="#what-is-topic-model">What is Topic Model?</a></li>
+      </ol>
+    </li>
+    <li><a href="#latent-semantic-analysis-lsa">Latent Semantic Analysis (LSA)</a></li>
+    <li><a href="#latent-dirichelet-allocation-lda">Latent Dirichelet Allocation (LDA)</a>
+      <ol>
+        <li><a href="#generative-stories">Generative Stories</a></li>
+        <li><a href="#graphical-model-notation">Graphical Model Notation</a></li>
+        <li><a href="#training--evaluation">Training &amp; Evaluation</a></li>
+      </ol>
+    </li>
+    <li><a href="#reference">Reference</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

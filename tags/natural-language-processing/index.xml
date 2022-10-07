@@ -6,7 +6,213 @@
         <description>Recent content in Natural Language Processing on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 04 Oct 2022 14:38:34 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/natural-language-processing/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 06 Oct 2022 14:31:09 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/natural-language-processing/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Comp Linguistics] Topic Modeling</title>
+        <link>https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/</link>
+        <pubDate>Thu, 06 Oct 2022 14:31:09 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Oct 6th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 6th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;topic-model&#34;&gt;Topic Model&lt;/h2&gt;
+&lt;h3 id=&#34;what-is-topic-model&#34;&gt;What is Topic Model?&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s a method for &lt;strong&gt;automatically&lt;/strong&gt; organizing a collection of a text and is used for &lt;strong&gt;unlabled&lt;/strong&gt; document collections.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Topics are defined as combinations of words.&lt;/li&gt;
+&lt;li&gt;Documents are defined as combinations of topics.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;ldquo;Since you read an article about basketball, you might also like other articles about basketball.&amp;rdquo;&lt;br&gt;
+&amp;ldquo;In the past year, people have been talking more about the economy than about schools.&amp;rdquo;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;latent-semantic-analysis-lsa&#34;&gt;Latent Semantic Analysis (LSA)&lt;/h2&gt;
+&lt;p&gt;It uses dimensionality reduction/linear algebra to generate a topic model.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white.jpg&#34;
+	width=&#34;461&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;135&#34;
+		data-flex-basis=&#34;325px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LSA1.jpg&#34;
+	width=&#34;1214&#34;
+	height=&#34;572&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LSA1_hudd945732388ab9a80e4531bfe814f0c5_58892_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LSA1_hudd945732388ab9a80e4531bfe814f0c5_58892_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;LSA via SVD&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;212&#34;
+		data-flex-basis=&#34;509px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white.jpg&#34;
+	width=&#34;461&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;135&#34;
+		data-flex-basis=&#34;325px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;latent-dirichelet-allocation-lda&#34;&gt;Latent Dirichelet Allocation (LDA)&lt;/h2&gt;
+&lt;p&gt;It uses &lt;strong&gt;probability&lt;/strong&gt; models/&lt;strong&gt;graphical&lt;/strong&gt; models in contrast to LSA which has no notion of probability.&lt;/p&gt;
+&lt;h3 id=&#34;generative-stories&#34;&gt;Generative Stories&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s the first step to build models that makes &lt;strong&gt;assumptions&lt;/strong&gt; about the structure of the data or problem, &lt;strong&gt;which tells a story about how the observed data came to be&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Repeat:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sampling a topic&lt;/li&gt;
+&lt;li&gt;Sampling a word from that topic&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;However, we need to further associate them with syntax, word order, semantics, discourse, etc.&lt;/p&gt;
+&lt;p&gt;$$ P\left(w_{i}\right)=\sum_{j=1}^{T} P\left(w_{i} \mid z_{i}=j\right) P\left(z_{i}=j\right) $$&lt;/p&gt;
+&lt;p&gt;, where $ P\left(w_{i}\right)$ is the probability of the data (a given word), $P\left(w_{i} \mid z_{i}=j\right)$ is the probability of that word for a given topic, $P\left(z_{i}=j\right)$ is overall probability of that topic.&lt;/p&gt;
+&lt;p&gt;Given the observed word, find the $P(z)$ and $P(w|z)$ that make the observed word most likely.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white.jpg&#34;
+	width=&#34;461&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;135&#34;
+		data-flex-basis=&#34;325px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA1.jpg&#34;
+	width=&#34;450&#34;
+	height=&#34;434&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA1_hu73037c3c3ed415d4cc33db37d347d6d2_12247_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA1_hu73037c3c3ed415d4cc33db37d347d6d2_12247_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;103&#34;
+		data-flex-basis=&#34;248px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white.jpg&#34;
+	width=&#34;461&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;135&#34;
+		data-flex-basis=&#34;325px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;graphical-model-notation&#34;&gt;Graphical Model Notation&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white.jpg&#34;
+	width=&#34;461&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;135&#34;
+		data-flex-basis=&#34;325px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA2.jpg&#34;
+	width=&#34;834&#34;
+	height=&#34;396&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA2_hu32140dd3780aa1e1ae6b68e026366931_22000_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA2_hu32140dd3780aa1e1ae6b68e026366931_22000_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;210&#34;
+		data-flex-basis=&#34;505px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white.jpg&#34;
+	width=&#34;461&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/white_hu4d0223eae35e310af94e82dbc185b4bd_2797_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;135&#34;
+		data-flex-basis=&#34;325px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$z$ and $w$ depend on multinomial distribution of $P(z)$ and $P(w|z)$ respectively. Then, we assume those distributions come from a Dirichlet distributions $ \alpha $ and $\beta$.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA3.jpg&#34;
+	width=&#34;532&#34;
+	height=&#34;468&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA3_hu8a110922baa2438ab93c6d006c03b40a_28035_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA3_hu8a110922baa2438ab93c6d006c03b40a_28035_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;113&#34;
+		data-flex-basis=&#34;272px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA4.jpg&#34;
+	width=&#34;562&#34;
+	height=&#34;472&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA4_hua31bab57eba8c059a0b1800f0458295c_29613_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA4_hua31bab57eba8c059a0b1800f0458295c_29613_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;119&#34;
+		data-flex-basis=&#34;285px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA5.jpg&#34;
+	width=&#34;500&#34;
+	height=&#34;464&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA5_hu92f0328f358a786dba36e38c3a619f9e_25416_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA5_hu92f0328f358a786dba36e38c3a619f9e_25416_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;107&#34;
+		data-flex-basis=&#34;258px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA6.jpg&#34;
+	width=&#34;512&#34;
+	height=&#34;460&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA6_hue7524b16b9304a7b336f35b5369d13b7_30121_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/LDA6_hue7524b16b9304a7b336f35b5369d13b7_30121_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;111&#34;
+		data-flex-basis=&#34;267px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;training--evaluation&#34;&gt;Training &amp;amp; Evaluation&lt;/h3&gt;
+&lt;p&gt;We resort to approximate methods for posterior estimation.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sampling Methods (MCMC, Gibbs Sampling)&lt;/li&gt;
+&lt;li&gt;Variational Inference&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=fCmIceNqVog&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Topic Models: Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Comp Linguistics] Distributional Hypothesis</title>
         <link>https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/</link>
         <pubDate>Tue, 04 Oct 2022 14:38:34 -0400</pubDate>
@@ -81,7 +287,7 @@
 &lt;li&gt;v1·v2 == 1 if they are parallel&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;word-embeddings---part-1&#34;&gt;Word Embeddings - Part 1&lt;/h2&gt;
+&lt;h2 id=&#34;word-embeddings&#34;&gt;Word Embeddings&lt;/h2&gt;
 &lt;h3 id=&#34;word-vectors-vs-embeddings&#34;&gt;Word Vectors vs. Embeddings&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Word Vectors&lt;/strong&gt;: sparse, very high-dimensional&lt;br&gt;
 &lt;strong&gt;Word Embeddings&lt;/strong&gt;: dense, low dimensional, dimensions are not
@@ -98,8 +304,20 @@ similar.)&lt;/li&gt;
 &lt;h3 id=&#34;dimensionality-reduction&#34;&gt;Dimensionality Reduction&lt;/h3&gt;
 &lt;p&gt;It represents the data points in a new feature space by transforming the feature matrix. The new feature space is &lt;strong&gt;more informative for ML&lt;/strong&gt; but is &lt;strong&gt;less interpretable to humans&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Principle Component Analysis (PCA)&lt;/strong&gt;
-Low Rank Assumptioin: we typically assume that our features contain a large amount of redundant information.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/SVD1.jpg&#34;
+Low Rank Assumptioin: we typically assume that our features contain a large amount of redundant information.&lt;br&gt;
+M = U * D * V, where U contains word embeddings.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/white.jpg&#34;
+	width=&#34;347&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;102&#34;
+		data-flex-basis=&#34;244px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/SVD1.jpg&#34;
 	width=&#34;1216&#34;
 	height=&#34;680&#34;
 	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/SVD1_hu145470b727ffd71a718b1cff761b8a2a_67007_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/SVD1_hu145470b727ffd71a718b1cff761b8a2a_67007_1024x0_resize_q75_box.jpg 1024w&#34;
@@ -112,8 +330,30 @@ Low Rank Assumptioin: we typically assume that our features contain a large amou
 		data-flex-grow=&#34;178&#34;
 		data-flex-basis=&#34;429px&#34;
 	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/white.jpg&#34;
+	width=&#34;347&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;102&#34;
+		data-flex-basis=&#34;244px&#34;
+	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/SVD2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/white.jpg&#34;
+	width=&#34;347&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;102&#34;
+		data-flex-basis=&#34;244px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/SVD2.jpg&#34;
 	width=&#34;1210&#34;
 	height=&#34;660&#34;
 	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/SVD2_hu16d14cfb5d054156bb43770858c1a3d9_56031_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/SVD2_hu16d14cfb5d054156bb43770858c1a3d9_56031_1024x0_resize_q75_box.jpg 1024w&#34;
@@ -125,6 +365,17 @@ Low Rank Assumptioin: we typically assume that our features contain a large amou
 		class=&#34;gallery-image&#34; 
 		data-flex-grow=&#34;183&#34;
 		data-flex-basis=&#34;440px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/white.jpg&#34;
+	width=&#34;347&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;102&#34;
+		data-flex-basis=&#34;244px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;For more info, please read this article: &lt;a class=&#34;link&#34; href=&#34;https://www.enjoyalgorithms.com/blog/principal-component-analysis-in-ml&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;

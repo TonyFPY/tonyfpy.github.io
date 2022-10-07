@@ -17,7 +17,7 @@ Last Modified on Oct 4th, 2022
  Theories of Word Meaning The Meaning of a word Naive BOW model has no notion of word meaning (e.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-distributional-hypothesis/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-10-04T14:38:34-04:00'/><meta property='article:modified_time' content='2022-10-04T22:27:20-04:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-10-04T14:38:34-04:00'/><meta property='article:modified_time' content='2022-10-07T00:29:14-04:00'/>
 <meta name="twitter:title" content="[Comp Linguistics] Distributional Hypothesis">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Oct 4th, 2022
@@ -428,7 +428,7 @@ Last Modified on Oct 4th, 2022
 <li>v1·v2 == 1 if they are parallel</li>
 </ul>
 <hr>
-<h2 id="word-embeddings---part-1">Word Embeddings - Part 1</h2>
+<h2 id="word-embeddings">Word Embeddings</h2>
 <h3 id="word-vectors-vs-embeddings">Word Vectors vs. Embeddings</h3>
 <p><strong>Word Vectors</strong>: sparse, very high-dimensional<br>
 <strong>Word Embeddings</strong>: dense, low dimensional, dimensions are not
@@ -445,8 +445,20 @@ similar.)</li>
 <h3 id="dimensionality-reduction">Dimensionality Reduction</h3>
 <p>It represents the data points in a new feature space by transforming the feature matrix. The new feature space is <strong>more informative for ML</strong> but is <strong>less interpretable to humans</strong>.</p>
 <p><strong>Principle Component Analysis (PCA)</strong>
-Low Rank Assumptioin: we typically assume that our features contain a large amount of redundant information.</p>
-<p><img src="/p/comp-linguistics-distributional-hypothesis/SVD1.jpg"
+Low Rank Assumptioin: we typically assume that our features contain a large amount of redundant information.<br>
+M = U * D * V, where U contains word embeddings.</p>
+<p><img src="/p/comp-linguistics-distributional-hypothesis/white.jpg"
+	width="347"
+	height="340"
+	srcset="/p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="102"
+		data-flex-basis="244px"
+	
+><img src="/p/comp-linguistics-distributional-hypothesis/SVD1.jpg"
 	width="1216"
 	height="680"
 	srcset="/p/comp-linguistics-distributional-hypothesis/SVD1_hu145470b727ffd71a718b1cff761b8a2a_67007_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-distributional-hypothesis/SVD1_hu145470b727ffd71a718b1cff761b8a2a_67007_1024x0_resize_q75_box.jpg 1024w"
@@ -459,8 +471,30 @@ Low Rank Assumptioin: we typically assume that our features contain a large amou
 		data-flex-grow="178"
 		data-flex-basis="429px"
 	
+><img src="/p/comp-linguistics-distributional-hypothesis/white.jpg"
+	width="347"
+	height="340"
+	srcset="/p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="102"
+		data-flex-basis="244px"
+	
 ></p>
-<p><img src="/p/comp-linguistics-distributional-hypothesis/SVD2.jpg"
+<p><img src="/p/comp-linguistics-distributional-hypothesis/white.jpg"
+	width="347"
+	height="340"
+	srcset="/p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="102"
+		data-flex-basis="244px"
+	
+><img src="/p/comp-linguistics-distributional-hypothesis/SVD2.jpg"
 	width="1210"
 	height="660"
 	srcset="/p/comp-linguistics-distributional-hypothesis/SVD2_hu16d14cfb5d054156bb43770858c1a3d9_56031_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-distributional-hypothesis/SVD2_hu16d14cfb5d054156bb43770858c1a3d9_56031_1024x0_resize_q75_box.jpg 1024w"
@@ -472,6 +506,17 @@ Low Rank Assumptioin: we typically assume that our features contain a large amou
 		class="gallery-image" 
 		data-flex-grow="183"
 		data-flex-basis="440px"
+	
+><img src="/p/comp-linguistics-distributional-hypothesis/white.jpg"
+	width="347"
+	height="340"
+	srcset="/p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-distributional-hypothesis/white_hu064a556f857e0a8082adeb4881b44613_2369_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="102"
+		data-flex-basis="244px"
 	
 ></p>
 <p>For more info, please read this article: <a class="link" href="https://www.enjoyalgorithms.com/blog/principal-component-analysis-in-ml"  target="_blank" rel="noopener"
@@ -506,7 +551,7 @@ Low Rank Assumptioin: we typically assume that our features contain a large amou
 
 
         <span>
-            Last updated on Oct 04, 2022 22:27 EDT
+            Last updated on Oct 07, 2022 00:29 EDT
         </span>
     </section></footer>
 
@@ -673,7 +718,7 @@ Low Rank Assumptioin: we typically assume that our features contain a large amou
         <li><a href="#computing-similarity">Computing Similarity</a></li>
       </ol>
     </li>
-    <li><a href="#word-embeddings---part-1">Word Embeddings - Part 1</a>
+    <li><a href="#word-embeddings">Word Embeddings</a>
       <ol>
         <li><a href="#word-vectors-vs-embeddings">Word Vectors vs. Embeddings</a></li>
         <li><a href="#why-word-embeddings">Why Word Embeddings?</a></li>
