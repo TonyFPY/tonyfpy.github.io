@@ -6,7 +6,82 @@
         <description>Recent content in Posts on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 06 Oct 2022 14:31:09 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 07 Oct 2022 17:05:02 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Machine Learning] Interview Questions - Part 2</title>
+        <link>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-2/</link>
+        <pubDate>Fri, 07 Oct 2022 17:05:02 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-2/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Oct 1st, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 1st, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;The post contains a collection of questions for machine learning interview.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1) Why do ensembles typically have higher scores than individual models?&lt;/strong&gt;&lt;br&gt;
+An ensemble is the combination of &lt;strong&gt;multiple models&lt;/strong&gt; to create a &lt;strong&gt;single prediction&lt;/strong&gt;. The key idea is that the errors of one model will be compensated by the right predictions of the other models and thus the score of the ensemble will be higher.&lt;/p&gt;
+&lt;p&gt;We need diverse models for creating an ensemble.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Using different ML algorithms.&lt;/li&gt;
+&lt;li&gt;Using different subsets of the data for training. (Bagging)&lt;/li&gt;
+&lt;li&gt;Giving a different weight to each of the samples of the training set. (Boosting)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Engineers need to find a balance between &lt;strong&gt;execution time&lt;/strong&gt; and &lt;strong&gt;accuracy&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2) What is an imbalanced dataset? Can you list some ways to deal with it?&lt;/strong&gt;&lt;br&gt;
+An imbalanced dataset has different proportions of categories. There are different options to deal with imbalanced datasets:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Resampling the dataset: undersampling majority classes and oversampling minority classes&lt;/li&gt;
+&lt;li&gt;Data Augmentation&lt;/li&gt;
+&lt;li&gt;Cross Validation&lt;/li&gt;
+&lt;li&gt;Choose a right algorithm, e.g., random forest&lt;/li&gt;
+&lt;li&gt;Using appropriate metrics, e.g., F-score, Confusion Matrix, which describe the performance of the model better on an imbalanced dataset.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;3) What is data augmentation? Can you give some examples?&lt;/strong&gt;&lt;br&gt;
+Data augmentation is a technique for generating new data by modifying existing data in such a way that the target is not changed, or it is changed in a known way.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4) Explain how the AUC - ROC curve works&lt;/strong&gt;&lt;br&gt;
+ROC or Receiver Operating Characteristic curve represents a graphical representation of the contrast between &lt;strong&gt;true positive rates and the false positive rate&lt;/strong&gt; at various thresholds.&lt;/p&gt;
+&lt;p&gt;AUC is known for Area Under the ROC curve. It calculates the two-dimensional area under the entire ROC curve ranging from 0 to 1, which means an excellent model will have AUC near 1, and hence it will show a good measure of &lt;strong&gt;separability&lt;/strong&gt;. AUC is &lt;strong&gt;scale-invariant&lt;/strong&gt;. It measures &lt;strong&gt;how well predictions are ranked&lt;/strong&gt;, rather than their absolute values. AUC is &lt;strong&gt;classification-threshold-invariant&lt;/strong&gt;. It measures the quality of the model&amp;rsquo;s predictions irrespective of what classification threshold is chosen.&lt;/p&gt;
+&lt;p&gt;AUC is not preferable when we need to calibrate probability output. Further, AUC is not a useful metric when there are wide disparities in the cost of false negatives vs false positives, and it is difficult to minimize one type of classification error. For example, when doing email spam detection, you likely want to prioritize minimizing false positives even if that results in a significant increase of false negatives.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5) What is Precision/Recall/F1-score?&lt;/strong&gt;&lt;br&gt;
+Precision (positive predictive value) is the fraction of relevant instances among the retrieved instances.&lt;/p&gt;
+&lt;p&gt;$$ Precision = \frac{TP}{TP + FP} $$&lt;/p&gt;
+&lt;p&gt;Recall (sensitivity) is the fraction of relevant instances that have been retrieved over the total amount of relevant instances.&lt;/p&gt;
+&lt;p&gt;$$ Recall = \frac{TP}{TP + FN} $$&lt;/p&gt;
+&lt;p&gt;F1-score is the weighted average of precision and recall. It considers both false positive and false negative into account.&lt;/p&gt;
+&lt;p&gt;$$ F1 = \frac{2PR}{P + R} $$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6) Define Learning Rate&lt;/strong&gt;&lt;br&gt;
+The learning rate is a hyper-parameter used to govern the pace at which an algorithm updates or learns the values of a parameter estimate. In other words, it controls how much we are adjusting the weights of our network with respect the loss gradient.&lt;/p&gt;
+&lt;p&gt;When training loss fluctuates, we may reduce the learning rate. Otherwise, SGD jumps too far and misses the area near local minima.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7) The differences between Batch Gradient Descent and Stochastic Gradient Descent&lt;/strong&gt;&lt;br&gt;
+Batch Gradient Descent involves calculations over the &lt;strong&gt;whole training set&lt;/strong&gt; at each step as a result of which it is very slow on very large training data. Thus, it becomes very &lt;strong&gt;computationally expensive&lt;/strong&gt;. However, this is great for &lt;strong&gt;convex&lt;/strong&gt; or relatively smooth error manifolds. Also, Batch GD scales well with the number of features.&lt;/p&gt;
+&lt;p&gt;Stochastic gradient descent (SGD) picks up a &lt;strong&gt;&amp;ldquo;random&amp;rdquo; instance&lt;/strong&gt; of training data at each step and then computes the gradient, making it much faster to reach the &lt;strong&gt;convergence&lt;/strong&gt;. Also, it can &lt;strong&gt;escape shallow local minima&lt;/strong&gt; more easily.&lt;/p&gt;
+&lt;p&gt;Batch GD: Batch size = Size of training set&lt;br&gt;
+Stochastic GD: Batch size = 1&lt;br&gt;
+Mini-Batch GD: 1 &amp;lt; Batch size &amp;lt; Size of training set&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;8) Epoch vs. Batch vs. Iteration&lt;/strong&gt;&lt;br&gt;
+Epoch: It&amp;rsquo;s the number of times the whole training dataset is passed through the model. &lt;br&gt;
+Batch: It&amp;rsquo;s the number of examples processed together in one pass.&lt;br&gt;
+Iteration: It&amp;rsquo;s the number of batches required to complete one epoch.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;9) What is gradient vanishing? What is gradient explosion?&lt;/strong&gt;&lt;br&gt;
+As we add more and more hidden layers, back propagation becomes less and less useful in passing information to the lower layers. &lt;strong&gt;A large change in the input will cause a small change in the output.&lt;/strong&gt; In effect, as information is passed back, the gradients begin to vanish and become small relative to the weights of the networks. On the contrary, if the gradients get larger or even NaN as our backpropagation progresses, &lt;strong&gt;the error gradients accumulate&lt;/strong&gt; and end up with exploding gradients having big weight updates.&lt;/p&gt;
+&lt;p&gt;For &lt;strong&gt;sigmoid&lt;/strong&gt;, it saturates at zero for large negative values and at one for large positive values. The same applies to the &lt;strong&gt;Tanh&lt;/strong&gt; function that saturates at -1 and 1. &lt;strong&gt;ReLU&lt;/strong&gt; returns the input if the input value is positive, and it returns 0 if the input is negative.&lt;/p&gt;
+&lt;p&gt;ReLu can solve gradient vanishing but may cause gradient explosion. &lt;strong&gt;The output of ReLU is unbounded in the positive domain by design.&lt;/strong&gt; This means that the output can, in some situations, continue to grow in size.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;10) What&amp;rsquo;s the difference between boosting and bagging?&lt;/strong&gt;&lt;br&gt;
+Boosting and bagging are similar, in that they are both ensembling techniques, where &lt;strong&gt;multiple weak learners&lt;/strong&gt; (classifiers/regressors that are barely better than guessing) combine (through averaging or max vote) to form &lt;strong&gt;a single strong learner&lt;/strong&gt; that can make accurate predictions.&lt;/p&gt;
+&lt;p&gt;Bagging means that you take &lt;strong&gt;bootstrap&lt;/strong&gt; samples (with replacement) of your dataset and each sample trains a (potentially) weak learner. Boosting, on the other hand, uses all data to train each learner, but instances that were misclassified by the previous learners are given &lt;strong&gt;more weight&lt;/strong&gt; so that &lt;strong&gt;subsequent&lt;/strong&gt; learners give more focus to them during training.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/andrewekhalel/MLQuestions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ML Interview Questions collected by andrewekhalel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Comp Linguistics] Topic Modeling</title>
         <link>https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/</link>
         <pubDate>Thu, 06 Oct 2022 14:31:09 -0400</pubDate>
