@@ -21,7 +21,7 @@ Bias is the difference between the average prediction of our model and the groun
 Variance refers to the variability in the model prediction. In other words, it reflects the changes in the model when using different portions of the training dataset.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/machine-learning-interview-questions-part-1/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Career' /><meta property='article:published_time' content='2022-10-01T19:51:42-04:00'/><meta property='article:modified_time' content='2022-10-01T22:02:49-04:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Career' /><meta property='article:published_time' content='2022-10-01T19:51:42-04:00'/><meta property='article:modified_time' content='2022-10-08T20:46:20-04:00'/>
 <meta name="twitter:title" content="[Machine Learning] Interview Questions - Part 1">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Oct 1st, 2022
@@ -312,7 +312,7 @@ Variance refers to the variability in the model prediction. In other words, it r
                 Machine Learning
             </a>
         
-            <a href="/categories/career/" style="background-color: #ff6666; color: #fff;">
+            <a href="/categories/career/" style="background-color: #FF577F; color: #fff;">
                 Career
             </a>
         
@@ -378,15 +378,15 @@ Variance refers to the variability in the model prediction. In other words, it r
 <p>The post contains a collection of questions for machine learning interview.</p>
 <hr>
 <h2 id="questions">Questions</h2>
-<p><strong>1) Explain bias and variance, and trade-off between them</strong><br>
-Bias is the <strong>difference</strong> between the average prediction of our model and the ground truth.</p>
+<p><strong>1) Explain bias and variance, and trade-off between them</strong></p>
+<p>Bias is the <strong>difference</strong> between the average prediction of our model and the ground truth.</p>
 <p>Variance refers to the <strong>variability</strong> in the model prediction. In other words, it reflects the changes in the model when using different portions of the training dataset.</p>
 <p>Bias and variance are <strong>inversely connected</strong>. An underfitting model has high bias and low variance, while an overfitting model has high variance and low bias. So we need to find the right balance.</p>
-<p><strong>2) What is gradient descent?</strong><br>
-GD is an <strong>optimization</strong> algorithm that finds the values of parameters (coefficients) of a loss function that minimizes a cost function.</p>
+<p><strong>2) What is gradient descent?</strong></p>
+<p>GD is an <strong>optimization</strong> algorithm that finds the values of parameters (coefficients) of a loss function that minimizes a cost function.</p>
 <p>GD is best used when the parameters cannot be calculated analytically (e.g. using linear algebra) and must be searched for by an optimization algorithm.</p>
-<p><strong>3) Difference between Loss Function, Cost Function</strong><br>
-The Loss function is associated with <strong>single training example</strong>, and the cost function is the average value of the loss function over the <strong>entire training dataset</strong>. In ML, we usually try to optimize our cost
+<p><strong>3) Difference between Loss Function, Cost Function</strong></p>
+<p>The Loss function is associated with <strong>single training example</strong>, and the cost function is the average value of the loss function over the <strong>entire training dataset</strong>. In ML, we usually try to optimize our cost
 function rather than loss function.</p>
 <p><strong>4) How to handle overfitting and underfitting</strong> </p>
 <div class="table-wrapper"><table>
@@ -423,8 +423,8 @@ function rather than loss function.</p>
 </tr>
 </tbody>
 </table></div>
-<p><strong>5) What is curse of dimensionality? How to prevent it?</strong><br>
-CoD basically means that the error increases with the increase in the number of features. It leads to exponential increase in computational efforts.</p>
+<p><strong>5) What is curse of dimensionality? How to prevent it?</strong></p>
+<p>CoD basically means that the error increases with the increase in the number of features. It leads to exponential increase in computational efforts.</p>
 <ul>
 <li>Improving the ratio of observations over attributes</li>
 <li>Making distances in feature space more meaningful</li>
@@ -432,8 +432,8 @@ CoD basically means that the error increases with the increase in the number of 
 <li>Removing or combining features that have redundant correlation with target distribution</li>
 <li>Extracting new features with a more direct correlation with target distribution</li>
 </ul>
-<p><strong>6) What is regularization, and give some examples of common methods?</strong><br>
-Regularization refers to techniques that are used to calibrate machine learning models so as to <strong>avoid the risk of overfitting</strong>.</p>
+<p><strong>6) What is regularization, and give some examples of common methods?</strong></p>
+<p>Regularization refers to techniques that are used to calibrate machine learning models so as to <strong>avoid the risk of overfitting</strong>.</p>
 <p>The obvious disadvantage of ridge is model interpretability. It will shrink the coefficients for least important features, <strong>only close to zero</strong>. However, for lasso, it can force some of the coefficient estimates to <strong>be zero</strong> when the weight is sufficiently large. Therefore, the lasso method also performs variable selection and is said to yield sparse models.</p>
 <div class="table-wrapper"><table>
 <thead>
@@ -465,8 +465,8 @@ Regularization refers to techniques that are used to calibrate machine learning 
 </tr>
 </tbody>
 </table></div>
-<p><strong>7) Explain Principal Component Analysis (PCA)?</strong><br>
-PCA is used for the <strong>dimensionality reduction</strong>, which tries to find the lower-dimensional surface to project the high-dimensional data.</p>
+<p><strong>7) Explain Principal Component Analysis (PCA)?</strong></p>
+<p>PCA is used for the <strong>dimensionality reduction</strong>, which tries to find the lower-dimensional surface to project the high-dimensional data.</p>
 <p><a class="link" href="https://builtin.com/data-science/step-step-explanation-principal-component-analysis"  target="_blank" rel="noopener"
     >Common Steps</a>:</p>
 <ul>
@@ -476,14 +476,14 @@ PCA is used for the <strong>dimensionality reduction</strong>, which tries to fi
 <li>Creating a feature vector to decide which principal components to keep</li>
 <li>Recasting the data along the principal components axes</li>
 </ul>
-<p><strong>8) What is data normalization and why do we need it?</strong><br>
-Data normalization is a <strong>preprocessing</strong> step to <strong>re-scale values</strong> to fit in a specific range to assure better convergence. In general, it boils down to subtracting the <strong>mean</strong> of each data point and dividing by its <strong>standard deviation</strong>. The data normalization makes all features weighted equally. Otherwise, some features with high magnitude will be weighted more in the cost function, while other features with lower values will be allocated less weights.</p>
-<p><strong>9) What is the difference between training, validation set and test set?</strong><br>
-The training dataset is used for <strong>fitting the model’s parameters</strong>. However, the accuracy that we achieve on the training set is not reliable for predicting if the model will be accurate on new samples.</p>
+<p><strong>8) What is data normalization and why do we need it?</strong></p>
+<p>Data normalization is a <strong>preprocessing</strong> step to <strong>re-scale values</strong> to fit in a specific range to assure better convergence. In general, it boils down to subtracting the <strong>mean</strong> of each data point and dividing by its <strong>standard deviation</strong>. The data normalization makes all features weighted equally. Otherwise, some features with high magnitude will be weighted more in the cost function, while other features with lower values will be allocated less weights.</p>
+<p><strong>9) What is the difference between training, validation set and test set?</strong></p>
+<p>The training dataset is used for <strong>fitting the model’s parameters</strong>. However, the accuracy that we achieve on the training set is not reliable for predicting if the model will be accurate on new samples.</p>
 <p>The validation dataset is used to <strong>measure how well the model does</strong> on examples that weren’t part of the training dataset and to <strong>provide information</strong> for adjusting the model. The more evaluations, the more information is leaked. So we can end up overfitting to the validation data.</p>
 <p>The test dataset is used to measure how well the model does on previously unseen examples. It should <strong>only be used once</strong> we have tuned the parameters using the validation set.</p>
-<p><strong>10) What is cross-validation?</strong><br>
-CV is a statistical <strong>resampling</strong> technique that uses different parts of the dataset to train and test an ML algorithm on different iterations. The aim of CV provides the ability to estimate model performance on unseen data.</p>
+<p><strong>10) What is cross-validation?</strong></p>
+<p>CV is a statistical <strong>resampling</strong> technique that uses different parts of the dataset to train and test an ML algorithm on different iterations. The aim of CV provides the ability to estimate model performance on unseen data.</p>
 <hr>
 <h2 id="reference">Reference</h2>
 <ul>
@@ -520,7 +520,7 @@ CV is a statistical <strong>resampling</strong> technique that uses different pa
 
 
         <span>
-            Last updated on Oct 01, 2022 22:02 EDT
+            Last updated on Oct 08, 2022 20:46 EDT
         </span>
     </section></footer>
 

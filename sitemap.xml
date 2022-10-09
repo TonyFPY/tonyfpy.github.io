@@ -2,23 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-2/</loc>
-    <lastmod>2022-10-07T22:00:44-04:00</lastmod>
+    <loc>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-3/</loc>
+    <lastmod>2022-10-08T21:40:01-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/career/</loc>
-    <lastmod>2022-10-07T22:00:44-04:00</lastmod>
+    <lastmod>2022-10-08T21:40:01-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/</loc>
-    <lastmod>2022-10-07T22:00:44-04:00</lastmod>
+    <lastmod>2022-10-08T21:41:19-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/machine-learning/</loc>
-    <lastmod>2022-10-07T22:00:44-04:00</lastmod>
+    <lastmod>2022-10-08T21:40:01-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/post/</loc>
-    <lastmod>2022-10-07T22:00:44-04:00</lastmod>
+    <lastmod>2022-10-08T21:40:01-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/</loc>
-    <lastmod>2022-10-07T22:00:44-04:00</lastmod>
+    <lastmod>2022-10-08T21:40:01-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-2/</loc>
+    <lastmod>2022-10-08T20:47:08-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/</loc>
     <lastmod>2022-10-07T00:28:32-04:00</lastmod>
@@ -39,7 +42,7 @@
     <lastmod>2022-10-01T23:04:43-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-1/</loc>
-    <lastmod>2022-10-01T22:02:49-04:00</lastmod>
+    <lastmod>2022-10-08T20:46:20-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/comp-linguistics-tokenization/</loc>
     <lastmod>2022-09-22T22:40:29-04:00</lastmod>
@@ -309,7 +312,7 @@
     <lastmod>2022-08-29T11:36:35-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/career/</loc>
-    <lastmod>2022-04-26T23:49:09-04:00</lastmod>
+    <lastmod>2022-10-08T21:41:19-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/data-analysis/</loc>
     <lastmod>2022-04-29T22:35:40-04:00</lastmod>
