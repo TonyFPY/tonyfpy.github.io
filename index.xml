@@ -6,6 +6,64 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Machine Learning] Interview Questions - Part 4</title>
+        <link>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-4/</link>
+        <pubDate>Sun, 09 Oct 2022 22:31:17 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-4/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Oct 9th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 9th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;The post contains a collection of questions for machine learning interview.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1) Why are small convolution kernels such as 3x3 better than larger ones?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;First, you can use several smaller kernels to get the same receptive field and capture &lt;strong&gt;more spatial context&lt;/strong&gt; with &lt;strong&gt;less parameters and computations&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Secondly, because with smaller kernels, you will be using more filters. You&amp;rsquo;ll be able to use more activation functions and thus have a &lt;strong&gt;more discriminative mapping function being learnt&lt;/strong&gt; by your CNN.&lt;/p&gt;
+&lt;p&gt;Also, small kernels would lead to &lt;strong&gt;slow reduction of image dimensions&lt;/strong&gt; making the network deep, whereas large kernels would decrease the size of the image really fast.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2) The difference for dropout between training and testing&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Dropout is a simple way to prevent a neural network from &lt;strong&gt;overfitting&lt;/strong&gt; by making neurons output &amp;lsquo;wrong&amp;rsquo; values on purpose. It is a random process of disabling neurons in a layer with &lt;strong&gt;probability &lt;em&gt;p&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;At test time, however, we do not apply dropout with the test data. But that means your neurons will receive more connections and therefore more activations during inference than what they received during training. For example, if you use a dropout rate of 50% dropping two out of four neurons in a layer during training, the neurons in the next layer will receive twice the activations during inference and thus become overexcited. Accordingly, the values produced by these neurons will be too large by 50%. To correct this over-activation at inference time, you multiply the weights of the overexcited neurons by the &lt;strong&gt;retention probability (1 – &lt;em&gt;p&lt;/em&gt;)&lt;/strong&gt; to scale them down.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3) How does inference time vary with the depth of the decision tree?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Test time complexity would be &lt;strong&gt;O(depth)&lt;/strong&gt; since we have to move from root to a leaf node of the decision tree.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4) With the increase of depth, what will be influnced in decison tree prediction?&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;More inference time&lt;/li&gt;
+&lt;li&gt;To some degree, it reduces bias and prevent underfitting, but it may lead to overfitting (more leaf nodes).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;5) Pros and Cons of decision tree&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Advantages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Once the tree is constructed, the training data does not need to be stored. Instead, we can simply store &lt;strong&gt;splitting conditions&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Inference is very &lt;strong&gt;fast&lt;/strong&gt;, as test inputs simply need to traverse down the tree to a leaf.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;No metrics&lt;/strong&gt; are needed, because the splits are based on feature thresholds.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Disavantages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Trees fail to deal with &lt;strong&gt;linear relationships&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Trees are quite &lt;strong&gt;unstable&lt;/strong&gt;. A few changes in the training dataset can create a completely different tree.&lt;/li&gt;
+&lt;li&gt;The number of terminal nodes increases quickly with depth.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;6) What is the purpose of random restarts?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Random restart means restarting at a &lt;strong&gt;new random state&lt;/strong&gt; after a pre-defined
+number of steps, which can turn a local search algorithm into an algorithm with &lt;strong&gt;global search capability&lt;/strong&gt;. It helps in &lt;strong&gt;non-convex optimization&lt;/strong&gt; to alleviate the problems of trapping in many local minima or flat regions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7) What is bias &amp;amp; variance decomposition?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;8) Differences between gradient-boosting decision tree and random forest?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;9) What&amp;rsquo;s the range of cosine distance?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;10) Differences between online training and offline training?&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/andrewekhalel/MLQuestions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ML Interview Questions collected by andrewekhalel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Machine Learning] Interview Questions - Part 3</title>
         <link>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-3/</link>
         <pubDate>Sat, 08 Oct 2022 20:35:56 -0400</pubDate>
