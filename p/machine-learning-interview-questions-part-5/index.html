@@ -2,31 +2,31 @@
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
-Created on Oct 7th, 2022
-Last Modified on Oct 7th, 2022
+Created on Oct 10th, 2022
+Last Modified on Oct 10th, 2022
  Intro The post contains a collection of questions for machine learning interview.
- Questions 1) Why do ensembles typically have higher scores than individual models?
-An ensemble is the combination of multiple models to create a single prediction. The key idea is that the errors of one model will be compensated by the right predictions of the other models and thus the score of the ensemble will be higher.'><title>[Machine Learning] Interview Questions - Part 2</title>
+ Questions 1) Feature Engineering Techniques for Machine Learning
+ Feature selection  Correlation matrix with heatmap Statistical tests   Exploratory Data Analysis Handling imbalanced data  Under-sampling majority class Over-Sampling Minority class Data augmentaion   Imputation (handling missing values)  Apply mean, median to numerical values Apply mode to categorical values Drop NA values entire rows Drop NA values entire features   Handling Outliers  Removal Replacing values   Feature scaling  Standardization Normalization   Encoding  Label Encoding (text -&amp;gt; number) One-Hot Encoding (categorical -&amp;gt; numerical)    2) Is logistic regression a concave or convex function?'><title>[Machine Learning] Interview Questions - Part 5</title>
 
-<link rel='canonical' href='https://tonyfpy.github.io/p/machine-learning-interview-questions-part-2/'>
+<link rel='canonical' href='https://tonyfpy.github.io/p/machine-learning-interview-questions-part-5/'>
 
-<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Machine Learning] Interview Questions - Part 2'>
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Machine Learning] Interview Questions - Part 5'>
 <meta property='og:description' content='Authored by Tony Feng
-Created on Oct 7th, 2022
-Last Modified on Oct 7th, 2022
+Created on Oct 10th, 2022
+Last Modified on Oct 10th, 2022
  Intro The post contains a collection of questions for machine learning interview.
- Questions 1) Why do ensembles typically have higher scores than individual models?
-An ensemble is the combination of multiple models to create a single prediction. The key idea is that the errors of one model will be compensated by the right predictions of the other models and thus the score of the ensemble will be higher.'>
-<meta property='og:url' content='https://tonyfpy.github.io/p/machine-learning-interview-questions-part-2/'>
+ Questions 1) Feature Engineering Techniques for Machine Learning
+ Feature selection  Correlation matrix with heatmap Statistical tests   Exploratory Data Analysis Handling imbalanced data  Under-sampling majority class Over-Sampling Minority class Data augmentaion   Imputation (handling missing values)  Apply mean, median to numerical values Apply mode to categorical values Drop NA values entire rows Drop NA values entire features   Handling Outliers  Removal Replacing values   Feature scaling  Standardization Normalization   Encoding  Label Encoding (text -&amp;gt; number) One-Hot Encoding (categorical -&amp;gt; numerical)    2) Is logistic regression a concave or convex function?'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/machine-learning-interview-questions-part-5/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Career' /><meta property='article:published_time' content='2022-10-07T17:05:02-04:00'/><meta property='article:modified_time' content='2022-10-11T00:22:57-04:00'/>
-<meta name="twitter:title" content="[Machine Learning] Interview Questions - Part 2">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Career' /><meta property='article:published_time' content='2022-10-10T23:14:27-04:00'/><meta property='article:modified_time' content='2022-10-11T00:18:43-04:00'/>
+<meta name="twitter:title" content="[Machine Learning] Interview Questions - Part 5">
 <meta name="twitter:description" content="Authored by Tony Feng
-Created on Oct 7th, 2022
-Last Modified on Oct 7th, 2022
+Created on Oct 10th, 2022
+Last Modified on Oct 10th, 2022
  Intro The post contains a collection of questions for machine learning interview.
- Questions 1) Why do ensembles typically have higher scores than individual models?
-An ensemble is the combination of multiple models to create a single prediction. The key idea is that the errors of one model will be compensated by the right predictions of the other models and thus the score of the ensemble will be higher.">
+ Questions 1) Feature Engineering Techniques for Machine Learning
+ Feature selection  Correlation matrix with heatmap Statistical tests   Exploratory Data Analysis Handling imbalanced data  Under-sampling majority class Over-Sampling Minority class Data augmentaion   Imputation (handling missing values)  Apply mean, median to numerical values Apply mode to categorical values Drop NA values entire rows Drop NA values entire features   Handling Outliers  Removal Replacing values   Feature scaling  Standardization Normalization   Encoding  Label Encoding (text -&amp;gt; number) One-Hot Encoding (categorical -&amp;gt; numerical)    2) Is logistic regression a concave or convex function?">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -318,7 +318,7 @@ An ensemble is the combination of multiple models to create a single prediction.
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/machine-learning-interview-questions-part-2/">[Machine Learning] Interview Questions - Part 2</a>
+            <a href="/p/machine-learning-interview-questions-part-5/">[Machine Learning] Interview Questions - Part 5</a>
         </h2>
     
         
@@ -337,7 +337,7 @@ An ensemble is the combination of multiple models to create a single prediction.
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Oct 07, 2022</time>
+                <time class="article-time--published">Oct 10, 2022</time>
             </div>
         
 
@@ -352,7 +352,7 @@ An ensemble is the combination of multiple models to create a single prediction.
 
 
                 <time class="article-time--reading">
-                    5 minute read
+                    1 minute read
                 </time>
             </div>
         
@@ -368,64 +368,72 @@ An ensemble is the combination of multiple models to create a single prediction.
     
     <blockquote>
 <p>Authored by Tony Feng</p>
-<p>Created on Oct 7th, 2022</p>
-<p>Last Modified on Oct 7th, 2022</p>
+<p>Created on Oct 10th, 2022</p>
+<p>Last Modified on Oct 10th, 2022</p>
 </blockquote>
 <h2 id="intro">Intro</h2>
 <p>The post contains a collection of questions for machine learning interview.</p>
 <hr>
 <h2 id="questions">Questions</h2>
-<p><strong>1) Why do ensembles typically have higher scores than individual models?</strong></p>
-<p>An ensemble is the combination of <strong>multiple models</strong> to create a <strong>single prediction</strong>. The key idea is that the errors of one model will be compensated by the right predictions of the other models and thus the score of the ensemble will be higher.</p>
-<p>We need diverse models for creating an ensemble.</p>
+<p><strong>1) Feature Engineering Techniques for Machine Learning</strong></p>
 <ul>
-<li>Using different ML algorithms.</li>
-<li>Using different subsets of the data for training. (Bagging)</li>
-<li>Giving a different weight to each of the samples of the training set. (Boosting)</li>
-</ul>
-<p>Engineers need to find a balance between <strong>execution time</strong> and <strong>accuracy</strong>.</p>
-<p><strong>2) What is an imbalanced dataset? Can you list some ways to deal with it?</strong></p>
-<p>An imbalanced dataset has different proportions of categories. There are different options to deal with imbalanced datasets:</p>
+<li>Feature selection
 <ul>
-<li>Resampling the dataset: undersampling majority classes and oversampling minority classes</li>
-<li>Data Augmentation</li>
-<li>Cross Validation</li>
-<li>Choose a right algorithm, e.g., random forest</li>
-<li>Using appropriate metrics, e.g., F-score, Confusion Matrix, which describe the performance of the model better on an imbalanced dataset.</li>
+<li>Correlation matrix with heatmap</li>
+<li>Statistical tests</li>
 </ul>
-<p><strong>3) What is data augmentation? Can you give some examples?</strong></p>
-<p>Data augmentation is a technique for generating new data by modifying existing data in such a way that the target is not changed, or it is changed in a known way.</p>
-<p><strong>4) Explain how the AUC - ROC curve works</strong></p>
-<p>ROC or Receiver Operating Characteristic curve represents a graphical representation of the contrast between <strong>true positive rates and the false positive rate</strong> at various thresholds.</p>
-<p>AUC is known for Area Under the ROC curve. It calculates the two-dimensional area under the entire ROC curve ranging from 0 to 1, which means an excellent model will have AUC near 1, and hence it will show a good measure of <strong>separability</strong>. AUC is <strong>scale-invariant</strong>. It measures <strong>how well predictions are ranked</strong>, rather than their absolute values. AUC is <strong>classification-threshold-invariant</strong>. It measures the quality of the model&rsquo;s predictions irrespective of what classification threshold is chosen.</p>
-<p>AUC is not preferable when we need to calibrate probability output. Further, AUC is not a useful metric when there are wide disparities in the cost of false negatives vs false positives, and it is difficult to minimize one type of classification error. For example, when doing email spam detection, you likely want to prioritize minimizing false positives even if that results in a significant increase of false negatives.</p>
-<p><strong>5) What is Precision/Recall/F1-score?</strong></p>
-<p>Precision (positive predictive value) is the fraction of relevant instances among the retrieved instances.</p>
-<p>$$ Precision = \frac{TP}{TP + FP} $$</p>
-<p>Recall (sensitivity) is the fraction of relevant instances that have been retrieved over the total amount of relevant instances.</p>
-<p>$$ Recall = \frac{TP}{TP + FN} $$</p>
-<p>F1-score is the weighted average of precision and recall. It considers both false positive and false negative into account.</p>
-<p>$$ F1 = \frac{2PR}{P + R} $$</p>
-<p><strong>6) Define Learning Rate</strong></p>
-<p>The learning rate is a hyper-parameter used to govern the pace at which an algorithm updates or learns the values of a parameter estimate. In other words, it controls how much we are adjusting the weights of our network with respect the loss gradient.</p>
-<p>When training loss fluctuates, we may reduce the learning rate. Otherwise, SGD jumps too far and misses the area near local minima.</p>
-<p><strong>7) The differences between Batch Gradient Descent and Stochastic Gradient Descent</strong></p>
-<p>Batch Gradient Descent involves calculations over the <strong>whole training set</strong> at each step as a result of which it is very slow on very large training data. Thus, it becomes very <strong>computationally expensive</strong>. However, this is great for <strong>convex</strong> or relatively smooth error manifolds. Also, Batch GD scales well with the number of features.</p>
-<p>Stochastic gradient descent (SGD) picks up a <strong>&ldquo;random&rdquo; instance</strong> of training data at each step and then computes the gradient, making it much faster to reach the <strong>convergence</strong>. Also, it can <strong>escape shallow local minima</strong> more easily. There tends to be more noise, which allows for <strong>improving generalization error</strong>. However, it might lead to result in <strong>larger variance</strong>.</p>
-<p>Batch GD: Batch size = Size of training set<br>
-Stochastic GD: Batch size = 1<br>
-Mini-Batch GD: 1 &lt; Batch size &lt; Size of training set</p>
-<p><strong>8) Epoch vs. Batch vs. Iteration</strong></p>
-<p>Epoch: It&rsquo;s the number of times the whole training dataset is passed through the model. <br>
-Batch: It&rsquo;s the number of examples processed together in one pass.<br>
-Iteration: It&rsquo;s the number of batches required to complete one epoch.</p>
-<p><strong>9) What is gradient vanishing? What is gradient explosion?</strong></p>
-<p>As we add more and more hidden layers, back propagation becomes less and less useful in passing information to the lower layers. <strong>A large change in the input will cause a small change in the output.</strong> In effect, as information is passed back, the gradients begin to vanish and become small relative to the weights of the networks. On the contrary, if the gradients get larger or even NaN as our backpropagation progresses, <strong>the error gradients accumulate</strong> and end up with exploding gradients having big weight updates.</p>
-<p>For <strong>sigmoid</strong>, it saturates at zero for large negative values and at one for large positive values. The same applies to the <strong>Tanh</strong> function that saturates at -1 and 1. <strong>ReLU</strong> returns the input if the input value is positive, and it returns 0 if the input is negative.</p>
-<p>ReLu can solve gradient vanishing but may cause gradient explosion. <strong>The output of ReLU is unbounded in the positive domain by design.</strong> This means that the output can, in some situations, continue to grow in size.</p>
-<p><strong>10) What&rsquo;s the difference between boosting and bagging?</strong></p>
-<p>Boosting and bagging are similar, in that they are both ensembling techniques, where <strong>multiple weak learners</strong> (classifiers/regressors that are barely better than guessing) combine (through averaging or max vote) to form <strong>a single strong learner</strong> that can make accurate predictions.</p>
-<p>Bagging means that you take <strong>bootstrap</strong> samples (with replacement) of your dataset and each sample trains a (potentially) weak learner. Boosting, on the other hand, uses all data to train each learner, but instances that were misclassified by the previous learners are given <strong>more weight</strong> so that <strong>subsequent</strong> learners give more focus to them during training.</p>
+</li>
+<li>Exploratory Data Analysis</li>
+<li>Handling imbalanced data
+<ul>
+<li>Under-sampling majority class</li>
+<li>Over-Sampling Minority class</li>
+<li>Data augmentaion</li>
+</ul>
+</li>
+<li>Imputation (handling missing values)
+<ul>
+<li>Apply mean, median to numerical values</li>
+<li>Apply mode to categorical values</li>
+<li>Drop NA values entire rows</li>
+<li>Drop NA values entire features</li>
+</ul>
+</li>
+<li>Handling Outliers
+<ul>
+<li>Removal</li>
+<li>Replacing values</li>
+</ul>
+</li>
+<li>Feature scaling
+<ul>
+<li>Standardization</li>
+<li>Normalization</li>
+</ul>
+</li>
+<li>Encoding
+<ul>
+<li>Label Encoding (text -&gt; number)</li>
+<li>One-Hot Encoding (categorical -&gt; numerical)</li>
+</ul>
+</li>
+</ul>
+<p><strong>2) Is logistic regression a concave or convex function? Does it have a global optimum?</strong></p>
+<p><strong>3) How does pruning decision trees affect bias and variance?</strong></p>
+<p><strong>4) How to detect overfitting?</strong></p>
+<ul>
+<li>Emperical way: Performance on training set &raquo; Performance on testing set</li>
+<li>Intutive way: We should prefer simple models with fewer coefficients over complex models(Occam&rsquo;s Razor principle)</li>
+</ul>
+<p><strong>5) What will happen if we increase the batch of SGD (e.g. from 16 to full data size)?</strong></p>
+<ul>
+<li>Slow and computationally expensive</li>
+<li>Good for converge</li>
+<li>Slow to converge</li>
+<li>Might be trapped into local minima</li>
+</ul>
+<p><strong>6) Activation Functions</strong></p>
+<p><strong>7) Optimization Algorithms</strong></p>
 <hr>
 <h2 id="reference">Reference</h2>
 <ul>
@@ -462,7 +470,7 @@ Iteration: It&rsquo;s the number of batches required to complete one epoch.</p>
 
 
         <span>
-            Last updated on Oct 11, 2022 00:22 EDT
+            Last updated on Oct 11, 2022 00:18 EDT
         </span>
     </section></footer>
 

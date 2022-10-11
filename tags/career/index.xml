@@ -6,7 +6,90 @@
         <description>Recent content in Career on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 09 Oct 2022 22:31:17 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/career/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 10 Oct 2022 23:14:27 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/career/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Machine Learning] Interview Questions - Part 5</title>
+        <link>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-5/</link>
+        <pubDate>Mon, 10 Oct 2022 23:14:27 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-5/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Oct 10th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 10th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;The post contains a collection of questions for machine learning interview.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1) Feature Engineering Techniques for Machine Learning&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Feature selection
+&lt;ul&gt;
+&lt;li&gt;Correlation matrix with heatmap&lt;/li&gt;
+&lt;li&gt;Statistical tests&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Exploratory Data Analysis&lt;/li&gt;
+&lt;li&gt;Handling imbalanced data
+&lt;ul&gt;
+&lt;li&gt;Under-sampling majority class&lt;/li&gt;
+&lt;li&gt;Over-Sampling Minority class&lt;/li&gt;
+&lt;li&gt;Data augmentaion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Imputation (handling missing values)
+&lt;ul&gt;
+&lt;li&gt;Apply mean, median to numerical values&lt;/li&gt;
+&lt;li&gt;Apply mode to categorical values&lt;/li&gt;
+&lt;li&gt;Drop NA values entire rows&lt;/li&gt;
+&lt;li&gt;Drop NA values entire features&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Handling Outliers
+&lt;ul&gt;
+&lt;li&gt;Removal&lt;/li&gt;
+&lt;li&gt;Replacing values&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Feature scaling
+&lt;ul&gt;
+&lt;li&gt;Standardization&lt;/li&gt;
+&lt;li&gt;Normalization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Encoding
+&lt;ul&gt;
+&lt;li&gt;Label Encoding (text -&amp;gt; number)&lt;/li&gt;
+&lt;li&gt;One-Hot Encoding (categorical -&amp;gt; numerical)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;2) Is logistic regression a concave or convex function? Does it have a global optimum?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3) How does pruning decision trees affect bias and variance?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4) How to detect overfitting?&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Emperical way: Performance on training set &amp;raquo; Performance on testing set&lt;/li&gt;
+&lt;li&gt;Intutive way: We should prefer simple models with fewer coefficients over complex models(Occam&amp;rsquo;s Razor principle)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;5) What will happen if we increase the batch of SGD (e.g. from 16 to full data size)?&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Slow and computationally expensive&lt;/li&gt;
+&lt;li&gt;Good for converge&lt;/li&gt;
+&lt;li&gt;Slow to converge&lt;/li&gt;
+&lt;li&gt;Might be trapped into local minima&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;6) Activation Functions&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7) Optimization Algorithms&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/andrewekhalel/MLQuestions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ML Interview Questions collected by andrewekhalel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Machine Learning] Interview Questions - Part 4</title>
         <link>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-4/</link>
         <pubDate>Sun, 09 Oct 2022 22:31:17 -0400</pubDate>
@@ -221,7 +304,7 @@ number of steps, which can turn a local search algorithm into an algorithm with 
 &lt;p&gt;When training loss fluctuates, we may reduce the learning rate. Otherwise, SGD jumps too far and misses the area near local minima.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;7) The differences between Batch Gradient Descent and Stochastic Gradient Descent&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Batch Gradient Descent involves calculations over the &lt;strong&gt;whole training set&lt;/strong&gt; at each step as a result of which it is very slow on very large training data. Thus, it becomes very &lt;strong&gt;computationally expensive&lt;/strong&gt;. However, this is great for &lt;strong&gt;convex&lt;/strong&gt; or relatively smooth error manifolds. Also, Batch GD scales well with the number of features.&lt;/p&gt;
-&lt;p&gt;Stochastic gradient descent (SGD) picks up a &lt;strong&gt;&amp;ldquo;random&amp;rdquo; instance&lt;/strong&gt; of training data at each step and then computes the gradient, making it much faster to reach the &lt;strong&gt;convergence&lt;/strong&gt;. Also, it can &lt;strong&gt;escape shallow local minima&lt;/strong&gt; more easily.&lt;/p&gt;
+&lt;p&gt;Stochastic gradient descent (SGD) picks up a &lt;strong&gt;&amp;ldquo;random&amp;rdquo; instance&lt;/strong&gt; of training data at each step and then computes the gradient, making it much faster to reach the &lt;strong&gt;convergence&lt;/strong&gt;. Also, it can &lt;strong&gt;escape shallow local minima&lt;/strong&gt; more easily. There tends to be more noise, which allows for &lt;strong&gt;improving generalization error&lt;/strong&gt;. However, it might lead to result in &lt;strong&gt;larger variance&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Batch GD: Batch size = Size of training set&lt;br&gt;
 Stochastic GD: Batch size = 1&lt;br&gt;
 Mini-Batch GD: 1 &amp;lt; Batch size &amp;lt; Size of training set&lt;/p&gt;
