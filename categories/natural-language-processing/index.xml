@@ -6,6 +6,79 @@
         <description>Recent content in Natural Language Processing on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/natural-language-processing/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Comp Linguistics] Word Embeddings From NNs</title>
+        <link>https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/</link>
+        <pubDate>Tue, 11 Oct 2022 14:33:11 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Oct 11th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 11th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;word-embeddings&#34;&gt;Word Embeddings&lt;/h2&gt;
+&lt;p&gt;Word Embeddings can capture &lt;strong&gt;abstractions&lt;/strong&gt; over input features, which can be trained with backpropagation. They are regarded as &lt;strong&gt;word representations&lt;/strong&gt;, although they are derived from hidden states.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/WE.jpg&#34;
+	width=&#34;1238&#34;
+	height=&#34;706&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/WE_hu6c639b65d1ce78a286ef795b18669621_110978_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/WE_hu6c639b65d1ce78a286ef795b18669621_110978_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Word Embeddings&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;175&#34;
+		data-flex-basis=&#34;420px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;nns-vs-svd&#34;&gt;NNs vs. SVD&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Both of them use dimension reduction to obtain abstractions.&lt;/li&gt;
+&lt;li&gt;Embeddings from NNs can become more powerful, but harder to interpret.
+&lt;ul&gt;
+&lt;li&gt;More layers&lt;/li&gt;
+&lt;li&gt;More non-linearity&lt;/li&gt;
+&lt;li&gt;More complex training objectives&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://proceedings.neurips.cc/paper/2014/file/feab05aa91085b7a8012516bc3533958-Paper.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Neural Word Embedding as Implicit Matrix Factorization&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Comp Linguistics] Topic Modeling</title>
         <link>https://tonyfpy.github.io/p/comp-linguistics-topic-modeling/</link>
         <pubDate>Thu, 06 Oct 2022 14:31:09 -0400</pubDate>

@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-    <head>
-	<meta name="generator" content="Hugo 0.97.0" /><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='M.Sc. in Computer Science'><title>Tony Feng</title>
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
+Created on Oct 11th, 2022
+Last Modified on Oct 11th, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Word Embeddings Word Embeddings can capture abstractions over input features, which can be trained with backpropagation.'><title>[Comp Linguistics] Word Embeddings From NNs</title>
 
-<link rel='canonical' href='https://tonyfpy.github.io/'>
+<link rel='canonical' href='https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/'>
 
-<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='Tony Feng'>
-<meta property='og:description' content='M.Sc. in Computer Science'>
-<meta property='og:url' content='https://tonyfpy.github.io/'>
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Comp Linguistics] Word Embeddings From NNs'>
+<meta property='og:description' content='Authored by Tony Feng
+Created on Oct 11th, 2022
+Last Modified on Oct 11th, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Word Embeddings Word Embeddings can capture abstractions over input features, which can be trained with backpropagation.'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2022-10-11T15:39:37-04:00 '/>
-<meta name="twitter:title" content="Tony Feng">
-<meta name="twitter:description" content="M.Sc. in Computer Science"><link rel="alternate" type="application/rss&#43;xml" href="https://tonyfpy.github.io/index.xml">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-10-11T14:33:11-04:00'/><meta property='article:modified_time' content='2022-10-11T15:39:37-04:00'/>
+<meta name="twitter:title" content="[Comp Linguistics] Word Embeddings From NNs">
+<meta name="twitter:description" content="Authored by Tony Feng
+Created on Oct 11th, 2022
+Last Modified on Oct 11th, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Word Embeddings Word Embeddings can capture abstractions over input features, which can be trained with backpropagation.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
-    <body class="">
+    <body class="
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -134,7 +147,7 @@
         
         
 
-        <li  class='current' >
+        <li >
             <a href='/' >
                 
                 
@@ -282,31 +295,15 @@
     </ol>
 </aside>
 <main class="main full-width">
-    
-    
-    
-    
-
-    <section class="article-list">
-        
-            
-<article class="">
+    <article class="main-article">
     <header class="article-header">
 
     <div class="article-details">
     
     <header class="article-category">
         
-            <a href="/categories/data-structure/" style="background-color: #75A864; color: #fff;">
-                Data Structure
-            </a>
-        
-            <a href="/categories/python/" style="background-color: #0099CC; color: #fff;">
-                Python
-            </a>
-        
-            <a href="/categories/java/" style="background-color: #6b69d6; color: #fff;">
-                Java
+            <a href="/categories/natural-language-processing/" style="background-color: #D7B59C; color: #fff;">
+                Natural Language Processing
             </a>
         
     </header>
@@ -314,7 +311,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/data-structure-topic-2-array/">[Data Structure] Topic 2: Array</a>
+            <a href="/p/comp-linguistics-word-embeddings-from-nns/">[Comp Linguistics] Word Embeddings From NNs</a>
         </h2>
     
         
@@ -333,7 +330,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Mar 18, 2022</time>
+                <time class="article-time--published">Oct 11, 2022</time>
             </div>
         
 
@@ -348,7 +345,7 @@
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    1 minute read
                 </time>
             </div>
         
@@ -358,123 +355,142 @@
     
 </div>
 </header>
-</article>
-        
-            
-<article class="">
-    <header class="article-header">
 
-    <div class="article-details">
+    <section class="article-content">
     
-    <header class="article-category">
-        
-            <a href="/categories/data-structure/" style="background-color: #75A864; color: #fff;">
-                Data Structure
-            </a>
-        
-            <a href="/categories/python/" style="background-color: #0099CC; color: #fff;">
-                Python
-            </a>
-        
-    </header>
+    
+    <blockquote>
+<p>Authored by Tony Feng</p>
+<p>Created on Oct 11th, 2022</p>
+<p>Last Modified on Oct 11th, 2022</p>
+</blockquote>
+<h2 id="intro">Intro</h2>
+<p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1460 Computational Linguistics</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
+<hr>
+<h2 id="word-embeddings">Word Embeddings</h2>
+<p>Word Embeddings can capture <strong>abstractions</strong> over input features, which can be trained with backpropagation. They are regarded as <strong>word representations</strong>, although they are derived from hidden states.</p>
+<p><img src="/p/comp-linguistics-word-embeddings-from-nns/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/comp-linguistics-word-embeddings-from-nns/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-word-embeddings-from-nns/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+><img src="/p/comp-linguistics-word-embeddings-from-nns/WE.jpg"
+	width="1238"
+	height="706"
+	srcset="/p/comp-linguistics-word-embeddings-from-nns/WE_hu6c639b65d1ce78a286ef795b18669621_110978_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-word-embeddings-from-nns/WE_hu6c639b65d1ce78a286ef795b18669621_110978_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="Word Embeddings"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="175"
+		data-flex-basis="420px"
+	
+><img src="/p/comp-linguistics-word-embeddings-from-nns/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/comp-linguistics-word-embeddings-from-nns/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-word-embeddings-from-nns/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+></p>
+<hr>
+<h2 id="nns-vs-svd">NNs vs. SVD</h2>
+<ul>
+<li>Both of them use dimension reduction to obtain abstractions.</li>
+<li>Embeddings from NNs can become more powerful, but harder to interpret.
+<ul>
+<li>More layers</li>
+<li>More non-linearity</li>
+<li>More complex training objectives</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a class="link" href="https://proceedings.neurips.cc/paper/2014/file/feab05aa91085b7a8012516bc3533958-Paper.pdf"  target="_blank" rel="noopener"
+    >Neural Word Embedding as Implicit Matrix Factorization</a></li>
+</ul>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
     
 
-    <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/p/data-structure-topic-1-time-and-space-complexity/">[Data Structure] Topic 1: Time and Space Complexity</a>
-        </h2>
     
-        
-    </div>
-
-    
-    <footer class="article-time">
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
-  <circle cx="18" cy="18" r="4" />
-  <path d="M15 3v4" />
-  <path d="M7 3v4" />
-  <path d="M3 11h16" />
-  <path d="M18 16.496v1.504l1 1" />
-</svg>
-                <time class="article-time--published">Mar 17, 2022</time>
-            </div>
-        
-
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
 </svg>
 
 
 
-                <time class="article-time--reading">
-                    2 minute read
-                </time>
-            </div>
-        
-    </footer>
-    
-
-    
-</div>
-</header>
-</article>
-        
+        <span>MIT License</span>
     </section>
-    <nav class='pagination'>
-        
-        
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
 
-        
-            
-                    <a class='page-link' href='/'>1</a>
-                
-            
-            
-                    
-                        
-                        <span class='page-link dots'>&hellip;</span>
-                    
-                
-            
-            
-                    
-                
-            
-            
-                    
-                
-            
-            
-                    
-                
-            
-            
-                    
-                
-            
-            
-                    
-                
-            
-            
-                    <a class='page-link' href='/page/8/'>8</a>
-                
-            
-            
-                <span class='page-link current'>9</span>
-                
-            
-    </nav>
 
-<footer class="site-footer">
+
+        <span>
+            Last updated on Oct 11, 2022 15:39 EDT
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+     
+    
+
+    <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
@@ -487,111 +503,117 @@
     </section>
 </footer>
 
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
             </main>
     <aside class="sidebar right-sidebar sticky">
         
             
-                <section class="widget archives">
+                
+    <section class="widget archives">
         <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
 </svg>
 
 
 
         </div>
-        <h2 class="widget-title section-title">Archives</h2>
-
+        <h2 class="widget-title section-title">Table of contents</h2>
         
-        
-        
-        
-        
-        <div class="widget-archive--list">
-            <div class="archives-year">
-                    <a href="/archives/#2022">
-                        
-                            <span class="year">2022</span>
-                            <span class="count">82</span>
-                        
-                    </a> 
-                </div>
-            
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#word-embeddings">Word Embeddings</a></li>
+    <li><a href="#nns-vs-svd">NNs vs. SVD</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ol>
+</nav>
         </div>
     </section>
-            
-        
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
-  <circle cx="9" cy="9" r="2" />
-</svg>
 
-
-
-    </div>
-    <h2 class="widget-title section-title">Tags</h2>
-
-    <div class="tagCloud-tags">
-        
-            <a href="/tags/python/" class="font_size_61">
-                Python
-            </a>
-        
-            <a href="/tags/leetcode/" class="font_size_34">
-                Leetcode
-            </a>
-        
-            <a href="/tags/data-structure/" class="font_size_11">
-                Data Structure
-            </a>
-        
-            <a href="/tags/algorithm/" class="font_size_10">
-                Algorithm
-            </a>
-        
-            <a href="/tags/machine-learning/" class="font_size_10">
-                Machine Learning
-            </a>
-        
-            <a href="/tags/natural-language-processing/" class="font_size_8">
-                Natural Language Processing
-            </a>
-        
-            <a href="/tags/java/" class="font_size_7">
-                Java
-            </a>
-        
-            <a href="/tags/career/" class="font_size_6">
-                Career
-            </a>
-        
-            <a href="/tags/data-analysis/" class="font_size_3">
-                Data Analysis
-            </a>
-        
-            <a href="/tags/ios-dev/" class="font_size_2">
-                iOS Dev
-            </a>
-        
-            <a href="/tags/deep-learning/" class="font_size_1">
-                Deep Learning
-            </a>
-        
-            <a href="/tags/human-computer-interaction/" class="font_size_1">
-                Human Computer Interaction
-            </a>
-        
-            <a href="/tags/raspberry-pi/" class="font_size_1">
-                Raspberry Pi
-            </a>
-        
-    </div>
-</section>
             
         
     </aside>
