@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
+Created on Oct 13th, 2022
+Last Modified on Oct 13th, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Langauge Modeling Definition  It assigns a probability to a sequence of words Given a sequence of words, predict the most likely next word Generate likely sequences of words  Applications  Unconstrained text generation Conditional text generation,  Machine Translation Speech Recognition Summarization   Representation Learning   N-gram Langauge Models Directly Computing Corpus Stats It just computes the probability $P(w_0, &amp;hellip;, w_1)$ directly, but langauge is dynamic and we cannot ensure same sentence will exist in the corpus for multiple times.'><title>[Comp Linguistics] Language Modeling - Ngram Models</title>
+
+<link rel='canonical' href='https://tonyfpy.github.io/p/comp-linguistics-language-modeling-ngram-models/'>
+
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Comp Linguistics] Language Modeling - Ngram Models'>
+<meta property='og:description' content='Authored by Tony Feng
+Created on Oct 13th, 2022
+Last Modified on Oct 13th, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Langauge Modeling Definition  It assigns a probability to a sequence of words Given a sequence of words, predict the most likely next word Generate likely sequences of words  Applications  Unconstrained text generation Conditional text generation,  Machine Translation Speech Recognition Summarization   Representation Learning   N-gram Langauge Models Directly Computing Corpus Stats It just computes the probability $P(w_0, &amp;hellip;, w_1)$ directly, but langauge is dynamic and we cannot ensure same sentence will exist in the corpus for multiple times.'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-language-modeling-ngram-models/'>
+<meta property='og:site_name' content='Tony Feng'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-10-13T14:36:39-04:00'/><meta property='article:modified_time' content='2022-10-13T15:39:35-04:00'/>
+<meta name="twitter:title" content="[Comp Linguistics] Language Modeling - Ngram Models">
+<meta name="twitter:description" content="Authored by Tony Feng
+Created on Oct 13th, 2022
+Last Modified on Oct 13th, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Langauge Modeling Definition  It assigns a probability to a sequence of words Given a sequence of words, predict the most likely next word Generate likely sequences of words  Applications  Unconstrained text generation Conditional text generation,  Machine Translation Speech Recognition Summarization   Representation Learning   N-gram Langauge Models Directly Computing Corpus Stats It just computes the probability $P(w_0, &amp;hellip;, w_1)$ directly, but langauge is dynamic and we cannot ensure same sentence will exist in the corpus for multiple times.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/Brown_hu1b43bb4664aba7c4309526f1ef45ab91_1767_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Tony Feng</a></h1>
+            <h2 class="site-description">M.Sc. in Computer Science</h2>
+            <h2 class="site-description">Brown University</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://tonyfpy.github.io/about/'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/TonyFPY'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/pinyuanfeng'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/research/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <line x1="3" y1="6" x2="3" y2="19" />
+  <line x1="12" y1="6" x2="12" y2="19" />
+  <line x1="21" y1="6" x2="21" y2="19" />
+</svg>
+                
+                <span>Research</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/projects/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="7 8 3 12 7 16" />
+  <polyline points="17 8 21 12 17 16" />
+  <line x1="14" y1="4" x2="10" y2="20" />
+</svg>
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/natural-language-processing/" style="background-color: #D7B59C; color: #fff;">
+                Natural Language Processing
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/comp-linguistics-language-modeling-ngram-models/">[Comp Linguistics] Language Modeling - Ngram Models</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 13, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>Authored by Tony Feng</p>
+<p>Created on Oct 13th, 2022</p>
+<p>Last Modified on Oct 13th, 2022</p>
+</blockquote>
+<h2 id="intro">Intro</h2>
+<p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1460 Computational Linguistics</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
+<hr>
+<h2 id="langauge-modeling">Langauge Modeling</h2>
+<h3 id="definition">Definition</h3>
+<ul>
+<li>It assigns a probability to a sequence of words</li>
+<li>Given a sequence of words, predict the most likely next word</li>
+<li>Generate likely sequences of words</li>
+</ul>
+<h3 id="applications">Applications</h3>
+<ul>
+<li>Unconstrained text generation</li>
+<li>Conditional text generation,
+<ul>
+<li>Machine Translation</li>
+<li>Speech Recognition</li>
+<li>Summarization</li>
+</ul>
+</li>
+<li>Representation Learning</li>
+</ul>
+<hr>
+<h2 id="n-gram-langauge-models">N-gram Langauge Models</h2>
+<h3 id="directly-computing-corpus-stats">Directly Computing Corpus Stats</h3>
+<p>It just computes the probability $P(w_0, &hellip;, w_1)$ directly, but langauge is dynamic and we cannot ensure same sentence will exist in the corpus for multiple times.</p>
+<h3 id="unigram-language-model">Unigram Language Model</h3>
+<p><strong>Naive Asumption</strong></p>
+<p>$$ P(w_0, &hellip;, w_1) $$</p>
+<h3 id="bigram-language-model">Bigram Language Model</h3>
+<p><strong>Markov Assumption</strong></p>
+<h3 id="n-gram-language-model">N-gram Language Model</h3>
+<hr>
+<h2 id="smoothing">Smoothing</h2>
+<h3 id="laplace-smoothing">Laplace Smoothing</h3>
+<p>The basic idea is to &ldquo;add one&rdquo; to everything, so there won&rsquo;t be zeros.</p>
+<ul>
+<li>It needs to renormalize to keep it probability distribution</li>
+<li>It is often intepreted as discounting, beacuse we borrow probability mass from high-frequency words in order to make room for unseen words.</li>
+</ul>
+<h3 id="backoff">Backoff</h3>
+<p>We can estimate the probability of a longer sequence from the probabilities of its subsequences. If an ngram of length n is not observed, use the corresponding length n-1 ngram instead.</p>
+<h3 id="interpolation">Interpolation</h3>
+<p>All counts are estimated using a weighted combination of smaller ngrams. It requires renormalization.</p>
+<h3 id="kneser-ney-smoothing">Kneser-Ney Smoothing</h3>
+<p>It&rsquo;s a state-of-the-art smoothing algorithm that combines several ideas: 1) Absolute discounting (estimated from data), 2) Replacing ngram probabilities with continuation probabilities.</p>
+<hr>
+<h2 id="perplexity">Perplexity</h2>
+<p>A good language model should assign high probability to sentences that actually appear.</p>
+<h3 id="intuition">Intuition</h3>
+<p>&ldquo;Weighted average branching factor&rdquo;
+A model with lower PPL is less &ldquo;surprised&rdquo; by new data and has more certainty about true sequences. It considers branching factors to be lower, because it has a good sense of what should come next.</p>
+<p>In natural language, distributions are highly non-uniform, so branching factors are (relatively) low.</p>
+<p>PPL will never be zero! Natural language has inherent uncertainty</p>
+<p>PPL is not comparable across different datasets! Some datasets/languages/corpora are “easier”/lower uncertainty than others</p>
+<p>Higher-order n-grams lead to lower ppl in general, but 1) it is more likely to overfit to training data, 2) requires more memory, and 3) results in many more zero-counts.</p>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>MIT License</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Oct 13, 2022 15:39 EDT
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 Tony Feng
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#langauge-modeling">Langauge Modeling</a>
+      <ol>
+        <li><a href="#definition">Definition</a></li>
+        <li><a href="#applications">Applications</a></li>
+      </ol>
+    </li>
+    <li><a href="#n-gram-langauge-models">N-gram Langauge Models</a>
+      <ol>
+        <li><a href="#directly-computing-corpus-stats">Directly Computing Corpus Stats</a></li>
+        <li><a href="#unigram-language-model">Unigram Language Model</a></li>
+        <li><a href="#bigram-language-model">Bigram Language Model</a></li>
+        <li><a href="#n-gram-language-model">N-gram Language Model</a></li>
+      </ol>
+    </li>
+    <li><a href="#smoothing">Smoothing</a>
+      <ol>
+        <li><a href="#laplace-smoothing">Laplace Smoothing</a></li>
+        <li><a href="#backoff">Backoff</a></li>
+        <li><a href="#interpolation">Interpolation</a></li>
+        <li><a href="#kneser-ney-smoothing">Kneser-Ney Smoothing</a></li>
+      </ol>
+    </li>
+    <li><a href="#perplexity">Perplexity</a>
+      <ol>
+        <li><a href="#intuition">Intuition</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

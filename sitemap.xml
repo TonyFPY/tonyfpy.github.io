@@ -2,19 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/</loc>
-    <lastmod>2022-10-11T15:39:37-04:00</lastmod>
+    <loc>https://tonyfpy.github.io/p/comp-linguistics-language-modeling-ngram-models/</loc>
+    <lastmod>2022-10-13T15:39:35-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/</loc>
-    <lastmod>2022-10-11T15:39:37-04:00</lastmod>
+    <lastmod>2022-10-13T15:39:35-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/natural-language-processing/</loc>
-    <lastmod>2022-10-11T15:39:37-04:00</lastmod>
+    <lastmod>2022-10-13T15:39:35-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/post/</loc>
-    <lastmod>2022-10-11T15:39:37-04:00</lastmod>
+    <lastmod>2022-10-13T15:39:35-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/</loc>
+    <lastmod>2022-10-13T15:39:35-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/</loc>
     <lastmod>2022-10-11T15:39:37-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-5/</loc>

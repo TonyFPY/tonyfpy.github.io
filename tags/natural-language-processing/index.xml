@@ -6,7 +6,77 @@
         <description>Recent content in Natural Language Processing on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 11 Oct 2022 14:33:11 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/natural-language-processing/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 13 Oct 2022 14:36:39 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/natural-language-processing/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Comp Linguistics] Language Modeling - Ngram Models</title>
+        <link>https://tonyfpy.github.io/p/comp-linguistics-language-modeling-ngram-models/</link>
+        <pubDate>Thu, 13 Oct 2022 14:36:39 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/comp-linguistics-language-modeling-ngram-models/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Oct 13th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 13th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;langauge-modeling&#34;&gt;Langauge Modeling&lt;/h2&gt;
+&lt;h3 id=&#34;definition&#34;&gt;Definition&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;It assigns a probability to a sequence of words&lt;/li&gt;
+&lt;li&gt;Given a sequence of words, predict the most likely next word&lt;/li&gt;
+&lt;li&gt;Generate likely sequences of words&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;applications&#34;&gt;Applications&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Unconstrained text generation&lt;/li&gt;
+&lt;li&gt;Conditional text generation,
+&lt;ul&gt;
+&lt;li&gt;Machine Translation&lt;/li&gt;
+&lt;li&gt;Speech Recognition&lt;/li&gt;
+&lt;li&gt;Summarization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Representation Learning&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;n-gram-langauge-models&#34;&gt;N-gram Langauge Models&lt;/h2&gt;
+&lt;h3 id=&#34;directly-computing-corpus-stats&#34;&gt;Directly Computing Corpus Stats&lt;/h3&gt;
+&lt;p&gt;It just computes the probability $P(w_0, &amp;hellip;, w_1)$ directly, but langauge is dynamic and we cannot ensure same sentence will exist in the corpus for multiple times.&lt;/p&gt;
+&lt;h3 id=&#34;unigram-language-model&#34;&gt;Unigram Language Model&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Naive Asumption&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$$ P(w_0, &amp;hellip;, w_1) $$&lt;/p&gt;
+&lt;h3 id=&#34;bigram-language-model&#34;&gt;Bigram Language Model&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Markov Assumption&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;n-gram-language-model&#34;&gt;N-gram Language Model&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;smoothing&#34;&gt;Smoothing&lt;/h2&gt;
+&lt;h3 id=&#34;laplace-smoothing&#34;&gt;Laplace Smoothing&lt;/h3&gt;
+&lt;p&gt;The basic idea is to &amp;ldquo;add one&amp;rdquo; to everything, so there won&amp;rsquo;t be zeros.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It needs to renormalize to keep it probability distribution&lt;/li&gt;
+&lt;li&gt;It is often intepreted as discounting, beacuse we borrow probability mass from high-frequency words in order to make room for unseen words.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;backoff&#34;&gt;Backoff&lt;/h3&gt;
+&lt;p&gt;We can estimate the probability of a longer sequence from the probabilities of its subsequences. If an ngram of length n is not observed, use the corresponding length n-1 ngram instead.&lt;/p&gt;
+&lt;h3 id=&#34;interpolation&#34;&gt;Interpolation&lt;/h3&gt;
+&lt;p&gt;All counts are estimated using a weighted combination of smaller ngrams. It requires renormalization.&lt;/p&gt;
+&lt;h3 id=&#34;kneser-ney-smoothing&#34;&gt;Kneser-Ney Smoothing&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s a state-of-the-art smoothing algorithm that combines several ideas: 1) Absolute discounting (estimated from data), 2) Replacing ngram probabilities with continuation probabilities.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;perplexity&#34;&gt;Perplexity&lt;/h2&gt;
+&lt;p&gt;A good language model should assign high probability to sentences that actually appear.&lt;/p&gt;
+&lt;h3 id=&#34;intuition&#34;&gt;Intuition&lt;/h3&gt;
+&lt;p&gt;&amp;ldquo;Weighted average branching factor&amp;rdquo;
+A model with lower PPL is less &amp;ldquo;surprised&amp;rdquo; by new data and has more certainty about true sequences. It considers branching factors to be lower, because it has a good sense of what should come next.&lt;/p&gt;
+&lt;p&gt;In natural language, distributions are highly non-uniform, so branching factors are (relatively) low.&lt;/p&gt;
+&lt;p&gt;PPL will never be zero! Natural language has inherent uncertainty&lt;/p&gt;
+&lt;p&gt;PPL is not comparable across different datasets! Some datasets/languages/corpora are “easier”/lower uncertainty than others&lt;/p&gt;
+&lt;p&gt;Higher-order n-grams lead to lower ppl in general, but 1) it is more likely to overfit to training data, 2) requires more memory, and 3) results in many more zero-counts.&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Comp Linguistics] Word Embeddings From NNs</title>
         <link>https://tonyfpy.github.io/p/comp-linguistics-word-embeddings-from-nns/</link>
         <pubDate>Tue, 11 Oct 2022 14:33:11 -0400</pubDate>
