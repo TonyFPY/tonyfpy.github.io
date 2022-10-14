@@ -19,7 +19,7 @@ Last Modified on Oct 7th, 2022
 An ensemble is the combination of multiple models to create a single prediction. The key idea is that the errors of one model will be compensated by the right predictions of the other models and thus the score of the ensemble will be higher.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/machine-learning-interview-questions-part-2/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Career' /><meta property='article:published_time' content='2022-10-07T17:05:02-04:00'/><meta property='article:modified_time' content='2022-10-11T00:22:57-04:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Career' /><meta property='article:published_time' content='2022-10-07T17:05:02-04:00'/><meta property='article:modified_time' content='2022-10-13T20:52:37-04:00'/>
 <meta name="twitter:title" content="[Machine Learning] Interview Questions - Part 2">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Oct 7th, 2022
@@ -420,7 +420,7 @@ Mini-Batch GD: 1 &lt; Batch size &lt; Size of training set</p>
 Batch: It&rsquo;s the number of examples processed together in one pass.<br>
 Iteration: It&rsquo;s the number of batches required to complete one epoch.</p>
 <p><strong>9) What is gradient vanishing? What is gradient explosion?</strong></p>
-<p>As we add more and more hidden layers, back propagation becomes less and less useful in passing information to the lower layers. <strong>A large change in the input will cause a small change in the output.</strong> In effect, as information is passed back, the gradients begin to vanish and become small relative to the weights of the networks. On the contrary, if the gradients get larger or even NaN as our backpropagation progresses, <strong>the error gradients accumulate</strong> and end up with exploding gradients having big weight updates.</p>
+<p>As we add more and more hidden layers, <strong>backpropagation</strong> becomes less and less useful in passing information to the lower layers. The error may be so small by the time it reaches layers close to the input of the model. In effect, as information is passed back, the gradients begin to vanish and become small relative to the weights of the networks. On the contrary, if the gradients get larger or even NaN as our backpropagation progresses, <strong>the error gradients accumulate</strong> and end up with exploding gradients having big weight updates.</p>
 <p>For <strong>sigmoid</strong>, it saturates at zero for large negative values and at one for large positive values. The same applies to the <strong>Tanh</strong> function that saturates at -1 and 1. <strong>ReLU</strong> returns the input if the input value is positive, and it returns 0 if the input is negative.</p>
 <p>ReLu can solve gradient vanishing but may cause gradient explosion. <strong>The output of ReLU is unbounded in the positive domain by design.</strong> This means that the output can, in some situations, continue to grow in size.</p>
 <p><strong>10) What&rsquo;s the difference between boosting and bagging?</strong></p>
@@ -462,7 +462,7 @@ Iteration: It&rsquo;s the number of batches required to complete one epoch.</p>
 
 
         <span>
-            Last updated on Oct 11, 2022 00:22 EDT
+            Last updated on Oct 13, 2022 20:52 EDT
         </span>
     </section></footer>
 
