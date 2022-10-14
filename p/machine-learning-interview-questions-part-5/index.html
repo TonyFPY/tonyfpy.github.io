@@ -19,7 +19,7 @@ Last Modified on Oct 10th, 2022
  Feature selection  Correlation matrix with heatmap Statistical tests   Exploratory Data Analysis Handling imbalanced data  Under-sampling majority class Over-Sampling Minority class Data augmentaion   Imputation (handling missing values)  Apply mean, median to numerical values Apply mode to categorical values Drop NA values entire rows Drop NA values entire features   Handling Outliers  Removal Replacing values   Feature scaling  Standardization Normalization   Encoding  Label Encoding (text -&amp;gt; number) One-Hot Encoding (categorical -&amp;gt; numerical)    2) Is logistic regression a concave or convex function?'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/machine-learning-interview-questions-part-5/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Career' /><meta property='article:published_time' content='2022-10-10T23:14:27-04:00'/><meta property='article:modified_time' content='2022-10-11T00:18:43-04:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine Learning' /><meta property='article:tag' content='Career' /><meta property='article:published_time' content='2022-10-10T23:14:27-04:00'/><meta property='article:modified_time' content='2022-10-13T20:21:44-04:00'/>
 <meta name="twitter:title" content="[Machine Learning] Interview Questions - Part 5">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Oct 10th, 2022
@@ -352,7 +352,7 @@ Last Modified on Oct 10th, 2022
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -419,7 +419,14 @@ Last Modified on Oct 10th, 2022
 </li>
 </ul>
 <p><strong>2) Is logistic regression a concave or convex function? Does it have a global optimum?</strong></p>
-<p><strong>3) How does pruning decision trees affect bias and variance?</strong></p>
+<p>The <a class="link" href="https://baozoulin.gitbook.io/neural-networks-and-deep-learning/neural-networks-and-deep-learning/week-2/logistic-regression-cost-function"  target="_blank" rel="noopener"
+    >error function</a> minimized in logistic regression is a <strong>convex</strong> function, so it has a global optimum.</p>
+<p>The prediction of logistic regression is non-linear (due to the sigmoid transform). Squaring this prediction like <strong>MSE</strong> results in a <strong>non-convex</strong> function with many local minimums, which makes it difficult to find the global minimum. Instead, using <strong>MLE</strong> in logistic regression as the cost function is <strong>convex</strong>.</p>
+<p>The proof could be found <a class="link" href="http://mathgotchas.blogspot.com/2011/10/why-is-error-function-minimized-in.html"  target="_blank" rel="noopener"
+    ><strong>here</strong></a>.</p>
+<p><strong>3) KNN vs. K-means</strong></p>
+<p>KNN represents a <strong>supervised</strong> <strong>classification</strong> algorithm that will give new data points accordingly to the k number or the closest data points. (It creates classes.)</p>
+<p>k-means clustering is an <strong>unsupervised</strong> <strong>clustering</strong> algorithm that gathers and groups data into k number of clusters. (The classes are already created.)</p>
 <p><strong>4) How to detect overfitting?</strong></p>
 <ul>
 <li>Emperical way: Performance on training set &raquo; Performance on testing set</li>
@@ -433,7 +440,44 @@ Last Modified on Oct 10th, 2022
 <li>Might be trapped into local minima</li>
 </ul>
 <p><strong>6) Activation Functions</strong></p>
+<ul>
+<li>Linear or Identity Activation Function</li>
+<li>Non-linear Activation Function
+<ul>
+<li>Sigmoid: [0, 1], differentiable, monotonic</li>
+<li>Tanh: [-1, 1], differentiable, monotonic</li>
+<li>ReLU: [0, inf], monotonic</li>
+<li>Leaky ReLU: [-inf, inf], monotonic</li>
+</ul>
+</li>
+</ul>
+<p>A neural network without an non-linear activation function is essentially just a linear regression model. The activation function does the <strong>non-linear transformation</strong> to the input making it capable to learn and perform more complex tasks.</p>
+<p><a class="link" href="https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6"  target="_blank" rel="noopener"
+    ><strong>Activation Functions in Neural Networks</strong></a></p>
 <p><strong>7) Optimization Algorithms</strong></p>
+<p>Two common tools to improve gradient descent are <strong>the sum of gradient</strong> (first moment) and <strong>the sum of the gradient squared</strong> (second moment).</p>
+<p><strong>Momentum</strong> method uses the first moment with a decay rate to gain speed.</p>
+<p><strong>AdaGrad</strong> uses the second moment with no decay to deal with sparse features.</p>
+<p><strong>RMSProp</strong> uses the second moment with a decay rate to speed up from AdaGrad.</p>
+<p><strong>Adam</strong> uses both first and second moments, and <strong>is generally the best choice</strong>.</p>
+<p><strong>8) Define LSTM</strong></p>
+<p>LSTM is short for <strong>Long Short Term Memory</strong>. It is derived from recurrent neural network and is designed to address the <strong>long term dependency problem</strong>, by maintaining a state what to remember and what to forget.</p>
+<p>Generally, it has three key components</p>
+<ul>
+<li>Gates (Forget, Memory, Update &amp; Read)</li>
+<li>Tanh(x) (values between -1 to 1)</li>
+<li>Sigmoid(x) (values between 0 to 1)</li>
+</ul>
+<p><strong>9) What is Confusion Matrix?</strong></p>
+<p>A confusion matrix is a table that is often used to describe the performance of a classification model on a set of test data.</p>
+<p>The <strong>rows</strong> represent the <strong>actual classes</strong> the outcomes should have been. While the <strong>columns</strong> represent the <strong>predictions</strong> we have made. Using this table it is easy to see which predictions are wrong.</p>
+<ol start="10">
+<li>Explain SVM</li>
+</ol>
+<p>Support Vector Machine, abbreviated as SVM can be used for both <strong>regression</strong> and <strong>classification</strong> tasks. But, it is widely used in classification objectives. The objective of the support vector machine algorithm is to find a <strong>hyperplane</strong> in an N-dimensional space that distinctly classifies the data points.</p>
+<p><strong>Hyperplanes</strong> are <strong>decision boundaries</strong> that help classify the data points. Data points falling on either side of the hyperplane can be attributed to different classes.</p>
+<p><strong>Support vectors</strong> are data points that are closer to the hyperplane and influence the <strong>position</strong> and <strong>orientation</strong> of the hyperplane. Using these support vectors, we <strong>maximize the margin</strong> of the boundaries.</p>
+<p>It can handle highly non-linear problems using a <strong>kernel trick</strong> which implicitly maps the input vectors to higher-dimensional feature spaces. The &ldquo;trick&rdquo; is that kernel methods represent the data only through a set of <strong>pairwise similarity comparisons</strong> between the original data observations x (with the original coordinates in the lower dimensional space), instead of computing the coordinates of the data in a higher dimensional space.</p>
 <hr>
 <h2 id="reference">Reference</h2>
 <ul>
@@ -470,7 +514,7 @@ Last Modified on Oct 10th, 2022
 
 
         <span>
-            Last updated on Oct 11, 2022 00:18 EDT
+            Last updated on Oct 13, 2022 20:21 EDT
         </span>
     </section></footer>
 
