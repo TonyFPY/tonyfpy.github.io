@@ -14,7 +14,7 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Oct 13th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on Oct 13th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 16th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
@@ -41,37 +41,63 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;n-gram-langauge-models&#34;&gt;N-gram Langauge Models&lt;/h2&gt;
 &lt;h3 id=&#34;directly-computing-corpus-stats&#34;&gt;Directly Computing Corpus Stats&lt;/h3&gt;
-&lt;p&gt;It just computes the probability $P(w_0, &amp;hellip;, w_1)$ directly, but langauge is dynamic and we cannot ensure same sentence will exist in the corpus for multiple times.&lt;/p&gt;
+&lt;p&gt;It just computes the probability directly, but langauge is dynamic and we cannot ensure same sentence will exist in the corpus for multiple times.&lt;/p&gt;
+&lt;p&gt;$$P(w_0, &amp;hellip;, w_1) = \frac{n}{N(l)} $$&lt;/p&gt;
+&lt;p&gt;, where $n$ is num of occurances of $w_0, &amp;hellip;, w_1$ and $N$ is number of sequences with length $l$.&lt;/p&gt;
 &lt;h3 id=&#34;unigram-language-model&#34;&gt;Unigram Language Model&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Naive Asumption&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;$$ P(w_0, &amp;hellip;, w_1) $$&lt;/p&gt;
+&lt;p&gt;$$ P\left(w_{0} \ldots w_{n}\right)=P\left(w_{0}\right) P\left(w_{1} \mid w_{0}\right) P\left(w_{2} \mid w_{0}, w_{1}\right) \ldots P\left(w_{n} \mid w_{0} \ldots w_{n-1}\right)$$&lt;/p&gt;
+&lt;p&gt;According to &lt;strong&gt;Naive Asumption&lt;/strong&gt;, we have $ P\left(w_{i} \mid w_{0} \ldots w_{i-1}\right) \approx P\left(w_{i}\right) $.&lt;/p&gt;
+&lt;p&gt;$$ P\left(w_{0} \ldots w_{n}\right) \approx P\left(w_{0}\right) P\left(w_{1}\right)  P\left(w_{2}\right)  \ldots P\left(w_{n}\right) $$&lt;/p&gt;
+&lt;p&gt;However, $P($&amp;ldquo;give me an apple&amp;rdquo;$)$ equals $P($&amp;ldquo;give an apple me&amp;rdquo;$)$.&lt;/p&gt;
 &lt;h3 id=&#34;bigram-language-model&#34;&gt;Bigram Language Model&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Markov Assumption&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;According to &lt;strong&gt;Markov Assumption&lt;/strong&gt;, we have $P\left(w_{i} \mid w_{0} \ldots w_{i-1}\right) \approx P\left(w_{i} \mid w_{i-1}\right)$.&lt;/p&gt;
+&lt;p&gt;$$P\left(w_{0} \ldots w_{n}\right) \approx P\left(w_{0}\right) P\left(w_{1} \mid w_{0}\right) P\left(w_{2} \mid w_{1}\right) \ldots P\left(w_{n} \mid w_{n-1}\right)$$&lt;/p&gt;
 &lt;h3 id=&#34;n-gram-language-model&#34;&gt;N-gram Language Model&lt;/h3&gt;
+&lt;p&gt;$$P\left(w_{0} \ldots w_{n}\right) \approx \prod_{i=0}^{n} P\left(w_{i} \mid w_{i-(n-1)} \ldots w_{i-1}\right)$$&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;smoothing&#34;&gt;Smoothing&lt;/h2&gt;
 &lt;h3 id=&#34;laplace-smoothing&#34;&gt;Laplace Smoothing&lt;/h3&gt;
-&lt;p&gt;The basic idea is to &amp;ldquo;add one&amp;rdquo; to everything, so there won&amp;rsquo;t be zeros.&lt;/p&gt;
+&lt;p&gt;The basic idea is to &lt;strong&gt;&amp;ldquo;add one&amp;rdquo;&lt;/strong&gt; to everything, so there won&amp;rsquo;t be zero counts.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;It needs to renormalize to keep it probability distribution&lt;/li&gt;
+&lt;li&gt;It needs to renormalize to keep it probability distribution&lt;br&gt;
+$$P\left(w_{n} \mid w_{n-1}\right)=\frac{N\left(w_{n-1} w_{n}\right)+1}{\sum_{w}\left(N\left(w_{n-1} w\right)+1\right)}$$&lt;/li&gt;
 &lt;li&gt;It is often intepreted as discounting, beacuse we borrow probability mass from high-frequency words in order to make room for unseen words.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;backoff&#34;&gt;Backoff&lt;/h3&gt;
-&lt;p&gt;We can estimate the probability of a longer sequence from the probabilities of its subsequences. If an ngram of length n is not observed, use the corresponding length n-1 ngram instead.&lt;/p&gt;
+&lt;p&gt;We can estimate the probability of a longer sequence from the probabilities of its subsequences. If an ngram of length $n$ is not observed, use the corresponding length $n-1$ ngram instead.&lt;/p&gt;
+&lt;p&gt;$$P(a, b, c) \cong P(a, b) \cong P(a)$$&lt;/p&gt;
 &lt;h3 id=&#34;interpolation&#34;&gt;Interpolation&lt;/h3&gt;
 &lt;p&gt;All counts are estimated using a weighted combination of smaller ngrams. It requires renormalization.&lt;/p&gt;
+&lt;p&gt;$$P(a, b, c) = \lambda_1 P(a, b, c) \times \lambda_2 P(a, b) \times \lambda_3 P(a)$$&lt;/p&gt;
 &lt;h3 id=&#34;kneser-ney-smoothing&#34;&gt;Kneser-Ney Smoothing&lt;/h3&gt;
-&lt;p&gt;It&amp;rsquo;s a state-of-the-art smoothing algorithm that combines several ideas: 1) Absolute discounting (estimated from data), 2) Replacing ngram probabilities with continuation probabilities.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s a state-of-the-art smoothing algorithm that combines several ideas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Absolute discounting (estimated from data)
+$$ P_{\text {AbsoluteDiscounting }}\left(w_{i} \mid w_{i-1}\right)=\frac{C\left(w_{i-1} w_{i}\right)-d}{\sum_{\nu} C\left(w_{i-1} v\right)}+\lambda\left(w_{i-1}\right) P\left(w_{i}\right) $$&lt;/li&gt;
+&lt;li&gt;Replacing ngram probabilities with continuation probabilities.
+$$P\left(w_{i} \mid w_{i-1}\right)=\frac{\max \left(C\left(w_{i-1} w_{i}\right)-d, 0\right)}{C\left(w_{i-1}\right)}+\lambda\left(w_{i-1}\right) P_{\mathrm{CONTINUATION}}\left(w_{i}\right)$$&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;perplexity&#34;&gt;Perplexity&lt;/h2&gt;
-&lt;p&gt;A good language model should assign high probability to sentences that actually appear.&lt;/p&gt;
+&lt;p&gt;A good language model should assign high probability to sentences that actually appear. Instead of using probability directly, we use a &lt;strong&gt;metric&lt;/strong&gt; called &amp;ldquo;perplexity&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;$$PPL(W)=\sqrt[n]{\prod_{i=1}^{n} \frac{1}{P\left(w_{1} \ldots w_{n}\right)}}$$&lt;/p&gt;
 &lt;h3 id=&#34;intuition&#34;&gt;Intuition&lt;/h3&gt;
-&lt;p&gt;&amp;ldquo;Weighted average branching factor&amp;rdquo;
-A model with lower PPL is less &amp;ldquo;surprised&amp;rdquo; by new data and has more certainty about true sequences. It considers branching factors to be lower, because it has a good sense of what should come next.&lt;/p&gt;
-&lt;p&gt;In natural language, distributions are highly non-uniform, so branching factors are (relatively) low.&lt;/p&gt;
-&lt;p&gt;PPL will never be zero! Natural language has inherent uncertainty&lt;/p&gt;
-&lt;p&gt;PPL is not comparable across different datasets! Some datasets/languages/corpora are “easier”/lower uncertainty than others&lt;/p&gt;
-&lt;p&gt;Higher-order n-grams lead to lower ppl in general, but 1) it is more likely to overfit to training data, 2) requires more memory, and 3) results in many more zero-counts.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Weighted average branching factor&amp;rdquo; -&amp;gt; how many next words can
+follow any given word?&lt;/li&gt;
+&lt;li&gt;A model with lower PPL is less &amp;ldquo;surprised&amp;rdquo; by new data and has &lt;strong&gt;more certainty about true sequences&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;It considers branching factors to be lower, because it has a good sense of what should come next.&lt;/li&gt;
+&lt;li&gt;In natural language, distributions are &lt;strong&gt;highly non-uniform&lt;/strong&gt;, so branching factors are (relatively) low.&lt;/li&gt;
+&lt;li&gt;PPL will &lt;strong&gt;never be zero&lt;/strong&gt;! Natural language has inherent uncertainty.&lt;/li&gt;
+&lt;li&gt;PPL is not comparable across different datasets.&lt;/li&gt;
+&lt;li&gt;Higher-order n-grams lead to lower ppl in general, but
+&lt;ul&gt;
+&lt;li&gt;it is more likely to &lt;strong&gt;overfit&lt;/strong&gt; to training data,&lt;/li&gt;
+&lt;li&gt;requires &lt;strong&gt;more memory&lt;/strong&gt;,&lt;/li&gt;
+&lt;li&gt;results in &lt;strong&gt;more zero counts&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 </description>
         </item>

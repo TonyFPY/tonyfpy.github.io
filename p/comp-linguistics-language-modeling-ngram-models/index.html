@@ -3,27 +3,27 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on Oct 13th, 2022
-Last Modified on Oct 13th, 2022
+Last Modified on Oct 16th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
- Langauge Modeling Definition  It assigns a probability to a sequence of words Given a sequence of words, predict the most likely next word Generate likely sequences of words  Applications  Unconstrained text generation Conditional text generation,  Machine Translation Speech Recognition Summarization   Representation Learning   N-gram Langauge Models Directly Computing Corpus Stats It just computes the probability $P(w_0, &amp;hellip;, w_1)$ directly, but langauge is dynamic and we cannot ensure same sentence will exist in the corpus for multiple times.'><title>[Comp Linguistics] Language Modeling - Ngram Models</title>
+ Langauge Modeling Definition  It assigns a probability to a sequence of words Given a sequence of words, predict the most likely next word Generate likely sequences of words  Applications  Unconstrained text generation Conditional text generation,  Machine Translation Speech Recognition Summarization   Representation Learning   N-gram Langauge Models Directly Computing Corpus Stats It just computes the probability directly, but langauge is dynamic and we cannot ensure same sentence will exist in the corpus for multiple times.'><title>[Comp Linguistics] Language Modeling - Ngram Models</title>
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/comp-linguistics-language-modeling-ngram-models/'>
 
 <link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Comp Linguistics] Language Modeling - Ngram Models'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on Oct 13th, 2022
-Last Modified on Oct 13th, 2022
+Last Modified on Oct 16th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
- Langauge Modeling Definition  It assigns a probability to a sequence of words Given a sequence of words, predict the most likely next word Generate likely sequences of words  Applications  Unconstrained text generation Conditional text generation,  Machine Translation Speech Recognition Summarization   Representation Learning   N-gram Langauge Models Directly Computing Corpus Stats It just computes the probability $P(w_0, &amp;hellip;, w_1)$ directly, but langauge is dynamic and we cannot ensure same sentence will exist in the corpus for multiple times.'>
+ Langauge Modeling Definition  It assigns a probability to a sequence of words Given a sequence of words, predict the most likely next word Generate likely sequences of words  Applications  Unconstrained text generation Conditional text generation,  Machine Translation Speech Recognition Summarization   Representation Learning   N-gram Langauge Models Directly Computing Corpus Stats It just computes the probability directly, but langauge is dynamic and we cannot ensure same sentence will exist in the corpus for multiple times.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-language-modeling-ngram-models/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-10-13T14:36:39-04:00'/><meta property='article:modified_time' content='2022-10-13T15:39:35-04:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-10-13T14:36:39-04:00'/><meta property='article:modified_time' content='2022-10-17T00:31:11-04:00'/>
 <meta name="twitter:title" content="[Comp Linguistics] Language Modeling - Ngram Models">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Oct 13th, 2022
-Last Modified on Oct 13th, 2022
+Last Modified on Oct 16th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
- Langauge Modeling Definition  It assigns a probability to a sequence of words Given a sequence of words, predict the most likely next word Generate likely sequences of words  Applications  Unconstrained text generation Conditional text generation,  Machine Translation Speech Recognition Summarization   Representation Learning   N-gram Langauge Models Directly Computing Corpus Stats It just computes the probability $P(w_0, &amp;hellip;, w_1)$ directly, but langauge is dynamic and we cannot ensure same sentence will exist in the corpus for multiple times.">
+ Langauge Modeling Definition  It assigns a probability to a sequence of words Given a sequence of words, predict the most likely next word Generate likely sequences of words  Applications  Unconstrained text generation Conditional text generation,  Machine Translation Speech Recognition Summarization   Representation Learning   N-gram Langauge Models Directly Computing Corpus Stats It just computes the probability directly, but langauge is dynamic and we cannot ensure same sentence will exist in the corpus for multiple times.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -345,7 +345,7 @@ Last Modified on Oct 13th, 2022
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -362,7 +362,7 @@ Last Modified on Oct 13th, 2022
     <blockquote>
 <p>Authored by Tony Feng</p>
 <p>Created on Oct 13th, 2022</p>
-<p>Last Modified on Oct 13th, 2022</p>
+<p>Last Modified on Oct 16th, 2022</p>
 </blockquote>
 <h2 id="intro">Intro</h2>
 <p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1460 Computational Linguistics</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
@@ -389,37 +389,63 @@ Last Modified on Oct 13th, 2022
 <hr>
 <h2 id="n-gram-langauge-models">N-gram Langauge Models</h2>
 <h3 id="directly-computing-corpus-stats">Directly Computing Corpus Stats</h3>
-<p>It just computes the probability $P(w_0, &hellip;, w_1)$ directly, but langauge is dynamic and we cannot ensure same sentence will exist in the corpus for multiple times.</p>
+<p>It just computes the probability directly, but langauge is dynamic and we cannot ensure same sentence will exist in the corpus for multiple times.</p>
+<p>$$P(w_0, &hellip;, w_1) = \frac{n}{N(l)} $$</p>
+<p>, where $n$ is num of occurances of $w_0, &hellip;, w_1$ and $N$ is number of sequences with length $l$.</p>
 <h3 id="unigram-language-model">Unigram Language Model</h3>
-<p><strong>Naive Asumption</strong></p>
-<p>$$ P(w_0, &hellip;, w_1) $$</p>
+<p>$$ P\left(w_{0} \ldots w_{n}\right)=P\left(w_{0}\right) P\left(w_{1} \mid w_{0}\right) P\left(w_{2} \mid w_{0}, w_{1}\right) \ldots P\left(w_{n} \mid w_{0} \ldots w_{n-1}\right)$$</p>
+<p>According to <strong>Naive Asumption</strong>, we have $ P\left(w_{i} \mid w_{0} \ldots w_{i-1}\right) \approx P\left(w_{i}\right) $.</p>
+<p>$$ P\left(w_{0} \ldots w_{n}\right) \approx P\left(w_{0}\right) P\left(w_{1}\right)  P\left(w_{2}\right)  \ldots P\left(w_{n}\right) $$</p>
+<p>However, $P($&ldquo;give me an apple&rdquo;$)$ equals $P($&ldquo;give an apple me&rdquo;$)$.</p>
 <h3 id="bigram-language-model">Bigram Language Model</h3>
-<p><strong>Markov Assumption</strong></p>
+<p>According to <strong>Markov Assumption</strong>, we have $P\left(w_{i} \mid w_{0} \ldots w_{i-1}\right) \approx P\left(w_{i} \mid w_{i-1}\right)$.</p>
+<p>$$P\left(w_{0} \ldots w_{n}\right) \approx P\left(w_{0}\right) P\left(w_{1} \mid w_{0}\right) P\left(w_{2} \mid w_{1}\right) \ldots P\left(w_{n} \mid w_{n-1}\right)$$</p>
 <h3 id="n-gram-language-model">N-gram Language Model</h3>
+<p>$$P\left(w_{0} \ldots w_{n}\right) \approx \prod_{i=0}^{n} P\left(w_{i} \mid w_{i-(n-1)} \ldots w_{i-1}\right)$$</p>
 <hr>
 <h2 id="smoothing">Smoothing</h2>
 <h3 id="laplace-smoothing">Laplace Smoothing</h3>
-<p>The basic idea is to &ldquo;add one&rdquo; to everything, so there won&rsquo;t be zeros.</p>
+<p>The basic idea is to <strong>&ldquo;add one&rdquo;</strong> to everything, so there won&rsquo;t be zero counts.</p>
 <ul>
-<li>It needs to renormalize to keep it probability distribution</li>
+<li>It needs to renormalize to keep it probability distribution<br>
+$$P\left(w_{n} \mid w_{n-1}\right)=\frac{N\left(w_{n-1} w_{n}\right)+1}{\sum_{w}\left(N\left(w_{n-1} w\right)+1\right)}$$</li>
 <li>It is often intepreted as discounting, beacuse we borrow probability mass from high-frequency words in order to make room for unseen words.</li>
 </ul>
 <h3 id="backoff">Backoff</h3>
-<p>We can estimate the probability of a longer sequence from the probabilities of its subsequences. If an ngram of length n is not observed, use the corresponding length n-1 ngram instead.</p>
+<p>We can estimate the probability of a longer sequence from the probabilities of its subsequences. If an ngram of length $n$ is not observed, use the corresponding length $n-1$ ngram instead.</p>
+<p>$$P(a, b, c) \cong P(a, b) \cong P(a)$$</p>
 <h3 id="interpolation">Interpolation</h3>
 <p>All counts are estimated using a weighted combination of smaller ngrams. It requires renormalization.</p>
+<p>$$P(a, b, c) = \lambda_1 P(a, b, c) \times \lambda_2 P(a, b) \times \lambda_3 P(a)$$</p>
 <h3 id="kneser-ney-smoothing">Kneser-Ney Smoothing</h3>
-<p>It&rsquo;s a state-of-the-art smoothing algorithm that combines several ideas: 1) Absolute discounting (estimated from data), 2) Replacing ngram probabilities with continuation probabilities.</p>
+<p>It&rsquo;s a state-of-the-art smoothing algorithm that combines several ideas:</p>
+<ul>
+<li>Absolute discounting (estimated from data)
+$$ P_{\text {AbsoluteDiscounting }}\left(w_{i} \mid w_{i-1}\right)=\frac{C\left(w_{i-1} w_{i}\right)-d}{\sum_{\nu} C\left(w_{i-1} v\right)}+\lambda\left(w_{i-1}\right) P\left(w_{i}\right) $$</li>
+<li>Replacing ngram probabilities with continuation probabilities.
+$$P\left(w_{i} \mid w_{i-1}\right)=\frac{\max \left(C\left(w_{i-1} w_{i}\right)-d, 0\right)}{C\left(w_{i-1}\right)}+\lambda\left(w_{i-1}\right) P_{\mathrm{CONTINUATION}}\left(w_{i}\right)$$</li>
+</ul>
 <hr>
 <h2 id="perplexity">Perplexity</h2>
-<p>A good language model should assign high probability to sentences that actually appear.</p>
+<p>A good language model should assign high probability to sentences that actually appear. Instead of using probability directly, we use a <strong>metric</strong> called &ldquo;perplexity&rdquo;.</p>
+<p>$$PPL(W)=\sqrt[n]{\prod_{i=1}^{n} \frac{1}{P\left(w_{1} \ldots w_{n}\right)}}$$</p>
 <h3 id="intuition">Intuition</h3>
-<p>&ldquo;Weighted average branching factor&rdquo;
-A model with lower PPL is less &ldquo;surprised&rdquo; by new data and has more certainty about true sequences. It considers branching factors to be lower, because it has a good sense of what should come next.</p>
-<p>In natural language, distributions are highly non-uniform, so branching factors are (relatively) low.</p>
-<p>PPL will never be zero! Natural language has inherent uncertainty</p>
-<p>PPL is not comparable across different datasets! Some datasets/languages/corpora are “easier”/lower uncertainty than others</p>
-<p>Higher-order n-grams lead to lower ppl in general, but 1) it is more likely to overfit to training data, 2) requires more memory, and 3) results in many more zero-counts.</p>
+<ul>
+<li>&ldquo;Weighted average branching factor&rdquo; -&gt; how many next words can
+follow any given word?</li>
+<li>A model with lower PPL is less &ldquo;surprised&rdquo; by new data and has <strong>more certainty about true sequences</strong>.</li>
+<li>It considers branching factors to be lower, because it has a good sense of what should come next.</li>
+<li>In natural language, distributions are <strong>highly non-uniform</strong>, so branching factors are (relatively) low.</li>
+<li>PPL will <strong>never be zero</strong>! Natural language has inherent uncertainty.</li>
+<li>PPL is not comparable across different datasets.</li>
+<li>Higher-order n-grams lead to lower ppl in general, but
+<ul>
+<li>it is more likely to <strong>overfit</strong> to training data,</li>
+<li>requires <strong>more memory</strong>,</li>
+<li>results in <strong>more zero counts</strong>.</li>
+</ul>
+</li>
+</ul>
 <hr>
 
 </section>
@@ -450,7 +476,7 @@ A model with lower PPL is less &ldquo;surprised&rdquo; by new data and has more 
 
 
         <span>
-            Last updated on Oct 13, 2022 15:39 EDT
+            Last updated on Oct 17, 2022 00:31 EDT
         </span>
     </section></footer>
 
