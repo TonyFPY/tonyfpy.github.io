@@ -36,7 +36,7 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;01&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/contains-duplicate/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;217 Contains Duplicate&lt;/a&gt;&lt;/td&gt;
+    &gt;217. Contains Duplicate&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
 &lt;td&gt;10-17-2022&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/3OamzN90kPg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -45,7 +45,7 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;02&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/valid-anagram/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;242 Valid Anagram&lt;/a&gt;&lt;/td&gt;
+    &gt;242. Valid Anagram&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
 &lt;td&gt;10-17-2022&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/9UtInBqnCgA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -54,7 +54,7 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;03&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/two-sum/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;1 Two Sum&lt;/a&gt;&lt;/td&gt;
+    &gt;1. Two Sum&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
 &lt;td&gt;10-17-2022&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/KLlXCFG5TnA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -63,7 +63,7 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;04&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/group-anagrams/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;49 Group Anagrams&lt;/a&gt;&lt;/td&gt;
+    &gt;49. Group Anagrams&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
 &lt;td&gt;10-17-2022&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/vzdNOK2oB2E&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -72,7 +72,7 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;05&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/top-k-frequent-elements/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;347 Top K Frequent Elements&lt;/a&gt;&lt;/td&gt;
+    &gt;347. Top K Frequent Elements&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
 &lt;td&gt;10-17-2022&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/YPTqKIgVk-k&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -81,7 +81,7 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;06&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/product-of-array-except-self/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;238 Product of Array Except Self&lt;/a&gt;&lt;/td&gt;
+    &gt;238. Product of Array Except Self&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
 &lt;td&gt;10-17-2022&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/bNvIQI2wAjk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -90,7 +90,7 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;07&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.lintcode.com/problem/659/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;271 Encode and Decode Strings&lt;/a&gt;&lt;/td&gt;
+    &gt;271. Encode and Decode Strings&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
 &lt;td&gt;10-17-2022&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/B1k_sxOSgv8&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -99,7 +99,7 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;08&lt;/td&gt;
 &lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/longest-consecutive-sequence/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;128 Longest Consecutive Sequence&lt;/a&gt;&lt;/td&gt;
+    &gt;128. Longest Consecutive Sequence&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
 &lt;td&gt;10-17-2022&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/P6RZZMu_maU&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -108,8 +108,26 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&#34;two-pointers&#34;&gt;Two Pointers&lt;/h3&gt;
-&lt;p&gt;|| &lt;a class=&#34;link&#34; href=&#34;&#34; &gt;&lt;/a&gt; | &lt;font color=#EB5353&gt;&lt;strong&gt;Hard&lt;/strong&gt;&lt;/font&gt; |  | &lt;a class=&#34;link&#34; href=&#34;&#34; &gt;Video&lt;/a&gt; |&lt;/p&gt;
+&lt;p&gt;|09| &lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/valid-palindrome/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;125. Valid Palindrome&lt;/a&gt; | &lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt; | 10-18-2022 | &lt;a class=&#34;link&#34; href=&#34;https://youtu.be/jJXJ16kPFWg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Video&lt;/a&gt; |
+|10| &lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/3sum/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;15. 3Sum&lt;/a&gt; | &lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt; | 10-18-2022 | &lt;a class=&#34;link&#34; href=&#34;https://youtu.be/jzZsG8n2R9A&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Video&lt;/a&gt; |
+|11| &lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/container-with-most-water/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;11. Container With Most Water&lt;/a&gt; | &lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt; | 10-18-2022 | &lt;a class=&#34;link&#34; href=&#34;https://youtu.be/UuiTKBwPgAo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Video&lt;/a&gt; |&lt;/p&gt;
 &lt;h3 id=&#34;sliding-window&#34;&gt;Sliding Window&lt;/h3&gt;
+&lt;p&gt;|12| &lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/best-time-to-buy-and-sell-stock/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;121. Best Time to Buy and Sell Stock&lt;/a&gt; | &lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt; | 10-18-2022 | &lt;a class=&#34;link&#34; href=&#34;https://youtu.be/1pkOgXD63yU&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Video&lt;/a&gt; |
+|13| &lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/longest-substring-without-repeating-characters/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;3. Longest Substring Without Repeating Characters&lt;/a&gt; | &lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt; | 10-18-2022 | &lt;a class=&#34;link&#34; href=&#34;https://youtu.be/wiGpQwVHdE0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Video&lt;/a&gt; |
+|14| &lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/longest-repeating-character-replacement/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;424. Longest Repeating Character Replacement&lt;/a&gt; | &lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt; | 10-18-2022 | &lt;a class=&#34;link&#34; href=&#34;https://youtu.be/gqXU1UyA8pk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Video&lt;/a&gt; |
+|15| &lt;a class=&#34;link&#34; href=&#34;&#34; &gt;&lt;/a&gt; | &lt;font color=#EB5353&gt;&lt;strong&gt;Hard&lt;/strong&gt;&lt;/font&gt; | 10-18-2022 | &lt;a class=&#34;link&#34; href=&#34;&#34; &gt;Video&lt;/a&gt; |&lt;/p&gt;
 &lt;h3 id=&#34;stack&#34;&gt;Stack&lt;/h3&gt;
 &lt;h3 id=&#34;binary-search&#34;&gt;Binary Search&lt;/h3&gt;
 &lt;h3 id=&#34;linked-list&#34;&gt;Linked List&lt;/h3&gt;
