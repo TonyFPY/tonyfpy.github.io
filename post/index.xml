@@ -6,7 +6,89 @@
         <description>Recent content in Posts on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 13 Oct 2022 14:36:39 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 18 Oct 2022 14:32:35 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Comp Linguistics] Language Modeling - Neural Architecture</title>
+        <link>https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/</link>
+        <pubDate>Tue, 18 Oct 2022 14:32:35 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Oct 18th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 18th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;multi-layer-perceptron&#34;&gt;Multi-layer Perceptron&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;MLP doesn’t readily support long, sequential inputs&lt;/li&gt;
+&lt;li&gt;MLP doesn’t consider encoding word order, essentially a BOW model.&lt;/li&gt;
+&lt;li&gt;Inputs either become muddy (adding everything together, i.e., &amp;ldquo;bag-of-vectors&amp;rdquo;) or too large (concatenating everything)&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;bag-of-vectors&amp;rdquo; classifiers are common and often work well for
+&lt;strong&gt;basic&lt;/strong&gt; applications&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;recurrent-neural-network-rnn&#34;&gt;Recurrent Neural Network (RNN)&lt;/h2&gt;
+&lt;h3 id=&#34;architecture&#34;&gt;Architecture&lt;/h3&gt;
+&lt;p&gt;The basic idea is generation of word $i+1$ depends on word $i$ plus &amp;ldquo;memory&amp;rdquo; of words generated up to $i$.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;View 1 &amp;ldquo;Unrolled&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;View 2 &amp;ldquo;Recurrent / Recursive&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;View 3 &amp;ldquo;A single step of recurrent / recursive&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Stacked&amp;rdquo; RNN allows increasingly abstract in-context representation.&lt;/p&gt;
+&lt;h3 id=&#34;inference&#34;&gt;Inference&lt;/h3&gt;
+&lt;h3 id=&#34;training-considerations&#34;&gt;Training Considerations&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;In practice, using unrolled and padded to a fixed length is better for batching.&lt;/li&gt;
+&lt;li&gt;When producing word $i$, predict based on the &lt;strong&gt;real&lt;/strong&gt; $i-1$, not the
+&lt;strong&gt;predicted&lt;/strong&gt; $i-1$ (which is likely wrong).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;long-short-term-memory-network-lstm&#34;&gt;Long-Short Term Memory Network (LSTM)&lt;/h2&gt;
+&lt;h3 id=&#34;motivation&#34;&gt;Motivation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;RNNs struggle with &amp;ldquo;long range dependencies&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Vanishing gradients&amp;rdquo; makes it hard to update early hidden states
+for long sequences.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;architecture-1&#34;&gt;Architecture&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Overview&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Introducing a &amp;ldquo;gating&amp;rdquo; mechanisms to manage the hidden state/
+memory&lt;/li&gt;
+&lt;li&gt;Breaking this up into two processes
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Forget&amp;rdquo; gate removes information no longer needed&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Add&amp;rdquo; gate adds new information likely to be useful in the
+future&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Output&amp;rdquo; gate controls what to output in the current state. It retains the relavant info right now.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Adding explicit previous &amp;ldquo;context&amp;rdquo; in addition to prior hidden state&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Gate&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Learn some mask (i.e., vector) via backpropagation&lt;/li&gt;
+&lt;li&gt;Apply the mask(i.e., elementwise multiplication) to some hidden state&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;transformer&#34;&gt;Transformer&lt;/h2&gt;
+&lt;h3 id=&#34;architecture-2&#34;&gt;Architecture&lt;/h3&gt;
+&lt;h3 id=&#34;self-attention&#34;&gt;Self Attention&lt;/h3&gt;
+&lt;p&gt;The idea is to learn a distribution/weighted combination of hidden states that inform this hidden state.&lt;/p&gt;
+&lt;p&gt;Each word has three roles at each timestep and we learn three weight matrices $(Q,K,V)$ to cast each word into each role.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Query&lt;/strong&gt;: The word as the current focus&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Key&lt;/strong&gt;: The word as a context word&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Value&lt;/strong&gt;: The word as part of the output&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Multi-threaded Self-attention is repeating the attention process multiple times. Each KQV set can focus on a slightly different aspect of the representation.&lt;/p&gt;
+&lt;h3 id=&#34;blocks&#34;&gt;Blocks&lt;/h3&gt;
+&lt;h3 id=&#34;positional-encoding&#34;&gt;Positional Encoding&lt;/h3&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Comp Linguistics] Language Modeling - Ngram Models</title>
         <link>https://tonyfpy.github.io/p/comp-linguistics-language-modeling-ngram-models/</link>
         <pubDate>Thu, 13 Oct 2022 14:36:39 -0400</pubDate>
