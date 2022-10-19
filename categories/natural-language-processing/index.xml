@@ -14,7 +14,7 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Oct 18th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on Oct 18th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 19th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
@@ -31,57 +31,247 @@
 &lt;h2 id=&#34;recurrent-neural-network-rnn&#34;&gt;Recurrent Neural Network (RNN)&lt;/h2&gt;
 &lt;h3 id=&#34;architecture&#34;&gt;Architecture&lt;/h3&gt;
 &lt;p&gt;The basic idea is generation of word $i+1$ depends on word $i$ plus &amp;ldquo;memory&amp;rdquo; of words generated up to $i$.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;View 1 &amp;ldquo;Unrolled&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;View 2 &amp;ldquo;Recurrent / Recursive&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;View 3 &amp;ldquo;A single step of recurrent / recursive&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;Stacked&amp;rdquo; RNN allows increasingly abstract in-context representation.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/view1.jpg&#34;
+	width=&#34;714&#34;
+	height=&#34;628&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/view1_hu2f49a735a03e56027346c1b27d8044b1_34408_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/view1_hu2f49a735a03e56027346c1b27d8044b1_34408_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;&amp;ldquo;Unrolled&amp;rdquo;&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;113&#34;
+		data-flex-basis=&#34;272px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/view2.jpg&#34;
+	width=&#34;358&#34;
+	height=&#34;534&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/view2_hu74f30de8a34c66e2143b7e317a6fab4e_11034_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/view2_hu74f30de8a34c66e2143b7e317a6fab4e_11034_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;&amp;ldquo;Recurrent / Recursive&amp;rdquo;&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;67&#34;
+		data-flex-basis=&#34;160px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/view3.jpg&#34;
+	width=&#34;568&#34;
+	height=&#34;506&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/view3_hu428cbdb151055c717b37789e2c1a1e84_8961_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/view3_hu428cbdb151055c717b37789e2c1a1e84_8961_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;&amp;ldquo;A single step of recurrent / recursive&amp;rdquo;&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;112&#34;
+		data-flex-basis=&#34;269px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$h_{t}=g\left(U h_{t-1}+W x_{t}\right)$$
+$$y_{t}=f\left(V h_{t}\right)$$&lt;/p&gt;
 &lt;h3 id=&#34;inference&#34;&gt;Inference&lt;/h3&gt;
-&lt;h3 id=&#34;training-considerations&#34;&gt;Training Considerations&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ForwardRNN&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rnn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sequence&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;h_0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;do&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;h_i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;U&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;W&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x_i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;y_i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;V&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h_i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;training-considerations&#34;&gt;Training Considerations&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;In practice, using unrolled and padded to a fixed length is better for batching.&lt;/li&gt;
 &lt;li&gt;When producing word $i$, predict based on the &lt;strong&gt;real&lt;/strong&gt; $i-1$, not the
 &lt;strong&gt;predicted&lt;/strong&gt; $i-1$ (which is likely wrong).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;long-short-term-memory-network-lstm&#34;&gt;Long-Short Term Memory Network (LSTM)&lt;/h2&gt;
+&lt;h2 id=&#34;long-short-term-memory-lstm&#34;&gt;Long-Short Term Memory (LSTM)&lt;/h2&gt;
 &lt;h3 id=&#34;motivation&#34;&gt;Motivation&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;RNNs struggle with &amp;ldquo;long range dependencies&amp;rdquo;.&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Vanishing gradients&amp;rdquo; makes it hard to update early hidden states
+&lt;li&gt;RNNs struggle with &lt;strong&gt;long range dependencies&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vanishing gradients&lt;/strong&gt; makes it hard to update early hidden states
 for long sequences.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;architecture-1&#34;&gt;Architecture&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Overview&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Introducing a &amp;ldquo;gating&amp;rdquo; mechanisms to manage the hidden state/
+&lt;li&gt;Introducing a &lt;strong&gt;&amp;ldquo;gating&amp;rdquo; mechanisms&lt;/strong&gt; to manage the hidden state/
 memory&lt;/li&gt;
-&lt;li&gt;Breaking this up into two processes
+&lt;li&gt;Passing through &amp;ldquo;gates&amp;rdquo;
 &lt;ul&gt;
 &lt;li&gt;&amp;ldquo;Forget&amp;rdquo; gate removes information no longer needed&lt;/li&gt;
 &lt;li&gt;&amp;ldquo;Add&amp;rdquo; gate adds new information likely to be useful in the
 future&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Output&amp;rdquo; gate controls what to output in the current state. It retains the relavant info right now.&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Output&amp;rdquo; gate&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Adding explicit previous &amp;ldquo;context&amp;rdquo; in addition to prior hidden state&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/lstm.jpg&#34;
+	width=&#34;1400&#34;
+	height=&#34;580&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/lstm_hu041f8b1d561fb25df604ac2817f56ef3_57530_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/lstm_hu041f8b1d561fb25df604ac2817f56ef3_57530_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;LSTM Computation Graph&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;241&#34;
+		data-flex-basis=&#34;579px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Gate&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Learn some mask (i.e., vector) via backpropagation&lt;/li&gt;
 &lt;li&gt;Apply the mask(i.e., elementwise multiplication) to some hidden state&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Computation&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Compute &amp;ldquo;current&amp;rdquo; state, &amp;ldquo;add&amp;rdquo; gate, &amp;ldquo;forget&amp;rdquo; gate, and &amp;ldquo;output&amp;rdquo; gate from previous hidden state and current input.
+&lt;ul&gt;
+&lt;li&gt;g = current state&lt;/li&gt;
+&lt;li&gt;f = forget gate&lt;/li&gt;
+&lt;li&gt;i = add gate&lt;/li&gt;
+&lt;li&gt;o = output gate (controls what to output and retains the relavant info right now.)&lt;/li&gt;
+&lt;li&gt;k = intermediate output (context after &amp;ldquo;forgetting&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;j = intermediate output (info to be added to the context)&lt;/li&gt;
+&lt;li&gt;c = updated context&lt;/li&gt;
+&lt;li&gt;h = updated hidden state&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Combine those things using Hadamard product.&lt;/li&gt;
+&lt;li&gt;Update context and hidden state for next iteration.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$g=\tanh \left(U_{g} h_{t-1}+W_{g} x_{t}\right) $$
+$$f=\operatorname{sigmoid}\left(U_{f} h_{t-1}+W_{f} x_{t}\right) $$
+$$i_{t}=\operatorname{sigmoid}\left(U_{i} h_{t-1}+W_{i} x_{t}\right) $$
+$$o_{t}=\operatorname{sigmoid}\left(U_{o} h_{t-1}+W_{o} x_{t}\right) $$
+$$k_{t}=f_{t} \odot c_{t-1} $$
+$$j_{t}=i_{t} \odot g_{t} $$
+$$c_{t}=j_{t}+k_{t} $$
+$$h_{t}=o_{t} \odot \tanh \left(c_{t}\right) $$&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;transformer&#34;&gt;Transformer&lt;/h2&gt;
 &lt;h3 id=&#34;architecture-2&#34;&gt;Architecture&lt;/h3&gt;
+&lt;p&gt;Representation of the word depends on (slightly less contextualized) representation of other words.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/transformer.jpg&#34;
+	width=&#34;1270&#34;
+	height=&#34;540&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/transformer_hub8fb5f921e84dda4eb3c5a79434a7612_34993_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/transformer_hub8fb5f921e84dda4eb3c5a79434a7612_34993_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Transformer&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;235&#34;
+		data-flex-basis=&#34;564px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h3 id=&#34;self-attention&#34;&gt;Self Attention&lt;/h3&gt;
-&lt;p&gt;The idea is to learn a distribution/weighted combination of hidden states that inform this hidden state.&lt;/p&gt;
-&lt;p&gt;Each word has three roles at each timestep and we learn three weight matrices $(Q,K,V)$ to cast each word into each role.&lt;/p&gt;
+&lt;p&gt;The idea is to learn a &lt;strong&gt;distribution/weighted combination&lt;/strong&gt; of hidden states that inform this hidden state.&lt;/p&gt;
+&lt;p&gt;Each word has three roles at each timestep and we learn three weight matrices $(Q,K,V)$ to cast each word into each role. The &lt;strong&gt;dot product&lt;/strong&gt; of key and Query produces a weight and the next layer receives the weighted combination of values.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Query&lt;/strong&gt;: The word as the current focus&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Key&lt;/strong&gt;: The word as a context word&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Value&lt;/strong&gt;: The word as part of the output&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Multi-threaded Self-attention is repeating the attention process multiple times. Each KQV set can focus on a slightly different aspect of the representation.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/self-attention.jpg&#34;
+	width=&#34;1352&#34;
+	height=&#34;1222&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/self-attention_hudff2f91419a60808ee0972ddc4b5d5f0_95851_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/self-attention_hudff2f91419a60808ee0972ddc4b5d5f0_95851_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Self-attention&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;110&#34;
+		data-flex-basis=&#34;265px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Multi-threaded self-attention is repeating the attention process multiple times. Each KQV set can focus on a slightly different aspect of the representation.&lt;/p&gt;
 &lt;h3 id=&#34;blocks&#34;&gt;Blocks&lt;/h3&gt;
 &lt;h3 id=&#34;positional-encoding&#34;&gt;Positional Encoding&lt;/h3&gt;
 &lt;hr&gt;

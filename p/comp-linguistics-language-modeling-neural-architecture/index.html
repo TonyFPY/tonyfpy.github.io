@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on Oct 18th, 2022
-Last Modified on Oct 18th, 2022
+Last Modified on Oct 19th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  Multi-layer Perceptron  MLP doesn’t readily support long, sequential inputs MLP doesn’t consider encoding word order, essentially a BOW model.'><title>[Comp Linguistics] Language Modeling - Neural Architecture</title>
 
@@ -12,16 +12,16 @@ Last Modified on Oct 18th, 2022
 <link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Comp Linguistics] Language Modeling - Neural Architecture'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on Oct 18th, 2022
-Last Modified on Oct 18th, 2022
+Last Modified on Oct 19th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  Multi-layer Perceptron  MLP doesn’t readily support long, sequential inputs MLP doesn’t consider encoding word order, essentially a BOW model.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-10-18T14:32:35-04:00'/><meta property='article:modified_time' content='2022-10-18T15:45:50-04:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-10-18T14:32:35-04:00'/><meta property='article:modified_time' content='2022-10-19T16:26:55-04:00'/>
 <meta name="twitter:title" content="[Comp Linguistics] Language Modeling - Neural Architecture">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Oct 18th, 2022
-Last Modified on Oct 18th, 2022
+Last Modified on Oct 19th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  Multi-layer Perceptron  MLP doesn’t readily support long, sequential inputs MLP doesn’t consider encoding word order, essentially a BOW model.">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -345,7 +345,7 @@ Last Modified on Oct 18th, 2022
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -362,7 +362,7 @@ Last Modified on Oct 18th, 2022
     <blockquote>
 <p>Authored by Tony Feng</p>
 <p>Created on Oct 18th, 2022</p>
-<p>Last Modified on Oct 18th, 2022</p>
+<p>Last Modified on Oct 19th, 2022</p>
 </blockquote>
 <h2 id="intro">Intro</h2>
 <p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1460 Computational Linguistics</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
@@ -379,57 +379,247 @@ Last Modified on Oct 18th, 2022
 <h2 id="recurrent-neural-network-rnn">Recurrent Neural Network (RNN)</h2>
 <h3 id="architecture">Architecture</h3>
 <p>The basic idea is generation of word $i+1$ depends on word $i$ plus &ldquo;memory&rdquo; of words generated up to $i$.</p>
-<p><strong>View 1 &ldquo;Unrolled&rdquo;</strong></p>
-<p><strong>View 2 &ldquo;Recurrent / Recursive&rdquo;</strong></p>
-<p><strong>View 3 &ldquo;A single step of recurrent / recursive&rdquo;</strong></p>
-<p>&ldquo;Stacked&rdquo; RNN allows increasingly abstract in-context representation.</p>
+<p><img src="/p/comp-linguistics-language-modeling-neural-architecture/view1.jpg"
+	width="714"
+	height="628"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/view1_hu2f49a735a03e56027346c1b27d8044b1_34408_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/view1_hu2f49a735a03e56027346c1b27d8044b1_34408_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="&ldquo;Unrolled&rdquo;"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="113"
+		data-flex-basis="272px"
+	
+><img src="/p/comp-linguistics-language-modeling-neural-architecture/view2.jpg"
+	width="358"
+	height="534"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/view2_hu74f30de8a34c66e2143b7e317a6fab4e_11034_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/view2_hu74f30de8a34c66e2143b7e317a6fab4e_11034_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="&ldquo;Recurrent / Recursive&rdquo;"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="67"
+		data-flex-basis="160px"
+	
+><img src="/p/comp-linguistics-language-modeling-neural-architecture/view3.jpg"
+	width="568"
+	height="506"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/view3_hu428cbdb151055c717b37789e2c1a1e84_8961_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/view3_hu428cbdb151055c717b37789e2c1a1e84_8961_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="&ldquo;A single step of recurrent / recursive&rdquo;"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="112"
+		data-flex-basis="269px"
+	
+></p>
+<p>$$h_{t}=g\left(U h_{t-1}+W x_{t}\right)$$
+$$y_{t}=f\left(V h_{t}\right)$$</p>
 <h3 id="inference">Inference</h3>
-<h3 id="training-considerations">Training Considerations</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">function</span> <span class="n">ForwardRNN</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rnn</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">sequence</span> <span class="n">y</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h_0</span> <span class="o">&lt;-</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="o">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">do</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">h_i</span> <span class="o">&lt;-</span> <span class="n">g</span><span class="p">(</span><span class="n">U</span> <span class="o">*</span> <span class="n">h_</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">W</span> <span class="o">*</span> <span class="n">x_i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">y_i</span> <span class="o">&lt;-</span> <span class="n">f</span><span class="p">(</span><span class="n">V</span> <span class="o">*</span> <span class="n">h_i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">y</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="training-considerations">Training Considerations</h3>
 <ul>
 <li>In practice, using unrolled and padded to a fixed length is better for batching.</li>
 <li>When producing word $i$, predict based on the <strong>real</strong> $i-1$, not the
 <strong>predicted</strong> $i-1$ (which is likely wrong).</li>
 </ul>
 <hr>
-<h2 id="long-short-term-memory-network-lstm">Long-Short Term Memory Network (LSTM)</h2>
+<h2 id="long-short-term-memory-lstm">Long-Short Term Memory (LSTM)</h2>
 <h3 id="motivation">Motivation</h3>
 <ul>
-<li>RNNs struggle with &ldquo;long range dependencies&rdquo;.</li>
-<li>&ldquo;Vanishing gradients&rdquo; makes it hard to update early hidden states
+<li>RNNs struggle with <strong>long range dependencies</strong>.</li>
+<li><strong>Vanishing gradients</strong> makes it hard to update early hidden states
 for long sequences.</li>
 </ul>
 <h3 id="architecture-1">Architecture</h3>
 <p><strong>Overview</strong></p>
 <ul>
-<li>Introducing a &ldquo;gating&rdquo; mechanisms to manage the hidden state/
+<li>Introducing a <strong>&ldquo;gating&rdquo; mechanisms</strong> to manage the hidden state/
 memory</li>
-<li>Breaking this up into two processes
+<li>Passing through &ldquo;gates&rdquo;
 <ul>
 <li>&ldquo;Forget&rdquo; gate removes information no longer needed</li>
 <li>&ldquo;Add&rdquo; gate adds new information likely to be useful in the
 future</li>
-<li>&ldquo;Output&rdquo; gate controls what to output in the current state. It retains the relavant info right now.</li>
+<li>&ldquo;Output&rdquo; gate</li>
 </ul>
 </li>
 <li>Adding explicit previous &ldquo;context&rdquo; in addition to prior hidden state</li>
 </ul>
+<p><img src="/p/comp-linguistics-language-modeling-neural-architecture/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+><img src="/p/comp-linguistics-language-modeling-neural-architecture/lstm.jpg"
+	width="1400"
+	height="580"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/lstm_hu041f8b1d561fb25df604ac2817f56ef3_57530_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/lstm_hu041f8b1d561fb25df604ac2817f56ef3_57530_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="LSTM Computation Graph"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="241"
+		data-flex-basis="579px"
+	
+><img src="/p/comp-linguistics-language-modeling-neural-architecture/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+></p>
 <p><strong>Gate</strong></p>
 <ul>
 <li>Learn some mask (i.e., vector) via backpropagation</li>
 <li>Apply the mask(i.e., elementwise multiplication) to some hidden state</li>
 </ul>
+<p><strong>Computation</strong></p>
+<ul>
+<li>Compute &ldquo;current&rdquo; state, &ldquo;add&rdquo; gate, &ldquo;forget&rdquo; gate, and &ldquo;output&rdquo; gate from previous hidden state and current input.
+<ul>
+<li>g = current state</li>
+<li>f = forget gate</li>
+<li>i = add gate</li>
+<li>o = output gate (controls what to output and retains the relavant info right now.)</li>
+<li>k = intermediate output (context after &ldquo;forgetting&rdquo;)</li>
+<li>j = intermediate output (info to be added to the context)</li>
+<li>c = updated context</li>
+<li>h = updated hidden state</li>
+</ul>
+</li>
+<li>Combine those things using Hadamard product.</li>
+<li>Update context and hidden state for next iteration.</li>
+</ul>
+<p>$$g=\tanh \left(U_{g} h_{t-1}+W_{g} x_{t}\right) $$
+$$f=\operatorname{sigmoid}\left(U_{f} h_{t-1}+W_{f} x_{t}\right) $$
+$$i_{t}=\operatorname{sigmoid}\left(U_{i} h_{t-1}+W_{i} x_{t}\right) $$
+$$o_{t}=\operatorname{sigmoid}\left(U_{o} h_{t-1}+W_{o} x_{t}\right) $$
+$$k_{t}=f_{t} \odot c_{t-1} $$
+$$j_{t}=i_{t} \odot g_{t} $$
+$$c_{t}=j_{t}+k_{t} $$
+$$h_{t}=o_{t} \odot \tanh \left(c_{t}\right) $$</p>
 <hr>
 <h2 id="transformer">Transformer</h2>
 <h3 id="architecture-2">Architecture</h3>
+<p>Representation of the word depends on (slightly less contextualized) representation of other words.</p>
+<p><img src="/p/comp-linguistics-language-modeling-neural-architecture/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+><img src="/p/comp-linguistics-language-modeling-neural-architecture/transformer.jpg"
+	width="1270"
+	height="540"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/transformer_hub8fb5f921e84dda4eb3c5a79434a7612_34993_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/transformer_hub8fb5f921e84dda4eb3c5a79434a7612_34993_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="Transformer"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="235"
+		data-flex-basis="564px"
+	
+><img src="/p/comp-linguistics-language-modeling-neural-architecture/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+></p>
 <h3 id="self-attention">Self Attention</h3>
-<p>The idea is to learn a distribution/weighted combination of hidden states that inform this hidden state.</p>
-<p>Each word has three roles at each timestep and we learn three weight matrices $(Q,K,V)$ to cast each word into each role.</p>
+<p>The idea is to learn a <strong>distribution/weighted combination</strong> of hidden states that inform this hidden state.</p>
+<p>Each word has three roles at each timestep and we learn three weight matrices $(Q,K,V)$ to cast each word into each role. The <strong>dot product</strong> of key and Query produces a weight and the next layer receives the weighted combination of values.</p>
 <ul>
 <li><strong>Query</strong>: The word as the current focus</li>
 <li><strong>Key</strong>: The word as a context word</li>
 <li><strong>Value</strong>: The word as part of the output</li>
 </ul>
-<p>Multi-threaded Self-attention is repeating the attention process multiple times. Each KQV set can focus on a slightly different aspect of the representation.</p>
+<p><img src="/p/comp-linguistics-language-modeling-neural-architecture/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+><img src="/p/comp-linguistics-language-modeling-neural-architecture/self-attention.jpg"
+	width="1352"
+	height="1222"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/self-attention_hudff2f91419a60808ee0972ddc4b5d5f0_95851_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/self-attention_hudff2f91419a60808ee0972ddc4b5d5f0_95851_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="Self-attention"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="110"
+		data-flex-basis="265px"
+	
+><img src="/p/comp-linguistics-language-modeling-neural-architecture/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+></p>
+<p>Multi-threaded self-attention is repeating the attention process multiple times. Each KQV set can focus on a slightly different aspect of the representation.</p>
 <h3 id="blocks">Blocks</h3>
 <h3 id="positional-encoding">Positional Encoding</h3>
 <hr>
@@ -462,7 +652,7 @@ future</li>
 
 
         <span>
-            Last updated on Oct 18, 2022 15:45 EDT
+            Last updated on Oct 19, 2022 16:26 EDT
         </span>
     </section></footer>
 
@@ -623,7 +813,7 @@ future</li>
         <li><a href="#training-considerations">Training Considerations</a></li>
       </ol>
     </li>
-    <li><a href="#long-short-term-memory-network-lstm">Long-Short Term Memory Network (LSTM)</a>
+    <li><a href="#long-short-term-memory-lstm">Long-Short Term Memory (LSTM)</a>
       <ol>
         <li><a href="#motivation">Motivation</a></li>
         <li><a href="#architecture-1">Architecture</a></li>
