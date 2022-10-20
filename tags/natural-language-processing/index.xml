@@ -6,7 +6,222 @@
         <description>Recent content in Natural Language Processing on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 18 Oct 2022 14:32:35 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/natural-language-processing/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 20 Oct 2022 14:28:33 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/natural-language-processing/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Comp Linguistics] Language Modeling - Pretraining</title>
+        <link>https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/</link>
+        <pubDate>Thu, 20 Oct 2022 14:28:33 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Oct 20th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 20th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;what-is-pretraining&#34;&gt;What is pretraining?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Train on some &lt;strong&gt;&amp;ldquo;general&amp;rdquo;&lt;/strong&gt; task that encourages good representations&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transfer&lt;/strong&gt; these representations with little updating to other tasks&lt;/li&gt;
+&lt;li&gt;No need to train embeddings anew for every task&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;contextualized-word-representations&#34;&gt;Contextualized Word Representations&lt;/h2&gt;
+&lt;h3 id=&#34;basic-idea&#34;&gt;Basic Idea&lt;/h3&gt;
+&lt;p&gt;Traditional word embedding methods (e.g., word2vec) produce typelevel representations, while contextualized word embeddings (e.g., BERT, ELMo) produce token-level representations.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/SC.jpg&#34;
+	width=&#34;1186&#34;
+	height=&#34;530&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/SC_hu52f3c2037d1b7b578ab83e07beae61bd_53097_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/SC_hu52f3c2037d1b7b578ab83e07beae61bd_53097_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Static VS. Contextualized&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;223&#34;
+		data-flex-basis=&#34;537px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;advantages&#34;&gt;Advantages&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;It can capture word sense&lt;/li&gt;
+&lt;li&gt;It can capture syntactic and semantic context&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;disadvantages&#34;&gt;Disadvantages&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Variable-length sentence representations&lt;/li&gt;
+&lt;li&gt;No clear &amp;ldquo;lexicon&amp;rdquo;, which (traditionally) linguistics likes to have&lt;/li&gt;
+&lt;li&gt;More training data needed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;elmo&#34;&gt;ELMo&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/ELMo.jpg&#34;
+	width=&#34;756&#34;
+	height=&#34;452&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/ELMo_hu09aa66db2e32ffe6d47638c662814a54_35780_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/ELMo_hu09aa66db2e32ffe6d47638c662814a54_35780_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ELMo&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;167&#34;
+		data-flex-basis=&#34;401px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Architecture: Two-layer BiLSTM&lt;/li&gt;
+&lt;li&gt;Layer 0 = pretrained static embeddings (Glove)&lt;/li&gt;
+&lt;li&gt;Trained on vanilla language modeling task&lt;/li&gt;
+&lt;li&gt;Finetuned by learning a simple linear combination of the learned
+embeddings&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bert&#34;&gt;BERT&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/BERT.jpg&#34;
+	width=&#34;814&#34;
+	height=&#34;678&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/BERT_hu2b56a0421f2b3e40ccfe960e48fcc658_56061_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/BERT_hu2b56a0421f2b3e40ccfe960e48fcc658_56061_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;BERT&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;120&#34;
+		data-flex-basis=&#34;288px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Architecture: Deep Transformer (small = 12, large = 24)&lt;/li&gt;
+&lt;li&gt;Layer 0 = wordpiece embeddings&lt;/li&gt;
+&lt;li&gt;Trained on masked language modeling + next-sentence prediction&lt;/li&gt;
+&lt;li&gt;Typically finetuned by updating all parameters (though there are other
+strategies)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;gpt&#34;&gt;GPT&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/GPT.jpg&#34;
+	width=&#34;992&#34;
+	height=&#34;422&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/GPT_hu91026a3bf37eb04acd08f5a3cbf6ac39_71104_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/GPT_hu91026a3bf37eb04acd08f5a3cbf6ac39_71104_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;GPT&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;235&#34;
+		data-flex-basis=&#34;564px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Architecture: Deep Transformer&lt;/li&gt;
+&lt;li&gt;Layer 0 = BPE&lt;/li&gt;
+&lt;li&gt;Trained on vanilla language modeling&lt;/li&gt;
+&lt;li&gt;Notable because the recent versions (GPT-3) are HUGE, and very
+impressive&lt;/li&gt;
+&lt;li&gt;Typically finetuned by updating all parameters (for the small models)
+or (for the large models) &lt;strong&gt;prompting&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;different-transfer-methods&#34;&gt;Different Transfer Methods&lt;/h2&gt;
+&lt;h3 id=&#34;frozen&#34;&gt;Frozen&lt;/h3&gt;
+&lt;h3 id=&#34;finetuning&#34;&gt;Finetuning&lt;/h3&gt;
+&lt;h3 id=&#34;prompt-tuning&#34;&gt;&amp;ldquo;Prompt&amp;rdquo; Tuning&lt;/h3&gt;
+&lt;h3 id=&#34;adapters&#34;&gt;Adapters&lt;/h3&gt;
+&lt;h3 id=&#34;zero-shot-or-in-context-learning&#34;&gt;Zero-Shot or &amp;ldquo;In-Context&amp;rdquo; Learning&lt;/h3&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Comp Linguistics] Language Modeling - Neural Architecture</title>
         <link>https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/</link>
         <pubDate>Tue, 18 Oct 2022 14:32:35 -0400</pubDate>
@@ -15,7 +230,7 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Oct 18th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on Oct 19th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 20th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
@@ -274,7 +489,113 @@ $$h_{t}=o_{t} \odot \tanh \left(c_{t}\right) $$&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;p&gt;Multi-threaded self-attention is repeating the attention process multiple times. Each KQV set can focus on a slightly different aspect of the representation.&lt;/p&gt;
 &lt;h3 id=&#34;blocks&#34;&gt;Blocks&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/TB.jpg&#34;
+	width=&#34;1690&#34;
+	height=&#34;914&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/TB_huc391e28b06d8b613b934126bcf6e40b9_84008_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/TB_huc391e28b06d8b613b934126bcf6e40b9_84008_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;A Transformer Block&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;184&#34;
+		data-flex-basis=&#34;443px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Residual Connection&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It adds input to output to help with training/vanishing gradients.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Layer Normalize&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It has the same idea of Z-score normalization.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Feedforward Layer&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It is a simple perceptron-style layer to combine everything togethrt.&lt;/p&gt;
 &lt;h3 id=&#34;positional-encoding&#34;&gt;Positional Encoding&lt;/h3&gt;
+&lt;p&gt;Transformers aren’t actually aware of the order in which words occur, becasue they are a bag of words essentially.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/PE.jpg&#34;
+	width=&#34;1224&#34;
+	height=&#34;628&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/PE_hud8e377890faa05347da7d0f37a3f43ec_76411_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/PE_hud8e377890faa05347da7d0f37a3f43ec_76411_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;A Simple Positional Encoding&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;194&#34;
+		data-flex-basis=&#34;467px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Positional encodings add an embedding representation of the &lt;strong&gt;absolute position&lt;/strong&gt; to the input word embedding. However,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Not the same as relative/order information in language&lt;/li&gt;
+&lt;li&gt;Less supervision for later positions&lt;/li&gt;
+&lt;li&gt;Hard to deal with recursive human language&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;why-is-it-a-big-deal&#34;&gt;why is it a big deal?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Attention
+&lt;ul&gt;
+&lt;li&gt;has minimal inductive bias&lt;/li&gt;
+&lt;li&gt;can learn arbitrary graph structure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Multiheadedness
+&lt;ul&gt;
+&lt;li&gt;Each &amp;ldquo;head&amp;rdquo; focuses on a different subspace of the input&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Scalability
+&lt;ul&gt;
+&lt;li&gt;At layer N, no dependency between timesteps, so it can be trained in parallel&lt;/li&gt;
+&lt;li&gt;Faster training = bigger models + more data&lt;/li&gt;
+&lt;li&gt;Allows for massive pretraining&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 </description>
         </item>

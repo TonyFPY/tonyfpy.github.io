@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on Oct 18th, 2022
-Last Modified on Oct 19th, 2022
+Last Modified on Oct 20th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  Multi-layer Perceptron  MLP doesn’t readily support long, sequential inputs MLP doesn’t consider encoding word order, essentially a BOW model.'><title>[Comp Linguistics] Language Modeling - Neural Architecture</title>
 
@@ -12,16 +12,16 @@ Last Modified on Oct 19th, 2022
 <link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Comp Linguistics] Language Modeling - Neural Architecture'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on Oct 18th, 2022
-Last Modified on Oct 19th, 2022
+Last Modified on Oct 20th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  Multi-layer Perceptron  MLP doesn’t readily support long, sequential inputs MLP doesn’t consider encoding word order, essentially a BOW model.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-10-18T14:32:35-04:00'/><meta property='article:modified_time' content='2022-10-19T16:26:55-04:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-10-18T14:32:35-04:00'/><meta property='article:modified_time' content='2022-10-20T16:21:19-04:00'/>
 <meta name="twitter:title" content="[Comp Linguistics] Language Modeling - Neural Architecture">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Oct 18th, 2022
-Last Modified on Oct 19th, 2022
+Last Modified on Oct 20th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  Multi-layer Perceptron  MLP doesn’t readily support long, sequential inputs MLP doesn’t consider encoding word order, essentially a BOW model.">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -345,7 +345,7 @@ Last Modified on Oct 19th, 2022
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    4 minute read
                 </time>
             </div>
         
@@ -362,7 +362,7 @@ Last Modified on Oct 19th, 2022
     <blockquote>
 <p>Authored by Tony Feng</p>
 <p>Created on Oct 18th, 2022</p>
-<p>Last Modified on Oct 19th, 2022</p>
+<p>Last Modified on Oct 20th, 2022</p>
 </blockquote>
 <h2 id="intro">Intro</h2>
 <p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1460 Computational Linguistics</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
@@ -621,7 +621,113 @@ $$h_{t}=o_{t} \odot \tanh \left(c_{t}\right) $$</p>
 ></p>
 <p>Multi-threaded self-attention is repeating the attention process multiple times. Each KQV set can focus on a slightly different aspect of the representation.</p>
 <h3 id="blocks">Blocks</h3>
+<p><img src="/p/comp-linguistics-language-modeling-neural-architecture/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+><img src="/p/comp-linguistics-language-modeling-neural-architecture/TB.jpg"
+	width="1690"
+	height="914"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/TB_huc391e28b06d8b613b934126bcf6e40b9_84008_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/TB_huc391e28b06d8b613b934126bcf6e40b9_84008_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="A Transformer Block"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="184"
+		data-flex-basis="443px"
+	
+><img src="/p/comp-linguistics-language-modeling-neural-architecture/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+></p>
+<p><strong>Residual Connection</strong></p>
+<p>It adds input to output to help with training/vanishing gradients.</p>
+<p><strong>Layer Normalize</strong></p>
+<p>It has the same idea of Z-score normalization.</p>
+<p><strong>Feedforward Layer</strong></p>
+<p>It is a simple perceptron-style layer to combine everything togethrt.</p>
 <h3 id="positional-encoding">Positional Encoding</h3>
+<p>Transformers aren’t actually aware of the order in which words occur, becasue they are a bag of words essentially.</p>
+<p><img src="/p/comp-linguistics-language-modeling-neural-architecture/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+><img src="/p/comp-linguistics-language-modeling-neural-architecture/PE.jpg"
+	width="1224"
+	height="628"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/PE_hud8e377890faa05347da7d0f37a3f43ec_76411_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/PE_hud8e377890faa05347da7d0f37a3f43ec_76411_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="A Simple Positional Encoding"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="194"
+		data-flex-basis="467px"
+	
+><img src="/p/comp-linguistics-language-modeling-neural-architecture/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-language-modeling-neural-architecture/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+></p>
+<p>Positional encodings add an embedding representation of the <strong>absolute position</strong> to the input word embedding. However,</p>
+<ul>
+<li>Not the same as relative/order information in language</li>
+<li>Less supervision for later positions</li>
+<li>Hard to deal with recursive human language</li>
+</ul>
+<h3 id="why-is-it-a-big-deal">why is it a big deal?</h3>
+<ul>
+<li>Attention
+<ul>
+<li>has minimal inductive bias</li>
+<li>can learn arbitrary graph structure</li>
+</ul>
+</li>
+<li>Multiheadedness
+<ul>
+<li>Each &ldquo;head&rdquo; focuses on a different subspace of the input</li>
+</ul>
+</li>
+<li>Scalability
+<ul>
+<li>At layer N, no dependency between timesteps, so it can be trained in parallel</li>
+<li>Faster training = bigger models + more data</li>
+<li>Allows for massive pretraining</li>
+</ul>
+</li>
+</ul>
 <hr>
 
 </section>
@@ -652,7 +758,7 @@ $$h_{t}=o_{t} \odot \tanh \left(c_{t}\right) $$</p>
 
 
         <span>
-            Last updated on Oct 19, 2022 16:26 EDT
+            Last updated on Oct 20, 2022 16:21 EDT
         </span>
     </section></footer>
 
@@ -825,6 +931,7 @@ $$h_{t}=o_{t} \odot \tanh \left(c_{t}\right) $$</p>
         <li><a href="#self-attention">Self Attention</a></li>
         <li><a href="#blocks">Blocks</a></li>
         <li><a href="#positional-encoding">Positional Encoding</a></li>
+        <li><a href="#why-is-it-a-big-deal">why is it a big deal?</a></li>
       </ol>
     </li>
   </ol>
