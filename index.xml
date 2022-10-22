@@ -1824,6 +1824,21 @@ M = U * D * V, where U contains word embeddings.&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&#34;trees&#34;&gt;Trees&lt;/h3&gt;
+&lt;p&gt;|25| &lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/invert-binary-tree/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;226. Invert Binary Tree&lt;/a&gt; | &lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt; | 10-21-2022 | &lt;a class=&#34;link&#34; href=&#34;https://youtu.be/OnSn2XEQ4MY&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Video&lt;/a&gt; |
+|26| &lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/maximum-depth-of-binary-tree/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;104. Maximum Depth of Binary Tree&lt;/a&gt; | &lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt; | 10-21-2022 | &lt;a class=&#34;link&#34; href=&#34;https://youtu.be/hTM3phVI6YQ&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Video&lt;/a&gt; |
+|27| &lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/same-tree/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;100. Same Tree&lt;/a&gt; | &lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt; | 10-21-2022 | &lt;a class=&#34;link&#34; href=&#34;https://youtu.be/vRbbcKXCxOw&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Video&lt;/a&gt; |
+|28| &lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/subtree-of-another-tree/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;572. Subtree of Another Tree&lt;/a&gt; | &lt;font color=#36AE7C&gt;&lt;strong&gt;Easy&lt;/strong&gt;&lt;/font&gt; | 10-21-2022 | &lt;a class=&#34;link&#34; href=&#34;https://youtu.be/E36O5SWp-LE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Video&lt;/a&gt; |
+|29| &lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;235. Lowest Common Ancestor of a Binary Search Tree&lt;/a&gt; | &lt;font color=#F8CB2E&gt;&lt;strong&gt;Medium&lt;/strong&gt;&lt;/font&gt; | 10-21-2022 | &lt;a class=&#34;link&#34; href=&#34;https://youtu.be/gs2LMfuOR9k&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Video&lt;/a&gt; |&lt;/p&gt;
 &lt;h3 id=&#34;tries&#34;&gt;Tries&lt;/h3&gt;
 &lt;h3 id=&#34;heap--priority-queue&#34;&gt;Heap &amp;amp; Priority Queue&lt;/h3&gt;
 &lt;h3 id=&#34;backtracking&#34;&gt;Backtracking&lt;/h3&gt;
