@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on Oct 20th, 2022
-Last Modified on Oct 20th, 2022
+Last Modified on Oct 25th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  What is pretraining?'><title>[Comp Linguistics] Language Modeling - Pretraining</title>
 
@@ -12,16 +12,16 @@ Last Modified on Oct 20th, 2022
 <link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Comp Linguistics] Language Modeling - Pretraining'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on Oct 20th, 2022
-Last Modified on Oct 20th, 2022
+Last Modified on Oct 25th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  What is pretraining?'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-10-20T14:28:33-04:00'/><meta property='article:modified_time' content='2022-10-20T16:28:54-04:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-10-20T14:28:33-04:00'/><meta property='article:modified_time' content='2022-10-25T15:49:44-04:00'/>
 <meta name="twitter:title" content="[Comp Linguistics] Language Modeling - Pretraining">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Oct 20th, 2022
-Last Modified on Oct 20th, 2022
+Last Modified on Oct 25th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  What is pretraining?">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -362,7 +362,7 @@ Last Modified on Oct 20th, 2022
     <blockquote>
 <p>Authored by Tony Feng</p>
 <p>Created on Oct 20th, 2022</p>
-<p>Last Modified on Oct 20th, 2022</p>
+<p>Last Modified on Oct 25th, 2022</p>
 </blockquote>
 <h2 id="intro">Intro</h2>
 <p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1460 Computational Linguistics</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
@@ -561,10 +561,27 @@ or (for the large models) <strong>prompting</strong></li>
 <hr>
 <h2 id="different-transfer-methods">Different Transfer Methods</h2>
 <h3 id="frozen">Frozen</h3>
+<p>Just pool representations and train a new classifier on top。</p>
 <h3 id="finetuning">Finetuning</h3>
+<p>Treat pretraining as a good initialization and continue to update all parameters on new tasks. Models perform better and require less data to learn the target task.</p>
 <h3 id="prompt-tuning">&ldquo;Prompt&rdquo; Tuning</h3>
+<p>Update a small number of parameters at the bottom of the network.</p>
 <h3 id="adapters">Adapters</h3>
+<p>Update a small number of parameters throughout the network.</p>
 <h3 id="zero-shot-or-in-context-learning">Zero-Shot or &ldquo;In-Context&rdquo; Learning</h3>
+<p>Cast all tasks as an instance of the task that the model was trained on (e.g., language modeling).</p>
+<ul>
+<li>Results are high variance, depending on exact wording of the prompts.</li>
+<li>Unclear what was seen during training, so hard to know how much they are truly learning and generalizing vs. parroting.</li>
+</ul>
+<hr>
+<h2 id="references">References</h2>
+<ul>
+<li><a class="link" href="https://ch3nye.top/ELMO-BERT-GPT/"  target="_blank" rel="noopener"
+    >ELMO, BERT, GPT Notes</a></li>
+<li><a class="link" href="https://www.bilibili.com/video/BV1uF411Y7F7/?spm_id_from=333.337.search-card.all.click"  target="_blank" rel="noopener"
+    >图解BERT</a></li>
+</ul>
 <hr>
 
 </section>
@@ -595,7 +612,7 @@ or (for the large models) <strong>prompting</strong></li>
 
 
         <span>
-            Last updated on Oct 20, 2022 16:28 EDT
+            Last updated on Oct 25, 2022 15:49 EDT
         </span>
     </section></footer>
 
@@ -768,6 +785,7 @@ or (for the large models) <strong>prompting</strong></li>
         <li><a href="#zero-shot-or-in-context-learning">Zero-Shot or &ldquo;In-Context&rdquo; Learning</a></li>
       </ol>
     </li>
+    <li><a href="#references">References</a></li>
   </ol>
 </nav>
         </div>

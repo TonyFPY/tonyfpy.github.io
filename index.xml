@@ -14,7 +14,7 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Oct 20th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on Oct 20th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 25th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
@@ -213,10 +213,27 @@ or (for the large models) &lt;strong&gt;prompting&lt;/strong&gt;&lt;/li&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;different-transfer-methods&#34;&gt;Different Transfer Methods&lt;/h2&gt;
 &lt;h3 id=&#34;frozen&#34;&gt;Frozen&lt;/h3&gt;
+&lt;p&gt;Just pool representations and train a new classifier on top。&lt;/p&gt;
 &lt;h3 id=&#34;finetuning&#34;&gt;Finetuning&lt;/h3&gt;
+&lt;p&gt;Treat pretraining as a good initialization and continue to update all parameters on new tasks. Models perform better and require less data to learn the target task.&lt;/p&gt;
 &lt;h3 id=&#34;prompt-tuning&#34;&gt;&amp;ldquo;Prompt&amp;rdquo; Tuning&lt;/h3&gt;
+&lt;p&gt;Update a small number of parameters at the bottom of the network.&lt;/p&gt;
 &lt;h3 id=&#34;adapters&#34;&gt;Adapters&lt;/h3&gt;
+&lt;p&gt;Update a small number of parameters throughout the network.&lt;/p&gt;
 &lt;h3 id=&#34;zero-shot-or-in-context-learning&#34;&gt;Zero-Shot or &amp;ldquo;In-Context&amp;rdquo; Learning&lt;/h3&gt;
+&lt;p&gt;Cast all tasks as an instance of the task that the model was trained on (e.g., language modeling).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Results are high variance, depending on exact wording of the prompts.&lt;/li&gt;
+&lt;li&gt;Unclear what was seen during training, so hard to know how much they are truly learning and generalizing vs. parroting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://ch3nye.top/ELMO-BERT-GPT/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ELMO, BERT, GPT Notes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1uF411Y7F7/?spm_id_from=333.337.search-card.all.click&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;图解BERT&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 </description>
         </item>
