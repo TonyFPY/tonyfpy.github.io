@@ -2,20 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tonyfpy.github.io/p/career-talk-behavioral-questions-preparation/</loc>
+    <lastmod>2022-10-26T22:35:03-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/tags/career/</loc>
+    <lastmod>2022-10-26T22:35:03-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/categories/</loc>
+    <lastmod>2022-10-26T22:35:03-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/post/</loc>
+    <lastmod>2022-10-26T22:35:03-04:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/tags/</loc>
+    <lastmod>2022-10-26T22:35:03-04:00</lastmod>
+  </url><url>
     <loc>https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/</loc>
     <lastmod>2022-10-25T15:49:44-04:00</lastmod>
   </url><url>
-    <loc>https://tonyfpy.github.io/categories/</loc>
-    <lastmod>2022-10-26T21:24:36-04:00</lastmod>
-  </url><url>
     <loc>https://tonyfpy.github.io/tags/natural-language-processing/</loc>
     <lastmod>2022-10-25T15:49:44-04:00</lastmod>
-  </url><url>
-    <loc>https://tonyfpy.github.io/post/</loc>
-    <lastmod>2022-10-26T21:24:36-04:00</lastmod>
-  </url><url>
-    <loc>https://tonyfpy.github.io/tags/</loc>
-    <lastmod>2022-10-26T21:24:36-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/comp-linguistics-language-modeling-neural-architecture/</loc>
     <lastmod>2022-10-20T16:21:19-04:00</lastmod>
@@ -28,9 +34,6 @@
   </url><url>
     <loc>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-5/</loc>
     <lastmod>2022-10-13T20:26:24-04:00</lastmod>
-  </url><url>
-    <loc>https://tonyfpy.github.io/tags/career/</loc>
-    <lastmod>2022-10-13T21:04:57-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/machine-learning/</loc>
     <lastmod>2022-10-13T21:04:57-04:00</lastmod>
@@ -51,13 +54,13 @@
     <lastmod>2022-10-07T00:29:14-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/leetcode-blind-75/</loc>
-    <lastmod>2022-10-26T21:24:36-04:00</lastmod>
+    <lastmod>2022-10-26T21:40:51-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/leetcode/</loc>
-    <lastmod>2022-10-26T21:24:36-04:00</lastmod>
+    <lastmod>2022-10-26T21:40:51-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/python/</loc>
-    <lastmod>2022-10-26T21:24:36-04:00</lastmod>
+    <lastmod>2022-10-26T21:40:51-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/machine-learning-interview-questions-part-1/</loc>
     <lastmod>2022-10-13T20:32:16-04:00</lastmod>
@@ -191,8 +194,8 @@
     <loc>https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-16-sorting/</loc>
     <lastmod>2022-05-02T09:36:06-04:00</lastmod>
   </url><url>
-    <loc>https://tonyfpy.github.io/p/career-talk-topic-1-sde-or-ds-how-can-i-choose/</loc>
-    <lastmod>2022-04-28T10:38:35-04:00</lastmod>
+    <loc>https://tonyfpy.github.io/p/career-talk-sde-or-ds-how-can-i-choose/</loc>
+    <lastmod>2022-10-26T22:04:36-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/%E5%89%91%E6%8C%87offer-day-15-searching-and-backtracking/</loc>
     <lastmod>2022-05-02T09:35:56-04:00</lastmod>
