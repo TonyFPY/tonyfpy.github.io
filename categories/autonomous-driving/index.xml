@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Autonomous Driving on Tony Feng</title>
+        <link>https://tonyfpy.github.io/categories/autonomous-driving/</link>
+        <description>Recent content in Autonomous Driving on Tony Feng</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/autonomous-driving/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[AD Fundamentals] An Overview of Baidu Apollo</title>
+        <link>https://tonyfpy.github.io/p/ad-fundamentals-an-overview-of-baidu-apollo/</link>
+        <pubDate>Sat, 29 Oct 2022 16:07:45 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/ad-fundamentals-an-overview-of-baidu-apollo/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Oct 29th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 29th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains notes from the course &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.udacity.com/course/self-driving-car-fundamentals-featuring-apollo--ud0419&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Self-Driving Fundamentals: Featuring Apollo&lt;/a&gt;&lt;/strong&gt; published by &lt;strong&gt;Udacity&lt;/strong&gt; &amp;amp; &lt;strong&gt;Baidu Apollo&lt;/strong&gt;. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;what-is-self-driving&#34;&gt;What is Self-Driving?&lt;/h2&gt;
+&lt;h3 id=&#34;why-self-driving-cars&#34;&gt;Why Self-Driving Cars?&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Human&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Self-Driving Car&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;High Traffic Accident Rate&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;More Reliable Driving&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Learn to Drive From Scratch&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Learnable Driving Sys&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Parking Trouble&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;No Parking Trouble&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;levels-of-ad&#34;&gt;Levels of AD&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Level 1 (Driver Assistance)
+&lt;ul&gt;
+&lt;li&gt;Driver fully engaged&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Level 2 (Partial Automation)
+&lt;ul&gt;
+&lt;li&gt;Auto cruise control&lt;/li&gt;
+&lt;li&gt;Auto lane keeping&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Level 3 (Conditional Automation)
+&lt;ul&gt;
+&lt;li&gt;Human take over whenever necessary&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Level 4 (No Human Interference)
+&lt;ul&gt;
+&lt;li&gt;Without sterring wheel, throttle or brake&lt;/li&gt;
+&lt;li&gt;Restricted in geofence (certain areas)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Level 5 (Full Automation)
+&lt;ul&gt;
+&lt;li&gt;Better than human in all scenarios&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;how-self-driving-cars-work&#34;&gt;How Self-Driving Cars Work?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Computer Vision
+&lt;ul&gt;
+&lt;li&gt;How the car sees the world&lt;/li&gt;
+&lt;li&gt;e.g. bounding boxes, contour, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Sensor Fusion
+&lt;ul&gt;
+&lt;li&gt;How the car understands the around situtaions&lt;/li&gt;
+&lt;li&gt;e.g. distance, relative velocity, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Localization
+&lt;ul&gt;
+&lt;li&gt;How the car learns where it is&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Path Planning
+&lt;ul&gt;
+&lt;li&gt;How the car figures out where to go&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Control
+&lt;ul&gt;
+&lt;li&gt;How the car follows the path or reacts to various situations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;hardware&#34;&gt;Hardware&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Controller Area Network (CAN)
+&lt;ul&gt;
+&lt;li&gt;Vehicle&amp;rsquo;s internal communication network&lt;/li&gt;
+&lt;li&gt;Signal transmission for acceleration, braking and steering, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Global Positioning System (GPS)
+&lt;ul&gt;
+&lt;li&gt;Location&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Inertial Measurement Unit (IMU)
+&lt;ul&gt;
+&lt;li&gt;Speed, acceleration and other factors&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;LiDAR is an array of pulse lasers,
+&lt;ul&gt;
+&lt;li&gt;The reflection of this laser beams builds the point cloud for enviroment understanding.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Camera
+&lt;ul&gt;
+&lt;li&gt;Visual data capturing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Radar
+&lt;ul&gt;
+&lt;li&gt;Obstacle detection&lt;/li&gt;
+&lt;li&gt;Low resolution but economical and robust to different wheather/lighting conditions&lt;/li&gt;
+&lt;li&gt;Speed measuring of other vehicles&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;open-software-stack-apollo&#34;&gt;Open Software Stack (Apollo)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Real-time Operating Sys (ROTS)
+&lt;ul&gt;
+&lt;li&gt;It can produce timely calculations, analysis and execute decisions in a short time.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Runtime Framework
+&lt;ul&gt;
+&lt;li&gt;A customized version of Robot Operating System (ROS)&lt;/li&gt;
+&lt;li&gt;Modules are independent.&lt;/li&gt;
+&lt;li&gt;Shared memory for decentralization and data comparability (Protobuf)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Application modules
+&lt;ul&gt;
+&lt;li&gt;MAP engine&lt;/li&gt;
+&lt;li&gt;Localization, Perception, Planning, Control,&lt;/li&gt;
+&lt;li&gt;End-to-end driving&lt;/li&gt;
+&lt;li&gt;Human-machine interface (HMI)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;cloud-service&#34;&gt;Cloud Service&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Data Storage&lt;/li&gt;
+&lt;li&gt;Multiple Tools
+&lt;ul&gt;
+&lt;li&gt;HD map&lt;/li&gt;
+&lt;li&gt;Simulation&lt;/li&gt;
+&lt;li&gt;Data platform&lt;/li&gt;
+&lt;li&gt;Security&lt;/li&gt;
+&lt;li&gt;Over-the-air software updates (OTA)&lt;/li&gt;
+&lt;li&gt;Intelligent voice system (DuerOS)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
