@@ -46,7 +46,7 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;apollo-hd-maps&#34;&gt;Apollo HD Maps&lt;/h2&gt;
-&lt;h3 id=&#34;road-definitions-from-apollo-hd-maps&#34;&gt;Road definitions from Apollo HD Maps&lt;/h3&gt;
+&lt;h3 id=&#34;road-definitions&#34;&gt;Road Definitions&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/AHDM.jpg&#34;
 	width=&#34;1000&#34;
 	height=&#34;482&#34;
@@ -59,7 +59,7 @@
 		data-flex-basis=&#34;497px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;standard-opendrive-vs-apollo-opendrive&#34;&gt;Standard OpenDRIVE vs. Apollo OpenDRIVE&lt;/h3&gt;
+&lt;h3 id=&#34;standard-vs-apollo-opendrive&#34;&gt;Standard vs. Apollo OpenDRIVE&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -92,7 +92,7 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;apollo-hd-maps-construction&#34;&gt;Apollo HD Maps Construction&lt;/h2&gt;
+&lt;h2 id=&#34;hd-maps-construction&#34;&gt;HD Maps Construction&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Data Sourcing
 &lt;ul&gt;
@@ -264,7 +264,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;open-software-stack-apollo&#34;&gt;Open Software Stack (Apollo)&lt;/h2&gt;
+&lt;h2 id=&#34;open-software-stack&#34;&gt;Open Software Stack&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Real-time Operating Sys (ROTS)
 &lt;ul&gt;
