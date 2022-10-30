@@ -6,6 +6,127 @@
         <description>Recent content in Autonomous Driving on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/autonomous-driving/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[AD Fundamentals] High-Definition map Maps</title>
+        <link>https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/</link>
+        <pubDate>Sat, 29 Oct 2022 20:32:50 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Oct 29th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 29th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains notes from the course &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.udacity.com/course/self-driving-car-fundamentals-featuring-apollo--ud0419&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Self-Driving Fundamentals: Featuring Apollo&lt;/a&gt;&lt;/strong&gt; published by &lt;strong&gt;Udacity&lt;/strong&gt; &amp;amp; &lt;strong&gt;Baidu Apollo&lt;/strong&gt;. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;hd-maps&#34;&gt;HD Maps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Accurate 3D representation of the road network
+&lt;ul&gt;
+&lt;li&gt;e.g. layout of intersections, locations of signposts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Semantic info
+&lt;ul&gt;
+&lt;li&gt;e.g. traffic light, speed limit, lane rules&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Centimeter-level precision
+&lt;ul&gt;
+&lt;li&gt;Avoid collision, traffic blocking&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;localization-with-hd-maps&#34;&gt;Localization with HD Maps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Comparisons between observed data and data in the HD map&lt;/li&gt;
+&lt;li&gt;Preprocessing, coordinate transformation, data fusion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;apollo-hd-maps&#34;&gt;Apollo HD Maps&lt;/h2&gt;
+&lt;h3 id=&#34;road-definitions-from-apollo-hd-maps&#34;&gt;Road definitions from Apollo HD Maps&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/AHDM.jpg&#34;
+	width=&#34;1000&#34;
+	height=&#34;482&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/AHDM_hu22a08059939e36906b453b9b84a406a1_68883_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/AHDM_hu22a08059939e36906b453b9b84a406a1_68883_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;207&#34;
+		data-flex-basis=&#34;497px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;standard-opendrive-vs-apollo-opendrive&#34;&gt;Standard OpenDRIVE vs. Apollo OpenDRIVE&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Main Difference&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Standard OpenDRIVE&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Apollo OpenDRIVE&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Application Scenario&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Simulation scenarios&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Real-world scenes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Elemental Form Expression&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Reference line&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Absolute coordinate sequences&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Elemental Richness&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Common elements&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;More expressions and attributes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Adaptive Driverless Algorithm&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;N/A&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Integrate Baidu’s driverless experience&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;apollo-hd-maps-construction&#34;&gt;Apollo HD Maps Construction&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Data Sourcing
+&lt;ul&gt;
+&lt;li&gt;Survey vehicle with GPS, IMU, Antenna, LiDAR, Camera&lt;/li&gt;
+&lt;li&gt;Crowdsourcing with mobile devices, in-car devices, connected cars, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Data Processing
+&lt;ul&gt;
+&lt;li&gt;Form an inital map template by data sorting, classfiying, cleansing&lt;/li&gt;
+&lt;li&gt;Without semantic info and annotations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Object Detection
+&lt;ul&gt;
+&lt;li&gt;Detect and classify static objects&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Manual Verification
+&lt;ul&gt;
+&lt;li&gt;Ensure the automated map creation correctly&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Map Products
+&lt;ul&gt;
+&lt;li&gt;Top-down view localication maps&lt;/li&gt;
+&lt;li&gt;3D point cloud maps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[AD Fundamentals] An Overview of Baidu Apollo</title>
         <link>https://tonyfpy.github.io/p/ad-fundamentals-an-overview-of-baidu-apollo/</link>
         <pubDate>Sat, 29 Oct 2022 16:07:45 -0400</pubDate>
