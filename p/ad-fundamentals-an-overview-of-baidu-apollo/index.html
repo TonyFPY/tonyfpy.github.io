@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on Oct 29th, 2022
-Last Modified on Oct 29th, 2022
+Last Modified on Oct 30th, 2022
  Intro This sereis of posts contains notes from the course Self-Driving Fundamentals: Featuring Apollo published by Udacity &amp;amp; Baidu Apollo. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  What is Self-Driving?'><title>[AD Fundamentals] An Overview of Baidu Apollo</title>
 
@@ -12,16 +12,16 @@ Last Modified on Oct 29th, 2022
 <link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[AD Fundamentals] An Overview of Baidu Apollo'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on Oct 29th, 2022
-Last Modified on Oct 29th, 2022
+Last Modified on Oct 30th, 2022
  Intro This sereis of posts contains notes from the course Self-Driving Fundamentals: Featuring Apollo published by Udacity &amp;amp; Baidu Apollo. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  What is Self-Driving?'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/ad-fundamentals-an-overview-of-baidu-apollo/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Autonomous Driving' /><meta property='article:published_time' content='2022-10-29T16:07:45-04:00'/><meta property='article:modified_time' content='2022-10-29T23:42:05-04:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Autonomous Driving' /><meta property='article:published_time' content='2022-10-29T16:07:45-04:00'/><meta property='article:modified_time' content='2022-10-30T17:48:08-04:00'/>
 <meta name="twitter:title" content="[AD Fundamentals] An Overview of Baidu Apollo">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Oct 29th, 2022
-Last Modified on Oct 29th, 2022
+Last Modified on Oct 30th, 2022
  Intro This sereis of posts contains notes from the course Self-Driving Fundamentals: Featuring Apollo published by Udacity &amp;amp; Baidu Apollo. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  What is Self-Driving?">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -362,7 +362,7 @@ Last Modified on Oct 29th, 2022
     <blockquote>
 <p>Authored by Tony Feng</p>
 <p>Created on Oct 29th, 2022</p>
-<p>Last Modified on Oct 29th, 2022</p>
+<p>Last Modified on Oct 30th, 2022</p>
 </blockquote>
 <h2 id="intro">Intro</h2>
 <p>This sereis of posts contains notes from the course <strong><a class="link" href="https://www.udacity.com/course/self-driving-car-fundamentals-featuring-apollo--ud0419"  target="_blank" rel="noopener"
@@ -424,6 +424,7 @@ Last Modified on Oct 29th, 2022
 </ul>
 <hr>
 <h2 id="how-self-driving-cars-work">How Self-Driving Cars Work?</h2>
+<h3 id="key-components">Key Components</h3>
 <ul>
 <li>Computer Vision
 <ul>
@@ -453,6 +454,42 @@ Last Modified on Oct 29th, 2022
 </ul>
 </li>
 </ul>
+<h3 id="apollo-structure">Apollo Structure</h3>
+<p>Apollo’s system centers around HD Maps and Localization. The other components of the system revolve around Perception, Prediction, Planning and Control.</p>
+<p><img src="/p/ad-fundamentals-an-overview-of-baidu-apollo/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/ad-fundamentals-an-overview-of-baidu-apollo/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-an-overview-of-baidu-apollo/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+><img src="/p/ad-fundamentals-an-overview-of-baidu-apollo/apollo-structure.jpg"
+	width="1153"
+	height="759"
+	srcset="/p/ad-fundamentals-an-overview-of-baidu-apollo/apollo-structure_huf49d23a28b0baffc3fbc142237b37f34_48159_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-an-overview-of-baidu-apollo/apollo-structure_huf49d23a28b0baffc3fbc142237b37f34_48159_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="151"
+		data-flex-basis="364px"
+	
+><img src="/p/ad-fundamentals-an-overview-of-baidu-apollo/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/ad-fundamentals-an-overview-of-baidu-apollo/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-an-overview-of-baidu-apollo/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+></p>
 <hr>
 <h2 id="hardware">Hardware</h2>
 <ul>
@@ -559,7 +596,7 @@ Last Modified on Oct 29th, 2022
 
 
         <span>
-            Last updated on Oct 29, 2022 23:42 EDT
+            Last updated on Oct 30, 2022 17:48 EDT
         </span>
     </section></footer>
 
@@ -718,7 +755,12 @@ Last Modified on Oct 29th, 2022
         <li><a href="#levels-of-ad">Levels of AD</a></li>
       </ol>
     </li>
-    <li><a href="#how-self-driving-cars-work">How Self-Driving Cars Work?</a></li>
+    <li><a href="#how-self-driving-cars-work">How Self-Driving Cars Work?</a>
+      <ol>
+        <li><a href="#key-components">Key Components</a></li>
+        <li><a href="#apollo-structure">Apollo Structure</a></li>
+      </ol>
+    </li>
     <li><a href="#hardware">Hardware</a></li>
     <li><a href="#open-software-stack">Open Software Stack</a></li>
     <li><a href="#cloud-service">Cloud Service</a></li>

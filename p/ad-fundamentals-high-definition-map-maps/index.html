@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on Oct 29th, 2022
-Last Modified on Oct 29th, 2022
+Last Modified on Oct 30th, 2022
  Intro This sereis of posts contains notes from the course Self-Driving Fundamentals: Featuring Apollo published by Udacity &amp;amp; Baidu Apollo. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  HD Maps  Accurate 3D representation of the road network  e.'><title>[AD Fundamentals] High-Definition map Maps</title>
 
@@ -12,16 +12,16 @@ Last Modified on Oct 29th, 2022
 <link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[AD Fundamentals] High-Definition map Maps'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on Oct 29th, 2022
-Last Modified on Oct 29th, 2022
+Last Modified on Oct 30th, 2022
  Intro This sereis of posts contains notes from the course Self-Driving Fundamentals: Featuring Apollo published by Udacity &amp;amp; Baidu Apollo. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  HD Maps  Accurate 3D representation of the road network  e.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Autonomous Driving' /><meta property='article:published_time' content='2022-10-29T20:32:50-04:00'/><meta property='article:modified_time' content='2022-10-29T23:42:43-04:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Autonomous Driving' /><meta property='article:published_time' content='2022-10-29T20:32:50-04:00'/><meta property='article:modified_time' content='2022-10-30T23:48:55-04:00'/>
 <meta name="twitter:title" content="[AD Fundamentals] High-Definition map Maps">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Oct 29th, 2022
-Last Modified on Oct 29th, 2022
+Last Modified on Oct 30th, 2022
  Intro This sereis of posts contains notes from the course Self-Driving Fundamentals: Featuring Apollo published by Udacity &amp;amp; Baidu Apollo. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  HD Maps  Accurate 3D representation of the road network  e.">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -362,7 +362,7 @@ Last Modified on Oct 29th, 2022
     <blockquote>
 <p>Authored by Tony Feng</p>
 <p>Created on Oct 29th, 2022</p>
-<p>Last Modified on Oct 29th, 2022</p>
+<p>Last Modified on Oct 30th, 2022</p>
 </blockquote>
 <h2 id="intro">Intro</h2>
 <p>This sereis of posts contains notes from the course <strong><a class="link" href="https://www.udacity.com/course/self-driving-car-fundamentals-featuring-apollo--ud0419"  target="_blank" rel="noopener"
@@ -380,22 +380,56 @@ Last Modified on Oct 29th, 2022
 <li>e.g. traffic light, speed limit, lane rules</li>
 </ul>
 </li>
-<li>Centimeter-level precision
+<li>3D model of the city
 <ul>
-<li>Avoid collision, traffic blocking</li>
+<li>e.g. roads, buildings, tunnels</li>
 </ul>
 </li>
 </ul>
 <hr>
-<h2 id="localization-with-hd-maps">Localization with HD Maps</h2>
+<h2 id="localization-percpeption-and-planning">Localization, Percpeption and Planning</h2>
+<h3 id="localization-with-hd-maps">Localization with HD Maps</h3>
 <ul>
 <li>Comparisons between observed data and data in the HD map</li>
 <li>Preprocessing, coordinate transformation, data fusion</li>
 </ul>
+<h3 id="perception-with-hd-maps">Perception with HD Maps</h3>
+<ul>
+<li>HD maps help the car&rsquo;s next decions.
+<ul>
+<li>Sensors have limits in different situations</li>
+<li>Camera is affected by bad whether and dark environment.</li>
+<li>Other sensors may not detect what is behind the obstacle.</li>
+</ul>
+</li>
+<li>HD maps can narrow the detection scope.
+<ul>
+<li>Region of Interest (ROI) helps improve speed and accuracy.</li>
+<li>Region of Interest (ROI) helps to save the computation resources.</li>
+</ul>
+</li>
+</ul>
+<h3 id="planning-with-hd-maps">Planning with HD Maps</h3>
+<ul>
+<li>HD Maps help to find suitable driving space.</li>
+<li>HD Maps help to identify different possible routing options and find best maneuver.</li>
+<li>HD Maps help to forecast future locations for other vehicles on the road.</li>
+</ul>
 <hr>
 <h2 id="apollo-hd-maps">Apollo HD Maps</h2>
 <h3 id="road-definitions">Road Definitions</h3>
-<p><img src="/p/ad-fundamentals-high-definition-map-maps/AHDM.jpg"
+<p><img src="/p/ad-fundamentals-high-definition-map-maps/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/ad-fundamentals-high-definition-map-maps/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-high-definition-map-maps/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+><img src="/p/ad-fundamentals-high-definition-map-maps/AHDM.jpg"
 	width="1000"
 	height="482"
 	srcset="/p/ad-fundamentals-high-definition-map-maps/AHDM_hu22a08059939e36906b453b9b84a406a1_68883_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-high-definition-map-maps/AHDM_hu22a08059939e36906b453b9b84a406a1_68883_1024x0_resize_q75_box.jpg 1024w"
@@ -405,6 +439,17 @@ Last Modified on Oct 29th, 2022
 		class="gallery-image" 
 		data-flex-grow="207"
 		data-flex-basis="497px"
+	
+><img src="/p/ad-fundamentals-high-definition-map-maps/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/ad-fundamentals-high-definition-map-maps/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-high-definition-map-maps/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
 	
 ></p>
 <h3 id="standard-vs-apollo-opendrive">Standard vs. Apollo OpenDRIVE</h3>
@@ -501,7 +546,7 @@ Last Modified on Oct 29th, 2022
 
 
         <span>
-            Last updated on Oct 29, 2022 23:42 EDT
+            Last updated on Oct 30, 2022 23:48 EDT
         </span>
     </section></footer>
 
@@ -655,7 +700,13 @@ Last Modified on Oct 29th, 2022
   <ol>
     <li><a href="#intro">Intro</a></li>
     <li><a href="#hd-maps">HD Maps</a></li>
-    <li><a href="#localization-with-hd-maps">Localization with HD Maps</a></li>
+    <li><a href="#localization-percpeption-and-planning">Localization, Percpeption and Planning</a>
+      <ol>
+        <li><a href="#localization-with-hd-maps">Localization with HD Maps</a></li>
+        <li><a href="#perception-with-hd-maps">Perception with HD Maps</a></li>
+        <li><a href="#planning-with-hd-maps">Planning with HD Maps</a></li>
+      </ol>
+    </li>
     <li><a href="#apollo-hd-maps">Apollo HD Maps</a>
       <ol>
         <li><a href="#road-definitions">Road Definitions</a></li>

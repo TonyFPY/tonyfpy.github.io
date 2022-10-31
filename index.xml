@@ -6,6 +6,141 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[AD Fundamentals] Localization</title>
+        <link>https://tonyfpy.github.io/p/ad-fundamentals-localization/</link>
+        <pubDate>Sun, 30 Oct 2022 16:02:49 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/ad-fundamentals-localization/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Oct 30th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 30th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains notes from the course &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.udacity.com/course/self-driving-car-fundamentals-featuring-apollo--ud0419&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Self-Driving Fundamentals: Featuring Apollo&lt;/a&gt;&lt;/strong&gt; published by &lt;strong&gt;Udacity&lt;/strong&gt; &amp;amp; &lt;strong&gt;Baidu Apollo&lt;/strong&gt;. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;intro-to-localization&#34;&gt;Intro to Localization&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;It makes the car know where it is.&lt;/li&gt;
+&lt;li&gt;It compares the data observed from vehicle sensors and the data on the HD map to match its position.&lt;/li&gt;
+&lt;li&gt;Vehicle coordinate frame $\Longleftrightarrow$ data transformation $\Longleftrightarrow$ map coordinate frame&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/coordinate.jpg&#34;
+	width=&#34;1124&#34;
+	height=&#34;620&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/coordinate_hud65c133f53f97bea3199aa4d5cf15836_53896_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-localization/coordinate_hud65c133f53f97bea3199aa4d5cf15836_53896_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;181&#34;
+		data-flex-basis=&#34;435px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;gnss-rtk&#34;&gt;GNSS RTK&lt;/h2&gt;
+&lt;p&gt;A GPS receiver capable of &lt;strong&gt;Real-time kinematic positioning&lt;/strong&gt; (RTK) takes in the normal signals from the &lt;strong&gt;Global Navigation Satellite Systems&lt;/strong&gt; (GNSS) along with a correction stream to achieve centimeter-level positional accuracy.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/RTK.jpg&#34;
+	width=&#34;1124&#34;
+	height=&#34;624&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/RTK_hu9b0f5e0b1fbe0139b3c8fa1bd3a56686_38300_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-localization/RTK_hu9b0f5e0b1fbe0139b3c8fa1bd3a56686_38300_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;180&#34;
+		data-flex-basis=&#34;432px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;triangulation&#34;&gt;Triangulation&lt;/h3&gt;
+&lt;p&gt;Triangulation is a method for calculating a position that relies on a known &lt;strong&gt;distance&lt;/strong&gt; between &lt;strong&gt;two&lt;/strong&gt; measuring apparatuses and the measured &lt;strong&gt;angles&lt;/strong&gt; from those two points to an object. This works using the angle-side-angle triangle congruency theorem to the find the location of an object.&lt;/p&gt;
+&lt;h3 id=&#34;trilateration&#34;&gt;Trilateration&lt;/h3&gt;
+&lt;p&gt;Trilateration is the more common method for position calculations. Trilateration uses the known &lt;strong&gt;distance&lt;/strong&gt; from at least &lt;strong&gt;three fixed points in 2D space&lt;/strong&gt; or &lt;strong&gt;four fixed points in 3D space&lt;/strong&gt; (as if on the surface of the Earth) to calculate the position of an object. Trilateration works by finding the intersection of a series of circles (imagine in a Venn diagram).&lt;/p&gt;
+&lt;h3 id=&#34;global-positioning-system-gps&#34;&gt;Global Positioning System (GPS)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Components&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Satellite&lt;/li&gt;
+&lt;li&gt;Control Stations
+&lt;ul&gt;
+&lt;li&gt;It keeps the system running and verify the accuracy of the signals.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;GPS receiver
+&lt;ul&gt;
+&lt;li&gt;It exists in mobile phones, computers, cars, etc.&lt;/li&gt;
+&lt;li&gt;It shoud be able to detect &amp;gt;= 4 GPS satellites at one under appropriate environment.&lt;/li&gt;
+&lt;li&gt;It uses &lt;strong&gt;time of fight&lt;/strong&gt; (ToF) to measure the distance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Pros &amp;amp; Cons&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Accurate with RTK&lt;/li&gt;
+&lt;li&gt;Poor performance in urban area and canyons&lt;/li&gt;
+&lt;li&gt;Low frequency update&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;inertial-navigation&#34;&gt;Inertial Navigation&lt;/h2&gt;
+&lt;h3 id=&#34;basic-idea&#34;&gt;Basic Idea&lt;/h3&gt;
+&lt;p&gt;Acceleration, initial velocity, initial position could be used to calculate the velocity and location of the car.&lt;/p&gt;
+&lt;h3 id=&#34;inertial-measurement-unit-imu&#34;&gt;Inertial Measurement Unit (IMU)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Components&lt;/strong&gt;
+- Accelerometer
+- Gyroscope
+&lt;strong&gt;Pros &amp;amp; Cons&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;High frequncy update&lt;/li&gt;
+&lt;li&gt;Motion error increases with time&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[AD Fundamentals] High-Definition map Maps</title>
         <link>https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/</link>
         <pubDate>Sat, 29 Oct 2022 20:32:50 -0400</pubDate>
@@ -14,7 +149,7 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Oct 29th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on Oct 29th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 30th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;This sereis of posts contains notes from the course &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.udacity.com/course/self-driving-car-fundamentals-featuring-apollo--ud0419&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -32,22 +167,56 @@
 &lt;li&gt;e.g. traffic light, speed limit, lane rules&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Centimeter-level precision
+&lt;li&gt;3D model of the city
 &lt;ul&gt;
-&lt;li&gt;Avoid collision, traffic blocking&lt;/li&gt;
+&lt;li&gt;e.g. roads, buildings, tunnels&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;localization-with-hd-maps&#34;&gt;Localization with HD Maps&lt;/h2&gt;
+&lt;h2 id=&#34;localization-percpeption-and-planning&#34;&gt;Localization, Percpeption and Planning&lt;/h2&gt;
+&lt;h3 id=&#34;localization-with-hd-maps&#34;&gt;Localization with HD Maps&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Comparisons between observed data and data in the HD map&lt;/li&gt;
 &lt;li&gt;Preprocessing, coordinate transformation, data fusion&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;perception-with-hd-maps&#34;&gt;Perception with HD Maps&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;HD maps help the car&amp;rsquo;s next decions.
+&lt;ul&gt;
+&lt;li&gt;Sensors have limits in different situations&lt;/li&gt;
+&lt;li&gt;Camera is affected by bad whether and dark environment.&lt;/li&gt;
+&lt;li&gt;Other sensors may not detect what is behind the obstacle.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HD maps can narrow the detection scope.
+&lt;ul&gt;
+&lt;li&gt;Region of Interest (ROI) helps improve speed and accuracy.&lt;/li&gt;
+&lt;li&gt;Region of Interest (ROI) helps to save the computation resources.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;planning-with-hd-maps&#34;&gt;Planning with HD Maps&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;HD Maps help to find suitable driving space.&lt;/li&gt;
+&lt;li&gt;HD Maps help to identify different possible routing options and find best maneuver.&lt;/li&gt;
+&lt;li&gt;HD Maps help to forecast future locations for other vehicles on the road.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;apollo-hd-maps&#34;&gt;Apollo HD Maps&lt;/h2&gt;
 &lt;h3 id=&#34;road-definitions&#34;&gt;Road Definitions&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/AHDM.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/AHDM.jpg&#34;
 	width=&#34;1000&#34;
 	height=&#34;482&#34;
 	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/AHDM_hu22a08059939e36906b453b9b84a406a1_68883_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/AHDM_hu22a08059939e36906b453b9b84a406a1_68883_1024x0_resize_q75_box.jpg 1024w&#34;
@@ -57,6 +226,17 @@
 		class=&#34;gallery-image&#34; 
 		data-flex-grow=&#34;207&#34;
 		data-flex-basis=&#34;497px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-high-definition-map-maps/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;standard-vs-apollo-opendrive&#34;&gt;Standard vs. Apollo OpenDRIVE&lt;/h3&gt;
@@ -135,7 +315,7 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Oct 29th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on Oct 29th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Oct 30th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;This sereis of posts contains notes from the course &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.udacity.com/course/self-driving-car-fundamentals-featuring-apollo--ud0419&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -197,6 +377,7 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;how-self-driving-cars-work&#34;&gt;How Self-Driving Cars Work?&lt;/h2&gt;
+&lt;h3 id=&#34;key-components&#34;&gt;Key Components&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Computer Vision
 &lt;ul&gt;
@@ -226,6 +407,42 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;apollo-structure&#34;&gt;Apollo Structure&lt;/h3&gt;
+&lt;p&gt;Apollo’s system centers around HD Maps and Localization. The other components of the system revolve around Perception, Prediction, Planning and Control.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-an-overview-of-baidu-apollo/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-an-overview-of-baidu-apollo/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-an-overview-of-baidu-apollo/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-an-overview-of-baidu-apollo/apollo-structure.jpg&#34;
+	width=&#34;1153&#34;
+	height=&#34;759&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-an-overview-of-baidu-apollo/apollo-structure_huf49d23a28b0baffc3fbc142237b37f34_48159_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-an-overview-of-baidu-apollo/apollo-structure_huf49d23a28b0baffc3fbc142237b37f34_48159_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;151&#34;
+		data-flex-basis=&#34;364px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-an-overview-of-baidu-apollo/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-an-overview-of-baidu-apollo/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-an-overview-of-baidu-apollo/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;hardware&#34;&gt;Hardware&lt;/h2&gt;
 &lt;ul&gt;
