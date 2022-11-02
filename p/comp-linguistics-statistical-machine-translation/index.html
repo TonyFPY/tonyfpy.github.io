@@ -17,7 +17,7 @@ Last Modified on Nov 1st, 2022
  Language Diversity and Challenges  Perfect translation is not possible Morphology  Isolating vs.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-statistical-machine-translation/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-11-01T14:34:47-04:00'/><meta property='article:modified_time' content='2022-11-01T15:41:48-04:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-11-01T14:34:47-04:00'/><meta property='article:modified_time' content='2022-11-02T00:25:15-04:00'/>
 <meta name="twitter:title" content="[Comp Linguistics] Statistical Machine Translation">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Nov 1st, 2022
@@ -345,7 +345,7 @@ Last Modified on Nov 1st, 2022
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -388,22 +388,92 @@ Last Modified on Nov 1st, 2022
 </ul>
 <hr>
 <h2 id="noisy-channel-models-for-smt">Noisy Channel Models for SMT</h2>
-<h3 id="noisy-channel-models">Noisy Channel Models</h3>
+<h3 id="noisy-channel-model">Noisy Channel Model</h3>
+<p>Consider a message sent across a noisy channel. To determine the message, you need to correct for the noise that was added.</p>
+<p>$$
+P(\operatorname{tgt} \mid \operatorname{src}) \propto P(\operatorname{src} \mid \operatorname{tgt}) P(\operatorname{tgt})
+$$</p>
+<p>,where $P(\operatorname{src} \mid \operatorname{tgt})$ is translation model and $P(\operatorname{tgt}$ is language model.</p>
 <h3 id="translation-model">Translation Model</h3>
 <h4 id="word-alignment">Word Alignment</h4>
-<p><strong>Bitext (Bilingual Parallel Corpora)</strong> is a corpus that contains translated pairs of texts.</p>
+<p><strong>Bitext / Bilingual Parallel Corpora</strong> is a corpus that contains translated pairs of texts.</p>
 <ul>
 <li>Document-level or Sentence level</li>
 <li>Word-level alignment is rare</li>
 </ul>
 <h4 id="ibm-model-1">IBM Model 1</h4>
 <p><strong>IBM Model 1</strong> is the 1st (simplest) automatic unsupervised alignment model from IBM.</p>
-<h4 id="expectation-maximization-algorithm">Expectation Maximization Algorithm</h4>
+<ul>
+<li>Choose length $L$ for source sentence</li>
+<li>Choose an alignment $A = a_1 … a_L$</li>
+<li>Generate target position $t_i$ by translating whatever source phrase is
+aligned to position $i$ in the target</li>
+<li>Find the alignment that makes each observed source word most likely
+given its aligned target word</li>
+</ul>
+<p>Dilemma:</p>
+<ul>
+<li>We want alignments so that we can figure out the probabilities of
+phrase translations</li>
+<li>To estimate those alignments, we need phrase translation probabilities</li>
+</ul>
+<h4 id="em-algorithm">EM Algorithm</h4>
+<p><strong><a class="link" href="https://www.youtube.com/watch?v=7e65vXZEv5Q"  target="_blank" rel="noopener"
+    >Expectation Maximization Algorithm</a></strong> is an optimization algorithm for generative models. It works for</p>
+<ul>
+<li>If $P(a)$, then $P(b)$ can be computed.</li>
+<li>If $P(b)$, the $P(a)$ can be computed.</li>
+</ul>
+<p>Basic idea:</p>
+<ul>
+<li>Randomly guess what $P(a)$ is</li>
+<li>Use it to compute $P(b)$</li>
+<li>Then, with your newly computed $P(b)$, recompute $P(a)$</li>
+<li>Iterate until convergence</li>
+</ul>
 <h3 id="language-model">Language Model</h3>
-<hr>
-<h2 id="language-model-decoding">Language Model Decoding</h2>
 <h3 id="greedy-search">Greedy Search</h3>
+<p>Finding best translation (e.g., arg-maxing $P(s|t)P(t)$) is just a search
+problem!</p>
+<ul>
+<li>Greedy Search (Just for intuition)</li>
+<li>Beam Search (more common)</li>
+</ul>
 <h3 id="beam-search">Beam Search</h3>
+<p>Finding the most optimal sequence is computationally hard, since the search space increases exponentially. Beam Search considers the <strong>top K</strong> at each time step.</p>
+<ul>
+<li>At first time step, choose k most likely words to be the initial
+&ldquo;hypotheses&rdquo;.</li>
+<li>Theb, the top $K$ best hypotheses are carried forward, (i.e., softmax over the whole vocab given each hypothesis, so $K*V$ computations)</li>
+<li>When &lt;/s&gt; is generated, the generation is output.</li>
+<li>Continue until beam is empty</li>
+</ul>
+<p>Problems:</p>
+<ul>
+<li>Heuristic and still not guaranteed to find best solution.</li>
+<li>Hard to deal with long range dependencies.</li>
+<li>Slow and memory intensive.</li>
+</ul>
+<p>In practice, we often apply sampling <strong>$K$ continuations</strong>, rather than choosing the top $K$, which is controled by a <strong>temperature</strong> parameter.</p>
+<ul>
+<li>Higher temperature = more oversampling of lower probability
+continuations (</li>
+<li>Intuition: &ldquo;flatter&rdquo; distribution</li>
+</ul>
+<p><img src="/p/comp-linguistics-statistical-machine-translation/softmax_temperature.jpg"
+	width="1207"
+	height="282"
+	srcset="/p/comp-linguistics-statistical-machine-translation/softmax_temperature_hu682d865c054f4cd4e325158e801c2f26_26789_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-statistical-machine-translation/softmax_temperature_hu682d865c054f4cd4e325158e801c2f26_26789_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="softmax with temperature"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="428"
+		data-flex-basis="1027px"
+	
+></p>
 <hr>
 
 </section>
@@ -434,7 +504,7 @@ Last Modified on Nov 1st, 2022
 
 
         <span>
-            Last updated on Nov 01, 2022 15:41 EDT
+            Last updated on Nov 02, 2022 00:25 EDT
         </span>
     </section></footer>
 
@@ -590,19 +660,15 @@ Last Modified on Nov 1st, 2022
     <li><a href="#language-diversity-and-challenges">Language Diversity and Challenges</a></li>
     <li><a href="#noisy-channel-models-for-smt">Noisy Channel Models for SMT</a>
       <ol>
-        <li><a href="#noisy-channel-models">Noisy Channel Models</a></li>
+        <li><a href="#noisy-channel-model">Noisy Channel Model</a></li>
         <li><a href="#translation-model">Translation Model</a>
           <ol>
             <li><a href="#word-alignment">Word Alignment</a></li>
             <li><a href="#ibm-model-1">IBM Model 1</a></li>
-            <li><a href="#expectation-maximization-algorithm">Expectation Maximization Algorithm</a></li>
+            <li><a href="#em-algorithm">EM Algorithm</a></li>
           </ol>
         </li>
         <li><a href="#language-model">Language Model</a></li>
-      </ol>
-    </li>
-    <li><a href="#language-model-decoding">Language Model Decoding</a>
-      <ol>
         <li><a href="#greedy-search">Greedy Search</a></li>
         <li><a href="#beam-search">Beam Search</a></li>
       </ol>

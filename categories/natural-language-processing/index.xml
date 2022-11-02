@@ -40,22 +40,92 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;noisy-channel-models-for-smt&#34;&gt;Noisy Channel Models for SMT&lt;/h2&gt;
-&lt;h3 id=&#34;noisy-channel-models&#34;&gt;Noisy Channel Models&lt;/h3&gt;
+&lt;h3 id=&#34;noisy-channel-model&#34;&gt;Noisy Channel Model&lt;/h3&gt;
+&lt;p&gt;Consider a message sent across a noisy channel. To determine the message, you need to correct for the noise that was added.&lt;/p&gt;
+&lt;p&gt;$$
+P(\operatorname{tgt} \mid \operatorname{src}) \propto P(\operatorname{src} \mid \operatorname{tgt}) P(\operatorname{tgt})
+$$&lt;/p&gt;
+&lt;p&gt;,where $P(\operatorname{src} \mid \operatorname{tgt})$ is translation model and $P(\operatorname{tgt}$ is language model.&lt;/p&gt;
 &lt;h3 id=&#34;translation-model&#34;&gt;Translation Model&lt;/h3&gt;
 &lt;h4 id=&#34;word-alignment&#34;&gt;Word Alignment&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Bitext (Bilingual Parallel Corpora)&lt;/strong&gt; is a corpus that contains translated pairs of texts.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bitext / Bilingual Parallel Corpora&lt;/strong&gt; is a corpus that contains translated pairs of texts.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Document-level or Sentence level&lt;/li&gt;
 &lt;li&gt;Word-level alignment is rare&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;ibm-model-1&#34;&gt;IBM Model 1&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;IBM Model 1&lt;/strong&gt; is the 1st (simplest) automatic unsupervised alignment model from IBM.&lt;/p&gt;
-&lt;h4 id=&#34;expectation-maximization-algorithm&#34;&gt;Expectation Maximization Algorithm&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Choose length $L$ for source sentence&lt;/li&gt;
+&lt;li&gt;Choose an alignment $A = a_1 … a_L$&lt;/li&gt;
+&lt;li&gt;Generate target position $t_i$ by translating whatever source phrase is
+aligned to position $i$ in the target&lt;/li&gt;
+&lt;li&gt;Find the alignment that makes each observed source word most likely
+given its aligned target word&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Dilemma:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We want alignments so that we can figure out the probabilities of
+phrase translations&lt;/li&gt;
+&lt;li&gt;To estimate those alignments, we need phrase translation probabilities&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;em-algorithm&#34;&gt;EM Algorithm&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=7e65vXZEv5Q&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Expectation Maximization Algorithm&lt;/a&gt;&lt;/strong&gt; is an optimization algorithm for generative models. It works for&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If $P(a)$, then $P(b)$ can be computed.&lt;/li&gt;
+&lt;li&gt;If $P(b)$, the $P(a)$ can be computed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Basic idea:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Randomly guess what $P(a)$ is&lt;/li&gt;
+&lt;li&gt;Use it to compute $P(b)$&lt;/li&gt;
+&lt;li&gt;Then, with your newly computed $P(b)$, recompute $P(a)$&lt;/li&gt;
+&lt;li&gt;Iterate until convergence&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;language-model&#34;&gt;Language Model&lt;/h3&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;language-model-decoding&#34;&gt;Language Model Decoding&lt;/h2&gt;
 &lt;h3 id=&#34;greedy-search&#34;&gt;Greedy Search&lt;/h3&gt;
+&lt;p&gt;Finding best translation (e.g., arg-maxing $P(s|t)P(t)$) is just a search
+problem!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Greedy Search (Just for intuition)&lt;/li&gt;
+&lt;li&gt;Beam Search (more common)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;beam-search&#34;&gt;Beam Search&lt;/h3&gt;
+&lt;p&gt;Finding the most optimal sequence is computationally hard, since the search space increases exponentially. Beam Search considers the &lt;strong&gt;top K&lt;/strong&gt; at each time step.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;At first time step, choose k most likely words to be the initial
+&amp;ldquo;hypotheses&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Theb, the top $K$ best hypotheses are carried forward, (i.e., softmax over the whole vocab given each hypothesis, so $K*V$ computations)&lt;/li&gt;
+&lt;li&gt;When &amp;lt;/s&amp;gt; is generated, the generation is output.&lt;/li&gt;
+&lt;li&gt;Continue until beam is empty&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Problems:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Heuristic and still not guaranteed to find best solution.&lt;/li&gt;
+&lt;li&gt;Hard to deal with long range dependencies.&lt;/li&gt;
+&lt;li&gt;Slow and memory intensive.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In practice, we often apply sampling &lt;strong&gt;$K$ continuations&lt;/strong&gt;, rather than choosing the top $K$, which is controled by a &lt;strong&gt;temperature&lt;/strong&gt; parameter.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Higher temperature = more oversampling of lower probability
+continuations (&lt;/li&gt;
+&lt;li&gt;Intuition: &amp;ldquo;flatter&amp;rdquo; distribution&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-statistical-machine-translation/softmax_temperature.jpg&#34;
+	width=&#34;1207&#34;
+	height=&#34;282&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-statistical-machine-translation/softmax_temperature_hu682d865c054f4cd4e325158e801c2f26_26789_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-statistical-machine-translation/softmax_temperature_hu682d865c054f4cd4e325158e801c2f26_26789_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;softmax with temperature&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;428&#34;
+		data-flex-basis=&#34;1027px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;hr&gt;
 </description>
         </item>
