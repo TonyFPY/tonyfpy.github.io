@@ -6,7 +6,61 @@
         <description>Recent content in Natural Language Processing on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 20 Oct 2022 14:28:33 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/natural-language-processing/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 01 Nov 2022 14:34:47 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/natural-language-processing/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Comp Linguistics] Statistical Machine Translation</title>
+        <link>https://tonyfpy.github.io/p/comp-linguistics-statistical-machine-translation/</link>
+        <pubDate>Tue, 01 Nov 2022 14:34:47 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/comp-linguistics-statistical-machine-translation/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Nov 1st, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Nov 1st, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;language-diversity-and-challenges&#34;&gt;Language Diversity and Challenges&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Perfect translation is not possible&lt;/li&gt;
+&lt;li&gt;Morphology
+&lt;ul&gt;
+&lt;li&gt;Isolating vs. polysynthetic&lt;/li&gt;
+&lt;li&gt;Agglutinative vs. fusional languages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Syntax&lt;/li&gt;
+&lt;li&gt;Agument structure and marking
+&lt;ul&gt;
+&lt;li&gt;Possession&lt;/li&gt;
+&lt;li&gt;Motion, manner&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Referential Density&lt;/li&gt;
+&lt;li&gt;Lexicon: Every language has both polysemy and redundancy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;noisy-channel-models-for-smt&#34;&gt;Noisy Channel Models for SMT&lt;/h2&gt;
+&lt;h3 id=&#34;noisy-channel-models&#34;&gt;Noisy Channel Models&lt;/h3&gt;
+&lt;h3 id=&#34;translation-model&#34;&gt;Translation Model&lt;/h3&gt;
+&lt;h4 id=&#34;word-alignment&#34;&gt;Word Alignment&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Bitext (Bilingual Parallel Corpora)&lt;/strong&gt; is a corpus that contains translated pairs of texts.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Document-level or Sentence level&lt;/li&gt;
+&lt;li&gt;Word-level alignment is rare&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;ibm-model-1&#34;&gt;IBM Model 1&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;IBM Model 1&lt;/strong&gt; is the 1st (simplest) automatic unsupervised alignment model from IBM.&lt;/p&gt;
+&lt;h4 id=&#34;expectation-maximization-algorithm&#34;&gt;Expectation Maximization Algorithm&lt;/h4&gt;
+&lt;h3 id=&#34;language-model&#34;&gt;Language Model&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;language-model-decoding&#34;&gt;Language Model Decoding&lt;/h2&gt;
+&lt;h3 id=&#34;greedy-search&#34;&gt;Greedy Search&lt;/h3&gt;
+&lt;h3 id=&#34;beam-search&#34;&gt;Beam Search&lt;/h3&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Comp Linguistics] Language Modeling - Pretraining</title>
         <link>https://tonyfpy.github.io/p/comp-linguistics-language-modeling-pretraining/</link>
         <pubDate>Thu, 20 Oct 2022 14:28:33 -0400</pubDate>
