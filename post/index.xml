@@ -110,7 +110,9 @@ problem!&lt;/p&gt;
 &lt;p&gt;In practice, we often apply sampling &lt;strong&gt;$K$ continuations&lt;/strong&gt;, rather than choosing the top $K$, which is controled by a &lt;strong&gt;temperature&lt;/strong&gt; parameter.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Higher temperature = more oversampling of lower probability
-continuations (&lt;/li&gt;
+continuations&lt;/li&gt;
+&lt;li&gt;A low temperature (below 1) makes the model more confident.&lt;/li&gt;
+&lt;li&gt;A high temperature (above 1) makes the model less confident.&lt;/li&gt;
 &lt;li&gt;Intuition: &amp;ldquo;flatter&amp;rdquo; distribution&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-statistical-machine-translation/softmax_temperature.jpg&#34;
@@ -127,6 +129,16 @@ continuations (&lt;/li&gt;
 		data-flex-basis=&#34;1027px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Reference:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=7e65vXZEv5Q&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Expectation Maximization Algorithm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://huggingface.co/blog/how-to-generate&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;How to generate text: using different decoding methods for language generation with Transformers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.kasimte.com/2020/02/14/how-does-temperature-affect-softmax-in-machine-learning.html#:~:text=What%20is%20softmax%20with%20temperature,makes%20the%20model%20less%20confident.&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;How does temperature affect softmax in machine learning?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 </description>
         </item>
