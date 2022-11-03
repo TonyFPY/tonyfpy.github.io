@@ -6,6 +6,48 @@
         <description>Recent content in Natural Language Processing on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/natural-language-processing/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Comp Linguistics] Neural Machine Translation</title>
+        <link>https://tonyfpy.github.io/p/comp-linguistics-neural-machine-translation/</link>
+        <pubDate>Thu, 03 Nov 2022 14:33:24 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/comp-linguistics-neural-machine-translation/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Nov 3rd, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Nov 3rd, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;mt-evaluation&#34;&gt;MT Evaluation&lt;/h2&gt;
+&lt;h3 id=&#34;human-evalution&#34;&gt;Human Evalution&lt;/h3&gt;
+&lt;h3 id=&#34;automatic-evaluation&#34;&gt;Automatic Evaluation&lt;/h3&gt;
+&lt;p&gt;NLP prefers automatic eval for standardization and optimization,(e.g. BLEU, ESIM, BLEURT). However, once the system is sufficiently good, metrics stop correlating with human judgements.&lt;/p&gt;
+&lt;p&gt;BLEU is short for weighted n-gram precision with a length penalty.
+MT output VS. human-provided references&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;neural-mt&#34;&gt;Neural MT&lt;/h2&gt;
+&lt;h3 id=&#34;encoder-decoder-model&#34;&gt;Encoder-Decoder Model&lt;/h3&gt;
+&lt;p&gt;It refers to &amp;ldquo;sequence to sequence (seq2seq)&amp;rdquo;.&lt;/p&gt;
+&lt;h3 id=&#34;multilingual-lm&#34;&gt;Multilingual LM&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/55365040&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;NLP度量指标BELU真的完美么？&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/qq_31584157/article/details/77709454&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;机器翻译自动评估-BLEU算法详解&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://coladrill.github.io/2018/10/20/%E6%B5%85%E8%B0%88BLEU%E8%AF%84%E5%88%86/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;浅谈BLEU评分&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://coladrill.github.io/2018/09/05/Attention%E6%9C%BA%E5%88%B6/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Attention机制&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://imzhanghao.com/2021/09/01/attention-mechanism/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Attention机制的基本思想与实现原理&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Comp Linguistics] Statistical Machine Translation</title>
         <link>https://tonyfpy.github.io/p/comp-linguistics-statistical-machine-translation/</link>
         <pubDate>Tue, 01 Nov 2022 14:34:47 -0400</pubDate>
@@ -45,7 +87,7 @@
 &lt;p&gt;$$
 P(\operatorname{tgt} \mid \operatorname{src}) \propto P(\operatorname{src} \mid \operatorname{tgt}) P(\operatorname{tgt})
 $$&lt;/p&gt;
-&lt;p&gt;,where $P(\operatorname{src} \mid \operatorname{tgt})$ is translation model and $P(\operatorname{tgt}$ is language model.&lt;/p&gt;
+&lt;p&gt;,where $P(\operatorname{src} \mid \operatorname{tgt})$ is &lt;strong&gt;translation model&lt;/strong&gt; and $P(\operatorname{tgt})$ is &lt;em&gt;&lt;strong&gt;language model&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;translation-model&#34;&gt;Translation Model&lt;/h3&gt;
 &lt;h4 id=&#34;word-alignment&#34;&gt;Word Alignment&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;Bitext / Bilingual Parallel Corpora&lt;/strong&gt; is a corpus that contains translated pairs of texts.&lt;/p&gt;

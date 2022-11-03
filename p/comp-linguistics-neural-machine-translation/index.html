@@ -2,28 +2,28 @@
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
-Created on Nov 1st, 2022
-Last Modified on Nov 1st, 2022
+Created on Nov 3rd, 2022
+Last Modified on Nov 3rd, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
- Language Diversity and Challenges  Perfect translation is not possible Morphology  Isolating vs.'><title>[Comp Linguistics] Statistical Machine Translation</title>
+ MT Evaluation Human Evalution Automatic Evaluation NLP prefers automatic eval for standardization and optimization,(e.'><title>[Comp Linguistics] Neural Machine Translation</title>
 
-<link rel='canonical' href='https://tonyfpy.github.io/p/comp-linguistics-statistical-machine-translation/'>
+<link rel='canonical' href='https://tonyfpy.github.io/p/comp-linguistics-neural-machine-translation/'>
 
-<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Comp Linguistics] Statistical Machine Translation'>
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Comp Linguistics] Neural Machine Translation'>
 <meta property='og:description' content='Authored by Tony Feng
-Created on Nov 1st, 2022
-Last Modified on Nov 1st, 2022
+Created on Nov 3rd, 2022
+Last Modified on Nov 3rd, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
- Language Diversity and Challenges  Perfect translation is not possible Morphology  Isolating vs.'>
-<meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-statistical-machine-translation/'>
+ MT Evaluation Human Evalution Automatic Evaluation NLP prefers automatic eval for standardization and optimization,(e.'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-neural-machine-translation/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-11-01T14:34:47-04:00'/><meta property='article:modified_time' content='2022-11-03T14:39:24-04:00'/>
-<meta name="twitter:title" content="[Comp Linguistics] Statistical Machine Translation">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-11-03T14:33:24-04:00'/><meta property='article:modified_time' content='2022-11-03T15:52:50-04:00'/>
+<meta name="twitter:title" content="[Comp Linguistics] Neural Machine Translation">
 <meta name="twitter:description" content="Authored by Tony Feng
-Created on Nov 1st, 2022
-Last Modified on Nov 1st, 2022
+Created on Nov 3rd, 2022
+Last Modified on Nov 3rd, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
- Language Diversity and Challenges  Perfect translation is not possible Morphology  Isolating vs.">
+ MT Evaluation Human Evalution Automatic Evaluation NLP prefers automatic eval for standardization and optimization,(e.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -311,7 +311,7 @@ Last Modified on Nov 1st, 2022
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/comp-linguistics-statistical-machine-translation/">[Comp Linguistics] Statistical Machine Translation</a>
+            <a href="/p/comp-linguistics-neural-machine-translation/">[Comp Linguistics] Neural Machine Translation</a>
         </h2>
     
         
@@ -330,7 +330,7 @@ Last Modified on Nov 1st, 2022
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Nov 01, 2022</time>
+                <time class="article-time--published">Nov 03, 2022</time>
             </div>
         
 
@@ -345,7 +345,7 @@ Last Modified on Nov 1st, 2022
 
 
                 <time class="article-time--reading">
-                    3 minute read
+                    1 minute read
                 </time>
             </div>
         
@@ -361,130 +361,36 @@ Last Modified on Nov 1st, 2022
     
     <blockquote>
 <p>Authored by Tony Feng</p>
-<p>Created on Nov 1st, 2022</p>
-<p>Last Modified on Nov 1st, 2022</p>
+<p>Created on Nov 3rd, 2022</p>
+<p>Last Modified on Nov 3rd, 2022</p>
 </blockquote>
 <h2 id="intro">Intro</h2>
 <p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1460 Computational Linguistics</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
 <hr>
-<h2 id="language-diversity-and-challenges">Language Diversity and Challenges</h2>
-<ul>
-<li>Perfect translation is not possible</li>
-<li>Morphology
-<ul>
-<li>Isolating vs. polysynthetic</li>
-<li>Agglutinative vs. fusional languages</li>
-</ul>
-</li>
-<li>Syntax</li>
-<li>Agument structure and marking
-<ul>
-<li>Possession</li>
-<li>Motion, manner</li>
-</ul>
-</li>
-<li>Referential Density</li>
-<li>Lexicon: Every language has both polysemy and redundancy</li>
-</ul>
+<h2 id="mt-evaluation">MT Evaluation</h2>
+<h3 id="human-evalution">Human Evalution</h3>
+<h3 id="automatic-evaluation">Automatic Evaluation</h3>
+<p>NLP prefers automatic eval for standardization and optimization,(e.g. BLEU, ESIM, BLEURT). However, once the system is sufficiently good, metrics stop correlating with human judgements.</p>
+<p>BLEU is short for weighted n-gram precision with a length penalty.
+MT output VS. human-provided references</p>
 <hr>
-<h2 id="noisy-channel-models-for-smt">Noisy Channel Models for SMT</h2>
-<h3 id="noisy-channel-model">Noisy Channel Model</h3>
-<p>Consider a message sent across a noisy channel. To determine the message, you need to correct for the noise that was added.</p>
-<p>$$
-P(\operatorname{tgt} \mid \operatorname{src}) \propto P(\operatorname{src} \mid \operatorname{tgt}) P(\operatorname{tgt})
-$$</p>
-<p>,where $P(\operatorname{src} \mid \operatorname{tgt})$ is <strong>translation model</strong> and $P(\operatorname{tgt})$ is <em><strong>language model</strong></em>.</p>
-<h3 id="translation-model">Translation Model</h3>
-<h4 id="word-alignment">Word Alignment</h4>
-<p><strong>Bitext / Bilingual Parallel Corpora</strong> is a corpus that contains translated pairs of texts.</p>
-<ul>
-<li>Document-level or Sentence level</li>
-<li>Word-level alignment is rare</li>
-</ul>
-<h4 id="ibm-model-1">IBM Model 1</h4>
-<p><strong>IBM Model 1</strong> is the 1st (simplest) automatic unsupervised alignment model from IBM.</p>
-<ul>
-<li>Choose length $L$ for source sentence</li>
-<li>Choose an alignment $A = a_1 … a_L$</li>
-<li>Generate target position $t_i$ by translating whatever source phrase is
-aligned to position $i$ in the target</li>
-<li>Find the alignment that makes each observed source word most likely
-given its aligned target word</li>
-</ul>
-<p>Dilemma:</p>
-<ul>
-<li>We want alignments so that we can figure out the probabilities of
-phrase translations</li>
-<li>To estimate those alignments, we need phrase translation probabilities</li>
-</ul>
-<h4 id="em-algorithm">EM Algorithm</h4>
-<p><strong><a class="link" href="https://www.youtube.com/watch?v=7e65vXZEv5Q"  target="_blank" rel="noopener"
-    >Expectation Maximization Algorithm</a></strong> is an optimization algorithm for generative models. It works for</p>
-<ul>
-<li>If $P(a)$, then $P(b)$ can be computed.</li>
-<li>If $P(b)$, the $P(a)$ can be computed.</li>
-</ul>
-<p>Basic idea:</p>
-<ul>
-<li>Randomly guess what $P(a)$ is</li>
-<li>Use it to compute $P(b)$</li>
-<li>Then, with your newly computed $P(b)$, recompute $P(a)$</li>
-<li>Iterate until convergence</li>
-</ul>
-<h3 id="language-model">Language Model</h3>
-<h3 id="greedy-search">Greedy Search</h3>
-<p>Finding best translation (e.g., arg-maxing $P(s|t)P(t)$) is just a search
-problem!</p>
-<ul>
-<li>Greedy Search (Just for intuition)</li>
-<li>Beam Search (more common)</li>
-</ul>
-<h3 id="beam-search">Beam Search</h3>
-<p>Finding the most optimal sequence is computationally hard, since the search space increases exponentially. Beam Search considers the <strong>top K</strong> at each time step.</p>
-<ul>
-<li>At first time step, choose k most likely words to be the initial
-&ldquo;hypotheses&rdquo;.</li>
-<li>Theb, the top $K$ best hypotheses are carried forward, (i.e., softmax over the whole vocab given each hypothesis, so $K*V$ computations)</li>
-<li>When &lt;/s&gt; is generated, the generation is output.</li>
-<li>Continue until beam is empty</li>
-</ul>
-<p>Problems:</p>
-<ul>
-<li>Heuristic and still not guaranteed to find best solution.</li>
-<li>Hard to deal with long range dependencies.</li>
-<li>Slow and memory intensive.</li>
-</ul>
-<p>In practice, we often apply sampling <strong>$K$ continuations</strong>, rather than choosing the top $K$, which is controled by a <strong>temperature</strong> parameter.</p>
-<ul>
-<li>Higher temperature = more oversampling of lower probability
-continuations</li>
-<li>A low temperature (below 1) makes the model more confident.</li>
-<li>A high temperature (above 1) makes the model less confident.</li>
-<li>Intuition: &ldquo;flatter&rdquo; distribution</li>
-</ul>
-<p><img src="/p/comp-linguistics-statistical-machine-translation/softmax_temperature.jpg"
-	width="1207"
-	height="282"
-	srcset="/p/comp-linguistics-statistical-machine-translation/softmax_temperature_hu682d865c054f4cd4e325158e801c2f26_26789_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-statistical-machine-translation/softmax_temperature_hu682d865c054f4cd4e325158e801c2f26_26789_1024x0_resize_q75_box.jpg 1024w"
-	loading="lazy"
-	
-		alt="softmax with temperature"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="428"
-		data-flex-basis="1027px"
-	
-></p>
+<h2 id="neural-mt">Neural MT</h2>
+<h3 id="encoder-decoder-model">Encoder-Decoder Model</h3>
+<p>It refers to &ldquo;sequence to sequence (seq2seq)&rdquo;.</p>
+<h3 id="multilingual-lm">Multilingual LM</h3>
 <hr>
-<p>Reference:</p>
+<h2 id="reference">Reference</h2>
 <ul>
-<li><a class="link" href="https://www.youtube.com/watch?v=7e65vXZEv5Q"  target="_blank" rel="noopener"
-    >Expectation Maximization Algorithm</a></li>
-<li><a class="link" href="https://huggingface.co/blog/how-to-generate"  target="_blank" rel="noopener"
-    >How to generate text: using different decoding methods for language generation with Transformers</a></li>
-<li><a class="link" href="http://www.kasimte.com/2020/02/14/how-does-temperature-affect-softmax-in-machine-learning.html#:~:text=What%20is%20softmax%20with%20temperature,makes%20the%20model%20less%20confident."  target="_blank" rel="noopener"
-    >How does temperature affect softmax in machine learning?</a></li>
+<li><a class="link" href="https://zhuanlan.zhihu.com/p/55365040"  target="_blank" rel="noopener"
+    >NLP度量指标BELU真的完美么？</a></li>
+<li><a class="link" href="https://blog.csdn.net/qq_31584157/article/details/77709454"  target="_blank" rel="noopener"
+    >机器翻译自动评估-BLEU算法详解</a></li>
+<li><a class="link" href="https://coladrill.github.io/2018/10/20/%E6%B5%85%E8%B0%88BLEU%E8%AF%84%E5%88%86/"  target="_blank" rel="noopener"
+    >浅谈BLEU评分</a></li>
+<li><a class="link" href="https://coladrill.github.io/2018/09/05/Attention%E6%9C%BA%E5%88%B6/"  target="_blank" rel="noopener"
+    >Attention机制</a></li>
+<li><a class="link" href="https://imzhanghao.com/2021/09/01/attention-mechanism/"  target="_blank" rel="noopener"
+    >Attention机制的基本思想与实现原理</a></li>
 </ul>
 <hr>
 
@@ -516,7 +422,7 @@ continuations</li>
 
 
         <span>
-            Last updated on Nov 03, 2022 14:39 EDT
+            Last updated on Nov 03, 2022 15:52 EDT
         </span>
     </section></footer>
 
@@ -669,22 +575,19 @@ continuations</li>
             <nav id="TableOfContents">
   <ol>
     <li><a href="#intro">Intro</a></li>
-    <li><a href="#language-diversity-and-challenges">Language Diversity and Challenges</a></li>
-    <li><a href="#noisy-channel-models-for-smt">Noisy Channel Models for SMT</a>
+    <li><a href="#mt-evaluation">MT Evaluation</a>
       <ol>
-        <li><a href="#noisy-channel-model">Noisy Channel Model</a></li>
-        <li><a href="#translation-model">Translation Model</a>
-          <ol>
-            <li><a href="#word-alignment">Word Alignment</a></li>
-            <li><a href="#ibm-model-1">IBM Model 1</a></li>
-            <li><a href="#em-algorithm">EM Algorithm</a></li>
-          </ol>
-        </li>
-        <li><a href="#language-model">Language Model</a></li>
-        <li><a href="#greedy-search">Greedy Search</a></li>
-        <li><a href="#beam-search">Beam Search</a></li>
+        <li><a href="#human-evalution">Human Evalution</a></li>
+        <li><a href="#automatic-evaluation">Automatic Evaluation</a></li>
       </ol>
     </li>
+    <li><a href="#neural-mt">Neural MT</a>
+      <ol>
+        <li><a href="#encoder-decoder-model">Encoder-Decoder Model</a></li>
+        <li><a href="#multilingual-lm">Multilingual LM</a></li>
+      </ol>
+    </li>
+    <li><a href="#reference">Reference</a></li>
   </ol>
 </nav>
         </div>
