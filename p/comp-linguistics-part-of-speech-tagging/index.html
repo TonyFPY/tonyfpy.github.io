@@ -2,28 +2,28 @@
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
-Created on Nov 3rd, 2022
+Created on Nov 10th, 2022
 Last Modified on Nov 10th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
- MT Evaluation Human Evalution  Explicit ratings for fluency and faithfulness Most reliable, but expensive to collect New collections are needed for each system Can’t be “hill climbed”  Automatic Evaluation  NLP prefers automatic eval for standardization and optimization.'><title>[Comp Linguistics] Neural Machine Translation</title>
+ Part of Speech Tags Sequence Labeling Tasks In linguistics, tags are descriptive to help us understand the constraints on grammar and meaning.'><title>[Comp Linguistics] Part of Speech Tagging</title>
 
-<link rel='canonical' href='https://tonyfpy.github.io/p/comp-linguistics-neural-machine-translation/'>
+<link rel='canonical' href='https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/'>
 
-<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Comp Linguistics] Neural Machine Translation'>
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Comp Linguistics] Part of Speech Tagging'>
 <meta property='og:description' content='Authored by Tony Feng
-Created on Nov 3rd, 2022
+Created on Nov 10th, 2022
 Last Modified on Nov 10th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
- MT Evaluation Human Evalution  Explicit ratings for fluency and faithfulness Most reliable, but expensive to collect New collections are needed for each system Can’t be “hill climbed”  Automatic Evaluation  NLP prefers automatic eval for standardization and optimization.'>
-<meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-neural-machine-translation/'>
+ Part of Speech Tags Sequence Labeling Tasks In linguistics, tags are descriptive to help us understand the constraints on grammar and meaning.'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-11-03T14:33:24-04:00'/><meta property='article:modified_time' content='2022-11-10T17:31:57-05:00'/>
-<meta name="twitter:title" content="[Comp Linguistics] Neural Machine Translation">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-11-10T14:26:20-05:00'/><meta property='article:modified_time' content='2022-11-10T15:45:05-05:00'/>
+<meta name="twitter:title" content="[Comp Linguistics] Part of Speech Tagging">
 <meta name="twitter:description" content="Authored by Tony Feng
-Created on Nov 3rd, 2022
+Created on Nov 10th, 2022
 Last Modified on Nov 10th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
- MT Evaluation Human Evalution  Explicit ratings for fluency and faithfulness Most reliable, but expensive to collect New collections are needed for each system Can’t be “hill climbed”  Automatic Evaluation  NLP prefers automatic eval for standardization and optimization.">
+ Part of Speech Tags Sequence Labeling Tasks In linguistics, tags are descriptive to help us understand the constraints on grammar and meaning.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -311,7 +311,7 @@ Last Modified on Nov 10th, 2022
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/comp-linguistics-neural-machine-translation/">[Comp Linguistics] Neural Machine Translation</a>
+            <a href="/p/comp-linguistics-part-of-speech-tagging/">[Comp Linguistics] Part of Speech Tagging</a>
         </h2>
     
         
@@ -330,7 +330,7 @@ Last Modified on Nov 10th, 2022
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Nov 03, 2022</time>
+                <time class="article-time--published">Nov 10, 2022</time>
             </div>
         
 
@@ -361,89 +361,58 @@ Last Modified on Nov 10th, 2022
     
     <blockquote>
 <p>Authored by Tony Feng</p>
-<p>Created on Nov 3rd, 2022</p>
+<p>Created on Nov 10th, 2022</p>
 <p>Last Modified on Nov 10th, 2022</p>
 </blockquote>
 <h2 id="intro">Intro</h2>
 <p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1460 Computational Linguistics</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
 <hr>
-<h2 id="mt-evaluation">MT Evaluation</h2>
-<h3 id="human-evalution">Human Evalution</h3>
+<h2 id="part-of-speech-tags">Part of Speech Tags</h2>
+<h3 id="sequence-labeling-tasks">Sequence Labeling Tasks</h3>
+<p>In linguistics, tags are <strong>descriptive</strong> to help us understand the constraints on grammar and meaning. In NLP, tags are used as <strong>features</strong>, which provide information that is important for understanding sentence, anticipating next words, etc.</p>
+<p><strong>POS Tagging</strong>: NOUN, VERB, ADJ, &hellip;
+<strong>Named Entity Recognition (NER)</strong>: PERSON, LOCATION, ORG, &hellip;
+<strong>Goal</strong>: Given words, predict tags</p>
+<h3 id="ambiguity">Ambiguity</h3>
 <ul>
-<li>Explicit ratings for fluency and faithfulness</li>
-<li>Most reliable, but expensive to collect</li>
-<li>New collections are needed for each system</li>
-<li>Can’t be “hill climbed”</li>
-</ul>
-<h3 id="automatic-evaluation">Automatic Evaluation</h3>
-<ul>
-<li>NLP prefers automatic eval for standardization and optimization.</li>
-<li>Popular metrics for MT: BLEU, ESIM, BLEURT.</li>
-<li>However, once the system is sufficiently good, metrics stop correlating with human judgements.</li>
-</ul>
-<h3 id="bleu">BLEU</h3>
-<p>$$
-BLEU=BP \times \exp \left(\frac{1}{N} \sum_{n=1}^{N} \log p_{n}\right)
-$$</p>
-<ul>
-<li>Assume we have an MT output (<strong>Candidate</strong>) and are comparing against multiple human-generated translations (<strong>Reference</strong>).</li>
-<li>Intuition: We should reward models for producing translations that
-contains lots of the same words/phrases as the references.</li>
-</ul>
-<p>$$
-p_{n}=\frac{\sum_{c \in \text{cand}} \sum_{ngm \in c} {count_{clip}}  (ngm)}{\sum_{c^{\prime} \in \text{cand}} \sum_{ngm^{\prime} \in c^{\prime}} \operatorname{count}\left(ngm^{\prime}\right)}
-$$</p>
-<p>$$
-BP = 1 \text{ if } c&gt;r \text{ else } e^{(1-r) / c}  \text { if } c \leq r
-$$</p>
-<p>, where $BP$ is brevity precision and $p_n$ is weighted n-gram precision.</p>
-<hr>
-<h2 id="neural-mt">Neural MT</h2>
-<h3 id="encoder-decoder-model">Encoder-Decoder Model</h3>
-<ul>
-<li>It refers to &ldquo;sequence to sequence (seq2seq)&rdquo;.</li>
-<li>Intuition
-<ul>
-<li>&ldquo;Conditional&rdquo; text generation/language modeling.</li>
-<li>The output is dependent on some input.</li>
-</ul>
-</li>
-<li>Examples
-<ul>
-<li>RNN Encoder-Decoder</li>
-<li>Transformer Encoder-Decoder</li>
-</ul>
-</li>
-<li>Many other models are inspired by this structures
-<ul>
-<li>Encoder-Decoder: Original Transformer Model (Vaswani et al, 2017)</li>
-<li>Encoder-only: BERT and variants (ALBERT, DistilBERT, RoBERTa)</li>
-<li>Decoder-only (i.e., auto-regressive): GPT</li>
-</ul>
-</li>
-</ul>
-<h3 id="multilingual-lm">Multilingual LM</h3>
-<p><strong>Cross Lingual Transfer</strong></p>
-<ul>
-<li>Goal: train on one language but work in all languages</li>
-<li>Intuition: if the model learns a good representation, it should be able to map the training it receives in one language to any other language.</li>
-<li>Requirements: unlabeled, monolingual data</li>
-<li>Better transfer for languages that are more <strong>typologivally</strong> similar and more <strong>syntactically</strong> similar.</li>
+<li>One word may have more than one possible tag.</li>
+<li>It is usually easy to tell from context.</li>
+<li>Most frequent class baseline: when ambiguous, guess the most likely tag given the training data.</li>
 </ul>
 <hr>
-<h2 id="reference">Reference</h2>
+<h2 id="markov-models">Markov Models</h2>
+<h3 id="markov-chains">Markov Chains</h3>
 <ul>
-<li><a class="link" href="https://zhuanlan.zhihu.com/p/55365040"  target="_blank" rel="noopener"
-    >NLP度量指标BELU真的完美么？</a></li>
-<li><a class="link" href="https://blog.csdn.net/qq_31584157/article/details/77709454"  target="_blank" rel="noopener"
-    >机器翻译自动评估-BLEU算法详解</a></li>
-<li><a class="link" href="https://coladrill.github.io/2018/10/20/%E6%B5%85%E8%B0%88BLEU%E8%AF%84%E5%88%86/"  target="_blank" rel="noopener"
-    >浅谈BLEU评分</a></li>
-<li><a class="link" href="https://coladrill.github.io/2018/09/05/Attention%E6%9C%BA%E5%88%B6/"  target="_blank" rel="noopener"
-    >Attention机制</a></li>
-<li><a class="link" href="https://imzhanghao.com/2021/09/01/attention-mechanism/"  target="_blank" rel="noopener"
-    >Attention机制的基本思想与实现原理</a></li>
+<li>Markov Assumption: state $t+1$ depends only on state $t$.</li>
+<li>Markov Chain is a simple model based on the assumption.</li>
+<li>Formal Def
+<ul>
+<li>Q</li>
+<li>A</li>
+<li>Pi</li>
 </ul>
+</li>
+</ul>
+<h3 id="hidden-markov-models">Hidden Markov Models</h3>
+<ul>
+<li>Hidden or Latent factors are not directly observed, but they can
+nonetheless influence events which are observed.</li>
+<li></li>
+<li>Formal Def
+<ul>
+<li>Q</li>
+<li>A</li>
+<li>Pi</li>
+<li>O</li>
+<li>B</li>
+</ul>
+</li>
+</ul>
+<p>In language, POS is latent, it is not observed. So, we can use an HMM to find the most likely POS sequence for a sentence. We can estimated by manually tagging a corpus and then counting up occurrences.</p>
+<h3 id="viterbi-decoding">Viterbi Decoding</h3>
+<p>Viterbi Algorithm is a dynamic programming algorithm for finding the most likely output sequece</p>
+<hr>
+<h2 id="conditional-random-fields">Conditional Random Fields</h2>
 <hr>
 
 </section>
@@ -474,7 +443,7 @@ $$</p>
 
 
         <span>
-            Last updated on Nov 10, 2022 17:31 EST
+            Last updated on Nov 10, 2022 15:45 EST
         </span>
     </section></footer>
 
@@ -627,20 +596,20 @@ $$</p>
             <nav id="TableOfContents">
   <ol>
     <li><a href="#intro">Intro</a></li>
-    <li><a href="#mt-evaluation">MT Evaluation</a>
+    <li><a href="#part-of-speech-tags">Part of Speech Tags</a>
       <ol>
-        <li><a href="#human-evalution">Human Evalution</a></li>
-        <li><a href="#automatic-evaluation">Automatic Evaluation</a></li>
-        <li><a href="#bleu">BLEU</a></li>
+        <li><a href="#sequence-labeling-tasks">Sequence Labeling Tasks</a></li>
+        <li><a href="#ambiguity">Ambiguity</a></li>
       </ol>
     </li>
-    <li><a href="#neural-mt">Neural MT</a>
+    <li><a href="#markov-models">Markov Models</a>
       <ol>
-        <li><a href="#encoder-decoder-model">Encoder-Decoder Model</a></li>
-        <li><a href="#multilingual-lm">Multilingual LM</a></li>
+        <li><a href="#markov-chains">Markov Chains</a></li>
+        <li><a href="#hidden-markov-models">Hidden Markov Models</a></li>
+        <li><a href="#viterbi-decoding">Viterbi Decoding</a></li>
       </ol>
     </li>
-    <li><a href="#reference">Reference</a></li>
+    <li><a href="#conditional-random-fields">Conditional Random Fields</a></li>
   </ol>
 </nav>
         </div>

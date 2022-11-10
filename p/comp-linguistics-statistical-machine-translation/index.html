@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on Nov 1st, 2022
-Last Modified on Nov 1st, 2022
+Last Modified on Nov 10th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  Language Diversity and Challenges  Perfect translation is not possible Morphology  Isolating vs.'><title>[Comp Linguistics] Statistical Machine Translation</title>
 
@@ -12,16 +12,16 @@ Last Modified on Nov 1st, 2022
 <link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Comp Linguistics] Statistical Machine Translation'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on Nov 1st, 2022
-Last Modified on Nov 1st, 2022
+Last Modified on Nov 10th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  Language Diversity and Challenges  Perfect translation is not possible Morphology  Isolating vs.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-statistical-machine-translation/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-11-01T14:34:47-04:00'/><meta property='article:modified_time' content='2022-11-03T14:39:24-04:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-11-01T14:34:47-04:00'/><meta property='article:modified_time' content='2022-11-10T16:44:33-05:00'/>
 <meta name="twitter:title" content="[Comp Linguistics] Statistical Machine Translation">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Nov 1st, 2022
-Last Modified on Nov 1st, 2022
+Last Modified on Nov 10th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1460 Computational Linguistics that I&amp;rsquo;ve taken @ Brown University. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
  Language Diversity and Challenges  Perfect translation is not possible Morphology  Isolating vs.">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -362,7 +362,7 @@ Last Modified on Nov 1st, 2022
     <blockquote>
 <p>Authored by Tony Feng</p>
 <p>Created on Nov 1st, 2022</p>
-<p>Last Modified on Nov 1st, 2022</p>
+<p>Last Modified on Nov 10th, 2022</p>
 </blockquote>
 <h2 id="intro">Intro</h2>
 <p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1460 Computational Linguistics</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
@@ -432,14 +432,14 @@ phrase translations</li>
 <li>Iterate until convergence</li>
 </ul>
 <h3 id="language-model">Language Model</h3>
-<h3 id="greedy-search">Greedy Search</h3>
+<h4 id="greedy-search">Greedy Search</h4>
 <p>Finding best translation (e.g., arg-maxing $P(s|t)P(t)$) is just a search
 problem!</p>
 <ul>
 <li>Greedy Search (Just for intuition)</li>
 <li>Beam Search (more common)</li>
 </ul>
-<h3 id="beam-search">Beam Search</h3>
+<h4 id="beam-search">Beam Search</h4>
 <p>Finding the most optimal sequence is computationally hard, since the search space increases exponentially. Beam Search considers the <strong>top K</strong> at each time step.</p>
 <ul>
 <li>At first time step, choose k most likely words to be the initial
@@ -476,6 +476,23 @@ continuations</li>
 		data-flex-basis="1027px"
 	
 ></p>
+<h2 id="full-phrase-based-mt-system">Full Phrase-Based MT System</h2>
+<p><img src="/p/comp-linguistics-statistical-machine-translation/PBMT.jpg"
+	width="738"
+	height="288"
+	srcset="/p/comp-linguistics-statistical-machine-translation/PBMT_hu55f186897c0d8e3ee66e5171f85b8615_35761_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-statistical-machine-translation/PBMT_hu55f186897c0d8e3ee66e5171f85b8615_35761_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="256"
+		data-flex-basis="615px"
+	
+>
+$$
+\operatorname{cost}(E, F)=\prod_{i \in S} \phi\left(\overline{f_{i}}, \overline{e_{i}}\right) d\left(a_{i}-b_{i-1}\right) P(E)
+$$</p>
+<p>The cost is the product of all positions in the partial sentence, including translation probability, distortion probability, and language model probability.</p>
 <hr>
 <p>Reference:</p>
 <ul>
@@ -516,7 +533,7 @@ continuations</li>
 
 
         <span>
-            Last updated on Nov 03, 2022 14:39 EDT
+            Last updated on Nov 10, 2022 16:44 EST
         </span>
     </section></footer>
 
@@ -680,11 +697,15 @@ continuations</li>
             <li><a href="#em-algorithm">EM Algorithm</a></li>
           </ol>
         </li>
-        <li><a href="#language-model">Language Model</a></li>
-        <li><a href="#greedy-search">Greedy Search</a></li>
-        <li><a href="#beam-search">Beam Search</a></li>
+        <li><a href="#language-model">Language Model</a>
+          <ol>
+            <li><a href="#greedy-search">Greedy Search</a></li>
+            <li><a href="#beam-search">Beam Search</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
+    <li><a href="#full-phrase-based-mt-system">Full Phrase-Based MT System</a></li>
   </ol>
 </nav>
         </div>

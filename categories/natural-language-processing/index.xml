@@ -6,6 +6,69 @@
         <description>Recent content in Natural Language Processing on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/natural-language-processing/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Comp Linguistics] Part of Speech Tagging</title>
+        <link>https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/</link>
+        <pubDate>Thu, 10 Nov 2022 14:26:20 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Nov 10th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Nov 10th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;part-of-speech-tags&#34;&gt;Part of Speech Tags&lt;/h2&gt;
+&lt;h3 id=&#34;sequence-labeling-tasks&#34;&gt;Sequence Labeling Tasks&lt;/h3&gt;
+&lt;p&gt;In linguistics, tags are &lt;strong&gt;descriptive&lt;/strong&gt; to help us understand the constraints on grammar and meaning. In NLP, tags are used as &lt;strong&gt;features&lt;/strong&gt;, which provide information that is important for understanding sentence, anticipating next words, etc.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;POS Tagging&lt;/strong&gt;: NOUN, VERB, ADJ, &amp;hellip;
+&lt;strong&gt;Named Entity Recognition (NER)&lt;/strong&gt;: PERSON, LOCATION, ORG, &amp;hellip;
+&lt;strong&gt;Goal&lt;/strong&gt;: Given words, predict tags&lt;/p&gt;
+&lt;h3 id=&#34;ambiguity&#34;&gt;Ambiguity&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;One word may have more than one possible tag.&lt;/li&gt;
+&lt;li&gt;It is usually easy to tell from context.&lt;/li&gt;
+&lt;li&gt;Most frequent class baseline: when ambiguous, guess the most likely tag given the training data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;markov-models&#34;&gt;Markov Models&lt;/h2&gt;
+&lt;h3 id=&#34;markov-chains&#34;&gt;Markov Chains&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Markov Assumption: state $t+1$ depends only on state $t$.&lt;/li&gt;
+&lt;li&gt;Markov Chain is a simple model based on the assumption.&lt;/li&gt;
+&lt;li&gt;Formal Def
+&lt;ul&gt;
+&lt;li&gt;Q&lt;/li&gt;
+&lt;li&gt;A&lt;/li&gt;
+&lt;li&gt;Pi&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;hidden-markov-models&#34;&gt;Hidden Markov Models&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Hidden or Latent factors are not directly observed, but they can
+nonetheless influence events which are observed.&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;Formal Def
+&lt;ul&gt;
+&lt;li&gt;Q&lt;/li&gt;
+&lt;li&gt;A&lt;/li&gt;
+&lt;li&gt;Pi&lt;/li&gt;
+&lt;li&gt;O&lt;/li&gt;
+&lt;li&gt;B&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In language, POS is latent, it is not observed. So, we can use an HMM to find the most likely POS sequence for a sentence. We can estimated by manually tagging a corpus and then counting up occurrences.&lt;/p&gt;
+&lt;h3 id=&#34;viterbi-decoding&#34;&gt;Viterbi Decoding&lt;/h3&gt;
+&lt;p&gt;Viterbi Algorithm is a dynamic programming algorithm for finding the most likely output sequece&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;conditional-random-fields&#34;&gt;Conditional Random Fields&lt;/h2&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Comp Linguistics] Neural Machine Translation</title>
         <link>https://tonyfpy.github.io/p/comp-linguistics-neural-machine-translation/</link>
         <pubDate>Thu, 03 Nov 2022 14:33:24 -0400</pubDate>
@@ -14,22 +77,74 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Nov 3rd, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on Nov 3rd, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Nov 10th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;mt-evaluation&#34;&gt;MT Evaluation&lt;/h2&gt;
 &lt;h3 id=&#34;human-evalution&#34;&gt;Human Evalution&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Explicit ratings for fluency and faithfulness&lt;/li&gt;
+&lt;li&gt;Most reliable, but expensive to collect&lt;/li&gt;
+&lt;li&gt;New collections are needed for each system&lt;/li&gt;
+&lt;li&gt;Can’t be “hill climbed”&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;automatic-evaluation&#34;&gt;Automatic Evaluation&lt;/h3&gt;
-&lt;p&gt;NLP prefers automatic eval for standardization and optimization,(e.g. BLEU, ESIM, BLEURT). However, once the system is sufficiently good, metrics stop correlating with human judgements.&lt;/p&gt;
-&lt;p&gt;BLEU is short for weighted n-gram precision with a length penalty.
-MT output VS. human-provided references&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;NLP prefers automatic eval for standardization and optimization.&lt;/li&gt;
+&lt;li&gt;Popular metrics for MT: BLEU, ESIM, BLEURT.&lt;/li&gt;
+&lt;li&gt;However, once the system is sufficiently good, metrics stop correlating with human judgements.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bleu&#34;&gt;BLEU&lt;/h3&gt;
+&lt;p&gt;$$
+BLEU=BP \times \exp \left(\frac{1}{N} \sum_{n=1}^{N} \log p_{n}\right)
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Assume we have an MT output (&lt;strong&gt;Candidate&lt;/strong&gt;) and are comparing against multiple human-generated translations (&lt;strong&gt;Reference&lt;/strong&gt;).&lt;/li&gt;
+&lt;li&gt;Intuition: We should reward models for producing translations that
+contains lots of the same words/phrases as the references.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+p_{n}=\frac{\sum_{c \in \text{cand}} \sum_{ngm \in c} {count_{clip}}  (ngm)}{\sum_{c^{\prime} \in \text{cand}} \sum_{ngm^{\prime} \in c^{\prime}} \operatorname{count}\left(ngm^{\prime}\right)}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+BP = 1 \text{ if } c&amp;gt;r \text{ else } e^{(1-r) / c}  \text { if } c \leq r
+$$&lt;/p&gt;
+&lt;p&gt;, where $BP$ is brevity precision and $p_n$ is weighted n-gram precision.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;neural-mt&#34;&gt;Neural MT&lt;/h2&gt;
 &lt;h3 id=&#34;encoder-decoder-model&#34;&gt;Encoder-Decoder Model&lt;/h3&gt;
-&lt;p&gt;It refers to &amp;ldquo;sequence to sequence (seq2seq)&amp;rdquo;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It refers to &amp;ldquo;sequence to sequence (seq2seq)&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Intuition
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Conditional&amp;rdquo; text generation/language modeling.&lt;/li&gt;
+&lt;li&gt;The output is dependent on some input.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Examples
+&lt;ul&gt;
+&lt;li&gt;RNN Encoder-Decoder&lt;/li&gt;
+&lt;li&gt;Transformer Encoder-Decoder&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Many other models are inspired by this structures
+&lt;ul&gt;
+&lt;li&gt;Encoder-Decoder: Original Transformer Model (Vaswani et al, 2017)&lt;/li&gt;
+&lt;li&gt;Encoder-only: BERT and variants (ALBERT, DistilBERT, RoBERTa)&lt;/li&gt;
+&lt;li&gt;Decoder-only (i.e., auto-regressive): GPT&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;multilingual-lm&#34;&gt;Multilingual LM&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Cross Lingual Transfer&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Goal: train on one language but work in all languages&lt;/li&gt;
+&lt;li&gt;Intuition: if the model learns a good representation, it should be able to map the training it receives in one language to any other language.&lt;/li&gt;
+&lt;li&gt;Requirements: unlabeled, monolingual data&lt;/li&gt;
+&lt;li&gt;Better transfer for languages that are more &lt;strong&gt;typologivally&lt;/strong&gt; similar and more &lt;strong&gt;syntactically&lt;/strong&gt; similar.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
 &lt;ul&gt;
@@ -56,7 +171,7 @@ MT output VS. human-provided references&lt;/p&gt;
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Nov 1st, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on Nov 1st, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Nov 10th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
@@ -126,14 +241,14 @@ phrase translations&lt;/li&gt;
 &lt;li&gt;Iterate until convergence&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;language-model&#34;&gt;Language Model&lt;/h3&gt;
-&lt;h3 id=&#34;greedy-search&#34;&gt;Greedy Search&lt;/h3&gt;
+&lt;h4 id=&#34;greedy-search&#34;&gt;Greedy Search&lt;/h4&gt;
 &lt;p&gt;Finding best translation (e.g., arg-maxing $P(s|t)P(t)$) is just a search
 problem!&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Greedy Search (Just for intuition)&lt;/li&gt;
 &lt;li&gt;Beam Search (more common)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;beam-search&#34;&gt;Beam Search&lt;/h3&gt;
+&lt;h4 id=&#34;beam-search&#34;&gt;Beam Search&lt;/h4&gt;
 &lt;p&gt;Finding the most optimal sequence is computationally hard, since the search space increases exponentially. Beam Search considers the &lt;strong&gt;top K&lt;/strong&gt; at each time step.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;At first time step, choose k most likely words to be the initial
@@ -170,6 +285,23 @@ continuations&lt;/li&gt;
 		data-flex-basis=&#34;1027px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h2 id=&#34;full-phrase-based-mt-system&#34;&gt;Full Phrase-Based MT System&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-statistical-machine-translation/PBMT.jpg&#34;
+	width=&#34;738&#34;
+	height=&#34;288&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-statistical-machine-translation/PBMT_hu55f186897c0d8e3ee66e5171f85b8615_35761_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-statistical-machine-translation/PBMT_hu55f186897c0d8e3ee66e5171f85b8615_35761_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;256&#34;
+		data-flex-basis=&#34;615px&#34;
+	
+&gt;
+$$
+\operatorname{cost}(E, F)=\prod_{i \in S} \phi\left(\overline{f_{i}}, \overline{e_{i}}\right) d\left(a_{i}-b_{i-1}\right) P(E)
+$$&lt;/p&gt;
+&lt;p&gt;The cost is the product of all positions in the partial sentence, including translation probability, distortion probability, and language model probability.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Reference:&lt;/p&gt;
 &lt;ul&gt;
