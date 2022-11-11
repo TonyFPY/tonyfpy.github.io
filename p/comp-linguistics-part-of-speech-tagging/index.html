@@ -17,7 +17,7 @@ Last Modified on Nov 10th, 2022
  Part of Speech Tags Sequence Labeling Tasks In linguistics, tags are descriptive to help us understand the constraints on grammar and meaning.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-11-10T14:26:20-05:00'/><meta property='article:modified_time' content='2022-11-10T15:45:05-05:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Natural Language Processing' /><meta property='article:published_time' content='2022-11-10T14:26:20-05:00'/><meta property='article:modified_time' content='2022-11-10T22:42:44-05:00'/>
 <meta name="twitter:title" content="[Comp Linguistics] Part of Speech Tagging">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Nov 10th, 2022
@@ -345,7 +345,7 @@ Last Modified on Nov 10th, 2022
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -370,49 +370,183 @@ Last Modified on Nov 10th, 2022
 <h2 id="part-of-speech-tags">Part of Speech Tags</h2>
 <h3 id="sequence-labeling-tasks">Sequence Labeling Tasks</h3>
 <p>In linguistics, tags are <strong>descriptive</strong> to help us understand the constraints on grammar and meaning. In NLP, tags are used as <strong>features</strong>, which provide information that is important for understanding sentence, anticipating next words, etc.</p>
-<p><strong>POS Tagging</strong>: NOUN, VERB, ADJ, &hellip;
-<strong>Named Entity Recognition (NER)</strong>: PERSON, LOCATION, ORG, &hellip;
-<strong>Goal</strong>: Given words, predict tags</p>
+<ul>
+<li><strong>POS Tagging</strong>: NOUN, VERB, ADJ, &hellip;</li>
+<li><strong>Named Entity Recognition (NER)</strong>: PERSON, LOCATION, ORG, &hellip;</li>
+<li><strong>Goal</strong>: Given words, predict tags</li>
+</ul>
 <h3 id="ambiguity">Ambiguity</h3>
 <ul>
 <li>One word may have more than one possible tag.</li>
 <li>It is usually easy to tell from context.</li>
 <li>Most frequent class baseline: when ambiguous, guess the most likely tag given the training data.</li>
 </ul>
+<p><img src="/p/comp-linguistics-part-of-speech-tagging/ambiguity.jpg"
+	width="1334"
+	height="514"
+	srcset="/p/comp-linguistics-part-of-speech-tagging/ambiguity_hue872b508020aa00334981c3ef6cf28ee_39071_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-part-of-speech-tagging/ambiguity_hue872b508020aa00334981c3ef6cf28ee_39071_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="259"
+		data-flex-basis="622px"
+	
+></p>
 <hr>
 <h2 id="markov-models">Markov Models</h2>
 <h3 id="markov-chains">Markov Chains</h3>
 <ul>
-<li>Markov Assumption: state $t+1$ depends only on state $t$.</li>
+<li>Markov Assumption: state $t+1$ depends only on state $t$.
+<ul>
+<li>$P(t+1 \mid t_0, &hellip;,t)=P(t+1 \mid t)$</li>
+<li>Similar to a bigram language model</li>
+</ul>
+</li>
 <li>Markov Chain is a simple model based on the assumption.</li>
 <li>Formal Def
 <ul>
-<li>Q</li>
-<li>A</li>
-<li>Pi</li>
+<li>$Q=\{ q_{1}, q_{2}, &hellip;, q_{N}\}$: a set of states</li>
+<li>$A=\{a_{i,j}\}$: a transition probability matrix</li>
+<li>$\pi=\{\pi_{1}, \pi_{2}, \ldots \pi_{N}\}$: an initial probability distribution over states</li>
 </ul>
 </li>
 </ul>
+<p><img src="/p/comp-linguistics-part-of-speech-tagging/white.jpg"
+	width="188"
+	height="340"
+	srcset="/p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="55"
+		data-flex-basis="132px"
+	
+><img src="/p/comp-linguistics-part-of-speech-tagging/MC.jpg"
+	width="1290"
+	height="700"
+	srcset="/p/comp-linguistics-part-of-speech-tagging/MC_hu40eb4476e9f9fb4b29e5fd37d772dfa8_106102_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-part-of-speech-tagging/MC_hu40eb4476e9f9fb4b29e5fd37d772dfa8_106102_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="184"
+		data-flex-basis="442px"
+	
+><img src="/p/comp-linguistics-part-of-speech-tagging/white.jpg"
+	width="188"
+	height="340"
+	srcset="/p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="55"
+		data-flex-basis="132px"
+	
+></p>
 <h3 id="hidden-markov-models">Hidden Markov Models</h3>
 <ul>
 <li>Hidden or Latent factors are not directly observed, but they can
-nonetheless influence events which are observed.</li>
-<li></li>
+nonetheless influence events which are observed.
+<ul>
+<li>Observed = func(Latent)</li>
+</ul>
+</li>
+<li>Two Assumptions in HMM
+<ul>
+<li><strong>Markov</strong>: $P(q_{t+1} \mid q_{0} \ldots q_{t})=P(q_{t+1} \mid q_{t})$</li>
+<li><strong>Output Independence</strong>: $P(o_t \mid o_0 \ldots o_n, q_0&hellip;q_n)=P(o_t \mid q_t)$</li>
+</ul>
+</li>
 <li>Formal Def
 <ul>
-<li>Q</li>
-<li>A</li>
-<li>Pi</li>
-<li>O</li>
-<li>B</li>
+<li>$Q=\{ q_{1}, q_{2}, &hellip;, q_{N}\}$: a set of states</li>
+<li>$A=\{a_{i,j}\}$: a transition probability matrix</li>
+<li>$\pi=\{\pi_{1}, \pi_{2}, \ldots \pi_{N}\}$: an initial</li>
+<li>$O=\{o_{1}, o_{2}, &hellip;, o_{N}\}$: a set of observations</li>
+<li>$B=\{b_{i,j}\}$: an emission probability matrix specifying probability of observation $o_j$ given state $q_i$.</li>
+<li>$\hat{q} = \text{argmax}_{Q} P(Q \mid O)$</li>
 </ul>
 </li>
 </ul>
-<p>In language, POS is latent, it is not observed. So, we can use an HMM to find the most likely POS sequence for a sentence. We can estimated by manually tagging a corpus and then counting up occurrences.</p>
+<p>To find $\hat{q}$, we can convert the problem into $\hat{q} = \text{argmax}_{Q} P(O \mid Q) P(Q)$.</p>
+<ul>
+<li>Markov (<strong>Emission</strong>): $P(Q)\approx \prod_{i=1}^{n} P\left(q_{i} \mid q_{i-1}\right)$</li>
+<li>Output Independence (<strong>Transition</strong>): $P(O \mid Q)\approx \prod_{i=1}^{n} P\left(o_{i} \mid q_{i}\right)$</li>
+</ul>
+<p><img src="/p/comp-linguistics-part-of-speech-tagging/white.jpg"
+	width="188"
+	height="340"
+	srcset="/p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="55"
+		data-flex-basis="132px"
+	
+><img src="/p/comp-linguistics-part-of-speech-tagging/HMM.jpg"
+	width="1288"
+	height="712"
+	srcset="/p/comp-linguistics-part-of-speech-tagging/HMM_hu49b520efb2e95a6ee537b02ec5b1b836_171435_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-part-of-speech-tagging/HMM_hu49b520efb2e95a6ee537b02ec5b1b836_171435_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="180"
+		data-flex-basis="434px"
+	
+><img src="/p/comp-linguistics-part-of-speech-tagging/white.jpg"
+	width="188"
+	height="340"
+	srcset="/p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="55"
+		data-flex-basis="132px"
+	
+></p>
+<p>In language, <strong>POS is latent</strong>, it is not observed. So, we can use an HMM to find the most likely POS sequence for a sentence. We can estimated by manually tagging a corpus and then counting up <strong>occurrences</strong>.</p>
 <h3 id="viterbi-decoding">Viterbi Decoding</h3>
-<p>Viterbi Algorithm is a dynamic programming algorithm for finding the most likely output sequece</p>
+<ul>
+<li>Viterbi Algorithm is used to maximize $P(o_i \mid q_i)P(q_i|q_{i-1})$.</li>
+<li>It is a dynamic programming algorithm for <strong>decoding</strong> (finding the most likely output sequece).</li>
+<li>Formal Def
+<ul>
+<li>Maintain $M$: a matrix with # of states x # of outputs</li>
+<li>$M[i][j]$ represents the probability of being in state $i$ after seeing outputs $0…j$</li>
+<li>$j$ is the current state (tag)</li>
+<li>$i$ is the previous state (tag)</li>
+<li>$t$ is current observation (word)</li>
+<li>$A$ is transition</li>
+<li>$B$ is emission</li>
+<li>$M[j][t]={max}_{i}^{n} M[i][t-1]*A[i][j]*B[j][t]$</li>
+</ul>
+</li>
+</ul>
 <hr>
 <h2 id="conditional-random-fields">Conditional Random Fields</h2>
+<ul>
+<li>HMMs struggle with unknown words.</li>
+<li>It is hard to incorporate all these features into an HMM.</li>
+<li>Using discriminative (log-linear) models to model the condition distribution directly.</li>
+</ul>
+<p><img src="/p/comp-linguistics-part-of-speech-tagging/CRF.jpg"
+	width="1292"
+	height="448"
+	srcset="/p/comp-linguistics-part-of-speech-tagging/CRF_hu49b520efb2e95a6ee537b02ec5b1b836_75238_480x0_resize_q75_box.jpg 480w, /p/comp-linguistics-part-of-speech-tagging/CRF_hu49b520efb2e95a6ee537b02ec5b1b836_75238_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="288"
+		data-flex-basis="692px"
+	
+></p>
 <hr>
 
 </section>
@@ -443,7 +577,7 @@ nonetheless influence events which are observed.</li>
 
 
         <span>
-            Last updated on Nov 10, 2022 15:45 EST
+            Last updated on Nov 10, 2022 22:42 EST
         </span>
     </section></footer>
 

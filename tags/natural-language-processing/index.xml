@@ -23,49 +23,183 @@
 &lt;h2 id=&#34;part-of-speech-tags&#34;&gt;Part of Speech Tags&lt;/h2&gt;
 &lt;h3 id=&#34;sequence-labeling-tasks&#34;&gt;Sequence Labeling Tasks&lt;/h3&gt;
 &lt;p&gt;In linguistics, tags are &lt;strong&gt;descriptive&lt;/strong&gt; to help us understand the constraints on grammar and meaning. In NLP, tags are used as &lt;strong&gt;features&lt;/strong&gt;, which provide information that is important for understanding sentence, anticipating next words, etc.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;POS Tagging&lt;/strong&gt;: NOUN, VERB, ADJ, &amp;hellip;
-&lt;strong&gt;Named Entity Recognition (NER)&lt;/strong&gt;: PERSON, LOCATION, ORG, &amp;hellip;
-&lt;strong&gt;Goal&lt;/strong&gt;: Given words, predict tags&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;POS Tagging&lt;/strong&gt;: NOUN, VERB, ADJ, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Named Entity Recognition (NER)&lt;/strong&gt;: PERSON, LOCATION, ORG, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Goal&lt;/strong&gt;: Given words, predict tags&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;ambiguity&#34;&gt;Ambiguity&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;One word may have more than one possible tag.&lt;/li&gt;
 &lt;li&gt;It is usually easy to tell from context.&lt;/li&gt;
 &lt;li&gt;Most frequent class baseline: when ambiguous, guess the most likely tag given the training data.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/ambiguity.jpg&#34;
+	width=&#34;1334&#34;
+	height=&#34;514&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/ambiguity_hue872b508020aa00334981c3ef6cf28ee_39071_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/ambiguity_hue872b508020aa00334981c3ef6cf28ee_39071_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;259&#34;
+		data-flex-basis=&#34;622px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;markov-models&#34;&gt;Markov Models&lt;/h2&gt;
 &lt;h3 id=&#34;markov-chains&#34;&gt;Markov Chains&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Markov Assumption: state $t+1$ depends only on state $t$.&lt;/li&gt;
+&lt;li&gt;Markov Assumption: state $t+1$ depends only on state $t$.
+&lt;ul&gt;
+&lt;li&gt;$P(t+1 \mid t_0, &amp;hellip;,t)=P(t+1 \mid t)$&lt;/li&gt;
+&lt;li&gt;Similar to a bigram language model&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;Markov Chain is a simple model based on the assumption.&lt;/li&gt;
 &lt;li&gt;Formal Def
 &lt;ul&gt;
-&lt;li&gt;Q&lt;/li&gt;
-&lt;li&gt;A&lt;/li&gt;
-&lt;li&gt;Pi&lt;/li&gt;
+&lt;li&gt;$Q=\{ q_{1}, q_{2}, &amp;hellip;, q_{N}\}$: a set of states&lt;/li&gt;
+&lt;li&gt;$A=\{a_{i,j}\}$: a transition probability matrix&lt;/li&gt;
+&lt;li&gt;$\pi=\{\pi_{1}, \pi_{2}, \ldots \pi_{N}\}$: an initial probability distribution over states&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;55&#34;
+		data-flex-basis=&#34;132px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/MC.jpg&#34;
+	width=&#34;1290&#34;
+	height=&#34;700&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/MC_hu40eb4476e9f9fb4b29e5fd37d772dfa8_106102_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/MC_hu40eb4476e9f9fb4b29e5fd37d772dfa8_106102_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;184&#34;
+		data-flex-basis=&#34;442px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;55&#34;
+		data-flex-basis=&#34;132px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h3 id=&#34;hidden-markov-models&#34;&gt;Hidden Markov Models&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Hidden or Latent factors are not directly observed, but they can
-nonetheless influence events which are observed.&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
+nonetheless influence events which are observed.
+&lt;ul&gt;
+&lt;li&gt;Observed = func(Latent)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Two Assumptions in HMM
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Markov&lt;/strong&gt;: $P(q_{t+1} \mid q_{0} \ldots q_{t})=P(q_{t+1} \mid q_{t})$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Output Independence&lt;/strong&gt;: $P(o_t \mid o_0 \ldots o_n, q_0&amp;hellip;q_n)=P(o_t \mid q_t)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;Formal Def
 &lt;ul&gt;
-&lt;li&gt;Q&lt;/li&gt;
-&lt;li&gt;A&lt;/li&gt;
-&lt;li&gt;Pi&lt;/li&gt;
-&lt;li&gt;O&lt;/li&gt;
-&lt;li&gt;B&lt;/li&gt;
+&lt;li&gt;$Q=\{ q_{1}, q_{2}, &amp;hellip;, q_{N}\}$: a set of states&lt;/li&gt;
+&lt;li&gt;$A=\{a_{i,j}\}$: a transition probability matrix&lt;/li&gt;
+&lt;li&gt;$\pi=\{\pi_{1}, \pi_{2}, \ldots \pi_{N}\}$: an initial&lt;/li&gt;
+&lt;li&gt;$O=\{o_{1}, o_{2}, &amp;hellip;, o_{N}\}$: a set of observations&lt;/li&gt;
+&lt;li&gt;$B=\{b_{i,j}\}$: an emission probability matrix specifying probability of observation $o_j$ given state $q_i$.&lt;/li&gt;
+&lt;li&gt;$\hat{q} = \text{argmax}_{Q} P(Q \mid O)$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;In language, POS is latent, it is not observed. So, we can use an HMM to find the most likely POS sequence for a sentence. We can estimated by manually tagging a corpus and then counting up occurrences.&lt;/p&gt;
+&lt;p&gt;To find $\hat{q}$, we can convert the problem into $\hat{q} = \text{argmax}_{Q} P(O \mid Q) P(Q)$.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Markov (&lt;strong&gt;Emission&lt;/strong&gt;): $P(Q)\approx \prod_{i=1}^{n} P\left(q_{i} \mid q_{i-1}\right)$&lt;/li&gt;
+&lt;li&gt;Output Independence (&lt;strong&gt;Transition&lt;/strong&gt;): $P(O \mid Q)\approx \prod_{i=1}^{n} P\left(o_{i} \mid q_{i}\right)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;55&#34;
+		data-flex-basis=&#34;132px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/HMM.jpg&#34;
+	width=&#34;1288&#34;
+	height=&#34;712&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/HMM_hu49b520efb2e95a6ee537b02ec5b1b836_171435_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/HMM_hu49b520efb2e95a6ee537b02ec5b1b836_171435_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;180&#34;
+		data-flex-basis=&#34;434px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;55&#34;
+		data-flex-basis=&#34;132px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;In language, &lt;strong&gt;POS is latent&lt;/strong&gt;, it is not observed. So, we can use an HMM to find the most likely POS sequence for a sentence. We can estimated by manually tagging a corpus and then counting up &lt;strong&gt;occurrences&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;viterbi-decoding&#34;&gt;Viterbi Decoding&lt;/h3&gt;
-&lt;p&gt;Viterbi Algorithm is a dynamic programming algorithm for finding the most likely output sequece&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Viterbi Algorithm is used to maximize $P(o_i \mid q_i)P(q_i|q_{i-1})$.&lt;/li&gt;
+&lt;li&gt;It is a dynamic programming algorithm for &lt;strong&gt;decoding&lt;/strong&gt; (finding the most likely output sequece).&lt;/li&gt;
+&lt;li&gt;Formal Def
+&lt;ul&gt;
+&lt;li&gt;Maintain $M$: a matrix with # of states x # of outputs&lt;/li&gt;
+&lt;li&gt;$M[i][j]$ represents the probability of being in state $i$ after seeing outputs $0…j$&lt;/li&gt;
+&lt;li&gt;$j$ is the current state (tag)&lt;/li&gt;
+&lt;li&gt;$i$ is the previous state (tag)&lt;/li&gt;
+&lt;li&gt;$t$ is current observation (word)&lt;/li&gt;
+&lt;li&gt;$A$ is transition&lt;/li&gt;
+&lt;li&gt;$B$ is emission&lt;/li&gt;
+&lt;li&gt;$M[j][t]={max}_{i}^{n} M[i][t-1]*A[i][j]*B[j][t]$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;conditional-random-fields&#34;&gt;Conditional Random Fields&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;HMMs struggle with unknown words.&lt;/li&gt;
+&lt;li&gt;It is hard to incorporate all these features into an HMM.&lt;/li&gt;
+&lt;li&gt;Using discriminative (log-linear) models to model the condition distribution directly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/CRF.jpg&#34;
+	width=&#34;1292&#34;
+	height=&#34;448&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/CRF_hu49b520efb2e95a6ee537b02ec5b1b836_75238_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/CRF_hu49b520efb2e95a6ee537b02ec5b1b836_75238_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;288&#34;
+		data-flex-basis=&#34;692px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;hr&gt;
 </description>
         </item>
@@ -138,13 +272,21 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;multilingual-lm&#34;&gt;Multilingual LM&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Cross Lingual Transfer&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;multilingual-lm&#34;&gt;Multilingual LM&lt;/h2&gt;
+&lt;h3 id=&#34;cross-lingual-transfer&#34;&gt;Cross Lingual Transfer&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Goal: train on one language but work in all languages&lt;/li&gt;
 &lt;li&gt;Intuition: if the model learns a good representation, it should be able to map the training it receives in one language to any other language.&lt;/li&gt;
 &lt;li&gt;Requirements: unlabeled, monolingual data&lt;/li&gt;
 &lt;li&gt;Better transfer for languages that are more &lt;strong&gt;typologivally&lt;/strong&gt; similar and more &lt;strong&gt;syntactically&lt;/strong&gt; similar.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;common-multilingual-models&#34;&gt;Common Multilingual Models&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;mBERT&lt;/li&gt;
+&lt;li&gt;XLM-RoBERTa&lt;/li&gt;
+&lt;li&gt;mGPT&lt;/li&gt;
+&lt;li&gt;BLOOM&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
@@ -155,6 +297,8 @@ $$&lt;/p&gt;
     &gt;机器翻译自动评估-BLEU算法详解&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://coladrill.github.io/2018/10/20/%E6%B5%85%E8%B0%88BLEU%E8%AF%84%E5%88%86/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;浅谈BLEU评分&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://easyai.tech/ai-definition/encoder-decoder-seq2seq/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Encoder-Decoder 和 Seq2Seq&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://coladrill.github.io/2018/09/05/Attention%E6%9C%BA%E5%88%B6/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Attention机制&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://imzhanghao.com/2021/09/01/attention-mechanism/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
