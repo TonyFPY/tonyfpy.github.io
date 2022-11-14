@@ -168,19 +168,17 @@ nonetheless influence events which are observed.
 &lt;ul&gt;
 &lt;li&gt;Viterbi Algorithm is used to maximize $P(o_i \mid q_i)P(q_i|q_{i-1})$.&lt;/li&gt;
 &lt;li&gt;It is a dynamic programming algorithm for &lt;strong&gt;decoding&lt;/strong&gt; (finding the most likely output sequece).&lt;/li&gt;
-&lt;li&gt;Formal Def
-&lt;ul&gt;
-&lt;li&gt;Maintain $M$: a matrix with # of states x # of outputs&lt;/li&gt;
-&lt;li&gt;$M[i][j]$ represents the probability of being in state $i$ after seeing outputs $0…j$&lt;/li&gt;
-&lt;li&gt;$j$ is the current state (tag)&lt;/li&gt;
-&lt;li&gt;$i$ is the previous state (tag)&lt;/li&gt;
-&lt;li&gt;$t$ is current observation (word)&lt;/li&gt;
-&lt;li&gt;$A$ is transition&lt;/li&gt;
-&lt;li&gt;$B$ is emission&lt;/li&gt;
-&lt;li&gt;$M[j][t]={max}_{i}^{n} M[i][t-1]*A[i][j]*B[j][t]$&lt;/li&gt;
+&lt;li&gt;Formal Def&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;$$M[j][t]={max}_{i}^{n} M[i][t-1]*A[i][j]*B[j][t]$$&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- Maintain $M$: a matrix with # of states x # of outputs
+- $M[i][j]$ represents the probability of being in state $i$ after seeing outputs $0…j$
+- $j$ is the current state (tag)
+- $i$ is the previous state (tag)
+- $t$ is current observation (word)
+- $A$ is transition
+- $B$ is emission
+&lt;/code&gt;&lt;/pre&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;conditional-random-fields&#34;&gt;Conditional Random Fields&lt;/h2&gt;
 &lt;ul&gt;
