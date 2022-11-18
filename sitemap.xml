@@ -2,19 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/</loc>
-    <lastmod>2022-11-10T23:57:10-05:00</lastmod>
+    <loc>https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/</loc>
+    <lastmod>2022-11-17T19:53:34-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/</loc>
-    <lastmod>2022-11-10T23:57:10-05:00</lastmod>
+    <lastmod>2022-11-17T19:53:34-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/natural-language-processing/</loc>
-    <lastmod>2022-11-10T23:57:10-05:00</lastmod>
+    <lastmod>2022-11-17T19:53:34-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/post/</loc>
-    <lastmod>2022-11-10T23:57:10-05:00</lastmod>
+    <lastmod>2022-11-17T19:53:34-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/</loc>
+    <lastmod>2022-11-17T19:53:34-05:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/</loc>
     <lastmod>2022-11-10T23:57:10-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/comp-linguistics-neural-machine-translation/</loc>
@@ -102,10 +105,10 @@
     <lastmod>2022-09-14T14:40:05-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/page/</loc>
-    <lastmod>2022-11-14T09:56:13-05:00</lastmod>
+    <lastmod>2022-11-14T15:20:44-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/research/</loc>
-    <lastmod>2022-11-14T09:56:13-05:00</lastmod>
+    <lastmod>2022-11-14T15:20:44-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/human-centred-tech-design-taxonomy/</loc>
     <lastmod>2022-09-12T22:13:46-04:00</lastmod>

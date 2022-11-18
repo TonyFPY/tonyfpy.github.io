@@ -6,6 +6,251 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Comp Linguistics] Grammars and Parsing</title>
+        <link>https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/</link>
+        <pubDate>Thu, 17 Nov 2022 18:30:12 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Nov 10th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Nov 10th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;formal-grammars&#34;&gt;Formal Grammars&lt;/h2&gt;
+&lt;h3 id=&#34;terminologies&#34;&gt;Terminologies&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Language: set of strings&lt;/li&gt;
+&lt;li&gt;Grammar: set of rewrite rules which define a language
+&lt;ul&gt;
+&lt;li&gt;$N$: a set of non-terminal symbols (variables)&lt;/li&gt;
+&lt;li&gt;${\Sigma}$: a set of terminal symbols (disjoint from $N$)&lt;/li&gt;
+&lt;li&gt;$R$: a set of production rules each of the form $A$ -&amp;gt; $B$&lt;/li&gt;
+&lt;li&gt;$S$: a designated start symbol (member of $N$)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;formal-grammar-and-automata&#34;&gt;Formal Grammar and Automata&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Grammars and Automata are two ways of modeling the same thing&lt;/li&gt;
+&lt;li&gt;Grammars are used to &lt;strong&gt;generate&lt;/strong&gt; languages&lt;/li&gt;
+&lt;li&gt;Automata are used to &lt;strong&gt;recognize&lt;/strong&gt; languages&lt;/li&gt;
+&lt;li&gt;Regular language
+&lt;ul&gt;
+&lt;li&gt;$A$ -&amp;gt; $Ba$ (i.e., one NT symbol, always at the beginning or end)&lt;/li&gt;
+&lt;li&gt;It doesn’t work when language requires recursion&lt;/li&gt;
+&lt;li&gt;It can be recognized by an f&lt;strong&gt;inite-state automaton&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Context-Free Languages:
+&lt;ul&gt;
+&lt;li&gt;$A$ -&amp;gt; $a$ (where $a$ can be any mix of terminals and non-terminals)&lt;/li&gt;
+&lt;li&gt;Language can be recognized by a &lt;strong&gt;pushdown automaton&lt;/strong&gt; (an automaton that uses a stack to maintain memory)&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;context free&amp;rdquo; because rule can be applied to the nonterminal regardless of its context&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;constituency-parsing&#34;&gt;Constituency Parsing&lt;/h2&gt;
+&lt;h3 id=&#34;constituency-grammar&#34;&gt;Constituency Grammar&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Phrase Structure Grammar&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Sentences -&amp;gt; Phrases&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;55&#34;
+		data-flex-basis=&#34;132px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/CG.jpg&#34;
+	width=&#34;926&#34;
+	height=&#34;684&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/CG_huffe504aaccc3417fc29f70e1d3849fde_70815_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/CG_huffe504aaccc3417fc29f70e1d3849fde_70815_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;135&#34;
+		data-flex-basis=&#34;324px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;55&#34;
+		data-flex-basis=&#34;132px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;cky-parsing&#34;&gt;CKY Parsing&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Dynamic Programming&lt;/li&gt;
+&lt;li&gt;Basic idea: find a parse for words $i$ through $j$ by combining parses for words $i$ through $k$ with parses for works $k$ through $j$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;55&#34;
+		data-flex-basis=&#34;132px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/CKY.jpg&#34;
+	width=&#34;924&#34;
+	height=&#34;648&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/CKY_hu2f90372f51986de439d732bdd6b6705b_67478_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/CKY_hu2f90372f51986de439d732bdd6b6705b_67478_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;142&#34;
+		data-flex-basis=&#34;342px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;55&#34;
+		data-flex-basis=&#34;132px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;dependency-parsing&#34;&gt;Dependency Parsing&lt;/h2&gt;
+&lt;h3 id=&#34;dependency-grammar&#34;&gt;Dependency Grammar&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The goal is to make explicit relationships between words&lt;/li&gt;
+&lt;li&gt;Typically, a verb is at the ROOT&lt;/li&gt;
+&lt;li&gt;The core of the sentence is subject-verb-object&lt;/li&gt;
+&lt;li&gt;Additional clauses/modifiers hang off of these&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;shift-reduce-algorithm&#34;&gt;Shift-Reduce Algorithm&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Dependency parses are represented as a directed graph with &lt;strong&gt;Vertices&lt;/strong&gt; (V) and &lt;strong&gt;Arcs&lt;/strong&gt; (A)
+&lt;ul&gt;
+&lt;li&gt;V is roughly the set of words and punctuation&lt;/li&gt;
+&lt;li&gt;It is constrained to be single-rooted trees&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Shift-Reduce Algorithm
+&lt;ul&gt;
+&lt;li&gt;Transition-Based Parser&lt;/li&gt;
+&lt;li&gt;Basic idea
+&lt;ul&gt;
+&lt;li&gt;Progress left to right in the sentence, maintain a stack&lt;/li&gt;
+&lt;li&gt;At each step, either:
+&lt;ol&gt;
+&lt;li&gt;assign this word to be the head of previous word,&lt;/li&gt;
+&lt;li&gt;assign a previously seen word to be the head of this word,&lt;/li&gt;
+&lt;li&gt;defer decision to a later step&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Design about 1, 2, or 3 is made by a supervised classifier&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Three Operations
+&lt;ul&gt;
+&lt;li&gt;LeftArc: set stack[0] as head of stack[1]; remove stack[1] from stack&lt;/li&gt;
+&lt;li&gt;RightArc: set stack[1] as head of stack[0]; remove stack[0] from stack&lt;/li&gt;
+&lt;li&gt;Shift: Push new word onto stack&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Precondition: ROOT can’t have a parent&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;55&#34;
+		data-flex-basis=&#34;132px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/SRA.jpg&#34;
+	width=&#34;1038&#34;
+	height=&#34;346&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/SRA_huab99ecae76609596cfb0c8bc049dfe44_43343_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/SRA_huab99ecae76609596cfb0c8bc049dfe44_43343_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;300&#34;
+		data-flex-basis=&#34;720px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;55&#34;
+		data-flex-basis=&#34;132px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Training the Oracle&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;55&#34;
+		data-flex-basis=&#34;132px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/DP.jpg&#34;
+	width=&#34;992&#34;
+	height=&#34;496&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/DP_hu7c586f71cbdb4935667151b56a11663a_48349_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/DP_hu7c586f71cbdb4935667151b56a11663a_48349_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;200&#34;
+		data-flex-basis=&#34;480px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;55&#34;
+		data-flex-basis=&#34;132px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Comp Linguistics] Part of Speech Tagging</title>
         <link>https://tonyfpy.github.io/p/comp-linguistics-part-of-speech-tagging/</link>
         <pubDate>Thu, 10 Nov 2022 14:26:20 -0500</pubDate>
@@ -4479,7 +4724,7 @@ $$&lt;/p&gt;
 &lt;h3 id=&#34;social-ar&#34;&gt;Social AR&lt;/h3&gt;
 &lt;img src=&#34;MUAR.jpg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;
 &lt;p&gt;Social AR is developed to support real-time multiuser interaction for exploration of cultural heritage. In this research, we believe Social AR that projects cultural heritage objects projected onto the real environment can be a better experience in terms of depth of viewing. The work was carried out at the &lt;a class=&#34;link&#34; href=&#34;https://www.nottingham.edu.cn/en/research-centres/nvidia-joint-lab/about.aspx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;&lt;strong&gt;NVIDIA Joint-Lab on Mixed Reality, NVIDIA Technology Centre&lt;/strong&gt;&lt;/a&gt; at the University of Nottingham Ningbo China, supported by NVIDIA AI Technology Center (Singapore).
+    &gt;&lt;strong&gt;NVIDIA Joint-Lab on Mixed Reality, NVIDIA Technology Centre&lt;/strong&gt;&lt;/a&gt;, supported by NVIDIA AI Technology Center (Singapore).
 &lt;br clear=&#34;left&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Advisors&lt;/strong&gt;: &lt;a class=&#34;link&#34; href=&#34;https://www.nottingham.ac.uk/news/expertiseguide/computer-science-/professor-eugene-chng.aspx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Prof. Eugene Ch&amp;rsquo;ng&lt;/a&gt;&lt;br&gt;
