@@ -78,7 +78,7 @@
 &gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/RTK.jpg&#34;
 	width=&#34;1124&#34;
 	height=&#34;624&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/RTK_hu9b0f5e0b1fbe0139b3c8fa1bd3a56686_38300_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-localization/RTK_hu9b0f5e0b1fbe0139b3c8fa1bd3a56686_38300_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/RTK_hu19ead76b1306ebe36460fe2f16adb6ed_46083_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-localization/RTK_hu19ead76b1306ebe36460fe2f16adb6ed_46083_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -130,14 +130,105 @@
 &lt;h3 id=&#34;basic-idea&#34;&gt;Basic Idea&lt;/h3&gt;
 &lt;p&gt;Acceleration, initial velocity, initial position could be used to calculate the velocity and location of the car.&lt;/p&gt;
 &lt;h3 id=&#34;inertial-measurement-unit-imu&#34;&gt;Inertial Measurement Unit (IMU)&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Components&lt;/strong&gt;
-- Accelerometer
-- Gyroscope
-&lt;strong&gt;Pros &amp;amp; Cons&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Components&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;High frequncy update&lt;/li&gt;
+&lt;li&gt;Accelerometer&lt;/li&gt;
+&lt;li&gt;Gyroscope&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Pros &amp;amp; Cons&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;High frequncy update $\rightarrow$ Real-time Location Info&lt;/li&gt;
 &lt;li&gt;Motion error increases with time&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;lidar-localization&#34;&gt;LiDAR Localization&lt;/h2&gt;
+&lt;h3 id=&#34;point-cloud-matching&#34;&gt;Point Cloud Matching&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Errors&lt;/strong&gt; produced when matching point cloud measurement with HD map
+&lt;ul&gt;
+&lt;li&gt;The # of points collected by LiDAR&lt;/li&gt;
+&lt;li&gt;Moving objects, such as cars, pedestrians, etc.&lt;/li&gt;
+&lt;li&gt;The transformation of point cloud measurement&lt;/li&gt;
+&lt;li&gt;Error produced by LiDAR itself&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Iterative Closest Point&lt;/strong&gt; Algorithms&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Filter&lt;/strong&gt; Algorithms
+&lt;ul&gt;
+&lt;li&gt;Histogram filter&lt;/li&gt;
+&lt;li&gt;Kalman  filter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;pros--cons&#34;&gt;Pros &amp;amp; Cons&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Robustness&lt;/li&gt;
+&lt;li&gt;Maintaining up-to-date HD maps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;visual-localization&#34;&gt;Visual Localization&lt;/h2&gt;
+&lt;h3 id=&#34;visual-data&#34;&gt;Visual Data&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Usually we combine &lt;strong&gt;camera data with a map and GPS&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Partical Filter&lt;/strong&gt; Algorithms
+&lt;ul&gt;
+&lt;li&gt;Observations&lt;/li&gt;
+&lt;li&gt;Probability&lt;/li&gt;
+&lt;li&gt;Map&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;pros--cons-1&#34;&gt;Pros &amp;amp; Cons&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Camera data is easy to obtain&lt;/li&gt;
+&lt;li&gt;Lack of 3D Info&lt;/li&gt;
+&lt;li&gt;Reliance on 3D maps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;apollo-localization&#34;&gt;Apollo Localization&lt;/h2&gt;
+&lt;h3 id=&#34;multi-sensor-fusion&#34;&gt;Multi-sensor Fusion&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;GPS&lt;/li&gt;
+&lt;li&gt;IMU&lt;/li&gt;
+&lt;li&gt;LiDAR&lt;/li&gt;
+&lt;li&gt;Radar&lt;/li&gt;
+&lt;li&gt;HD Maps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;kalman-filter&#34;&gt;Kalman Filter&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/kalman-filter.jpg&#34;
+	width=&#34;1124&#34;
+	height=&#34;780&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/kalman-filter_hu10a07b120acce79578111e0bdef53a28_39933_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-localization/kalman-filter_hu10a07b120acce79578111e0bdef53a28_39933_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;144&#34;
+		data-flex-basis=&#34;345px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/white.jpg&#34;
+	width=&#34;285&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;hr&gt;
 </description>
         </item>

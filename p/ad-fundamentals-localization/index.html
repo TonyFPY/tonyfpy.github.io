@@ -17,7 +17,7 @@ Last Modified on Oct 30th, 2022
  Intro to Localization  It makes the car know where it is.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/ad-fundamentals-localization/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Autonomous Driving' /><meta property='article:published_time' content='2022-10-30T16:02:49-04:00'/><meta property='article:modified_time' content='2022-10-31T00:16:18-04:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Autonomous Driving' /><meta property='article:published_time' content='2022-10-30T16:02:49-04:00'/><meta property='article:modified_time' content='2022-11-21T00:13:59-05:00'/>
 <meta name="twitter:title" content="[AD Fundamentals] Localization">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Oct 30th, 2022
@@ -345,7 +345,7 @@ Last Modified on Oct 30th, 2022
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -425,7 +425,7 @@ Last Modified on Oct 30th, 2022
 ><img src="/p/ad-fundamentals-localization/RTK.jpg"
 	width="1124"
 	height="624"
-	srcset="/p/ad-fundamentals-localization/RTK_hu9b0f5e0b1fbe0139b3c8fa1bd3a56686_38300_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-localization/RTK_hu9b0f5e0b1fbe0139b3c8fa1bd3a56686_38300_1024x0_resize_q75_box.jpg 1024w"
+	srcset="/p/ad-fundamentals-localization/RTK_hu19ead76b1306ebe36460fe2f16adb6ed_46083_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-localization/RTK_hu19ead76b1306ebe36460fe2f16adb6ed_46083_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 	
@@ -477,14 +477,105 @@ Last Modified on Oct 30th, 2022
 <h3 id="basic-idea">Basic Idea</h3>
 <p>Acceleration, initial velocity, initial position could be used to calculate the velocity and location of the car.</p>
 <h3 id="inertial-measurement-unit-imu">Inertial Measurement Unit (IMU)</h3>
-<p><strong>Components</strong>
-- Accelerometer
-- Gyroscope
-<strong>Pros &amp; Cons</strong></p>
+<p><strong>Components</strong></p>
 <ul>
-<li>High frequncy update</li>
+<li>Accelerometer</li>
+<li>Gyroscope</li>
+</ul>
+<p><strong>Pros &amp; Cons</strong></p>
+<ul>
+<li>High frequncy update $\rightarrow$ Real-time Location Info</li>
 <li>Motion error increases with time</li>
 </ul>
+<hr>
+<h2 id="lidar-localization">LiDAR Localization</h2>
+<h3 id="point-cloud-matching">Point Cloud Matching</h3>
+<ul>
+<li><strong>Errors</strong> produced when matching point cloud measurement with HD map
+<ul>
+<li>The # of points collected by LiDAR</li>
+<li>Moving objects, such as cars, pedestrians, etc.</li>
+<li>The transformation of point cloud measurement</li>
+<li>Error produced by LiDAR itself</li>
+</ul>
+</li>
+<li><strong>Iterative Closest Point</strong> Algorithms</li>
+<li><strong>Filter</strong> Algorithms
+<ul>
+<li>Histogram filter</li>
+<li>Kalman  filter</li>
+</ul>
+</li>
+</ul>
+<h3 id="pros--cons">Pros &amp; Cons</h3>
+<ul>
+<li>Robustness</li>
+<li>Maintaining up-to-date HD maps</li>
+</ul>
+<hr>
+<h2 id="visual-localization">Visual Localization</h2>
+<h3 id="visual-data">Visual Data</h3>
+<ul>
+<li>Usually we combine <strong>camera data with a map and GPS</strong></li>
+<li><strong>Partical Filter</strong> Algorithms
+<ul>
+<li>Observations</li>
+<li>Probability</li>
+<li>Map</li>
+</ul>
+</li>
+</ul>
+<h3 id="pros--cons-1">Pros &amp; Cons</h3>
+<ul>
+<li>Camera data is easy to obtain</li>
+<li>Lack of 3D Info</li>
+<li>Reliance on 3D maps</li>
+</ul>
+<hr>
+<h2 id="apollo-localization">Apollo Localization</h2>
+<h3 id="multi-sensor-fusion">Multi-sensor Fusion</h3>
+<ul>
+<li>GPS</li>
+<li>IMU</li>
+<li>LiDAR</li>
+<li>Radar</li>
+<li>HD Maps</li>
+</ul>
+<h3 id="kalman-filter">Kalman Filter</h3>
+<p><img src="/p/ad-fundamentals-localization/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+><img src="/p/ad-fundamentals-localization/kalman-filter.jpg"
+	width="1124"
+	height="780"
+	srcset="/p/ad-fundamentals-localization/kalman-filter_hu10a07b120acce79578111e0bdef53a28_39933_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-localization/kalman-filter_hu10a07b120acce79578111e0bdef53a28_39933_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="144"
+		data-flex-basis="345px"
+	
+><img src="/p/ad-fundamentals-localization/white.jpg"
+	width="285"
+	height="340"
+	srcset="/p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-localization/white_hu0053ed58c52b0a79a00a3298e4f2752e_2127_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+></p>
 <hr>
 
 </section>
@@ -515,7 +606,7 @@ Last Modified on Oct 30th, 2022
 
 
         <span>
-            Last updated on Oct 31, 2022 00:16 EDT
+            Last updated on Nov 21, 2022 00:13 EST
         </span>
     </section></footer>
 
@@ -680,6 +771,24 @@ Last Modified on Oct 30th, 2022
       <ol>
         <li><a href="#basic-idea">Basic Idea</a></li>
         <li><a href="#inertial-measurement-unit-imu">Inertial Measurement Unit (IMU)</a></li>
+      </ol>
+    </li>
+    <li><a href="#lidar-localization">LiDAR Localization</a>
+      <ol>
+        <li><a href="#point-cloud-matching">Point Cloud Matching</a></li>
+        <li><a href="#pros--cons">Pros &amp; Cons</a></li>
+      </ol>
+    </li>
+    <li><a href="#visual-localization">Visual Localization</a>
+      <ol>
+        <li><a href="#visual-data">Visual Data</a></li>
+        <li><a href="#pros--cons-1">Pros &amp; Cons</a></li>
+      </ol>
+    </li>
+    <li><a href="#apollo-localization">Apollo Localization</a>
+      <ol>
+        <li><a href="#multi-sensor-fusion">Multi-sensor Fusion</a></li>
+        <li><a href="#kalman-filter">Kalman Filter</a></li>
       </ol>
     </li>
   </ol>
