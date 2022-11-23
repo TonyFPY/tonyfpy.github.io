@@ -6,7 +6,192 @@
         <description>Recent content in Autonomous Driving on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 30 Oct 2022 16:02:49 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/autonomous-driving/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 22 Nov 2022 16:20:15 -0500</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/autonomous-driving/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[AD Fundamentals] Perception</title>
+        <link>https://tonyfpy.github.io/p/ad-fundamentals-perception/</link>
+        <pubDate>Tue, 22 Nov 2022 16:20:15 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/ad-fundamentals-perception/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Nov. 22th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Nov. 22th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains notes from the course &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.udacity.com/course/self-driving-car-fundamentals-featuring-apollo--ud0419&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Self-Driving Fundamentals: Featuring Apollo&lt;/a&gt;&lt;/strong&gt; published by &lt;strong&gt;Udacity&lt;/strong&gt; &amp;amp; &lt;strong&gt;Baidu Apollo&lt;/strong&gt;. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;computer-vision-for-ad&#34;&gt;Computer Vision for AD&lt;/h2&gt;
+&lt;h3 id=&#34;detection&#34;&gt;Detection&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Applications&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Find all pedestrians in the driving record image.&lt;/li&gt;
+&lt;li&gt;Localize the position of the traffic light in an image.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Alogorithm&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Girshick_Rich_Feature_Hierarchies_2014_CVPR_paper.pdf?spm=5176.100239.blogcont55892.8.pm8zm1&amp;amp;file=Girshick_Rich_Feature_Hierarchies_2014_CVPR_paper.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;R-CNN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1504.08083.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Fast R-CNN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1506.01497.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Faster R-CNN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1506.02640.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;YOLO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1512.02325.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SSD&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;classification&#34;&gt;Classification&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Applications&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Determine if the obstacle in a picture is a pedestrian or a biker.&lt;/li&gt;
+&lt;li&gt;Recognize the status of a traffic light.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- ![](white.jpg)![](classification.jpg)![](white.jpg) --&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-perception/classification.jpg&#34;
+	width=&#34;1122&#34;
+	height=&#34;568&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-perception/classification_hufa211ebd315be5d2e35ac8c7fcb1592c_54921_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-perception/classification_hufa211ebd315be5d2e35ac8c7fcb1592c_54921_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;197&#34;
+		data-flex-basis=&#34;474px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;tracking&#34;&gt;Tracking&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Applications&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mark a dangerously driven vehicle on the road.&lt;/li&gt;
+&lt;li&gt;Differentiating multiple cars on the road in a sequence of continuous driving record frames.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Why tracking?&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tracking handles occlusion.&lt;/li&gt;
+&lt;li&gt;Tracking preserves identity.&lt;/li&gt;
+&lt;li&gt;Tracking could be combined with a predictive algorithm to predict the future behavior of a vehicle.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;segmentation&#34;&gt;Segmentation&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Applications&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Determine which pixels in the image captured by the camera correspond to the travelable area.&lt;/li&gt;
+&lt;li&gt;Distinguish lanes and road signs in driving record images&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Alogorithm&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/1411.4038.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Fully Convolutional Networks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- ![](white.jpg)![](FCN.jpg)![](white.jpg) --&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-perception/FCN.jpg&#34;
+	width=&#34;1158&#34;
+	height=&#34;636&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-perception/FCN_hu55251f95733d4dba1d40be495f619cd2_41317_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-perception/FCN_hu55251f95733d4dba1d40be495f619cd2_41317_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;182&#34;
+		data-flex-basis=&#34;436px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;camera-images--lidar-images&#34;&gt;Camera Images &amp;amp; LiDAR Images&lt;/h2&gt;
+&lt;h3 id=&#34;camera-images&#34;&gt;Camera Images&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Width * Height * Depth&lt;/li&gt;
+&lt;li&gt;Pixel $\leftarrow$ (R, G, B)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;lidar-images&#34;&gt;LiDAR Images&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;LiDAR Pulses $\leftarrow$ Point Cloud Representation&lt;/li&gt;
+&lt;li&gt;Shape and Surface Texture&lt;/li&gt;
+&lt;li&gt;Spatial Info&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;appllo-perception&#34;&gt;Appllo Perception&lt;/h2&gt;
+&lt;h3 id=&#34;obstacle-perceptioin&#34;&gt;Obstacle Perceptioin&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;ROI Filtering&lt;/li&gt;
+&lt;li&gt;3D Object Detection&lt;/li&gt;
+&lt;li&gt;Detection to Track Association&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-perception/3DOD.jpg&#34;
+	width=&#34;1038&#34;
+	height=&#34;456&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-perception/3DOD_hu55ea689bb8c0766424289e4fc972f204_25579_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-perception/3DOD_hu55ea689bb8c0766424289e4fc972f204_25579_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;227&#34;
+		data-flex-basis=&#34;546px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;traffic-lights-detection&#34;&gt;Traffic Lights Detection&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;HD Map $\leftarrow$ Location of the light&lt;/li&gt;
+&lt;li&gt;Detection &amp;amp; Classification&lt;/li&gt;
+&lt;li&gt;Matching multiple lights with lane lines&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-perception/LL.jpg&#34;
+	width=&#34;1118&#34;
+	height=&#34;528&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-perception/LL_hue512f3189380d90b5d184b23bc2631ee_33206_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-perception/LL_hue512f3189380d90b5d184b23bc2631ee_33206_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;211&#34;
+		data-flex-basis=&#34;508px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;sensor-data-comparisons&#34;&gt;Sensor Data Comparisons&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-perception/sensor_fusion.jpg&#34;
+	width=&#34;1126&#34;
+	height=&#34;566&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-perception/sensor_fusion_hu2613074c8a73928e25d7d67d2873ef8b_46459_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-perception/sensor_fusion_hu2613074c8a73928e25d7d67d2873ef8b_46459_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;198&#34;
+		data-flex-basis=&#34;477px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;radar&#34;&gt;Radar&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Wavelength in mm&lt;/li&gt;
+&lt;li&gt;Can sense non-line of sight objects&lt;/li&gt;
+&lt;li&gt;Can currently directly measure velocity&lt;/li&gt;
+&lt;li&gt;Low Resolution&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;lirar&#34;&gt;LiRAR&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Wavelength in infrared&lt;/li&gt;
+&lt;li&gt;Higher Resolution&lt;/li&gt;
+&lt;li&gt;Most affected by dirt and small debris&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;perception-fusion-strategy&#34;&gt;Perception Fusion Strategy&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-perception/kalman_filter.jpg&#34;
+	width=&#34;1020&#34;
+	height=&#34;548&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-perception/kalman_filter_hu38f1ed307f8734fc67fa20ecbd189b0c_32753_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-perception/kalman_filter_hu38f1ed307f8734fc67fa20ecbd189b0c_32753_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;186&#34;
+		data-flex-basis=&#34;446px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[AD Fundamentals] Localization</title>
         <link>https://tonyfpy.github.io/p/ad-fundamentals-localization/</link>
         <pubDate>Sun, 30 Oct 2022 16:02:49 -0400</pubDate>
@@ -15,7 +200,7 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Oct 30th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on Oct 30th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Nov 21st, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;This sereis of posts contains notes from the course &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.udacity.com/course/self-driving-car-fundamentals-featuring-apollo--ud0419&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;

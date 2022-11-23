@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
+Created on Nov. 22th, 2022
+Last Modified on Nov. 22th, 2022
+ Intro This sereis of posts contains notes from the course Self-Driving Fundamentals: Featuring Apollo published by Udacity &amp;amp; Baidu Apollo. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Computer Vision for AD Detection Applications'><title>[AD Fundamentals] Perception</title>
+
+<link rel='canonical' href='https://tonyfpy.github.io/p/ad-fundamentals-perception/'>
+
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[AD Fundamentals] Perception'>
+<meta property='og:description' content='Authored by Tony Feng
+Created on Nov. 22th, 2022
+Last Modified on Nov. 22th, 2022
+ Intro This sereis of posts contains notes from the course Self-Driving Fundamentals: Featuring Apollo published by Udacity &amp;amp; Baidu Apollo. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Computer Vision for AD Detection Applications'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/ad-fundamentals-perception/'>
+<meta property='og:site_name' content='Tony Feng'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Autonomous Driving' /><meta property='article:published_time' content='2022-11-22T16:20:15-05:00'/><meta property='article:modified_time' content='2022-11-22T22:08:23-05:00'/>
+<meta name="twitter:title" content="[AD Fundamentals] Perception">
+<meta name="twitter:description" content="Authored by Tony Feng
+Created on Nov. 22th, 2022
+Last Modified on Nov. 22th, 2022
+ Intro This sereis of posts contains notes from the course Self-Driving Fundamentals: Featuring Apollo published by Udacity &amp;amp; Baidu Apollo. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Computer Vision for AD Detection Applications">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/Brown_hu1b43bb4664aba7c4309526f1ef45ab91_1767_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Tony Feng</a></h1>
+            <h2 class="site-description">M.Sc. in Computer Science</h2>
+            <h2 class="site-description">Brown University</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://tonyfpy.github.io/about/'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/TonyFPY'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/pinyuanfeng'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/research/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <line x1="3" y1="6" x2="3" y2="19" />
+  <line x1="12" y1="6" x2="12" y2="19" />
+  <line x1="21" y1="6" x2="21" y2="19" />
+</svg>
+                
+                <span>Research</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/projects/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="7 8 3 12 7 16" />
+  <polyline points="17 8 21 12 17 16" />
+  <line x1="14" y1="4" x2="10" y2="20" />
+</svg>
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/autonomous-driving/" style="background-color: #005597; color: #fff;">
+                Autonomous Driving
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/ad-fundamentals-perception/">[AD Fundamentals] Perception</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 22, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>Authored by Tony Feng</p>
+<p>Created on Nov. 22th, 2022</p>
+<p>Last Modified on Nov. 22th, 2022</p>
+</blockquote>
+<h2 id="intro">Intro</h2>
+<p>This sereis of posts contains notes from the course <strong><a class="link" href="https://www.udacity.com/course/self-driving-car-fundamentals-featuring-apollo--ud0419"  target="_blank" rel="noopener"
+    >Self-Driving Fundamentals: Featuring Apollo</a></strong> published by <strong>Udacity</strong> &amp; <strong>Baidu Apollo</strong>. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &ldquo;notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
+<hr>
+<h2 id="computer-vision-for-ad">Computer Vision for AD</h2>
+<h3 id="detection">Detection</h3>
+<p><strong>Applications</strong></p>
+<ul>
+<li>Find all pedestrians in the driving record image.</li>
+<li>Localize the position of the traffic light in an image.</li>
+</ul>
+<p><strong>Alogorithm</strong></p>
+<ul>
+<li><a class="link" href="https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Girshick_Rich_Feature_Hierarchies_2014_CVPR_paper.pdf?spm=5176.100239.blogcont55892.8.pm8zm1&amp;file=Girshick_Rich_Feature_Hierarchies_2014_CVPR_paper.pdf"  target="_blank" rel="noopener"
+    >R-CNN</a></li>
+<li><a class="link" href="https://arxiv.org/pdf/1504.08083.pdf"  target="_blank" rel="noopener"
+    >Fast R-CNN</a></li>
+<li><a class="link" href="https://arxiv.org/pdf/1506.01497.pdf"  target="_blank" rel="noopener"
+    >Faster R-CNN</a></li>
+<li><a class="link" href="https://arxiv.org/pdf/1506.02640.pdf"  target="_blank" rel="noopener"
+    >YOLO</a></li>
+<li><a class="link" href="https://arxiv.org/pdf/1512.02325.pdf"  target="_blank" rel="noopener"
+    >SSD</a></li>
+</ul>
+<h3 id="classification">Classification</h3>
+<p><strong>Applications</strong></p>
+<ul>
+<li>Determine if the obstacle in a picture is a pedestrian or a biker.</li>
+<li>Recognize the status of a traffic light.</li>
+</ul>
+<!-- ![](white.jpg)![](classification.jpg)![](white.jpg) -->
+<p><img src="/p/ad-fundamentals-perception/classification.jpg"
+	width="1122"
+	height="568"
+	srcset="/p/ad-fundamentals-perception/classification_hufa211ebd315be5d2e35ac8c7fcb1592c_54921_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-perception/classification_hufa211ebd315be5d2e35ac8c7fcb1592c_54921_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="197"
+		data-flex-basis="474px"
+	
+></p>
+<h3 id="tracking">Tracking</h3>
+<p><strong>Applications</strong></p>
+<ul>
+<li>Mark a dangerously driven vehicle on the road.</li>
+<li>Differentiating multiple cars on the road in a sequence of continuous driving record frames.</li>
+</ul>
+<p><strong>Why tracking?</strong></p>
+<ul>
+<li>Tracking handles occlusion.</li>
+<li>Tracking preserves identity.</li>
+<li>Tracking could be combined with a predictive algorithm to predict the future behavior of a vehicle.</li>
+</ul>
+<h3 id="segmentation">Segmentation</h3>
+<p><strong>Applications</strong></p>
+<ul>
+<li>Determine which pixels in the image captured by the camera correspond to the travelable area.</li>
+<li>Distinguish lanes and road signs in driving record images</li>
+</ul>
+<p><strong>Alogorithm</strong></p>
+<ul>
+<li><a class="link" href="https://arxiv.org/pdf/1411.4038.pdf"  target="_blank" rel="noopener"
+    >Fully Convolutional Networks</a></li>
+</ul>
+<!-- ![](white.jpg)![](FCN.jpg)![](white.jpg) -->
+<p><img src="/p/ad-fundamentals-perception/FCN.jpg"
+	width="1158"
+	height="636"
+	srcset="/p/ad-fundamentals-perception/FCN_hu55251f95733d4dba1d40be495f619cd2_41317_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-perception/FCN_hu55251f95733d4dba1d40be495f619cd2_41317_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="182"
+		data-flex-basis="436px"
+	
+></p>
+<hr>
+<h2 id="camera-images--lidar-images">Camera Images &amp; LiDAR Images</h2>
+<h3 id="camera-images">Camera Images</h3>
+<ul>
+<li>Width * Height * Depth</li>
+<li>Pixel $\leftarrow$ (R, G, B)</li>
+</ul>
+<h3 id="lidar-images">LiDAR Images</h3>
+<ul>
+<li>LiDAR Pulses $\leftarrow$ Point Cloud Representation</li>
+<li>Shape and Surface Texture</li>
+<li>Spatial Info</li>
+</ul>
+<hr>
+<h2 id="appllo-perception">Appllo Perception</h2>
+<h3 id="obstacle-perceptioin">Obstacle Perceptioin</h3>
+<ul>
+<li>ROI Filtering</li>
+<li>3D Object Detection</li>
+<li>Detection to Track Association</li>
+</ul>
+<p><img src="/p/ad-fundamentals-perception/3DOD.jpg"
+	width="1038"
+	height="456"
+	srcset="/p/ad-fundamentals-perception/3DOD_hu55ea689bb8c0766424289e4fc972f204_25579_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-perception/3DOD_hu55ea689bb8c0766424289e4fc972f204_25579_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="227"
+		data-flex-basis="546px"
+	
+></p>
+<h3 id="traffic-lights-detection">Traffic Lights Detection</h3>
+<ul>
+<li>HD Map $\leftarrow$ Location of the light</li>
+<li>Detection &amp; Classification</li>
+<li>Matching multiple lights with lane lines</li>
+</ul>
+<p><img src="/p/ad-fundamentals-perception/LL.jpg"
+	width="1118"
+	height="528"
+	srcset="/p/ad-fundamentals-perception/LL_hue512f3189380d90b5d184b23bc2631ee_33206_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-perception/LL_hue512f3189380d90b5d184b23bc2631ee_33206_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="211"
+		data-flex-basis="508px"
+	
+></p>
+<hr>
+<h2 id="sensor-data-comparisons">Sensor Data Comparisons</h2>
+<p><img src="/p/ad-fundamentals-perception/sensor_fusion.jpg"
+	width="1126"
+	height="566"
+	srcset="/p/ad-fundamentals-perception/sensor_fusion_hu2613074c8a73928e25d7d67d2873ef8b_46459_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-perception/sensor_fusion_hu2613074c8a73928e25d7d67d2873ef8b_46459_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="477px"
+	
+></p>
+<h3 id="radar">Radar</h3>
+<ul>
+<li>Wavelength in mm</li>
+<li>Can sense non-line of sight objects</li>
+<li>Can currently directly measure velocity</li>
+<li>Low Resolution</li>
+</ul>
+<h3 id="lirar">LiRAR</h3>
+<ul>
+<li>Wavelength in infrared</li>
+<li>Higher Resolution</li>
+<li>Most affected by dirt and small debris</li>
+</ul>
+<hr>
+<h2 id="perception-fusion-strategy">Perception Fusion Strategy</h2>
+<p><img src="/p/ad-fundamentals-perception/kalman_filter.jpg"
+	width="1020"
+	height="548"
+	srcset="/p/ad-fundamentals-perception/kalman_filter_hu38f1ed307f8734fc67fa20ecbd189b0c_32753_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-perception/kalman_filter_hu38f1ed307f8734fc67fa20ecbd189b0c_32753_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="446px"
+	
+></p>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>MIT License</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Nov 22, 2022 22:08 EST
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 Tony Feng
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#computer-vision-for-ad">Computer Vision for AD</a>
+      <ol>
+        <li><a href="#detection">Detection</a></li>
+        <li><a href="#classification">Classification</a></li>
+        <li><a href="#tracking">Tracking</a></li>
+        <li><a href="#segmentation">Segmentation</a></li>
+      </ol>
+    </li>
+    <li><a href="#camera-images--lidar-images">Camera Images &amp; LiDAR Images</a>
+      <ol>
+        <li><a href="#camera-images">Camera Images</a></li>
+        <li><a href="#lidar-images">LiDAR Images</a></li>
+      </ol>
+    </li>
+    <li><a href="#appllo-perception">Appllo Perception</a>
+      <ol>
+        <li><a href="#obstacle-perceptioin">Obstacle Perceptioin</a></li>
+        <li><a href="#traffic-lights-detection">Traffic Lights Detection</a></li>
+      </ol>
+    </li>
+    <li><a href="#sensor-data-comparisons">Sensor Data Comparisons</a>
+      <ol>
+        <li><a href="#radar">Radar</a></li>
+        <li><a href="#lirar">LiRAR</a></li>
+      </ol>
+    </li>
+    <li><a href="#perception-fusion-strategy">Perception Fusion Strategy</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
