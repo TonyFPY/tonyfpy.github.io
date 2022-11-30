@@ -6,6 +6,206 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Comp Linguistics] Sementic Representations and Parsing</title>
+        <link>https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/</link>
+        <pubDate>Tue, 29 Nov 2022 20:55:08 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Nov 29th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Nov 29th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;sementic-tasks&#34;&gt;&amp;ldquo;Sementic&amp;rdquo; Tasks&lt;/h2&gt;
+&lt;h3 id=&#34;semantics--syntax&#34;&gt;Semantics &amp;amp; Syntax&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Syntax = the study of &lt;strong&gt;form&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Semantics = the study of &lt;strong&gt;meaning&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The general goal is to describe precisely how we get from form to meaning.&lt;/p&gt;
+&lt;h3 id=&#34;semantics--pragmatics&#34;&gt;Semantics &amp;amp; Pragmatics&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Semantics = &amp;ldquo;sentence meaning&amp;rdquo; = tied to form/grammar&lt;/li&gt;
+&lt;li&gt;Pragmatics = &amp;ldquo;speaker meaning&amp;rdquo; = tied more generally to context&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In NLP, we tend to blur the distinction, and focus on specific tasks. For example, &amp;ldquo;Siri, I can’t hear the music&amp;rdquo; should be received as an &lt;strong&gt;instruction&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;executable-forms&#34;&gt;Executable Forms&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Explicit representation of natural language in formal language
+&lt;ul&gt;
+&lt;li&gt;Question Answering over Databases: SELECT * FROM flights
+WHERE city = &amp;ldquo;BOS&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Robotics: move(a) ^ pick_up(obj)&lt;/li&gt;
+&lt;li&gt;Digital Personal Assistants: set_alarm(07:00, GMT-5)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;natural-language-inference&#34;&gt;Natural Language Inference&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Also called Recognizing Textual Entailment (RTE)&lt;/li&gt;
+&lt;li&gt;Given a premise $p$ and a hypothesis $h$, does $p$ entail $h$?&lt;/li&gt;
+&lt;li&gt;Now widely used as a &lt;strong&gt;general-purpose evaluation task&lt;/strong&gt; for systems
+of &amp;ldquo;understanding&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;formal-sementics&#34;&gt;Formal Sementics&lt;/h2&gt;
+&lt;h3 id=&#34;model-theory&#34;&gt;Model Theory&lt;/h3&gt;
+&lt;p&gt;A premise $p$ entails a hypothesis $h$ iff, in every possible world in which $p$ is true, $h$ is also true.&lt;/p&gt;
+&lt;h3 id=&#34;truth-conditions-and-truth-values&#34;&gt;Truth Conditions and Truth Values&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Truth Conditional Semantics: the meaning of a sentence is its &lt;strong&gt;truth conditions&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Understanding &amp;ldquo;I have a pen in my pocket&amp;rdquo; does not require knowing whether I have a pen in my pocket.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Contrast with Denotational Semantics: the meaning of a sentence is its truth value
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;3 is half of 6&amp;rdquo; == &amp;ldquo;one week has 7 days&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Formal semantics uses &lt;strong&gt;truth conditions&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;the-fregean-program&#34;&gt;The Fregean Program&lt;/h3&gt;
+&lt;p&gt;The Goal is to give an unambiguous account of the mapping for form to
+meaning.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Input: A (syntactically parsed) string of words&lt;/li&gt;
+&lt;li&gt;Output: A context-independent logical form (e.g., lambda calculus,
+first order logic, etc)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Semantic Types&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$e$ is the semantic type of &lt;strong&gt;entities&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;$t$ is the semantic type of &lt;strong&gt;truth values&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;1-place Predicates (adjectives, common nouns) are type &amp;lt;e, t&amp;gt;.&lt;/p&gt;
+&lt;p&gt;2-place Predicates (transitive verbs) are type &amp;lt;e, &amp;lt;e,t&amp;gt;&amp;gt;&lt;/p&gt;
+&lt;p&gt;Quantifiers (e.g. all, every) are type &amp;lt;&amp;lt;e,t&amp;gt;, t&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;&lt;strong&gt;Principle of Compositionality&lt;/strong&gt;&amp;rdquo;: The meaning of the whole is a function of the meaning of the parts and the way in which they are combined.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;syntax-semantics-interface-and-ccg&#34;&gt;Syntax-Semantics Interface and CCG&lt;/h2&gt;
+&lt;h3 id=&#34;cfg-phrase-structure-grammar&#34;&gt;CFG Phrase Structure Grammar&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;232&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1533_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1533_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;81&#34;
+		data-flex-basis=&#34;194px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/CFG.jpg&#34;
+	width=&#34;986&#34;
+	height=&#34;524&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/CFG_hu8c899bc0f198bd9fa8b284512db7d91b_61519_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/CFG_hu8c899bc0f198bd9fa8b284512db7d91b_61519_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;188&#34;
+		data-flex-basis=&#34;451px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;232&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1533_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1533_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;81&#34;
+		data-flex-basis=&#34;194px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;principle-of-combinatory-transparency&#34;&gt;Principle of Combinatory Transparency&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;232&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1533_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1533_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;81&#34;
+		data-flex-basis=&#34;194px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/PCT.jpg&#34;
+	width=&#34;932&#34;
+	height=&#34;368&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/PCT_huf3692eab765e019bb48fcf5f56aa51d5_47236_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/PCT_huf3692eab765e019bb48fcf5f56aa51d5_47236_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;253&#34;
+		data-flex-basis=&#34;607px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;232&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1533_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1533_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;81&#34;
+		data-flex-basis=&#34;194px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;combinatory-categorial-grammar-ccg&#34;&gt;Combinatory Categorial Grammar (CCG)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;232&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1533_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1533_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;81&#34;
+		data-flex-basis=&#34;194px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/CCG.jpg&#34;
+	width=&#34;1120&#34;
+	height=&#34;702&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/CCG_hucfecb4c89aaeb9def483d97bd76d4fad_50293_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/CCG_hucfecb4c89aaeb9def483d97bd76d4fad_50293_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;159&#34;
+		data-flex-basis=&#34;382px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;232&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1533_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/white_hu36e283984737934d1af0bcfe1c0c61db_1533_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;81&#34;
+		data-flex-basis=&#34;194px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;semantics-and-deep-learning&#34;&gt;Semantics and Deep Learning&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;DL for better parsers
+&lt;ul&gt;
+&lt;li&gt;e.g. treat English $\leftarrow$ Logical Form as a machine translation problem&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Treating Semantics as &amp;ldquo;Latent&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[AD Fundamentals] Perception</title>
         <link>https://tonyfpy.github.io/p/ad-fundamentals-perception/</link>
         <pubDate>Tue, 22 Nov 2022 16:20:15 -0500</pubDate>
@@ -198,8 +398,8 @@
         <guid>https://tonyfpy.github.io/p/comp-linguistics-grammars-and-parsing/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
-&lt;p&gt;Created on Nov 10th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on Nov 10th, 2022&lt;/p&gt;
+&lt;p&gt;Created on Nov 18th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Nov 18th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1460 Computational Linguistics&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. The class aims to explore techniques regarding recent advances in NLP with deep learning. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
