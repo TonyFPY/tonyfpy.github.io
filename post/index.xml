@@ -6,7 +6,162 @@
         <description>Recent content in Posts on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 29 Nov 2022 20:55:08 -0500</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 13 Jan 2023 16:17:36 -0500</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[AD Fundamentals] Prediction</title>
+        <link>https://tonyfpy.github.io/p/ad-fundamentals-prediction/</link>
+        <pubDate>Fri, 13 Jan 2023 16:17:36 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/ad-fundamentals-prediction/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Jan. 13th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Jan. 13th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains notes from the course &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.udacity.com/course/self-driving-car-fundamentals-featuring-apollo--ud0419&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Self-Driving Fundamentals: Featuring Apollo&lt;/a&gt;&lt;/strong&gt; published by &lt;strong&gt;Udacity&lt;/strong&gt; &amp;amp; &lt;strong&gt;Baidu Apollo&lt;/strong&gt;. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;prediction-approaches&#34;&gt;Prediction Approaches&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-prediction/approaches.jpg&#34;
+	width=&#34;576&#34;
+	height=&#34;273&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-prediction/approaches_hufe14f6e94e41aa6fc286b962ad80ca7f_30509_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-prediction/approaches_hufe14f6e94e41aa6fc286b962ad80ca7f_30509_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;210&#34;
+		data-flex-basis=&#34;506px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Neither approach (model-based or data-driven) is strictly better than the other but there are certain situations in which one is more useful than the other.&lt;/p&gt;
+&lt;h3 id=&#34;model-based-prediction&#34;&gt;Model-based Prediction&lt;/h3&gt;
+&lt;p&gt;The approach is &lt;strong&gt;intuitive&lt;/strong&gt;, which incorporates with our existing knowledge of physics, traffic laws and human behavior.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Constructing different models for scenarios to indicate different vehicle behaviors.&lt;/li&gt;
+&lt;li&gt;Observing the vehicle to see if the movement matches one of the models.&lt;/li&gt;
+&lt;li&gt;E.g. Determining maximum safe turning speed on a wet road.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;data-driven-prediction&#34;&gt;Data-driven Prediction&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Feeding the data to train a &lt;strong&gt;machine learning&lt;/strong&gt; model.&lt;/li&gt;
+&lt;li&gt;E.g. Predicting the behavior of an unidentified object sitting on the road.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;lane-sequence-prediction&#34;&gt;Lane Sequence Prediction&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A model-based prediction adopted by Apollo&lt;/li&gt;
+&lt;li&gt;Diviing the road into multiple &lt;strong&gt;lane segments&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Each segment covers a region in which car motion can be easy to describe.&lt;/li&gt;
+&lt;li&gt;Grouping vehicle behaviors into different patterns and describning those patterns as sequences of lane segments.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-prediction/LS.jpg&#34;
+	width=&#34;561&#34;
+	height=&#34;261&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-prediction/LS_hu636e2c8d4adf2e407e4be4c901f5a5c2_25588_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-prediction/LS_hu636e2c8d4adf2e407e4be4c901f5a5c2_25588_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;214&#34;
+		data-flex-basis=&#34;515px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;obstacle-status&#34;&gt;Obstacle Status&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Position&lt;/li&gt;
+&lt;li&gt;Speed&lt;/li&gt;
+&lt;li&gt;Direction&lt;/li&gt;
+&lt;li&gt;Acceleration&lt;/li&gt;
+&lt;li&gt;Position inside the lane segment
+&lt;ul&gt;
+&lt;li&gt;The &lt;strong&gt;longitudinal&lt;/strong&gt; distances from the object to the lane segement boundaries&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;lateral&lt;/strong&gt; distances from the object to the lane segement boundaries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;State info from previous timesteps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;target-lane-prediction&#34;&gt;Target Lane Prediction&lt;/h2&gt;
+&lt;h3 id=&#34;lane-segment-transitions&#34;&gt;Lane Segment Transitions&lt;/h3&gt;
+&lt;p&gt;The goal of lane prediction is to generate trajectories for objects on the road. This is quite complicated.&lt;/p&gt;
+&lt;p&gt;We can look at predicting the transitions between lane segments. We can make this choice by calculating the probabilities for each lane sequence.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-prediction/TL.jpg&#34;
+	width=&#34;567&#34;
+	height=&#34;266&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-prediction/TL_hue1f2c6f5f252b79d1994e145cad532e4_18367_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-prediction/TL_hue1f2c6f5f252b79d1994e145cad532e4_18367_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;213&#34;
+		data-flex-basis=&#34;511px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;rnn-for-target-lane-prediction&#34;&gt;RNN for Target Lane Prediction&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-prediction/RNN.jpg&#34;
+	width=&#34;575&#34;
+	height=&#34;261&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-prediction/RNN_hua88231a01393e4874e58106c9c3ebcb0_25345_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-prediction/RNN_hua88231a01393e4874e58106c9c3ebcb0_25345_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;220&#34;
+		data-flex-basis=&#34;528px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Apollo provides one RNN model for the lane sequences and another RNN model for the associated objects states.&lt;/p&gt;
+&lt;p&gt;Apollo then concatenates the outputs of these two RNNs and feeds them into another NN which estimates &lt;strong&gt;the probabilty for each lane sequence&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-prediction/RNNTL.jpg&#34;
+	width=&#34;565&#34;
+	height=&#34;262&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-prediction/RNNTL_hue432bad21cbccdf7caa25dafead4b35f_13564_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-prediction/RNNTL_hue432bad21cbccdf7caa25dafead4b35f_13564_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;215&#34;
+		data-flex-basis=&#34;517px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;trajectory-generation&#34;&gt;Trajectory Generation&lt;/h3&gt;
+&lt;p&gt;Trajectory generation is the final step of lane prediction. How to generate the most likely trajectories after predicting the lance sequence?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-prediction/candidates.jpg&#34;
+	width=&#34;570&#34;
+	height=&#34;264&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-prediction/candidates_hu55af051caa4696df99d812b9629dcde1_20157_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-prediction/candidates_hu55af051caa4696df99d812b9629dcde1_20157_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;215&#34;
+		data-flex-basis=&#34;518px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Setting constraints between A and B
+&lt;ul&gt;
+&lt;li&gt;Assuming the car will align with the &lt;strong&gt;center&lt;/strong&gt; of the target lane.&lt;/li&gt;
+&lt;li&gt;Ignoring trajectories that are impossible to be physically executed by the vehicle.&lt;/li&gt;
+&lt;li&gt;Considering the vehicle&amp;rsquo;s current state&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Constructing a &lt;strong&gt;motion model&lt;/strong&gt; given the initial state and final state
+&lt;ul&gt;
+&lt;li&gt;E.g. Polynomial model&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;prediction-demo&#34;&gt;Prediction Demo&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/zZ107sB6-5A&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Video Link&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Comp Linguistics] Sementic Representations and Parsing</title>
         <link>https://tonyfpy.github.io/p/comp-linguistics-sementic-representations-and-parsing/</link>
         <pubDate>Tue, 29 Nov 2022 20:55:08 -0500</pubDate>
