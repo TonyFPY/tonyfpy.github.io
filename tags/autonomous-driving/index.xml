@@ -87,6 +87,21 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;trajectory-generation&#34;&gt;Trajectory Generation&lt;/h2&gt;
 &lt;p&gt;The high-level map route is only part of the planning process. We still need to build low-level trajectories to deal with objects, like bicycles, pedestrians, that aren&amp;rsquo;t part to the map. This scenario requires &lt;strong&gt;lower-level&lt;/strong&gt;, &lt;strong&gt;high-precision&lt;/strong&gt; planning.&lt;/p&gt;
+&lt;h3 id=&#34;frenet-coordinates&#34;&gt;Frenet Coordinates&lt;/h3&gt;
+&lt;p&gt;Tradionally, we describe the position of an object using &lt;strong&gt;Cartesian&lt;/strong&gt; coordinates, but it is not optimal for vehicles. If we don&amp;rsquo;t know the road, we don&amp;rsquo;t know how far the vehicle has traveled or whether it is deviated from the center of the lane.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Frenet&lt;/strong&gt; coordinate describes the position of the car with respect to the road. &lt;strong&gt;Longitudinal axis&lt;/strong&gt; represents the distance along the road, while &lt;strong&gt;lateral axis&lt;/strong&gt; represents the displacement from the longitudinal line. These two axis are &lt;strong&gt;perpendicular&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/FC.jpg&#34;
+	width=&#34;563&#34;
+	height=&#34;234&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/FC_hu67eb9f22f3c181bf792ed7b828f0b2ba_15719_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-planning/FC_hu67eb9f22f3c181bf792ed7b828f0b2ba_15719_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;240&#34;
+		data-flex-basis=&#34;577px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h3 id=&#34;3d-trajectory&#34;&gt;3D Trajectory&lt;/h3&gt;
 &lt;p&gt;The goal is to generate a trajectory defined by a series of points. We can fit a curve to these points to create a &lt;strong&gt;geometric representation&lt;/strong&gt; of the trajectory.&lt;/p&gt;
 &lt;p&gt;Since moving obstacles may block parts of the road temporarily, each points has a &lt;strong&gt;timestamp&lt;/strong&gt;. We can combine the timestamp with the output of the prediction module to verify if the points are vacant at the time we plan to move through them.&lt;/p&gt;
@@ -128,21 +143,156 @@ We can use cost function to choose a right trajectory among different possible c
 	
 &gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;frenet-coordinates&#34;&gt;Frenet Coordinates&lt;/h2&gt;
-&lt;p&gt;Tradionally, we describe the position of an object using &lt;strong&gt;Cartesian&lt;/strong&gt; coordinates, but it is not optimal for vehicles. If we don&amp;rsquo;t know the road, we don&amp;rsquo;t know how far the vehicle has traveled or whether it is deviated from the center of the lane.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Frenet&lt;/strong&gt; coordinate describes the position of the car with respect to the road. &lt;strong&gt;Longitudinal axis&lt;/strong&gt; represents the distance along the road, while &lt;strong&gt;lateral axis&lt;/strong&gt; represents the displacement from the longitudinal line. These two axis are &lt;strong&gt;perpendicular&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/FC.jpg&#34;
-	width=&#34;563&#34;
-	height=&#34;234&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/FC_hu67eb9f22f3c181bf792ed7b828f0b2ba_15719_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-planning/FC_hu67eb9f22f3c181bf792ed7b828f0b2ba_15719_1024x0_resize_q75_box.jpg 1024w&#34;
+&lt;h2 id=&#34;em-planning&#34;&gt;EM Planning&lt;/h2&gt;
+&lt;p&gt;EM Planning is also called &lt;strong&gt;Path-Velocity Decoupled Planning&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;path-planning&#34;&gt;Path Planning&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Generating &lt;strong&gt;candidate&lt;/strong&gt; paths
+&lt;ul&gt;
+&lt;li&gt;Segmenting the road into &lt;strong&gt;cells&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Randomly sampling&lt;/strong&gt; the points from each cell&lt;/li&gt;
+&lt;li&gt;Selecting one point from each cell and connecting points together&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Using a &lt;strong&gt;cost&lt;/strong&gt; function which considers smoothness, safety, and other factors&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ranking&lt;/strong&gt; the paths based on their costs and choose a best path&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/CG.jpg&#34;
+	width=&#34;584&#34;
+	height=&#34;195&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/CG_hu8958c18cb0dfded1bc2debac519123d0_15439_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-planning/CG_hu8958c18cb0dfded1bc2debac519123d0_15439_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;240&#34;
-		data-flex-basis=&#34;577px&#34;
+		data-flex-grow=&#34;299&#34;
+		data-flex-basis=&#34;718px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h3 id=&#34;speed-planning&#34;&gt;Speed Planning&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Determining a sequence of speeds (&lt;strong&gt;a speed profile&lt;/strong&gt;) associated with points&lt;/li&gt;
+&lt;li&gt;Using ST Graph can help design and select the speed profile
+&lt;ul&gt;
+&lt;li&gt;S represents the longitudinal displacement of the vehicle&lt;/li&gt;
+&lt;li&gt;T represents the time&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Discretizing&lt;/strong&gt; the ST graph into multiple cells
+&lt;ul&gt;
+&lt;li&gt;Speed changes between cells&lt;/li&gt;
+&lt;li&gt;Speed remains constant with each cell&lt;/li&gt;
+&lt;li&gt;Obstacles can be drawn as rectangles that block off certain parts of the road during certain time periods&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optimizing&lt;/strong&gt; the speed profile subject to various constraints&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/ST1.jpg&#34;
+	width=&#34;437&#34;
+	height=&#34;241&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/ST1_hu78d8f8d2d79498cbe72e68e14f2e7e81_10739_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-planning/ST1_hu78d8f8d2d79498cbe72e68e14f2e7e81_10739_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;181&#34;
+		data-flex-basis=&#34;435px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/ST2.jpg&#34;
+	width=&#34;358&#34;
+	height=&#34;249&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/ST2_hu691a174c9695507476ab7af3188cd198_15138_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-planning/ST2_hu691a174c9695507476ab7af3188cd198_15138_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;143&#34;
+		data-flex-basis=&#34;345px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;trajectory-optimization&#34;&gt;Trajectory Optimization&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Discretization&lt;/strong&gt; makes problems easier to solve, but the solution are not smooth. We can &lt;strong&gt;quadratic programming&lt;/strong&gt; to convert discrete solutions into a smooth trajectory, which fits a smooth non-linear curve to these piecewise linear segments.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;lattice-planning&#34;&gt;Lattice Planning&lt;/h2&gt;
+&lt;p&gt;3D Trajectory $\rightarrow$ Longitudinal Dimension + Lateral Dimension + Time Dimension&lt;/p&gt;
+&lt;p&gt;We can convert it into 2D problems&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ST Trajectory: Longitudinal Dimension + Time Dimension&lt;/li&gt;
+&lt;li&gt;SL Trajectory: Longitudinal Dimension + Lateral Dimension&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Since the problems share the same Longitudinal Dimension, we can use it to transform them back to the Cartesian coordinate frame and combine them to construct a 3D trajectory.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/lattice1.jpg&#34;
+	width=&#34;560&#34;
+	height=&#34;230&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/lattice1_hu9edf9aa63836aa1f955e8df4ddd967a4_10275_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-planning/lattice1_hu9edf9aa63836aa1f955e8df4ddd967a4_10275_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;243&#34;
+		data-flex-basis=&#34;584px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;steps&#34;&gt;Steps&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;We start by projecting the vehicle&amp;rsquo;s initial state onto ST and SL frames.&lt;/li&gt;
+&lt;li&gt;We select ending state by sampling multiple candidate ending states from pre-selected patterns.&lt;/li&gt;
+&lt;li&gt;For each candidate ending state, we build a set of trajectories to transition our vehicle from its inital state to the ending state.&lt;/li&gt;
+&lt;li&gt;We use cost function to select an optimal trajectory.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/lattice2.jpg&#34;
+	width=&#34;552&#34;
+	height=&#34;220&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/lattice2_hudc62f95b52677e7f0baefeef9b2edf25_13855_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-planning/lattice2_hudc62f95b52677e7f0baefeef9b2edf25_13855_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;250&#34;
+		data-flex-basis=&#34;602px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ending-states-for-st&#34;&gt;Ending States for ST&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Cruising&lt;/li&gt;
+&lt;li&gt;Following&lt;/li&gt;
+&lt;li&gt;Stopping&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ending-states-for-sl&#34;&gt;Ending States for SL&lt;/h3&gt;
+&lt;p&gt;We assume that the vehicle will steadily align with the central line of the lane no matter what ending state it would enter. The trajectory should end with the vehicle aligned with the lane and driving straight.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/ESSL.jpg&#34;
+	width=&#34;569&#34;
+	height=&#34;240&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/ESSL_hu1334ef048ed9d95d2ad3beba8125062d_13248_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-planning/ESSL_hu1334ef048ed9d95d2ad3beba8125062d_13248_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;237&#34;
+		data-flex-basis=&#34;569px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;polynomial-fitting&#34;&gt;Polynomial Fitting&lt;/h3&gt;
+&lt;p&gt;We will fit a polynomial to the initial state and the ending state.&lt;/p&gt;
+&lt;p&gt;Here, the initial conditions and end conditions are both tuples with &lt;strong&gt;position, speed, and acceleration&lt;/strong&gt; on $s$ coordinate. Note that speed is the first-order derivative of position and acceleration is the second-order derivative of position.&lt;/p&gt;
+&lt;p&gt;Usually, we denote the derivative with respect to time as a dot above a variable.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Initial condition: $(s_{0}, \dot{s_0}, \ddot{s_0})$&lt;/li&gt;
+&lt;li&gt;Ending condition: $(s_{1}, \dot{s_1}, \ddot{s_1})$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The polynomial we are going to fit looks like:&lt;/p&gt;
+&lt;p&gt;$$s(t)=a t^{5}+b t^{4}+c t^{3}+d t^{2}+e t+f$$&lt;/p&gt;
+&lt;p&gt;By taking the derivative of this form we get:&lt;/p&gt;
+&lt;p&gt;$$\dot{s(t)}=5 a t^{4}+4 b t^{3}+3 c t^{2}+2 d t+e$$
+$$\ddot{s(t)}=20 a t^{3}+12 b t^{2}+6 c t+2 d$$&lt;/p&gt;
+&lt;p&gt;Now we plug in the initial condition and ending condition, we have 6 equations. Here we suppose the ending condition happen at time $t = T$.&lt;/p&gt;
+&lt;p&gt;$$s_{0}=f$$
+$$\dot{s_0}=e$$
+$$\ddot{s_0}=2d$$
+$$s_{1}=a T^{5}+b T^{4}+c T^{3}+d T^{2}+eT+f$$
+$$\dot{s_{1}}=5 a T^{4}+4 b T^{3}+3 c T^{2}+2 d T+e$$
+$$\ddot{s_{1}}=20 a T^{3}+12 b T^{2}+6 c T+2 d$$&lt;/p&gt;
+&lt;p&gt;With these equations, we can solve for $a$, $b$, $c$, $d$, $e$, and $f$. This represents a curve that smoothly connects two conditions.&lt;/p&gt;
 &lt;hr&gt;
 </description>
         </item>
