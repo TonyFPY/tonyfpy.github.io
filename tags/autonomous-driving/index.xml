@@ -6,7 +6,147 @@
         <description>Recent content in Autonomous Driving on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 13 Jan 2023 16:17:36 -0500</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/autonomous-driving/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 14 Jan 2023 22:19:57 -0500</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/autonomous-driving/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[AD Fundamentals] Planning</title>
+        <link>https://tonyfpy.github.io/p/ad-fundamentals-planning/</link>
+        <pubDate>Sat, 14 Jan 2023 22:19:57 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/ad-fundamentals-planning/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Jan. 14th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Jan. 14th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains notes from the course &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.udacity.com/course/self-driving-car-fundamentals-featuring-apollo--ud0419&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Self-Driving Fundamentals: Featuring Apollo&lt;/a&gt;&lt;/strong&gt; published by &lt;strong&gt;Udacity&lt;/strong&gt; &amp;amp; &lt;strong&gt;Baidu Apollo&lt;/strong&gt;. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;intro-to-planning&#34;&gt;Intro to Planning&lt;/h2&gt;
+&lt;p&gt;In planning, we incorporate HD maps, localization, and prediction to build a trajectory for the vehicle.&lt;/p&gt;
+&lt;p&gt;The first step of planning is &lt;strong&gt;route navigation&lt;/strong&gt;, which focuses on how to go from A to B on the map. Routing takes &lt;strong&gt;the map data as input&lt;/strong&gt; and &lt;strong&gt;output a navigation path&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Once we have constructed a high-level route, we zoom into trajectory planning. It is about how to &lt;strong&gt;make subtle decisons&lt;/strong&gt; to avoid obstacles and create a smooth ride for passengers.&lt;/p&gt;
+&lt;p&gt;The goal of trajectory planning is to generate a collision-free and comfortable trajectory to execute. This trajectory is defined by &lt;strong&gt;a sequence of points&lt;/strong&gt;, each of which has &lt;strong&gt;an associated velocity&lt;/strong&gt; and &lt;strong&gt;a timestamp&lt;/strong&gt; to indicates when we should arrive at that point.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;routing&#34;&gt;Routing&lt;/h2&gt;
+&lt;p&gt;The goal of routing is to find the best path to travel from A to B on the map. It takes 3 input:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The map
+&lt;ul&gt;
+&lt;li&gt;Road network&lt;/li&gt;
+&lt;li&gt;Real-time traffic info&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Our current position on the map&lt;/li&gt;
+&lt;li&gt;The destination&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;world-to-graph&#34;&gt;World to Graph&lt;/h3&gt;
+&lt;p&gt;Apollo uses &lt;strong&gt;searching&lt;/strong&gt; algorithms to find a route. Before that, the system reformats the map into a &lt;strong&gt;graph&lt;/strong&gt;, where the &lt;strong&gt;nodes&lt;/strong&gt; represent the sections of road and &lt;strong&gt;edges&lt;/strong&gt; represent connections between those sections.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/w2g.jpg&#34;
+	width=&#34;585&#34;
+	height=&#34;264&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/w2g_huf08bac82b04eb79034708466bac48a05_21777_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-planning/w2g_huf08bac82b04eb79034708466bac48a05_21777_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;221&#34;
+		data-flex-basis=&#34;531px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;a-and-grid-world&#34;&gt;A* and Grid World&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/A*1.jpg&#34;
+	width=&#34;577&#34;
+	height=&#34;197&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/A*1_hu217f816ba0d0f3c7a1170aa8a931fc94_13809_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-planning/A*1_hu217f816ba0d0f3c7a1170aa8a931fc94_13809_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;292&#34;
+		data-flex-basis=&#34;702px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;First, we calculate the cost it takes to travel from the start node to that candidate node. ($g$ -&amp;gt; candidate cost)&lt;/p&gt;
+&lt;p&gt;Second, we estimate how much it costs to travel from that candidate node to the goal. ($h$ -&amp;gt; estimated cost / heuristic cost)&lt;/p&gt;
+&lt;p&gt;The best candidate node is the node that has the minimum cost $f = g + h$.&lt;/p&gt;
+&lt;p&gt;The cost may vary based on the real-time traffic info.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/A*2.jpg&#34;
+	width=&#34;587&#34;
+	height=&#34;257&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/A*2_huccad48e4054980aa293bb7464efa3b0f_19394_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-planning/A*2_huccad48e4054980aa293bb7464efa3b0f_19394_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;228&#34;
+		data-flex-basis=&#34;548px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;For example, it takes a lot of effort to turn through the intersection, so we assign a higher $g$ value to the node indicating turning left.&lt;/p&gt;
+&lt;p&gt;For the highway option, we realize that we may have to travel a long way to exit the highway and return back to reach the goal. So we assign higher $h$ value to this node.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;trajectory-generation&#34;&gt;Trajectory Generation&lt;/h2&gt;
+&lt;p&gt;The high-level map route is only part of the planning process. We still need to build low-level trajectories to deal with objects, like bicycles, pedestrians, that aren&amp;rsquo;t part to the map. This scenario requires &lt;strong&gt;lower-level&lt;/strong&gt;, &lt;strong&gt;high-precision&lt;/strong&gt; planning.&lt;/p&gt;
+&lt;h3 id=&#34;3d-trajectory&#34;&gt;3D Trajectory&lt;/h3&gt;
+&lt;p&gt;The goal is to generate a trajectory defined by a series of points. We can fit a curve to these points to create a &lt;strong&gt;geometric representation&lt;/strong&gt; of the trajectory.&lt;/p&gt;
+&lt;p&gt;Since moving obstacles may block parts of the road temporarily, each points has a &lt;strong&gt;timestamp&lt;/strong&gt;. We can combine the timestamp with the output of the prediction module to verify if the points are vacant at the time we plan to move through them.&lt;/p&gt;
+&lt;p&gt;These timestamps create a 3D trajectory with each point defined by a 2D space and a third dimension in time.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/3DT.jpg&#34;
+	width=&#34;568&#34;
+	height=&#34;206&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/3DT_hu568cac5d3e9217b87cef41e48641c8e5_17994_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-planning/3DT_hu568cac5d3e9217b87cef41e48641c8e5_17994_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;275&#34;
+		data-flex-basis=&#34;661px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;We also designate a &lt;strong&gt;velocity&lt;/strong&gt; for each point, which ensures that the vehicle can reach the point on schedule.&lt;/p&gt;
+&lt;h3 id=&#34;evaluating-a-trajectory&#34;&gt;Evaluating a Trajectory&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Constraints&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The final position aligns with the center line of the lane.&lt;/li&gt;
+&lt;li&gt;The distance from obstacles at every point of the trajectory&lt;/li&gt;
+&lt;li&gt;Traffic laws, such as speed limit, etc.&lt;/li&gt;
+&lt;li&gt;The trajectory should be physically viable for the vehicle.&lt;/li&gt;
+&lt;li&gt;Passenger&amp;rsquo;s comfort&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Cost Function&lt;/strong&gt;
+We can use cost function to choose a right trajectory among different possible candidates. Different scenarios require different cost functions.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/CF.jpg&#34;
+	width=&#34;583&#34;
+	height=&#34;287&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/CF_hu98a06625e9ce5ae16a642d01a81c7a95_25540_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-planning/CF_hu98a06625e9ce5ae16a642d01a81c7a95_25540_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;203&#34;
+		data-flex-basis=&#34;487px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;frenet-coordinates&#34;&gt;Frenet Coordinates&lt;/h2&gt;
+&lt;p&gt;Tradionally, we describe the position of an object using &lt;strong&gt;Cartesian&lt;/strong&gt; coordinates, but it is not optimal for vehicles. If we don&amp;rsquo;t know the road, we don&amp;rsquo;t know how far the vehicle has traveled or whether it is deviated from the center of the lane.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Frenet&lt;/strong&gt; coordinate describes the position of the car with respect to the road. &lt;strong&gt;Longitudinal axis&lt;/strong&gt; represents the distance along the road, while &lt;strong&gt;lateral axis&lt;/strong&gt; represents the displacement from the longitudinal line. These two axis are &lt;strong&gt;perpendicular&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/FC.jpg&#34;
+	width=&#34;563&#34;
+	height=&#34;234&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-planning/FC_hu67eb9f22f3c181bf792ed7b828f0b2ba_15719_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-planning/FC_hu67eb9f22f3c181bf792ed7b828f0b2ba_15719_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;240&#34;
+		data-flex-basis=&#34;577px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[AD Fundamentals] Prediction</title>
         <link>https://tonyfpy.github.io/p/ad-fundamentals-prediction/</link>
         <pubDate>Fri, 13 Jan 2023 16:17:36 -0500</pubDate>
