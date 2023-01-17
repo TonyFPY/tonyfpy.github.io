@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
+Created on Jan. 17th, 2022
+Last Modified on Jan. 17th, 2022
+ Intro This sereis of posts contains notes from the course Self-Driving Fundamentals: Featuring Apollo published by Udacity &amp;amp; Baidu Apollo. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Intro to Control Control is a strategy of actuating the vehicle to move it towards the road.'><title>[AD Fundamentals] Control</title>
+
+<link rel='canonical' href='https://tonyfpy.github.io/p/ad-fundamentals-control/'>
+
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[AD Fundamentals] Control'>
+<meta property='og:description' content='Authored by Tony Feng
+Created on Jan. 17th, 2022
+Last Modified on Jan. 17th, 2022
+ Intro This sereis of posts contains notes from the course Self-Driving Fundamentals: Featuring Apollo published by Udacity &amp;amp; Baidu Apollo. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Intro to Control Control is a strategy of actuating the vehicle to move it towards the road.'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/ad-fundamentals-control/'>
+<meta property='og:site_name' content='Tony Feng'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Autonomous Driving' /><meta property='article:published_time' content='2023-01-17T11:35:11-05:00'/><meta property='article:modified_time' content='2023-01-17T16:59:03-05:00'/>
+<meta name="twitter:title" content="[AD Fundamentals] Control">
+<meta name="twitter:description" content="Authored by Tony Feng
+Created on Jan. 17th, 2022
+Last Modified on Jan. 17th, 2022
+ Intro This sereis of posts contains notes from the course Self-Driving Fundamentals: Featuring Apollo published by Udacity &amp;amp; Baidu Apollo. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.
+ Intro to Control Control is a strategy of actuating the vehicle to move it towards the road.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/Brown_hu1b43bb4664aba7c4309526f1ef45ab91_1767_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Tony Feng</a></h1>
+            <h2 class="site-description">M.Sc. in Computer Science</h2>
+            <h2 class="site-description">Brown University</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://tonyfpy.github.io/about/'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/TonyFPY'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/pinyuanfeng'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/research/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <line x1="3" y1="6" x2="3" y2="19" />
+  <line x1="12" y1="6" x2="12" y2="19" />
+  <line x1="21" y1="6" x2="21" y2="19" />
+</svg>
+                
+                <span>Research</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/projects/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="7 8 3 12 7 16" />
+  <polyline points="17 8 21 12 17 16" />
+  <line x1="14" y1="4" x2="10" y2="20" />
+</svg>
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/autonomous-driving/" style="background-color: #005597; color: #fff;">
+                Autonomous Driving
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/ad-fundamentals-control/">[AD Fundamentals] Control</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 17, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>Authored by Tony Feng</p>
+<p>Created on Jan. 17th, 2022</p>
+<p>Last Modified on Jan. 17th, 2022</p>
+</blockquote>
+<h2 id="intro">Intro</h2>
+<p>This sereis of posts contains notes from the course <strong><a class="link" href="https://www.udacity.com/course/self-driving-car-fundamentals-featuring-apollo--ud0419"  target="_blank" rel="noopener"
+    >Self-Driving Fundamentals: Featuring Apollo</a></strong> published by <strong>Udacity</strong> &amp; <strong>Baidu Apollo</strong>. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &ldquo;notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
+<hr>
+<h2 id="intro-to-control">Intro to Control</h2>
+<p>Control is a strategy of actuating the vehicle to move it towards the road. For a car, the basic control inputs are <strong>steering</strong>, <strong>acceleration</strong> and <strong>break</strong>. The car uses controller inputs to <strong>minimize the deviation from the planning</strong> and <strong>maximize the passenger comfort</strong>.</p>
+<p><img src="/p/ad-fundamentals-control/trajectory&amp;control.jpg"
+	width="583"
+	height="272"
+	srcset="/p/ad-fundamentals-control/trajectory&amp;control_hu8adb95acf296c928cdecea023268d465_14944_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-control/trajectory&amp;control_hu8adb95acf296c928cdecea023268d465_14944_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="214"
+		data-flex-basis="514px"
+	
+></p>
+<p>The controller receives trajectory as a sequence of way points. We use control inputs to move the vehicle towards those way points. <strong>The result of control should be as close as possible to the target trajectory.</strong></p>
+<ul>
+<li>Controller needs to be accurate.</li>
+<li>The control strategy should be favaroble to vehicles.</li>
+<li>Actuation should be continuous to make the driving smooth.</li>
+</ul>
+<p><img src="/p/ad-fundamentals-control/planning&amp;real.jpg"
+	width="588"
+	height="247"
+	srcset="/p/ad-fundamentals-control/planning&amp;real_hu1c0ac25105ec9d798abd4f66d48aefb7_19953_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-control/planning&amp;real_hu1c0ac25105ec9d798abd4f66d48aefb7_19953_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="238"
+		data-flex-basis="571px"
+	
+> <img src="/p/ad-fundamentals-control/executable.jpg"
+	width="559"
+	height="237"
+	srcset="/p/ad-fundamentals-control/executable_hu86a815fca35398023d18a3c4f9f01987_15930_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-control/executable_hu86a815fca35398023d18a3c4f9f01987_15930_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="235"
+		data-flex-basis="566px"
+	
+></p>
+<hr>
+<h2 id="control-pipeline">Control Pipeline</h2>
+<p>There are two inputs of controller aspects: <strong>target trajectory</strong> and <strong>vehicle states</strong>. We use these 2 inputs to calculate the deviation between real trajectory and target trajectory.</p>
+<p>The outputs of the controller are the values for the control inputs: <strong>steering</strong>, <strong>acceleration</strong>, and <strong>break</strong>. They are used to correct the deviation from the target trajectory.</p>
+<h3 id="target-trajectory">Target Trajectory</h3>
+<p>It comes from the <strong>planning</strong> module. Each way point is designated a position and a reference velocity. The trajectory is updated at every timestamp.</p>
+<h3 id="vehicle-state">Vehicle State</h3>
+<p>It is provided by the <strong>localization</strong> module. It includes the position of the vehicle. Also, it also includes data from <strong>internal sensors</strong>, such as speed, steering, and acceleration.</p>
+<hr>
+<h2 id="pid">PID</h2>
+<h3 id="term-p">Term P</h3>
+<p>The <strong>P controller</strong> will pull the vehicle back to the target trajectory as soon as it starts to deviate. <strong>Proportional</strong> means that the further the vehicle deviates, the harder the controller will steer back toward the target trajectory.</p>
+<p>$$a=-K_{P} e$$</p>
+<p><img src="/p/ad-fundamentals-control/PID1.jpg"
+	width="588"
+	height="167"
+	srcset="/p/ad-fundamentals-control/PID1_hu4df66db1696a281d0a3d15e0c79afcfa_10491_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-control/PID1_hu4df66db1696a281d0a3d15e0c79afcfa_10491_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="352"
+		data-flex-basis="845px"
+	
+></p>
+<h3 id="term-d">Term D</h3>
+<p>One problem of P controller is that <strong>it&rsquo;s easy to overshoot the reference trajectory</strong>. We need the controller to be steadier when the vehicle is closer to the reference trajectory.</p>
+<p><strong>The D term of the PID steadies its motion.</strong> The PD controller has a damping term that <strong>minimizes how quickly the controller output changes</strong>.</p>
+<p>$$a=-K_{P} e-K_{D} \frac{d e}{d t}$$</p>
+<p><img src="/p/ad-fundamentals-control/PID2.jpg"
+	width="590"
+	height="190"
+	srcset="/p/ad-fundamentals-control/PID2_hu94e2d61be329cfa2b7c73bdcb945d5b7_11282_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-control/PID2_hu94e2d61be329cfa2b7c73bdcb945d5b7_11282_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="310"
+		data-flex-basis="745px"
+	
+></p>
+<h3 id="term-i">Term I</h3>
+<p><strong>The I term is responsible for correcting any systemic bias of the vehicle.</strong> For example, the steering might be out of alignment, which would result in a constant steering offset. In that case, we need to steer a little bit to the side just to keep going straight. To handle this problem, the I controller <strong>penalilizes the accumulated error of the system</strong>.</p>
+<p>$$a=-K_{P} e-K_{I} \int e d t-K_{D} \frac{d e}{d t}$$</p>
+<p><img src="/p/ad-fundamentals-control/PID3.jpg"
+	width="589"
+	height="154"
+	srcset="/p/ad-fundamentals-control/PID3_huf4c2dce8735687a8e7e61607f910b9ee_8797_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-control/PID3_huf4c2dce8735687a8e7e61607f910b9ee_8797_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="382"
+		data-flex-basis="917px"
+	
+></p>
+<h3 id="pros--cons">Pros &amp; Cons</h3>
+<p><strong>Pros</strong></p>
+<ul>
+<li><strong>Proportional-Integral-Derivative Control</strong> (PID) only needs to know how far we have deviated from the target trajectory.</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>PID is a <strong>linear algorithm</strong>, so it is not able to deal with complex problems. In real life, a self-driving car requires multiple PIDs, which means it&rsquo;s hard to combine a latitudinal and longitudinal control.</li>
+<li>Another problem is that it depends on <strong>real-time error measurement</strong>. Measurement delays can compromise the performance.</li>
+</ul>
+<hr>
+<h2 id="lqr">LQR</h2>
+<h3 id="model">Model</h3>
+<p><strong>Linear Qudratic Regulator</strong> is a model-based controller that uses the state of the vehicle to minimize error.</p>
+<p>Apollo uses LQR for lateral control, which contains 4 conponents:</p>
+<ul>
+<li>The lateral error</li>
+<li>The rate of the change of lateral error (derivative)</li>
+<li>The heading error</li>
+<li>The rate of the change of the lateral error (derivative))</li>
+</ul>
+<p>$$
+x=\left[\begin{array}{c}
+c t e \
+c \dot{t} e \
+\theta \
+\dot{\theta}
+\end{array}\right]
+$$</p>
+<p>$$
+u=\left[\begin{array}{c}
+\text { steering } \
+\text { acceleration } \
+\text { brake }
+\end{array}\right]
+$$</p>
+<p>This model can be represented by a <a class="link" href="https://en.wikipedia.org/wiki/State-space_representation"  target="_blank" rel="noopener"
+    ><strong>State-space Equation</strong></a>:</p>
+<p>$$ \dot{x} = Ax + Bu $$</p>
+<p>, where $\dot{x} $ vector is the rate of change of the $x$ vector, so each component of $\dot{x} $ is just the <strong>derivative</strong> of the corresponding component of $x$. <strong>The equation captures how the change in state.</strong> <a class="link" href="http://python-control.readthedocs.io/en/latest/generated/control.lqr.html"  target="_blank" rel="noopener"
+    ><strong>Here</strong></a> you can find the implementation of LQR in Python</p>
+<h3 id="term-l">Term L</h3>
+<p>The equation is <strong>linear</strong>. When we there is a change to $x$ and $u$,</p>
+<p>$$ \dot{x}+\Delta \dot{x}=A(x+\Delta x)+B(u+\Delta u) $$</p>
+<p>the change to $\dot{x} $ will also satisfy this equation.</p>
+<p>$$ \Delta \dot{x}=A \Delta x+B \Delta u $$</p>
+<h3 id="term-q">Term Q</h3>
+<p>We want to apply as few control inputs as possible to <strong>decrease overhead</strong>. In order to minimize these factors, we can keep running summation of errors and summation of control inputs.</p>
+<p>E.g. When the car turns too far to the right, we add that error to the sum. When the control input steers the car back to the left, we subtract a bit from the control input sum. However, this approach causes problems. <strong>The positive errors to the right simply cancel out the negative errors to the left. The same would be true for control inputs.</strong></p>
+<p>Instead, <strong>we can multiply $x$ and $u$ by themselves</strong>, so the negative values will produce positive squares. They are called <strong>quadratic terms</strong>. We assign <strong>weights</strong> to these terms and the optimal $u$ should minimize summation overtime.</p>
+<p>$$ w_{1} c t e^{2}+w_{2} c \dot{t e} e^{2}+w_{3} \theta^{2}+w_{4} \dot{\theta}^{2}+\ldots $$</p>
+<p>Mathematically, they are defined using a cost function:</p>
+<p>$$ \text { cost }=\int_{0}^{\infty}\left(x^{T} Q x+u^{T} R u\right) d t $$</p>
+<p>, where $Q$ and $R$ represents a collection of weights for $x$ and $u$.</p>
+<p>To minimize this cost function, there are many numeric solvers. One solver provided by Apollo is using a complicated scheme $K$, which can obtain $u$ through $x$.</p>
+<p>$$ u = -Kx$$</p>
+<p>So, finding an optimal $u$ is finding an optimal $K$. Many tools have access to solve $K$, once you provide $A$, $B$, $Q$, $R$.</p>
+<h3 id="mpc">MPC</h3>
+<p><strong>Model Predictive Control</strong></p>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>MIT License</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Jan 17, 2023 16:59 EST
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 Tony Feng
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#intro-to-control">Intro to Control</a></li>
+    <li><a href="#control-pipeline">Control Pipeline</a>
+      <ol>
+        <li><a href="#target-trajectory">Target Trajectory</a></li>
+        <li><a href="#vehicle-state">Vehicle State</a></li>
+      </ol>
+    </li>
+    <li><a href="#pid">PID</a>
+      <ol>
+        <li><a href="#term-p">Term P</a></li>
+        <li><a href="#term-d">Term D</a></li>
+        <li><a href="#term-i">Term I</a></li>
+        <li><a href="#pros--cons">Pros &amp; Cons</a></li>
+      </ol>
+    </li>
+    <li><a href="#lqr">LQR</a>
+      <ol>
+        <li><a href="#model">Model</a></li>
+        <li><a href="#term-l">Term L</a></li>
+        <li><a href="#term-q">Term Q</a></li>
+        <li><a href="#mpc">MPC</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

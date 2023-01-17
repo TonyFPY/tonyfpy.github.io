@@ -6,6 +6,182 @@
         <description>Recent content in Autonomous Driving on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/autonomous-driving/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[AD Fundamentals] Control</title>
+        <link>https://tonyfpy.github.io/p/ad-fundamentals-control/</link>
+        <pubDate>Tue, 17 Jan 2023 11:35:11 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/ad-fundamentals-control/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Jan. 17th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Jan. 17th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains notes from the course &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.udacity.com/course/self-driving-car-fundamentals-featuring-apollo--ud0419&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Self-Driving Fundamentals: Featuring Apollo&lt;/a&gt;&lt;/strong&gt; published by &lt;strong&gt;Udacity&lt;/strong&gt; &amp;amp; &lt;strong&gt;Baidu Apollo&lt;/strong&gt;. This course aims to deliver key parts of self-driving cars, including HD Map, localization, perception, prediction, planning and control. I posted these &amp;ldquo;notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;intro-to-control&#34;&gt;Intro to Control&lt;/h2&gt;
+&lt;p&gt;Control is a strategy of actuating the vehicle to move it towards the road. For a car, the basic control inputs are &lt;strong&gt;steering&lt;/strong&gt;, &lt;strong&gt;acceleration&lt;/strong&gt; and &lt;strong&gt;break&lt;/strong&gt;. The car uses controller inputs to &lt;strong&gt;minimize the deviation from the planning&lt;/strong&gt; and &lt;strong&gt;maximize the passenger comfort&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/trajectory&amp;amp;control.jpg&#34;
+	width=&#34;583&#34;
+	height=&#34;272&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/trajectory&amp;amp;control_hu8adb95acf296c928cdecea023268d465_14944_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-control/trajectory&amp;amp;control_hu8adb95acf296c928cdecea023268d465_14944_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;214&#34;
+		data-flex-basis=&#34;514px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The controller receives trajectory as a sequence of way points. We use control inputs to move the vehicle towards those way points. &lt;strong&gt;The result of control should be as close as possible to the target trajectory.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Controller needs to be accurate.&lt;/li&gt;
+&lt;li&gt;The control strategy should be favaroble to vehicles.&lt;/li&gt;
+&lt;li&gt;Actuation should be continuous to make the driving smooth.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/planning&amp;amp;real.jpg&#34;
+	width=&#34;588&#34;
+	height=&#34;247&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/planning&amp;amp;real_hu1c0ac25105ec9d798abd4f66d48aefb7_19953_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-control/planning&amp;amp;real_hu1c0ac25105ec9d798abd4f66d48aefb7_19953_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;238&#34;
+		data-flex-basis=&#34;571px&#34;
+	
+&gt; &lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/executable.jpg&#34;
+	width=&#34;559&#34;
+	height=&#34;237&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/executable_hu86a815fca35398023d18a3c4f9f01987_15930_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-control/executable_hu86a815fca35398023d18a3c4f9f01987_15930_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;235&#34;
+		data-flex-basis=&#34;566px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;control-pipeline&#34;&gt;Control Pipeline&lt;/h2&gt;
+&lt;p&gt;There are two inputs of controller aspects: &lt;strong&gt;target trajectory&lt;/strong&gt; and &lt;strong&gt;vehicle states&lt;/strong&gt;. We use these 2 inputs to calculate the deviation between real trajectory and target trajectory.&lt;/p&gt;
+&lt;p&gt;The outputs of the controller are the values for the control inputs: &lt;strong&gt;steering&lt;/strong&gt;, &lt;strong&gt;acceleration&lt;/strong&gt;, and &lt;strong&gt;break&lt;/strong&gt;. They are used to correct the deviation from the target trajectory.&lt;/p&gt;
+&lt;h3 id=&#34;target-trajectory&#34;&gt;Target Trajectory&lt;/h3&gt;
+&lt;p&gt;It comes from the &lt;strong&gt;planning&lt;/strong&gt; module. Each way point is designated a position and a reference velocity. The trajectory is updated at every timestamp.&lt;/p&gt;
+&lt;h3 id=&#34;vehicle-state&#34;&gt;Vehicle State&lt;/h3&gt;
+&lt;p&gt;It is provided by the &lt;strong&gt;localization&lt;/strong&gt; module. It includes the position of the vehicle. Also, it also includes data from &lt;strong&gt;internal sensors&lt;/strong&gt;, such as speed, steering, and acceleration.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;pid&#34;&gt;PID&lt;/h2&gt;
+&lt;h3 id=&#34;term-p&#34;&gt;Term P&lt;/h3&gt;
+&lt;p&gt;The &lt;strong&gt;P controller&lt;/strong&gt; will pull the vehicle back to the target trajectory as soon as it starts to deviate. &lt;strong&gt;Proportional&lt;/strong&gt; means that the further the vehicle deviates, the harder the controller will steer back toward the target trajectory.&lt;/p&gt;
+&lt;p&gt;$$a=-K_{P} e$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/PID1.jpg&#34;
+	width=&#34;588&#34;
+	height=&#34;167&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/PID1_hu4df66db1696a281d0a3d15e0c79afcfa_10491_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-control/PID1_hu4df66db1696a281d0a3d15e0c79afcfa_10491_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;352&#34;
+		data-flex-basis=&#34;845px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;term-d&#34;&gt;Term D&lt;/h3&gt;
+&lt;p&gt;One problem of P controller is that &lt;strong&gt;it&amp;rsquo;s easy to overshoot the reference trajectory&lt;/strong&gt;. We need the controller to be steadier when the vehicle is closer to the reference trajectory.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The D term of the PID steadies its motion.&lt;/strong&gt; The PD controller has a damping term that &lt;strong&gt;minimizes how quickly the controller output changes&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;$$a=-K_{P} e-K_{D} \frac{d e}{d t}$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/PID2.jpg&#34;
+	width=&#34;590&#34;
+	height=&#34;190&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/PID2_hu94e2d61be329cfa2b7c73bdcb945d5b7_11282_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-control/PID2_hu94e2d61be329cfa2b7c73bdcb945d5b7_11282_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;310&#34;
+		data-flex-basis=&#34;745px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;term-i&#34;&gt;Term I&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;The I term is responsible for correcting any systemic bias of the vehicle.&lt;/strong&gt; For example, the steering might be out of alignment, which would result in a constant steering offset. In that case, we need to steer a little bit to the side just to keep going straight. To handle this problem, the I controller &lt;strong&gt;penalilizes the accumulated error of the system&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;$$a=-K_{P} e-K_{I} \int e d t-K_{D} \frac{d e}{d t}$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/PID3.jpg&#34;
+	width=&#34;589&#34;
+	height=&#34;154&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/PID3_huf4c2dce8735687a8e7e61607f910b9ee_8797_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-control/PID3_huf4c2dce8735687a8e7e61607f910b9ee_8797_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;382&#34;
+		data-flex-basis=&#34;917px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;pros--cons&#34;&gt;Pros &amp;amp; Cons&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Pros&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Proportional-Integral-Derivative Control&lt;/strong&gt; (PID) only needs to know how far we have deviated from the target trajectory.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Cons&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PID is a &lt;strong&gt;linear algorithm&lt;/strong&gt;, so it is not able to deal with complex problems. In real life, a self-driving car requires multiple PIDs, which means it&amp;rsquo;s hard to combine a latitudinal and longitudinal control.&lt;/li&gt;
+&lt;li&gt;Another problem is that it depends on &lt;strong&gt;real-time error measurement&lt;/strong&gt;. Measurement delays can compromise the performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;lqr&#34;&gt;LQR&lt;/h2&gt;
+&lt;h3 id=&#34;model&#34;&gt;Model&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Linear Qudratic Regulator&lt;/strong&gt; is a model-based controller that uses the state of the vehicle to minimize error.&lt;/p&gt;
+&lt;p&gt;Apollo uses LQR for lateral control, which contains 4 conponents:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The lateral error&lt;/li&gt;
+&lt;li&gt;The rate of the change of lateral error (derivative)&lt;/li&gt;
+&lt;li&gt;The heading error&lt;/li&gt;
+&lt;li&gt;The rate of the change of the lateral error (derivative))&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+x=\left[\begin{array}{c}
+c t e \
+c \dot{t} e \
+\theta \
+\dot{\theta}
+\end{array}\right]
+$$&lt;/p&gt;
+&lt;p&gt;$$
+u=\left[\begin{array}{c}
+\text { steering } \
+\text { acceleration } \
+\text { brake }
+\end{array}\right]
+$$&lt;/p&gt;
+&lt;p&gt;This model can be represented by a &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/State-space_representation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;State-space Equation&lt;/strong&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;$$ \dot{x} = Ax + Bu $$&lt;/p&gt;
+&lt;p&gt;, where $\dot{x} $ vector is the rate of change of the $x$ vector, so each component of $\dot{x} $ is just the &lt;strong&gt;derivative&lt;/strong&gt; of the corresponding component of $x$. &lt;strong&gt;The equation captures how the change in state.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;http://python-control.readthedocs.io/en/latest/generated/control.lqr.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Here&lt;/strong&gt;&lt;/a&gt; you can find the implementation of LQR in Python&lt;/p&gt;
+&lt;h3 id=&#34;term-l&#34;&gt;Term L&lt;/h3&gt;
+&lt;p&gt;The equation is &lt;strong&gt;linear&lt;/strong&gt;. When we there is a change to $x$ and $u$,&lt;/p&gt;
+&lt;p&gt;$$ \dot{x}+\Delta \dot{x}=A(x+\Delta x)+B(u+\Delta u) $$&lt;/p&gt;
+&lt;p&gt;the change to $\dot{x} $ will also satisfy this equation.&lt;/p&gt;
+&lt;p&gt;$$ \Delta \dot{x}=A \Delta x+B \Delta u $$&lt;/p&gt;
+&lt;h3 id=&#34;term-q&#34;&gt;Term Q&lt;/h3&gt;
+&lt;p&gt;We want to apply as few control inputs as possible to &lt;strong&gt;decrease overhead&lt;/strong&gt;. In order to minimize these factors, we can keep running summation of errors and summation of control inputs.&lt;/p&gt;
+&lt;p&gt;E.g. When the car turns too far to the right, we add that error to the sum. When the control input steers the car back to the left, we subtract a bit from the control input sum. However, this approach causes problems. &lt;strong&gt;The positive errors to the right simply cancel out the negative errors to the left. The same would be true for control inputs.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Instead, &lt;strong&gt;we can multiply $x$ and $u$ by themselves&lt;/strong&gt;, so the negative values will produce positive squares. They are called &lt;strong&gt;quadratic terms&lt;/strong&gt;. We assign &lt;strong&gt;weights&lt;/strong&gt; to these terms and the optimal $u$ should minimize summation overtime.&lt;/p&gt;
+&lt;p&gt;$$ w_{1} c t e^{2}+w_{2} c \dot{t e} e^{2}+w_{3} \theta^{2}+w_{4} \dot{\theta}^{2}+\ldots $$&lt;/p&gt;
+&lt;p&gt;Mathematically, they are defined using a cost function:&lt;/p&gt;
+&lt;p&gt;$$ \text { cost }=\int_{0}^{\infty}\left(x^{T} Q x+u^{T} R u\right) d t $$&lt;/p&gt;
+&lt;p&gt;, where $Q$ and $R$ represents a collection of weights for $x$ and $u$.&lt;/p&gt;
+&lt;p&gt;To minimize this cost function, there are many numeric solvers. One solver provided by Apollo is using a complicated scheme $K$, which can obtain $u$ through $x$.&lt;/p&gt;
+&lt;p&gt;$$ u = -Kx$$&lt;/p&gt;
+&lt;p&gt;So, finding an optimal $u$ is finding an optimal $K$. Many tools have access to solve $K$, once you provide $A$, $B$, $Q$, $R$.&lt;/p&gt;
+&lt;h3 id=&#34;mpc&#34;&gt;MPC&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Model Predictive Control&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[AD Fundamentals] Planning</title>
         <link>https://tonyfpy.github.io/p/ad-fundamentals-planning/</link>
         <pubDate>Sat, 14 Jan 2023 22:19:57 -0500</pubDate>
