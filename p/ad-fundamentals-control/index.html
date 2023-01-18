@@ -17,7 +17,7 @@ Last Modified on Jan. 17th, 2022
  Intro to Control Control is a strategy of actuating the vehicle to move it towards the road.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/ad-fundamentals-control/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Autonomous Driving' /><meta property='article:published_time' content='2023-01-17T11:35:11-05:00'/><meta property='article:modified_time' content='2023-01-17T16:59:03-05:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Autonomous Driving' /><meta property='article:published_time' content='2023-01-17T11:35:11-05:00'/><meta property='article:modified_time' content='2023-01-17T21:32:36-05:00'/>
 <meta name="twitter:title" content="[AD Fundamentals] Control">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Jan. 17th, 2022
@@ -345,7 +345,7 @@ Last Modified on Jan. 17th, 2022
 
 
                 <time class="article-time--reading">
-                    5 minute read
+                    6 minute read
                 </time>
             </div>
         
@@ -486,7 +486,7 @@ Last Modified on Jan. 17th, 2022
 <li>The lateral error</li>
 <li>The rate of the change of lateral error (derivative)</li>
 <li>The heading error</li>
-<li>The rate of the change of the lateral error (derivative))</li>
+<li>The rate of the change of the heading error (derivative))</li>
 </ul>
 <p>$$
 x=\left[\begin{array}{c}
@@ -521,11 +521,71 @@ $$</p>
 <p>Mathematically, they are defined using a cost function:</p>
 <p>$$ \text { cost }=\int_{0}^{\infty}\left(x^{T} Q x+u^{T} R u\right) d t $$</p>
 <p>, where $Q$ and $R$ represents a collection of weights for $x$ and $u$.</p>
-<p>To minimize this cost function, there are many numeric solvers. One solver provided by Apollo is using a complicated scheme $K$, which can obtain $u$ through $x$.</p>
+<p>To minimize this cost function, one solution provided by Apollo is using a complicated scheme $K$, which can obtain $u$ through $x$.</p>
 <p>$$ u = -Kx$$</p>
 <p>So, finding an optimal $u$ is finding an optimal $K$. Many tools have access to solve $K$, once you provide $A$, $B$, $Q$, $R$.</p>
-<h3 id="mpc">MPC</h3>
-<p><strong>Model Predictive Control</strong></p>
+<hr>
+<h2 id="mpc">MPC</h2>
+<p><strong>Model Predictive Control</strong> heavily relies on mathematical optimzation. It&rsquo;s a <strong>repeating</strong> process. It looks into the future to calculate and optimize a sequence of control inputs.</p>
+<h3 id="general-steps">General Steps</h3>
+<ul>
+<li>Building a model of the vehicle</li>
+<li>Using an optimization engine to calculate control inputs over a finite time horizon</li>
+<li>Implementing <strong>the first</strong> set of control inputs in the sequence</li>
+<li>Repeating the cycle</li>
+</ul>
+<p><strong>Why only to carry out the first set of control inputs?</strong><br>
+Our measurements and calculation are only <strong>approximate</strong>. If we were to implement the entire sequence, the actual resulting vehicle state would diverge sharply from our model. We are better off continuously <strong>re-evaluating the optimal sequence of control inputs at every timestamp</strong>.</p>
+<h3 id="defining-vehicle-model">Defining Vehicle Model</h3>
+<p>This model approximates the physics of our car. It will model what will happen after we apply a set of control inputs to the vehicle.</p>
+<h3 id="time-horizon">Time Horizon</h3>
+<p>We decide how far into the future we want MPC to look.  However, there is a <strong>trade-off between the accruracy and how quickly we need to get a result</strong>.</p>
+<ul>
+<li>The further we look, more accurate our controller will be.</li>
+<li>The faster we get the result, the faster we can update the control inputs to the actual vehicle.</li>
+</ul>
+<p><img src="/p/ad-fundamentals-control/MPC1.jpg"
+	width="605"
+	height="243"
+	srcset="/p/ad-fundamentals-control/MPC1_hu0c2439c99addb37463dde86c60426579_20077_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-control/MPC1_hu0c2439c99addb37463dde86c60426579_20077_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="248"
+		data-flex-basis="597px"
+	
+></p>
+<h3 id="optimization">Optimization</h3>
+<p>We send the model to <strong>an optimization engine</strong> to search for the best control inputs among a dense mathemetical space.</p>
+<p>Since our goal is to find a suitable control sequence, considering <strong>constraints</strong> can narrow the scope of our consideration and speed up the execution of the algorithm.</p>
+<ul>
+<li>Steering range that vehicle can achieve</li>
+<li>Acceleration range that can be used for acceleration/deceleration.</li>
+</ul>
+<p>The optimization engine evaluates control inputs indirectly <strong>by modelling a trajectory for the vehicle</strong>. It uses a cost function which considers deviation from the target trajectory, acceleration, passenger comfort, etc.</p>
+<p><img src="/p/ad-fundamentals-control/MPC2.jpg"
+	width="605"
+	height="258"
+	srcset="/p/ad-fundamentals-control/MPC2_hu34c74c88aa512aa8230236faed201477_23279_480x0_resize_q75_box.jpg 480w, /p/ad-fundamentals-control/MPC2_hu34c74c88aa512aa8230236faed201477_23279_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="234"
+		data-flex-basis="562px"
+	
+></p>
+<h3 id="pros--cons-1">Pros &amp; Cons</h3>
+<p><strong>Pros</strong></p>
+<ul>
+<li>More accurate than PID contorl</li>
+<li>Works for different situations by using different cost functions</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>More complex, slowere and harder to implement than PID control</li>
+</ul>
 <hr>
 
 </section>
@@ -556,7 +616,7 @@ $$</p>
 
 
         <span>
-            Last updated on Jan 17, 2023 16:59 EST
+            Last updated on Jan 17, 2023 21:32 EST
         </span>
     </section></footer>
 
@@ -731,7 +791,15 @@ $$</p>
         <li><a href="#model">Model</a></li>
         <li><a href="#term-l">Term L</a></li>
         <li><a href="#term-q">Term Q</a></li>
-        <li><a href="#mpc">MPC</a></li>
+      </ol>
+    </li>
+    <li><a href="#mpc">MPC</a>
+      <ol>
+        <li><a href="#general-steps">General Steps</a></li>
+        <li><a href="#defining-vehicle-model">Defining Vehicle Model</a></li>
+        <li><a href="#time-horizon">Time Horizon</a></li>
+        <li><a href="#optimization">Optimization</a></li>
+        <li><a href="#pros--cons-1">Pros &amp; Cons</a></li>
       </ol>
     </li>
   </ol>

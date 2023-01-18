@@ -138,7 +138,7 @@
 &lt;li&gt;The lateral error&lt;/li&gt;
 &lt;li&gt;The rate of the change of lateral error (derivative)&lt;/li&gt;
 &lt;li&gt;The heading error&lt;/li&gt;
-&lt;li&gt;The rate of the change of the lateral error (derivative))&lt;/li&gt;
+&lt;li&gt;The rate of the change of the heading error (derivative))&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
 x=\left[\begin{array}{c}
@@ -173,11 +173,71 @@ $$&lt;/p&gt;
 &lt;p&gt;Mathematically, they are defined using a cost function:&lt;/p&gt;
 &lt;p&gt;$$ \text { cost }=\int_{0}^{\infty}\left(x^{T} Q x+u^{T} R u\right) d t $$&lt;/p&gt;
 &lt;p&gt;, where $Q$ and $R$ represents a collection of weights for $x$ and $u$.&lt;/p&gt;
-&lt;p&gt;To minimize this cost function, there are many numeric solvers. One solver provided by Apollo is using a complicated scheme $K$, which can obtain $u$ through $x$.&lt;/p&gt;
+&lt;p&gt;To minimize this cost function, one solution provided by Apollo is using a complicated scheme $K$, which can obtain $u$ through $x$.&lt;/p&gt;
 &lt;p&gt;$$ u = -Kx$$&lt;/p&gt;
 &lt;p&gt;So, finding an optimal $u$ is finding an optimal $K$. Many tools have access to solve $K$, once you provide $A$, $B$, $Q$, $R$.&lt;/p&gt;
-&lt;h3 id=&#34;mpc&#34;&gt;MPC&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Model Predictive Control&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;mpc&#34;&gt;MPC&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Model Predictive Control&lt;/strong&gt; heavily relies on mathematical optimzation. It&amp;rsquo;s a &lt;strong&gt;repeating&lt;/strong&gt; process. It looks into the future to calculate and optimize a sequence of control inputs.&lt;/p&gt;
+&lt;h3 id=&#34;general-steps&#34;&gt;General Steps&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Building a model of the vehicle&lt;/li&gt;
+&lt;li&gt;Using an optimization engine to calculate control inputs over a finite time horizon&lt;/li&gt;
+&lt;li&gt;Implementing &lt;strong&gt;the first&lt;/strong&gt; set of control inputs in the sequence&lt;/li&gt;
+&lt;li&gt;Repeating the cycle&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Why only to carry out the first set of control inputs?&lt;/strong&gt;&lt;br&gt;
+Our measurements and calculation are only &lt;strong&gt;approximate&lt;/strong&gt;. If we were to implement the entire sequence, the actual resulting vehicle state would diverge sharply from our model. We are better off continuously &lt;strong&gt;re-evaluating the optimal sequence of control inputs at every timestamp&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;defining-vehicle-model&#34;&gt;Defining Vehicle Model&lt;/h3&gt;
+&lt;p&gt;This model approximates the physics of our car. It will model what will happen after we apply a set of control inputs to the vehicle.&lt;/p&gt;
+&lt;h3 id=&#34;time-horizon&#34;&gt;Time Horizon&lt;/h3&gt;
+&lt;p&gt;We decide how far into the future we want MPC to look.  However, there is a &lt;strong&gt;trade-off between the accruracy and how quickly we need to get a result&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The further we look, more accurate our controller will be.&lt;/li&gt;
+&lt;li&gt;The faster we get the result, the faster we can update the control inputs to the actual vehicle.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/MPC1.jpg&#34;
+	width=&#34;605&#34;
+	height=&#34;243&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/MPC1_hu0c2439c99addb37463dde86c60426579_20077_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-control/MPC1_hu0c2439c99addb37463dde86c60426579_20077_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;248&#34;
+		data-flex-basis=&#34;597px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;optimization&#34;&gt;Optimization&lt;/h3&gt;
+&lt;p&gt;We send the model to &lt;strong&gt;an optimization engine&lt;/strong&gt; to search for the best control inputs among a dense mathemetical space.&lt;/p&gt;
+&lt;p&gt;Since our goal is to find a suitable control sequence, considering &lt;strong&gt;constraints&lt;/strong&gt; can narrow the scope of our consideration and speed up the execution of the algorithm.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Steering range that vehicle can achieve&lt;/li&gt;
+&lt;li&gt;Acceleration range that can be used for acceleration/deceleration.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The optimization engine evaluates control inputs indirectly &lt;strong&gt;by modelling a trajectory for the vehicle&lt;/strong&gt;. It uses a cost function which considers deviation from the target trajectory, acceleration, passenger comfort, etc.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/MPC2.jpg&#34;
+	width=&#34;605&#34;
+	height=&#34;258&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/ad-fundamentals-control/MPC2_hu34c74c88aa512aa8230236faed201477_23279_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/ad-fundamentals-control/MPC2_hu34c74c88aa512aa8230236faed201477_23279_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;234&#34;
+		data-flex-basis=&#34;562px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;pros--cons-1&#34;&gt;Pros &amp;amp; Cons&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Pros&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;More accurate than PID contorl&lt;/li&gt;
+&lt;li&gt;Works for different situations by using different cost functions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Cons&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;More complex, slowere and harder to implement than PID control&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 </description>
         </item>
