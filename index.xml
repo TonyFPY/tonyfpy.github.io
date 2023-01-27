@@ -20,9 +20,9 @@
 &lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;what-is-computer-vision&#34;&gt;What is Computer Vision&lt;/h2&gt;
-&lt;h3 id=&#34;general-content&#34;&gt;General Content&lt;/h3&gt;
+&lt;h3 id=&#34;3r-concept&#34;&gt;3R Concept&lt;/h3&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://people.eecs.berkeley.edu/~malik/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Jitendra Malik @ UC Berkeley&lt;/a&gt; has stated that the classic problems of computational vision:&lt;/p&gt;
+    &gt;Jitendra Malik @ UC Berkeley&lt;/a&gt; has stated that the classic problems of computational vision are:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;R&lt;/strong&gt;econstruction&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;R&lt;/strong&gt;ecognition&lt;/li&gt;
@@ -31,14 +31,14 @@
 &lt;h3 id=&#34;cv--nearby-fields&#34;&gt;CV &amp;amp; Nearby Fields&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white.jpg&#34;
 	width=&#34;188&#34;
-	height=&#34;340&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;55&#34;
-		data-flex-basis=&#34;132px&#34;
+		data-flex-grow=&#34;64&#34;
+		data-flex-basis=&#34;155px&#34;
 	
 &gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/CVCG.jpg&#34;
 	width=&#34;679&#34;
@@ -53,16 +53,205 @@
 	
 &gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white.jpg&#34;
 	width=&#34;188&#34;
-	height=&#34;340&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;55&#34;
-		data-flex-basis=&#34;132px&#34;
+		data-flex-grow=&#34;64&#34;
+		data-flex-basis=&#34;155px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;what-is-an-image&#34;&gt;What is an Image&lt;/h2&gt;
+&lt;h3 id=&#34;signal&#34;&gt;Signal&lt;/h3&gt;
+&lt;p&gt;Signal is a (multi-dimensional) function that contains information about a &lt;strong&gt;phenomenon&lt;/strong&gt; – light, heat, gravity, population distribution, etc.&lt;/p&gt;
+&lt;p&gt;Light reflected from an object creates a continuous signal that is measured by cameras. Natural signals are &lt;strong&gt;continuous&lt;/strong&gt;, but our measurements of them are &lt;strong&gt;discrete&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;sampling&#34;&gt;Sampling&lt;/h3&gt;
+&lt;p&gt;It is a process of reduction of continuous signal to a discrete signal.&lt;/p&gt;
+&lt;p&gt;Sampling in 1D takes a function and returns a &lt;strong&gt;vector&lt;/strong&gt; whose elements are values of that function at the sample points, while Sampling in 2D takes a function and returns a &lt;strong&gt;matrix&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;64&#34;
+		data-flex-basis=&#34;155px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/2D.jpg&#34;
+	width=&#34;553&#34;
+	height=&#34;485&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/2D_hu801390394efc7bef26f8a8b90f97aa6c_27441_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/2D_hu801390394efc7bef26f8a8b90f97aa6c_27441_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;114&#34;
+		data-flex-basis=&#34;273px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;64&#34;
+		data-flex-basis=&#34;155px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A 2D image is a sampling of a 2D signal.&lt;/strong&gt; Note that the 2D signal can also be a projection (or slice) of a higher-dimensional signal like in MRI or CT scans. An image stores &lt;strong&gt;brightness/intensity&lt;/strong&gt; along $x$ and $y$ dimensions, while a video contains time-varying 2D signals.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;64&#34;
+		data-flex-basis=&#34;155px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/intensity.jpg&#34;
+	width=&#34;628&#34;
+	height=&#34;382&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/intensity_hu57e23c9222c56aafa02b2eac14781631_55530_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/intensity_hu57e23c9222c56aafa02b2eac14781631_55530_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;164&#34;
+		data-flex-basis=&#34;394px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;64&#34;
+		data-flex-basis=&#34;155px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;pixel&#34;&gt;Pixel&lt;/h3&gt;
+&lt;p&gt;Pixel stands for &lt;strong&gt;picture element&lt;/strong&gt; and each associated with a value. We can approximate a pixel as a &lt;strong&gt;square frustum&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;64&#34;
+		data-flex-basis=&#34;155px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/frustum.jpg&#34;
+	width=&#34;740&#34;
+	height=&#34;393&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/frustum_hub96a13c44519ffe5d551985eb6a14ed3_43490_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/frustum_hub96a13c44519ffe5d551985eb6a14ed3_43490_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;188&#34;
+		data-flex-basis=&#34;451px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;64&#34;
+		data-flex-basis=&#34;155px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The diagram above arguably has an error (for convenience). The scene element should be flipped as projection onto the camera plane typically turns the image &lt;strong&gt;upside down&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;quantization&#34;&gt;Quantization&lt;/h3&gt;
+&lt;p&gt;The function itself is continuous over the amount of light. When we convert it into a digital image, we need to take a continuous signal and turn it into a discrete set of intensity values to store in our image.&lt;/p&gt;
+&lt;p&gt;After quantization, the original signal cannot be reconstructed anymore. This is in contrast to sampling, as a sampled but not quantized signal can be reconstructed.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;64&#34;
+		data-flex-basis=&#34;155px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/quantization.jpg&#34;
+	width=&#34;700&#34;
+	height=&#34;279&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/quantization_hua4ea65834e375aacb0dc4b99bb2b29fd_25716_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/quantization_hua4ea65834e375aacb0dc4b99bb2b29fd_25716_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;250&#34;
+		data-flex-basis=&#34;602px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;64&#34;
+		data-flex-basis=&#34;155px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Quantization Effects – Radiometric Resolution&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We often call this &lt;strong&gt;bit depth&lt;/strong&gt;. For photography, this is also related to &lt;strong&gt;dynamic range&lt;/strong&gt;, the minimum and maximum range of light intensity that can be measured/perceived/represented/displayed.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;64&#34;
+		data-flex-basis=&#34;155px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/rr.jpg&#34;
+	width=&#34;677&#34;
+	height=&#34;222&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/rr_huc5828ede93c608458b752f0abf27a952_43514_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/rr_huc5828ede93c608458b752f0abf27a952_43514_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;304&#34;
+		data-flex-basis=&#34;731px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1665_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;64&#34;
+		data-flex-basis=&#34;155px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;color&#34;&gt;Color&lt;/h3&gt;
+&lt;p&gt;We handle color by having three arrays, one for each of &lt;strong&gt;red&lt;/strong&gt;, &lt;strong&gt;green&lt;/strong&gt; or &lt;strong&gt;blue&lt;/strong&gt; color channels. Combining the channels gives a color image. Practical matters when dealing with images in Python. We deal with color as an additional dimension in our arrays.&lt;/p&gt;
 &lt;hr&gt;
 </description>
         </item>
