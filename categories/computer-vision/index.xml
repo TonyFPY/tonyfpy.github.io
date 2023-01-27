@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Computer Vision on Tony Feng</title>
+        <link>https://tonyfpy.github.io/categories/computer-vision/</link>
+        <description>Recent content in Computer Vision on Tony Feng</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Computer Vision] Intro to CV and Images</title>
+        <link>https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/</link>
+        <pubDate>Fri, 27 Jan 2023 00:16:47 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Jan 27th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Jan 27th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;what-is-computer-vision&#34;&gt;What is Computer Vision&lt;/h2&gt;
+&lt;h3 id=&#34;general-content&#34;&gt;General Content&lt;/h3&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://people.eecs.berkeley.edu/~malik/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jitendra Malik @ UC Berkeley&lt;/a&gt; has stated that the classic problems of computational vision:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;R&lt;/strong&gt;econstruction&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;R&lt;/strong&gt;ecognition&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;R&lt;/strong&gt;e-organization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;cv--nearby-fields&#34;&gt;CV &amp;amp; Nearby Fields&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;55&#34;
+		data-flex-basis=&#34;132px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/CVCG.jpg&#34;
+	width=&#34;679&#34;
+	height=&#34;299&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/CVCG_hu9bac4c580a6d0d1aba38545f734c20b0_35515_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/CVCG_hu9bac4c580a6d0d1aba38545f734c20b0_35515_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;227&#34;
+		data-flex-basis=&#34;545px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white.jpg&#34;
+	width=&#34;188&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1764_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/white_hu36e283984737934d1af0bcfe1c0c61db_1764_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;55&#34;
+		data-flex-basis=&#34;132px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
