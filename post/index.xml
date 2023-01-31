@@ -6,7 +6,346 @@
         <description>Recent content in Posts on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 27 Jan 2023 00:16:47 -0500</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 31 Jan 2023 14:49:27 -0500</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Computer Vision] Image Filtering</title>
+        <link>https://tonyfpy.github.io/p/computer-vision-image-filtering/</link>
+        <pubDate>Tue, 31 Jan 2023 14:49:27 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/computer-vision-image-filtering/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Jan 31st, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Jan 31st, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;filtering&#34;&gt;Filtering&lt;/h2&gt;
+&lt;h3 id=&#34;def&#34;&gt;Def&lt;/h3&gt;
+&lt;p&gt;An operation that modifies a (measured) signal, which includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;removing undesirable components&lt;/li&gt;
+&lt;li&gt;transforming signal in a desirable way&lt;/li&gt;
+&lt;li&gt;extract specific components of a signal.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We are interested in measured or discrete signals because that is what we get from hardware such as sensors.&lt;/p&gt;
+&lt;h3 id=&#34;1d-filtering-moving-average&#34;&gt;1D Filtering: Moving Average&lt;/h3&gt;
+&lt;p&gt;We have a signal $S \in \mathcal{R}^{m \times 1}$, where $m$ is the number of samples we take of the signal, and each sample is a single scalar value. The moving average $h[n]$ at the point $n$ is the average value of the signal over the $k$ most recent samples, which can be represented as:&lt;/p&gt;
+&lt;p&gt;$$h[n]=\frac{1}{k} \sum_{i=n-k+1}^{n} S[i]$$&lt;/p&gt;
+&lt;p&gt;or
+$$h[n]=\frac{1}{k} {I}^{T} S[n-k+1: n]$$&lt;/p&gt;
+&lt;p&gt;, where $I$ is and identity vector.&lt;/p&gt;
+&lt;h3 id=&#34;2d-filtering&#34;&gt;2D Filtering&lt;/h3&gt;
+&lt;p&gt;For images, we’re interested in filtering along two spatial axes ($x$ and $y$) rather than a single one.&lt;/p&gt;
+&lt;p&gt;$$h[m, n]=\sum_{k, l} f[k, l] S[m+k, n+l]$$&lt;/p&gt;
+&lt;p&gt;The equation says that the filtered value at a location $(m,n)$ is the sum over products of the filtering function $f$ and the image $S$ in a local neighborhood. The size of the window is determined by $k$ and $L$.&lt;/p&gt;
+&lt;h3 id=&#34;image-filtering&#34;&gt;Image Filtering&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/IF.jpg&#34;
+	width=&#34;442&#34;
+	height=&#34;226&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/IF_hud60089819ef7b0115b7722b64f02a782_17374_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/IF_hud60089819ef7b0115b7722b64f02a782_17374_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;195&#34;
+		data-flex-basis=&#34;469px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Box Filter&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The box filter blurs the image because for each pixel, the values of its neighbors is &lt;strong&gt;averaged&lt;/strong&gt; with it, and &lt;strong&gt;preserve mean image intensity&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Gaussian Filter&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The filter function is constructed by sampling the &lt;strong&gt;gaussian&lt;/strong&gt; function at uniform intervals. &lt;strong&gt;It&amp;rsquo;s a linear filter&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Gaussian pdfs have &lt;strong&gt;infinite extent&lt;/strong&gt;. &lt;strong&gt;Gaussian filters are discrete finite samplings of the Gaussian pdf&lt;/strong&gt;. What that means is that the filter can be arbitrarily large, and it will never be zero (to numerical precision).&lt;/p&gt;
+&lt;p&gt;$$ G_{\sigma}=\frac{1}{2 \pi \sigma^{2}} e^{-\frac{\left(x^{2}+y^{2}\right)}{2 \sigma^{2}}} $$&lt;/p&gt;
+&lt;p&gt;Unlike box filter, does not result in &amp;lsquo;grid&amp;rsquo;-like artifacts.&lt;/p&gt;
+&lt;p&gt;Gaussian Filter Properties:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Gaussian convolved with Gaussian is another Gaussian&lt;/li&gt;
+&lt;li&gt;We can smooth with small-width kernel, repeat, and get same result as larger-width kernel&lt;/li&gt;
+&lt;li&gt;Convolving twice with Gaussian kernel of width $\sigma$ is same as convolving once with kernel of width $\sigma \sqrt{2} $&lt;/li&gt;
+&lt;li&gt;How big should the Gaussian filter be?
+&lt;ul&gt;
+&lt;li&gt;Values at edges should be near zero&lt;/li&gt;
+&lt;li&gt;Gaussians have infinite extent&lt;/li&gt;
+&lt;li&gt;Set filter half-width to about $3\sigma$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Median Filter&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It is a &lt;strong&gt;non-linear&lt;/strong&gt; filter. It operates over a window by selecting the &lt;strong&gt;median intensity&lt;/strong&gt; in the window.&lt;/p&gt;
+&lt;p&gt;Median filtering is sorting.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sobel Filter&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It has &amp;ldquo;1 2 1&amp;rdquo; pattern and is often used in edge detection. It works by calculating the gradient of image intensity at each pixel within the image.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/sobel.jpg&#34;
+	width=&#34;375&#34;
+	height=&#34;66&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/sobel_hu2240eefee00e248333dc7c3fdcbcacc9_1728_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/sobel_hu2240eefee00e248333dc7c3fdcbcacc9_1728_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;568&#34;
+		data-flex-basis=&#34;1363px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;practice-with-linear-filters&#34;&gt;Practice with Linear Filters&lt;/h3&gt;
+&lt;p&gt;We can use filter to&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enhance images
+&lt;ul&gt;
+&lt;li&gt;Denoise, resize, increase contrast, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Extract information from images
+&lt;ul&gt;
+&lt;li&gt;Texture, edges, distinctive points, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Detect patterns
+&lt;ul&gt;
+&lt;li&gt;Template matching&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Examples&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/F1.jpg&#34;
+	width=&#34;521&#34;
+	height=&#34;207&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/F1_hu392a3c70df25a1f9896f7ab2d21ecd55_32259_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/F1_hu392a3c70df25a1f9896f7ab2d21ecd55_32259_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;251&#34;
+		data-flex-basis=&#34;604px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/F2.jpg&#34;
+	width=&#34;521&#34;
+	height=&#34;198&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/F2_huac7025d1a9ef42b2460b73ca69389e76_49504_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/F2_huac7025d1a9ef42b2460b73ca69389e76_49504_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;263&#34;
+		data-flex-basis=&#34;631px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/F5.jpg&#34;
+	width=&#34;564&#34;
+	height=&#34;206&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/F5_hu90f480af6279f8bfb5f99bd9066a024f_58167_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/F5_hu90f480af6279f8bfb5f99bd9066a024f_58167_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;273&#34;
+		data-flex-basis=&#34;657px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/F3.jpg&#34;
+	width=&#34;628&#34;
+	height=&#34;369&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/F3_hu3f97afa3a3e8d31bfcaaf1a13dd2cccd_192991_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/F3_hu3f97afa3a3e8d31bfcaaf1a13dd2cccd_192991_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;170&#34;
+		data-flex-basis=&#34;408px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/F4.jpg&#34;
+	width=&#34;630&#34;
+	height=&#34;373&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/F4_hu3549cfd22b45a8393c24eb0751f31c80_191334_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/F4_hu3549cfd22b45a8393c24eb0751f31c80_191334_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;168&#34;
+		data-flex-basis=&#34;405px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Dealing with Borders&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Pixels are undefined outside the border of our image, so to apply the filter near the boundary, we nee to extend the image past its boundary using one of many possible methods.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Clip filter&lt;/strong&gt;: any value outside of the image is set to 0&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Copy edge&lt;/strong&gt;: copy the pixel value of the nearest edge&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wrap around&lt;/strong&gt;: copy the values near the opposite edge&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reflect across edge&lt;/strong&gt;: treat out-of-bounds regions as ‘mirrors’ that reflect near-surface image pixels in reverse order&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/b1.jpg&#34;
+	width=&#34;318&#34;
+	height=&#34;318&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/b1_hu58ab2db678a16a964fd350dc4a15b080_44902_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/b1_hu58ab2db678a16a964fd350dc4a15b080_44902_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;240px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/b2.jpg&#34;
+	width=&#34;318&#34;
+	height=&#34;318&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/b2_hu60a746b593d6fe1a0dbc27ff358f7aac_51468_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/b2_hu60a746b593d6fe1a0dbc27ff358f7aac_51468_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;240px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/b3.jpg&#34;
+	width=&#34;318&#34;
+	height=&#34;318&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/b3_hu661dca684b998aa4475277ab8d2445df_46269_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/b3_hu661dca684b998aa4475277ab8d2445df_46269_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;240px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/b4.jpg&#34;
+	width=&#34;318&#34;
+	height=&#34;318&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/b4_hubec94fa1a5e4aff4b5caf37c182c502e_50111_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/b4_hubec94fa1a5e4aff4b5caf37c182c502e_50111_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;240px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;properties-of-image-filtering-methods&#34;&gt;Properties of Image Filtering Methods&lt;/h2&gt;
+&lt;h3 id=&#34;correlation-and-convolution&#34;&gt;Correlation and Convolution&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;2D Correlation&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$$h[m, n]=\sum_{k, l} f[k, l] S[m+k, n+l]$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2D Convolution&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$$h[m, n]=\sum_{k, l} f[k, l] S[m-k, n-l]$$&lt;/p&gt;
+&lt;p&gt;Convolution is the same as correlation with a 180° rotated filter kernel.&lt;/p&gt;
+&lt;p&gt;Correlation and convolution are identical when the filter kernel is rotationally &lt;strong&gt;symmetric&lt;/strong&gt; (a square matrix that is equal to its transpose).&lt;/p&gt;
+&lt;p&gt;For &lt;strong&gt;symmetric&lt;/strong&gt; filters: use either convolution or correlation&lt;/p&gt;
+&lt;p&gt;For &lt;strong&gt;non-symmetric&lt;/strong&gt; filters: correlation is &lt;strong&gt;template matching&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;More can be found &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=tS-ib_mgGbU&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;linear-filter-properties&#34;&gt;Linear Filter Properties&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Linearity&lt;/strong&gt; means that filtering an image with two (different) filters $f1$ and $f2$ results in the same output as filtering the images separately first before summing the intermediate outputs.
+$$ imfilter(I, f1 + f2) = imfilter(I,f1) + imfilter(I,f2) $$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Translation invariance&lt;/strong&gt; means that shifting the original image before filtering results in the same output as filtering then shifting.
+$$imfilter(I,shift(f)) = shift(imfilter(I,f))$$&lt;/li&gt;
+&lt;li&gt;Any linear, shift-invariant operator can be represented as a convolution.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;separability&#34;&gt;Separability&lt;/h3&gt;
+&lt;p&gt;We can use an outer product to decompose the 2D filter into two 1D filters, where one is represented as a row column and the other a row vector.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/separability.jpg&#34;
+	width=&#34;606&#34;
+	height=&#34;366&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/separability_hu92cc13f735780ee724c3b009326abe22_53002_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/separability_hu92cc13f735780ee724c3b009326abe22_53002_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;165&#34;
+		data-flex-basis=&#34;397px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Note: Convolution vs filtering doesn’t matter here because the filter is &lt;strong&gt;symmetric&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Assume we have $M * N$ image, $P*Q$ filter&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;2D convolution: $MNPQ$ multiply-adds&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Separable 2D: $MN(P+Q)$ multiply-adds&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Speed up = $\frac{PQ}{(P+Q)}$, e.g. 9*9 filter = 4.5 times faster&lt;/p&gt;
+&lt;p&gt;In Gaussian Filters, a 2D Gaussian can be expressed as the product of two functions, a function of $x$ and a function of $y$.&lt;/p&gt;
+&lt;p&gt;$$ G_{\sigma}=\frac{1}{2 \pi \sigma^{2}} e^{-\frac{\left(x^{2}+y^{2}\right)}{2 \sigma^{2}}} =  \left(\frac{1}{2 \pi \sigma^{2}} e^{-\frac{x^{2}}{2 \sigma^{2}}}\right)\left(\frac{1}{2 \pi \sigma^{2}} e^{-\frac{y^{2}}{2 \sigma^{2}}}\right)$$&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;sampling&#34;&gt;Sampling&lt;/h2&gt;
+&lt;h3 id=&#34;image-pyramid&#34;&gt;Image Pyramid&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/IP.jpg&#34;
+	width=&#34;734&#34;
+	height=&#34;365&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/IP_hu2a054bd143f1972ea72f966955bad124_213879_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/IP_hu2a054bd143f1972ea72f966955bad124_213879_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;201&#34;
+		data-flex-basis=&#34;482px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;aliasing&#34;&gt;Aliasing&lt;/h3&gt;
+&lt;p&gt;Aliasing occurs when we sample a signal at a frequency that is too low such that we can’t properly reconstruct the original signal. In the image below, black points are samples, but we may get a different-looking reconstruction.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/aliasing.jpg&#34;
+	width=&#34;567&#34;
+	height=&#34;143&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/aliasing_hu965fb104dfd6a7e46fe138c1e4e1232d_16542_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/aliasing_hu965fb104dfd6a7e46fe138c1e4e1232d_16542_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;396&#34;
+		data-flex-basis=&#34;951px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;When two signals become indistinguishable from one another due to sampling, they are ‘aliases’ of one another.&lt;/p&gt;
+&lt;h3 id=&#34;nyquist-shannon-sampling-theorem&#34;&gt;Nyquist-Shannon Sampling Theorem&lt;/h3&gt;
+&lt;p&gt;When sampling a signal at discrete intervals, the sampling frequency must be $\ge  2 f_{max}$, max frequency of the input signal, to guarantee a perfect reconstruction.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/NSST.jpg&#34;
+	width=&#34;499&#34;
+	height=&#34;205&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/NSST_hu7e0fa4cbda7f4a093a012710419ba7ef_35930_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-image-filtering/NSST_hu7e0fa4cbda7f4a093a012710419ba7ef_35930_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;243&#34;
+		data-flex-basis=&#34;584px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;anti-aliasing&#34;&gt;Anti-aliasing&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Sampling more often&lt;/li&gt;
+&lt;li&gt;Removing all frequencies that are greater than half the new sampling frequency
+&lt;ul&gt;
+&lt;li&gt;May lose info&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Computer Vision] Intro to CV and Images</title>
         <link>https://tonyfpy.github.io/p/computer-vision-intro-to-cv-and-images/</link>
         <pubDate>Fri, 27 Jan 2023 00:16:47 -0500</pubDate>

@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
+Created on Jan 31st, 2022
+Last Modified on Jan 31st, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'><title>[Computer Vision] Image Filtering</title>
+
+<link rel='canonical' href='https://tonyfpy.github.io/p/computer-vision-image-filtering/'>
+
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Computer Vision] Image Filtering'>
+<meta property='og:description' content='Authored by Tony Feng
+Created on Jan 31st, 2022
+Last Modified on Jan 31st, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/computer-vision-image-filtering/'>
+<meta property='og:site_name' content='Tony Feng'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-01-31T14:49:27-05:00'/><meta property='article:modified_time' content='2023-01-31T18:09:03-05:00'/>
+<meta name="twitter:title" content="[Computer Vision] Image Filtering">
+<meta name="twitter:description" content="Authored by Tony Feng
+Created on Jan 31st, 2022
+Last Modified on Jan 31st, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/Brown_hu1b43bb4664aba7c4309526f1ef45ab91_1767_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Tony Feng</a></h1>
+            <h2 class="site-description">M.Sc. in Computer Science</h2>
+            <h2 class="site-description">Brown University</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://tonyfpy.github.io/about/'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/TonyFPY'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/pinyuanfeng'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/research/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <line x1="3" y1="6" x2="3" y2="19" />
+  <line x1="12" y1="6" x2="12" y2="19" />
+  <line x1="21" y1="6" x2="21" y2="19" />
+</svg>
+                
+                <span>Research</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/projects/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="7 8 3 12 7 16" />
+  <polyline points="17 8 21 12 17 16" />
+  <line x1="14" y1="4" x2="10" y2="20" />
+</svg>
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/computer-vision/" style="background-color: #39cc94; color: #fff;">
+                Computer Vision
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/computer-vision-image-filtering/">[Computer Vision] Image Filtering</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 31, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>Authored by Tony Feng</p>
+<p>Created on Jan 31st, 2022</p>
+<p>Last Modified on Jan 31st, 2022</p>
+</blockquote>
+<h2 id="intro">Intro</h2>
+<p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1430 Computer Vision</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
+<hr>
+<h2 id="filtering">Filtering</h2>
+<h3 id="def">Def</h3>
+<p>An operation that modifies a (measured) signal, which includes:</p>
+<ul>
+<li>removing undesirable components</li>
+<li>transforming signal in a desirable way</li>
+<li>extract specific components of a signal.</li>
+</ul>
+<p>We are interested in measured or discrete signals because that is what we get from hardware such as sensors.</p>
+<h3 id="1d-filtering-moving-average">1D Filtering: Moving Average</h3>
+<p>We have a signal $S \in \mathcal{R}^{m \times 1}$, where $m$ is the number of samples we take of the signal, and each sample is a single scalar value. The moving average $h[n]$ at the point $n$ is the average value of the signal over the $k$ most recent samples, which can be represented as:</p>
+<p>$$h[n]=\frac{1}{k} \sum_{i=n-k+1}^{n} S[i]$$</p>
+<p>or
+$$h[n]=\frac{1}{k} {I}^{T} S[n-k+1: n]$$</p>
+<p>, where $I$ is and identity vector.</p>
+<h3 id="2d-filtering">2D Filtering</h3>
+<p>For images, we’re interested in filtering along two spatial axes ($x$ and $y$) rather than a single one.</p>
+<p>$$h[m, n]=\sum_{k, l} f[k, l] S[m+k, n+l]$$</p>
+<p>The equation says that the filtered value at a location $(m,n)$ is the sum over products of the filtering function $f$ and the image $S$ in a local neighborhood. The size of the window is determined by $k$ and $L$.</p>
+<h3 id="image-filtering">Image Filtering</h3>
+<p><img src="/p/computer-vision-image-filtering/IF.jpg"
+	width="442"
+	height="226"
+	srcset="/p/computer-vision-image-filtering/IF_hud60089819ef7b0115b7722b64f02a782_17374_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/IF_hud60089819ef7b0115b7722b64f02a782_17374_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="195"
+		data-flex-basis="469px"
+	
+></p>
+<p><strong>Box Filter</strong></p>
+<p>The box filter blurs the image because for each pixel, the values of its neighbors is <strong>averaged</strong> with it, and <strong>preserve mean image intensity</strong>.</p>
+<p><strong>Gaussian Filter</strong></p>
+<p>The filter function is constructed by sampling the <strong>gaussian</strong> function at uniform intervals. <strong>It&rsquo;s a linear filter</strong>.</p>
+<p>Gaussian pdfs have <strong>infinite extent</strong>. <strong>Gaussian filters are discrete finite samplings of the Gaussian pdf</strong>. What that means is that the filter can be arbitrarily large, and it will never be zero (to numerical precision).</p>
+<p>$$ G_{\sigma}=\frac{1}{2 \pi \sigma^{2}} e^{-\frac{\left(x^{2}+y^{2}\right)}{2 \sigma^{2}}} $$</p>
+<p>Unlike box filter, does not result in &lsquo;grid&rsquo;-like artifacts.</p>
+<p>Gaussian Filter Properties:</p>
+<ul>
+<li>Gaussian convolved with Gaussian is another Gaussian</li>
+<li>We can smooth with small-width kernel, repeat, and get same result as larger-width kernel</li>
+<li>Convolving twice with Gaussian kernel of width $\sigma$ is same as convolving once with kernel of width $\sigma \sqrt{2} $</li>
+<li>How big should the Gaussian filter be?
+<ul>
+<li>Values at edges should be near zero</li>
+<li>Gaussians have infinite extent</li>
+<li>Set filter half-width to about $3\sigma$</li>
+</ul>
+</li>
+</ul>
+<p><strong>Median Filter</strong></p>
+<p>It is a <strong>non-linear</strong> filter. It operates over a window by selecting the <strong>median intensity</strong> in the window.</p>
+<p>Median filtering is sorting.</p>
+<p><strong>Sobel Filter</strong></p>
+<p>It has &ldquo;1 2 1&rdquo; pattern and is often used in edge detection. It works by calculating the gradient of image intensity at each pixel within the image.</p>
+<p><img src="/p/computer-vision-image-filtering/sobel.jpg"
+	width="375"
+	height="66"
+	srcset="/p/computer-vision-image-filtering/sobel_hu2240eefee00e248333dc7c3fdcbcacc9_1728_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/sobel_hu2240eefee00e248333dc7c3fdcbcacc9_1728_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="568"
+		data-flex-basis="1363px"
+	
+></p>
+<h3 id="practice-with-linear-filters">Practice with Linear Filters</h3>
+<p>We can use filter to</p>
+<ul>
+<li>Enhance images
+<ul>
+<li>Denoise, resize, increase contrast, etc.</li>
+</ul>
+</li>
+<li>Extract information from images
+<ul>
+<li>Texture, edges, distinctive points, etc.</li>
+</ul>
+</li>
+<li>Detect patterns
+<ul>
+<li>Template matching</li>
+</ul>
+</li>
+</ul>
+<p><strong>Examples</strong></p>
+<p><img src="/p/computer-vision-image-filtering/F1.jpg"
+	width="521"
+	height="207"
+	srcset="/p/computer-vision-image-filtering/F1_hu392a3c70df25a1f9896f7ab2d21ecd55_32259_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/F1_hu392a3c70df25a1f9896f7ab2d21ecd55_32259_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="251"
+		data-flex-basis="604px"
+	
+><img src="/p/computer-vision-image-filtering/F2.jpg"
+	width="521"
+	height="198"
+	srcset="/p/computer-vision-image-filtering/F2_huac7025d1a9ef42b2460b73ca69389e76_49504_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/F2_huac7025d1a9ef42b2460b73ca69389e76_49504_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="263"
+		data-flex-basis="631px"
+	
+><img src="/p/computer-vision-image-filtering/F5.jpg"
+	width="564"
+	height="206"
+	srcset="/p/computer-vision-image-filtering/F5_hu90f480af6279f8bfb5f99bd9066a024f_58167_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/F5_hu90f480af6279f8bfb5f99bd9066a024f_58167_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="273"
+		data-flex-basis="657px"
+	
+></p>
+<p><img src="/p/computer-vision-image-filtering/F3.jpg"
+	width="628"
+	height="369"
+	srcset="/p/computer-vision-image-filtering/F3_hu3f97afa3a3e8d31bfcaaf1a13dd2cccd_192991_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/F3_hu3f97afa3a3e8d31bfcaaf1a13dd2cccd_192991_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="170"
+		data-flex-basis="408px"
+	
+><img src="/p/computer-vision-image-filtering/F4.jpg"
+	width="630"
+	height="373"
+	srcset="/p/computer-vision-image-filtering/F4_hu3549cfd22b45a8393c24eb0751f31c80_191334_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/F4_hu3549cfd22b45a8393c24eb0751f31c80_191334_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="168"
+		data-flex-basis="405px"
+	
+></p>
+<p><strong>Dealing with Borders</strong></p>
+<p>Pixels are undefined outside the border of our image, so to apply the filter near the boundary, we nee to extend the image past its boundary using one of many possible methods.</p>
+<ul>
+<li><strong>Clip filter</strong>: any value outside of the image is set to 0</li>
+<li><strong>Copy edge</strong>: copy the pixel value of the nearest edge</li>
+<li><strong>Wrap around</strong>: copy the values near the opposite edge</li>
+<li><strong>Reflect across edge</strong>: treat out-of-bounds regions as ‘mirrors’ that reflect near-surface image pixels in reverse order</li>
+</ul>
+<p><img src="/p/computer-vision-image-filtering/b1.jpg"
+	width="318"
+	height="318"
+	srcset="/p/computer-vision-image-filtering/b1_hu58ab2db678a16a964fd350dc4a15b080_44902_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/b1_hu58ab2db678a16a964fd350dc4a15b080_44902_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="100"
+		data-flex-basis="240px"
+	
+><img src="/p/computer-vision-image-filtering/b2.jpg"
+	width="318"
+	height="318"
+	srcset="/p/computer-vision-image-filtering/b2_hu60a746b593d6fe1a0dbc27ff358f7aac_51468_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/b2_hu60a746b593d6fe1a0dbc27ff358f7aac_51468_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="100"
+		data-flex-basis="240px"
+	
+><img src="/p/computer-vision-image-filtering/b3.jpg"
+	width="318"
+	height="318"
+	srcset="/p/computer-vision-image-filtering/b3_hu661dca684b998aa4475277ab8d2445df_46269_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/b3_hu661dca684b998aa4475277ab8d2445df_46269_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="100"
+		data-flex-basis="240px"
+	
+><img src="/p/computer-vision-image-filtering/b4.jpg"
+	width="318"
+	height="318"
+	srcset="/p/computer-vision-image-filtering/b4_hubec94fa1a5e4aff4b5caf37c182c502e_50111_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/b4_hubec94fa1a5e4aff4b5caf37c182c502e_50111_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="100"
+		data-flex-basis="240px"
+	
+></p>
+<hr>
+<h2 id="properties-of-image-filtering-methods">Properties of Image Filtering Methods</h2>
+<h3 id="correlation-and-convolution">Correlation and Convolution</h3>
+<p><strong>2D Correlation</strong></p>
+<p>$$h[m, n]=\sum_{k, l} f[k, l] S[m+k, n+l]$$</p>
+<p><strong>2D Convolution</strong></p>
+<p>$$h[m, n]=\sum_{k, l} f[k, l] S[m-k, n-l]$$</p>
+<p>Convolution is the same as correlation with a 180° rotated filter kernel.</p>
+<p>Correlation and convolution are identical when the filter kernel is rotationally <strong>symmetric</strong> (a square matrix that is equal to its transpose).</p>
+<p>For <strong>symmetric</strong> filters: use either convolution or correlation</p>
+<p>For <strong>non-symmetric</strong> filters: correlation is <strong>template matching</strong>.</p>
+<p>More can be found <a class="link" href="https://www.youtube.com/watch?v=tS-ib_mgGbU"  target="_blank" rel="noopener"
+    ><strong>here</strong></a></p>
+<h3 id="linear-filter-properties">Linear Filter Properties</h3>
+<ul>
+<li><strong>Linearity</strong> means that filtering an image with two (different) filters $f1$ and $f2$ results in the same output as filtering the images separately first before summing the intermediate outputs.
+$$ imfilter(I, f1 + f2) = imfilter(I,f1) + imfilter(I,f2) $$</li>
+<li><strong>Translation invariance</strong> means that shifting the original image before filtering results in the same output as filtering then shifting.
+$$imfilter(I,shift(f)) = shift(imfilter(I,f))$$</li>
+<li>Any linear, shift-invariant operator can be represented as a convolution.</li>
+</ul>
+<h3 id="separability">Separability</h3>
+<p>We can use an outer product to decompose the 2D filter into two 1D filters, where one is represented as a row column and the other a row vector.</p>
+<p><img src="/p/computer-vision-image-filtering/separability.jpg"
+	width="606"
+	height="366"
+	srcset="/p/computer-vision-image-filtering/separability_hu92cc13f735780ee724c3b009326abe22_53002_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/separability_hu92cc13f735780ee724c3b009326abe22_53002_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="165"
+		data-flex-basis="397px"
+	
+></p>
+<p>Note: Convolution vs filtering doesn’t matter here because the filter is <strong>symmetric</strong>.</p>
+<p>Assume we have $M * N$ image, $P*Q$ filter</p>
+<ul>
+<li>
+<p>2D convolution: $MNPQ$ multiply-adds</p>
+</li>
+<li>
+<p>Separable 2D: $MN(P+Q)$ multiply-adds</p>
+</li>
+</ul>
+<p>Speed up = $\frac{PQ}{(P+Q)}$, e.g. 9*9 filter = 4.5 times faster</p>
+<p>In Gaussian Filters, a 2D Gaussian can be expressed as the product of two functions, a function of $x$ and a function of $y$.</p>
+<p>$$ G_{\sigma}=\frac{1}{2 \pi \sigma^{2}} e^{-\frac{\left(x^{2}+y^{2}\right)}{2 \sigma^{2}}} =  \left(\frac{1}{2 \pi \sigma^{2}} e^{-\frac{x^{2}}{2 \sigma^{2}}}\right)\left(\frac{1}{2 \pi \sigma^{2}} e^{-\frac{y^{2}}{2 \sigma^{2}}}\right)$$</p>
+<hr>
+<h2 id="sampling">Sampling</h2>
+<h3 id="image-pyramid">Image Pyramid</h3>
+<p><img src="/p/computer-vision-image-filtering/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-image-filtering/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+><img src="/p/computer-vision-image-filtering/IP.jpg"
+	width="734"
+	height="365"
+	srcset="/p/computer-vision-image-filtering/IP_hu2a054bd143f1972ea72f966955bad124_213879_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/IP_hu2a054bd143f1972ea72f966955bad124_213879_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="201"
+		data-flex-basis="482px"
+	
+><img src="/p/computer-vision-image-filtering/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-image-filtering/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+></p>
+<h3 id="aliasing">Aliasing</h3>
+<p>Aliasing occurs when we sample a signal at a frequency that is too low such that we can’t properly reconstruct the original signal. In the image below, black points are samples, but we may get a different-looking reconstruction.</p>
+<p><img src="/p/computer-vision-image-filtering/aliasing.jpg"
+	width="567"
+	height="143"
+	srcset="/p/computer-vision-image-filtering/aliasing_hu965fb104dfd6a7e46fe138c1e4e1232d_16542_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/aliasing_hu965fb104dfd6a7e46fe138c1e4e1232d_16542_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="396"
+		data-flex-basis="951px"
+	
+></p>
+<p>When two signals become indistinguishable from one another due to sampling, they are ‘aliases’ of one another.</p>
+<h3 id="nyquist-shannon-sampling-theorem">Nyquist-Shannon Sampling Theorem</h3>
+<p>When sampling a signal at discrete intervals, the sampling frequency must be $\ge  2 f_{max}$, max frequency of the input signal, to guarantee a perfect reconstruction.</p>
+<p><img src="/p/computer-vision-image-filtering/NSST.jpg"
+	width="499"
+	height="205"
+	srcset="/p/computer-vision-image-filtering/NSST_hu7e0fa4cbda7f4a093a012710419ba7ef_35930_480x0_resize_q75_box.jpg 480w, /p/computer-vision-image-filtering/NSST_hu7e0fa4cbda7f4a093a012710419ba7ef_35930_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="243"
+		data-flex-basis="584px"
+	
+></p>
+<h3 id="anti-aliasing">Anti-aliasing</h3>
+<ul>
+<li>Sampling more often</li>
+<li>Removing all frequencies that are greater than half the new sampling frequency
+<ul>
+<li>May lose info</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>MIT License</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Jan 31, 2023 18:09 EST
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 Tony Feng
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#filtering">Filtering</a>
+      <ol>
+        <li><a href="#def">Def</a></li>
+        <li><a href="#1d-filtering-moving-average">1D Filtering: Moving Average</a></li>
+        <li><a href="#2d-filtering">2D Filtering</a></li>
+        <li><a href="#image-filtering">Image Filtering</a></li>
+        <li><a href="#practice-with-linear-filters">Practice with Linear Filters</a></li>
+      </ol>
+    </li>
+    <li><a href="#properties-of-image-filtering-methods">Properties of Image Filtering Methods</a>
+      <ol>
+        <li><a href="#correlation-and-convolution">Correlation and Convolution</a></li>
+        <li><a href="#linear-filter-properties">Linear Filter Properties</a></li>
+        <li><a href="#separability">Separability</a></li>
+      </ol>
+    </li>
+    <li><a href="#sampling">Sampling</a>
+      <ol>
+        <li><a href="#image-pyramid">Image Pyramid</a></li>
+        <li><a href="#aliasing">Aliasing</a></li>
+        <li><a href="#nyquist-shannon-sampling-theorem">Nyquist-Shannon Sampling Theorem</a></li>
+        <li><a href="#anti-aliasing">Anti-aliasing</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
