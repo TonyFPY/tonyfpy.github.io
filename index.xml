@@ -6,6 +6,24 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Computer Vision] Fourier Tranansform</title>
+        <link>https://tonyfpy.github.io/p/computer-vision-fourier-tranansform/</link>
+        <pubDate>Thu, 02 Feb 2023 11:16:17 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/computer-vision-fourier-tranansform/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Feb 2nd, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Feb 2nd, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Computer Vision] Image Filtering</title>
         <link>https://tonyfpy.github.io/p/computer-vision-image-filtering/</link>
         <pubDate>Tue, 31 Jan 2023 14:49:27 -0500</pubDate>
@@ -14,7 +32,7 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Jan 31st, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on Jan 31st, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Feb 2nd, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
@@ -51,7 +69,7 @@ $$h[n]=\frac{1}{k} {I}^{T} S[n-k+1: n]$$&lt;/p&gt;
 		data-flex-basis=&#34;469px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Box Filter&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Box Filter/Mean Filter&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The box filter blurs the image because for each pixel, the values of its neighbors is &lt;strong&gt;averaged&lt;/strong&gt; with it, and &lt;strong&gt;preserve mean image intensity&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Gaussian Filter&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The filter function is constructed by sampling the &lt;strong&gt;gaussian&lt;/strong&gt; function at uniform intervals. &lt;strong&gt;It&amp;rsquo;s a linear filter&lt;/strong&gt;.&lt;/p&gt;
@@ -71,11 +89,8 @@ $$h[n]=\frac{1}{k} {I}^{T} S[n-k+1: n]$$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Median Filter&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;It is a &lt;strong&gt;non-linear&lt;/strong&gt; filter. It operates over a window by selecting the &lt;strong&gt;median intensity&lt;/strong&gt; in the window.&lt;/p&gt;
-&lt;p&gt;Median filtering is sorting.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Sobel Filter&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;It has &amp;ldquo;1 2 1&amp;rdquo; pattern and is often used in edge detection. It works by calculating the gradient of image intensity at each pixel within the image.&lt;/p&gt;
+&lt;p&gt;It has &amp;ldquo;1 2 1&amp;rdquo; pattern and is often used in &lt;strong&gt;edge detection&lt;/strong&gt;. It works by calculating the gradient of image intensity at each pixel within the image. It&amp;rsquo;s a &lt;strong&gt;high pass filter&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/sobel.jpg&#34;
 	width=&#34;375&#34;
 	height=&#34;66&#34;
@@ -88,6 +103,9 @@ $$h[n]=\frac{1}{k} {I}^{T} S[n-k+1: n]$$&lt;/p&gt;
 		data-flex-basis=&#34;1363px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Median Filter&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It is a &lt;strong&gt;non-linear&lt;/strong&gt; filter. It operates over a window by selecting the &lt;strong&gt;median intensity&lt;/strong&gt; in the window. Median filtering is sorting.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s good at &lt;strong&gt;removing noises&lt;/strong&gt;. If we increase the size of the window, it can maintain strong edges, while other parts become blurred.&lt;/p&gt;
 &lt;h3 id=&#34;practice-with-linear-filters&#34;&gt;Practice with Linear Filters&lt;/h3&gt;
 &lt;p&gt;We can use filter to&lt;/p&gt;
 &lt;ul&gt;
@@ -318,6 +336,7 @@ $$imfilter(I,shift(f)) = shift(imfilter(I,f))$$&lt;/li&gt;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;When two signals become indistinguishable from one another due to sampling, they are ‘aliases’ of one another.&lt;/p&gt;
+&lt;p&gt;In real world, &lt;strong&gt;temporal and spatial aliasing&lt;/strong&gt; often happens when the sampling rate is not high enough.&lt;/p&gt;
 &lt;h3 id=&#34;nyquist-shannon-sampling-theorem&#34;&gt;Nyquist-Shannon Sampling Theorem&lt;/h3&gt;
 &lt;p&gt;When sampling a signal at discrete intervals, the sampling frequency must be $\ge  2 f_{max}$, max frequency of the input signal, to guarantee a perfect reconstruction.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/NSST.jpg&#34;
@@ -337,7 +356,8 @@ $$imfilter(I,shift(f)) = shift(imfilter(I,f))$$&lt;/li&gt;
 &lt;li&gt;Sampling more often&lt;/li&gt;
 &lt;li&gt;Removing all frequencies that are greater than half the new sampling frequency
 &lt;ul&gt;
-&lt;li&gt;May lose info&lt;/li&gt;
+&lt;li&gt;Remove high frequencies with a &lt;strong&gt;low pass filter&lt;/strong&gt; (e.g. Gaussian Filter)&lt;/li&gt;
+&lt;li&gt;It will lose info&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -6695,8 +6715,8 @@ $$&lt;/p&gt;
     &gt;Prof. Eugene Ch&amp;rsquo;ng&lt;/a&gt;&lt;br&gt;
 &lt;strong&gt;Timeline&lt;/strong&gt;: Jun. 2021 - Aug. 2022&lt;br&gt;
 &lt;strong&gt;Key Words&lt;/strong&gt;: Augmented Reality, Multi-user Interaction, Digital Heritage, Communication&lt;br&gt;
-&lt;strong&gt;Link&lt;/strong&gt;: &lt;a class=&#34;link&#34; href=&#34;https://drive.google.com/file/d/1vkZvfJkKzVeEst8eFX6vw3u-Ox8LhV6L/view?usp=sharing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Paper (Accepted) - &lt;em&gt;ACM Journal on Computing and Cultural Heritage&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;strong&gt;Link&lt;/strong&gt;: &lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/abs/10.1145/3582266&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Paper - &lt;em&gt;ACM Journal on Computing and Cultural Heritage&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;you-draw-i-guess&#34;&gt;You Draw, I Guess&lt;/h3&gt;
 &lt;img src=&#34;DRAW.jpg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;
 &lt;p&gt;This &lt;strong&gt;undergraduate final-year project&lt;/strong&gt; is about exploring the interpretability of AI-driven sketch recognition through &lt;strong&gt;human-AI interaction&lt;/strong&gt; based on a lightweight interactive system – &lt;strong&gt;DRAW&lt;/strong&gt; (&lt;strong&gt;D&lt;/strong&gt;oodle &lt;strong&gt;R&lt;/strong&gt;ecognition in an &lt;strong&gt;A&lt;/strong&gt;utomated &lt;strong&gt;W&lt;/strong&gt;ay). A preliminary field study has been conducted to answer the research question: &amp;ldquo;Can humans interpret AI’s inference and draw machine-recognizable sketches through the gameplay?&amp;rdquo; According to the data analysis, the answer to this research question is positive, but not a 100% &amp;ldquo;Yes&amp;rdquo;.This project paves a way for future studies to explore the human understanding of AI&amp;rsquo;s decison making.
@@ -6716,7 +6736,7 @@ $$&lt;/p&gt;
     &gt;Prof. Eugene Ch&amp;rsquo;ng&lt;/a&gt;&lt;br&gt;
 &lt;strong&gt;Timeline&lt;/strong&gt;: Apr. 2020 - Jun. 2020&lt;br&gt;
 &lt;strong&gt;Key Words&lt;/strong&gt;: Data Augmentation, Object Detection, Digital Heritage, Photogrammetry&lt;br&gt;
-&lt;strong&gt;Link&lt;/strong&gt;: &lt;a class=&#34;link&#34; href=&#34;https://drive.google.com/file/d/1ahS-kd4R7vMOgBKrAvu1jJER4oh3ytxx/view?usp=sharing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;strong&gt;Link&lt;/strong&gt;: &lt;a class=&#34;link&#34; href=&#34;https://www.researchgate.net/publication/349209603_Balancing_Performance_and_Effort_in_Deep_Learning_via_the_Fusion_of_Real_and_Synthetic_Cultural_Heritage_Photogrammetry_Training_Sets&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Paper - &lt;em&gt;The 13th International Conference on Agents and Artificial Intelligence&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;technology-patents&#34;&gt;Technology Patents&lt;/h2&gt;

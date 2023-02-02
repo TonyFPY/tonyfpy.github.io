@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on Jan 31st, 2022
-Last Modified on Jan 31st, 2022
+Last Modified on Feb 2nd, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'><title>[Computer Vision] Image Filtering</title>
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/computer-vision-image-filtering/'>
@@ -11,15 +11,15 @@ Last Modified on Jan 31st, 2022
 <link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Computer Vision] Image Filtering'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on Jan 31st, 2022
-Last Modified on Jan 31st, 2022
+Last Modified on Feb 2nd, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/computer-vision-image-filtering/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-01-31T14:49:27-05:00'/><meta property='article:modified_time' content='2023-01-31T18:09:03-05:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-01-31T14:49:27-05:00'/><meta property='article:modified_time' content='2023-02-02T11:16:41-05:00'/>
 <meta name="twitter:title" content="[Computer Vision] Image Filtering">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Jan 31st, 2022
-Last Modified on Jan 31st, 2022
+Last Modified on Feb 2nd, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
@@ -359,7 +359,7 @@ Last Modified on Jan 31st, 2022
     <blockquote>
 <p>Authored by Tony Feng</p>
 <p>Created on Jan 31st, 2022</p>
-<p>Last Modified on Jan 31st, 2022</p>
+<p>Last Modified on Feb 2nd, 2022</p>
 </blockquote>
 <h2 id="intro">Intro</h2>
 <p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1430 Computer Vision</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
@@ -396,7 +396,7 @@ $$h[n]=\frac{1}{k} {I}^{T} S[n-k+1: n]$$</p>
 		data-flex-basis="469px"
 	
 ></p>
-<p><strong>Box Filter</strong></p>
+<p><strong>Box Filter/Mean Filter</strong></p>
 <p>The box filter blurs the image because for each pixel, the values of its neighbors is <strong>averaged</strong> with it, and <strong>preserve mean image intensity</strong>.</p>
 <p><strong>Gaussian Filter</strong></p>
 <p>The filter function is constructed by sampling the <strong>gaussian</strong> function at uniform intervals. <strong>It&rsquo;s a linear filter</strong>.</p>
@@ -416,11 +416,8 @@ $$h[n]=\frac{1}{k} {I}^{T} S[n-k+1: n]$$</p>
 </ul>
 </li>
 </ul>
-<p><strong>Median Filter</strong></p>
-<p>It is a <strong>non-linear</strong> filter. It operates over a window by selecting the <strong>median intensity</strong> in the window.</p>
-<p>Median filtering is sorting.</p>
 <p><strong>Sobel Filter</strong></p>
-<p>It has &ldquo;1 2 1&rdquo; pattern and is often used in edge detection. It works by calculating the gradient of image intensity at each pixel within the image.</p>
+<p>It has &ldquo;1 2 1&rdquo; pattern and is often used in <strong>edge detection</strong>. It works by calculating the gradient of image intensity at each pixel within the image. It&rsquo;s a <strong>high pass filter</strong>.</p>
 <p><img src="/p/computer-vision-image-filtering/sobel.jpg"
 	width="375"
 	height="66"
@@ -433,6 +430,9 @@ $$h[n]=\frac{1}{k} {I}^{T} S[n-k+1: n]$$</p>
 		data-flex-basis="1363px"
 	
 ></p>
+<p><strong>Median Filter</strong></p>
+<p>It is a <strong>non-linear</strong> filter. It operates over a window by selecting the <strong>median intensity</strong> in the window. Median filtering is sorting.</p>
+<p>It&rsquo;s good at <strong>removing noises</strong>. If we increase the size of the window, it can maintain strong edges, while other parts become blurred.</p>
 <h3 id="practice-with-linear-filters">Practice with Linear Filters</h3>
 <p>We can use filter to</p>
 <ul>
@@ -663,6 +663,7 @@ $$imfilter(I,shift(f)) = shift(imfilter(I,f))$$</li>
 	
 ></p>
 <p>When two signals become indistinguishable from one another due to sampling, they are ‘aliases’ of one another.</p>
+<p>In real world, <strong>temporal and spatial aliasing</strong> often happens when the sampling rate is not high enough.</p>
 <h3 id="nyquist-shannon-sampling-theorem">Nyquist-Shannon Sampling Theorem</h3>
 <p>When sampling a signal at discrete intervals, the sampling frequency must be $\ge  2 f_{max}$, max frequency of the input signal, to guarantee a perfect reconstruction.</p>
 <p><img src="/p/computer-vision-image-filtering/NSST.jpg"
@@ -682,7 +683,8 @@ $$imfilter(I,shift(f)) = shift(imfilter(I,f))$$</li>
 <li>Sampling more often</li>
 <li>Removing all frequencies that are greater than half the new sampling frequency
 <ul>
-<li>May lose info</li>
+<li>Remove high frequencies with a <strong>low pass filter</strong> (e.g. Gaussian Filter)</li>
+<li>It will lose info</li>
 </ul>
 </li>
 </ul>
@@ -716,7 +718,7 @@ $$imfilter(I,shift(f)) = shift(imfilter(I,f))$$</li>
 
 
         <span>
-            Last updated on Jan 31, 2023 18:09 EST
+            Last updated on Feb 02, 2023 11:16 EST
         </span>
     </section></footer>
 
