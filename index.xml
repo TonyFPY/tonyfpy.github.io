@@ -6,6 +6,244 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Computer Vision] Feature Points &amp; Corners</title>
+        <link>https://tonyfpy.github.io/p/computer-vision-feature-points-corners/</link>
+        <pubDate>Fri, 10 Feb 2023 14:42:23 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/computer-vision-feature-points-corners/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Feb 10nd, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Feb 10nd, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Edges and corners are typically called &lt;strong&gt;features&lt;/strong&gt; that are unique to some part of the image. &lt;strong&gt;Local features&lt;/strong&gt;  describe one component of the image, not the entirely image.&lt;/p&gt;
+&lt;p&gt;Corners are also called &lt;strong&gt;interest points&lt;/strong&gt; or &lt;strong&gt;key points&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Corners are important, because we can get &lt;strong&gt;spare correspondences&lt;/strong&gt;, which allows for fast matching between images.&lt;/p&gt;
+&lt;p&gt;Finding distinctive and repeatable feature points can be difficult when we want our features to be &lt;strong&gt;invariant to large transformations&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;geometric variation (translation, rotation, scale, perspective)&lt;/li&gt;
+&lt;li&gt;appearance variation (reflectance, illumination)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;example-panorama-stitching&#34;&gt;Example: Panorama Stitching&lt;/h3&gt;
+&lt;p&gt;Using panorama requires &lt;strong&gt;correspondences&lt;/strong&gt;. We have two images of a scene, and we can see that there is some overlay, but the images are not quite the same.&lt;/p&gt;
+&lt;p&gt;We need our features/corners to have some sort of properties in this case: 1) &lt;strong&gt;distinctiveness&lt;/strong&gt;, 2) &lt;strong&gt;repeatability&lt;/strong&gt;, 3) &lt;strong&gt;compactness&lt;/strong&gt;, 4) &lt;strong&gt;efficiency&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;local-feature-matching&#34;&gt;Local Feature Matching&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Detection
+&lt;ul&gt;
+&lt;li&gt;Find a set of distinctive features (e.g. key points, edges)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Description:
+&lt;ul&gt;
+&lt;li&gt;Extract feature descriptor around each interest point as vector.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Matching:
+&lt;ul&gt;
+&lt;li&gt;Compute distance between feature vectors to find correspondence.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;corner-detection&#34;&gt;Corner Detection&lt;/h2&gt;
+&lt;h3 id=&#34;basic-idea&#34;&gt;Basic idea&lt;/h3&gt;
+&lt;p&gt;We do not know which other image locations the feature will end up being matched against. But we can compute how stable a location is in appearance with respect to small variations in its position. In other words, &lt;strong&gt;we can compare image patch against local neighbors&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;We want a window &lt;strong&gt;shift in any direction&lt;/strong&gt; to give a &lt;strong&gt;large change&lt;/strong&gt; in intensity.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/CD.jpg&#34;
+	width=&#34;539&#34;
+	height=&#34;201&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/CD_hub5186c6b3aa5c483690a5be405bb9d7b_22375_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/CD_hub5186c6b3aa5c483690a5be405bb9d7b_22375_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;268&#34;
+		data-flex-basis=&#34;643px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;auto-correlation&#34;&gt;Auto-correlation&lt;/h3&gt;
+&lt;p&gt;$$E(u, v)=\sum_{x, y} w(x, y)[I(x+u, y+v)-I(x, y)]^{2}$$&lt;/p&gt;
+&lt;p&gt;, where $w(x, y)$ is window function, $I(x+u, y+v)$ is shifted intensity, $I(x, y)$ is intensity. If our &amp;ldquo;red box&amp;rdquo; goes outside the image, then we would need to pad the image.&lt;/p&gt;
+&lt;p&gt;However, this approach is &lt;strong&gt;computationally expensive&lt;/strong&gt;. It needs $O(W^2+S^2+I^2)$, where $W$, $S$, $I$ stand for window size, shift range and image size, respectively.&lt;/p&gt;
+&lt;h3 id=&#34;quadratic-surface&#34;&gt;Quadratic Surface&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/QS.jpg&#34;
+	width=&#34;512&#34;
+	height=&#34;214&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/QS_hu4409070e4a33ffe4681a89ec0705fd61_21561_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/QS_hu4409070e4a33ffe4681a89ec0705fd61_21561_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;239&#34;
+		data-flex-basis=&#34;574px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;We can approximate $E(u,v)$ locally by a &lt;strong&gt;quadratic surface&lt;/strong&gt;, and look for that instead.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Taylor Series Expansion&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A function $f$ can be represented by an infinite series of its derivatives at a single point $a$.&lt;/p&gt;
+&lt;p&gt;$$ f = f(a)+\frac{f^{\prime}(a)}{1 !}(x-a)+\frac{f^{\prime \prime}(a)}{2 !}(x-a)^{2}+\frac{f^{\prime \prime \prime}(a)}{3 !}(x-a)^{3}+\cdots $$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Local Quadratic Approximation&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Local quadratic approximation of $E(u,v)$ in the neighborhood of $(0,0)$ is given by the &lt;strong&gt;second-order Taylor expansion&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/LQA1.jpg&#34;
+	width=&#34;599&#34;
+	height=&#34;171&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/LQA1_hub5f34c22bfb9b58a3200fadfe53457a9_25218_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/LQA1_hub5f34c22bfb9b58a3200fadfe53457a9_25218_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;350&#34;
+		data-flex-basis=&#34;840px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This could be simplified as the following equation, where $M$ is a &lt;strong&gt;structure tensor&lt;/strong&gt; computed from image derivatives.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/LQA2.jpg&#34;
+	width=&#34;607&#34;
+	height=&#34;200&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/LQA2_hu58ee0901517331e3436221a7560a45c9_18732_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/LQA2_hu58ee0901517331e3436221a7560a45c9_18732_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;303&#34;
+		data-flex-basis=&#34;728px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/M.jpg&#34;
+	width=&#34;680&#34;
+	height=&#34;200&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/M_hud4531995c10f99040ff50540ad6e262d_16734_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/M_hud4531995c10f99040ff50540ad6e262d_16734_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;340&#34;
+		data-flex-basis=&#34;816px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/IxIy.jpg&#34;
+	width=&#34;484&#34;
+	height=&#34;156&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/IxIy_huddd6a4e4adacf5420d732890bc827c89_17364_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/IxIy_huddd6a4e4adacf5420d732890bc827c89_17364_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;310&#34;
+		data-flex-basis=&#34;744px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Interpreting the Second Moment Matrix&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$M$ is symmetric around the diagonal
+&lt;ul&gt;
+&lt;li&gt;Symmetric matrices have &lt;strong&gt;orthogonal eigenvectors&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;$M$ is square
+&lt;ul&gt;
+&lt;li&gt;Square matrices are diagonalizable if some matrix $R$ exists such that $M = R^{-1}AR$ where $A$ has only diagonal entries and $R$ represents a change of basis.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/MRAR.jpg&#34;
+	width=&#34;200&#34;
+	height=&#34;68&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/MRAR_huad8e7fff2e9f1b263e070ffa4a705856_4224_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/MRAR_huad8e7fff2e9f1b263e070ffa4a705856_4224_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;294&#34;
+		data-flex-basis=&#34;705px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;We want to decompose M to be able to &lt;strong&gt;analyze the scale of these quadratic surfaces&lt;/strong&gt; while &lt;strong&gt;ignoring the rotation&lt;/strong&gt;. This means we care that it is a corner or an edge, not which rotation of edge.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/eigenvalues.jpg&#34;
+	width=&#34;549&#34;
+	height=&#34;273&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/eigenvalues_hufdf0a7aba31a58dbfa4f3b7a8911d286_29304_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/eigenvalues_hufdf0a7aba31a58dbfa4f3b7a8911d286_29304_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;201&#34;
+		data-flex-basis=&#34;482px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Or we can combine $\lambda _1$, $\lambda _2$ with some constant $\alpha$ to computer the &lt;strong&gt;cornerness score&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;$$ C={\lambda _1}{\lambda _2}-{\alpha}({\lambda _1}+{\lambda _2})^{2} $$&lt;/p&gt;
+&lt;p&gt;In linear algebra, for diagonal matrices,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Determinant of a diagonal matrix is also the product of its diagonal entries&lt;/li&gt;
+&lt;li&gt;Trace is just the sum of its diagonal entries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Therefore, we can avoid explicit eigenvalue computation by
+$$C=\operatorname{det}(M)-\alpha \operatorname{trace}(M)^{2}$$&lt;/p&gt;
+&lt;h3 id=&#34;harris-corner-detector&#34;&gt;Harris Corner Detector&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Input image: computer $M$ at each pixel level&lt;/li&gt;
+&lt;li&gt;Compute image derivatives&lt;/li&gt;
+&lt;li&gt;Compute $M$ components as squares of derivatives&lt;/li&gt;
+&lt;li&gt;Gaussian filter $g$ with width $s$: $g\left(I_{x}^{2}\right)$, $g\left(I_{y}^{2}\right)$, $g\left(I_{x} \circ I_{y}\right)$&lt;/li&gt;
+&lt;li&gt;Compute cornerness $C=g\left(I_{x}^{2}\right) \circ g\left(I_{y}^{2}\right)-g\left(I_{x} \circ I_{y}\right)^{2} -\alpha\left[g\left(I_{x}^{2}\right)+g\left(I_{y}^{2}\right)\right]^{2}$&lt;/li&gt;
+&lt;li&gt;Threshold $C$ to pick high cornerness&lt;/li&gt;
+&lt;li&gt;Non-maximal suppression to pick peaks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: $a \circ b$ is &lt;strong&gt;Hadamard product&lt;/strong&gt; (element-wise multiplication).&lt;/p&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Computer Vision] Edge Detection</title>
         <link>https://tonyfpy.github.io/p/computer-vision-edge-detection/</link>
         <pubDate>Fri, 10 Feb 2023 10:54:42 -0500</pubDate>

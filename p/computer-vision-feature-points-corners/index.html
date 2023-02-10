@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
+Created on Feb 10nd, 2022
+Last Modified on Feb 10nd, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'><title>[Computer Vision] Feature Points &amp; Corners</title>
+
+<link rel='canonical' href='https://tonyfpy.github.io/p/computer-vision-feature-points-corners/'>
+
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Computer Vision] Feature Points &amp; Corners'>
+<meta property='og:description' content='Authored by Tony Feng
+Created on Feb 10nd, 2022
+Last Modified on Feb 10nd, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/computer-vision-feature-points-corners/'>
+<meta property='og:site_name' content='Tony Feng'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-02-10T14:42:23-05:00'/><meta property='article:modified_time' content='2023-02-10T16:44:35-05:00'/>
+<meta name="twitter:title" content="[Computer Vision] Feature Points &amp; Corners">
+<meta name="twitter:description" content="Authored by Tony Feng
+Created on Feb 10nd, 2022
+Last Modified on Feb 10nd, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/Brown_hu1b43bb4664aba7c4309526f1ef45ab91_1767_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Tony Feng</a></h1>
+            <h2 class="site-description">M.Sc. in Computer Science</h2>
+            <h2 class="site-description">Brown University</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://tonyfpy.github.io/about/'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/TonyFPY'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/pinyuanfeng'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/research/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <line x1="3" y1="6" x2="3" y2="19" />
+  <line x1="12" y1="6" x2="12" y2="19" />
+  <line x1="21" y1="6" x2="21" y2="19" />
+</svg>
+                
+                <span>Research</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/projects/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="7 8 3 12 7 16" />
+  <polyline points="17 8 21 12 17 16" />
+  <line x1="14" y1="4" x2="10" y2="20" />
+</svg>
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/computer-vision/" style="background-color: #39cc94; color: #fff;">
+                Computer Vision
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/computer-vision-feature-points-corners/">[Computer Vision] Feature Points &amp; Corners</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 10, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>Authored by Tony Feng</p>
+<p>Created on Feb 10nd, 2022</p>
+<p>Last Modified on Feb 10nd, 2022</p>
+</blockquote>
+<h2 id="intro">Intro</h2>
+<p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1430 Computer Vision</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
+<hr>
+<h2 id="overview">Overview</h2>
+<p>Edges and corners are typically called <strong>features</strong> that are unique to some part of the image. <strong>Local features</strong>  describe one component of the image, not the entirely image.</p>
+<p>Corners are also called <strong>interest points</strong> or <strong>key points</strong>.</p>
+<p>Corners are important, because we can get <strong>spare correspondences</strong>, which allows for fast matching between images.</p>
+<p>Finding distinctive and repeatable feature points can be difficult when we want our features to be <strong>invariant to large transformations</strong>:</p>
+<ul>
+<li>geometric variation (translation, rotation, scale, perspective)</li>
+<li>appearance variation (reflectance, illumination)</li>
+</ul>
+<h3 id="example-panorama-stitching">Example: Panorama Stitching</h3>
+<p>Using panorama requires <strong>correspondences</strong>. We have two images of a scene, and we can see that there is some overlay, but the images are not quite the same.</p>
+<p>We need our features/corners to have some sort of properties in this case: 1) <strong>distinctiveness</strong>, 2) <strong>repeatability</strong>, 3) <strong>compactness</strong>, 4) <strong>efficiency</strong>.</p>
+<h3 id="local-feature-matching">Local Feature Matching</h3>
+<ul>
+<li>Detection
+<ul>
+<li>Find a set of distinctive features (e.g. key points, edges)</li>
+</ul>
+</li>
+<li>Description:
+<ul>
+<li>Extract feature descriptor around each interest point as vector.</li>
+</ul>
+</li>
+<li>Matching:
+<ul>
+<li>Compute distance between feature vectors to find correspondence.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="corner-detection">Corner Detection</h2>
+<h3 id="basic-idea">Basic idea</h3>
+<p>We do not know which other image locations the feature will end up being matched against. But we can compute how stable a location is in appearance with respect to small variations in its position. In other words, <strong>we can compare image patch against local neighbors</strong>.</p>
+<p>We want a window <strong>shift in any direction</strong> to give a <strong>large change</strong> in intensity.</p>
+<p><img src="/p/computer-vision-feature-points-corners/CD.jpg"
+	width="539"
+	height="201"
+	srcset="/p/computer-vision-feature-points-corners/CD_hub5186c6b3aa5c483690a5be405bb9d7b_22375_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/CD_hub5186c6b3aa5c483690a5be405bb9d7b_22375_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="268"
+		data-flex-basis="643px"
+	
+></p>
+<h3 id="auto-correlation">Auto-correlation</h3>
+<p>$$E(u, v)=\sum_{x, y} w(x, y)[I(x+u, y+v)-I(x, y)]^{2}$$</p>
+<p>, where $w(x, y)$ is window function, $I(x+u, y+v)$ is shifted intensity, $I(x, y)$ is intensity. If our &ldquo;red box&rdquo; goes outside the image, then we would need to pad the image.</p>
+<p>However, this approach is <strong>computationally expensive</strong>. It needs $O(W^2+S^2+I^2)$, where $W$, $S$, $I$ stand for window size, shift range and image size, respectively.</p>
+<h3 id="quadratic-surface">Quadratic Surface</h3>
+<p><img src="/p/computer-vision-feature-points-corners/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+><img src="/p/computer-vision-feature-points-corners/QS.jpg"
+	width="512"
+	height="214"
+	srcset="/p/computer-vision-feature-points-corners/QS_hu4409070e4a33ffe4681a89ec0705fd61_21561_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/QS_hu4409070e4a33ffe4681a89ec0705fd61_21561_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="239"
+		data-flex-basis="574px"
+	
+><img src="/p/computer-vision-feature-points-corners/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+></p>
+<p>We can approximate $E(u,v)$ locally by a <strong>quadratic surface</strong>, and look for that instead.</p>
+<p><strong>Taylor Series Expansion</strong></p>
+<p>A function $f$ can be represented by an infinite series of its derivatives at a single point $a$.</p>
+<p>$$ f = f(a)+\frac{f^{\prime}(a)}{1 !}(x-a)+\frac{f^{\prime \prime}(a)}{2 !}(x-a)^{2}+\frac{f^{\prime \prime \prime}(a)}{3 !}(x-a)^{3}+\cdots $$</p>
+<p><strong>Local Quadratic Approximation</strong></p>
+<p>Local quadratic approximation of $E(u,v)$ in the neighborhood of $(0,0)$ is given by the <strong>second-order Taylor expansion</strong>.</p>
+<p><img src="/p/computer-vision-feature-points-corners/LQA1.jpg"
+	width="599"
+	height="171"
+	srcset="/p/computer-vision-feature-points-corners/LQA1_hub5f34c22bfb9b58a3200fadfe53457a9_25218_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/LQA1_hub5f34c22bfb9b58a3200fadfe53457a9_25218_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="350"
+		data-flex-basis="840px"
+	
+></p>
+<p>This could be simplified as the following equation, where $M$ is a <strong>structure tensor</strong> computed from image derivatives.</p>
+<p><img src="/p/computer-vision-feature-points-corners/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+><img src="/p/computer-vision-feature-points-corners/LQA2.jpg"
+	width="607"
+	height="200"
+	srcset="/p/computer-vision-feature-points-corners/LQA2_hu58ee0901517331e3436221a7560a45c9_18732_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/LQA2_hu58ee0901517331e3436221a7560a45c9_18732_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="303"
+		data-flex-basis="728px"
+	
+><img src="/p/computer-vision-feature-points-corners/M.jpg"
+	width="680"
+	height="200"
+	srcset="/p/computer-vision-feature-points-corners/M_hud4531995c10f99040ff50540ad6e262d_16734_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/M_hud4531995c10f99040ff50540ad6e262d_16734_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="340"
+		data-flex-basis="816px"
+	
+><img src="/p/computer-vision-feature-points-corners/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+></p>
+<p><img src="/p/computer-vision-feature-points-corners/IxIy.jpg"
+	width="484"
+	height="156"
+	srcset="/p/computer-vision-feature-points-corners/IxIy_huddd6a4e4adacf5420d732890bc827c89_17364_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/IxIy_huddd6a4e4adacf5420d732890bc827c89_17364_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="310"
+		data-flex-basis="744px"
+	
+></p>
+<p><strong>Interpreting the Second Moment Matrix</strong></p>
+<ul>
+<li>$M$ is symmetric around the diagonal
+<ul>
+<li>Symmetric matrices have <strong>orthogonal eigenvectors</strong></li>
+</ul>
+</li>
+<li>$M$ is square
+<ul>
+<li>Square matrices are diagonalizable if some matrix $R$ exists such that $M = R^{-1}AR$ where $A$ has only diagonal entries and $R$ represents a change of basis.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/p/computer-vision-feature-points-corners/MRAR.jpg"
+	width="200"
+	height="68"
+	srcset="/p/computer-vision-feature-points-corners/MRAR_huad8e7fff2e9f1b263e070ffa4a705856_4224_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/MRAR_huad8e7fff2e9f1b263e070ffa4a705856_4224_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="294"
+		data-flex-basis="705px"
+	
+></p>
+<p>We want to decompose M to be able to <strong>analyze the scale of these quadratic surfaces</strong> while <strong>ignoring the rotation</strong>. This means we care that it is a corner or an edge, not which rotation of edge.</p>
+<p><img src="/p/computer-vision-feature-points-corners/eigenvalues.jpg"
+	width="549"
+	height="273"
+	srcset="/p/computer-vision-feature-points-corners/eigenvalues_hufdf0a7aba31a58dbfa4f3b7a8911d286_29304_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/eigenvalues_hufdf0a7aba31a58dbfa4f3b7a8911d286_29304_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="201"
+		data-flex-basis="482px"
+	
+></p>
+<p>Or we can combine $\lambda _1$, $\lambda _2$ with some constant $\alpha$ to computer the <strong>cornerness score</strong>:</p>
+<p>$$ C={\lambda _1}{\lambda _2}-{\alpha}({\lambda _1}+{\lambda _2})^{2} $$</p>
+<p>In linear algebra, for diagonal matrices,</p>
+<ul>
+<li>Determinant of a diagonal matrix is also the product of its diagonal entries</li>
+<li>Trace is just the sum of its diagonal entries</li>
+</ul>
+<p>Therefore, we can avoid explicit eigenvalue computation by
+$$C=\operatorname{det}(M)-\alpha \operatorname{trace}(M)^{2}$$</p>
+<h3 id="harris-corner-detector">Harris Corner Detector</h3>
+<ul>
+<li>Input image: computer $M$ at each pixel level</li>
+<li>Compute image derivatives</li>
+<li>Compute $M$ components as squares of derivatives</li>
+<li>Gaussian filter $g$ with width $s$: $g\left(I_{x}^{2}\right)$, $g\left(I_{y}^{2}\right)$, $g\left(I_{x} \circ I_{y}\right)$</li>
+<li>Compute cornerness $C=g\left(I_{x}^{2}\right) \circ g\left(I_{y}^{2}\right)-g\left(I_{x} \circ I_{y}\right)^{2} -\alpha\left[g\left(I_{x}^{2}\right)+g\left(I_{y}^{2}\right)\right]^{2}$</li>
+<li>Threshold $C$ to pick high cornerness</li>
+<li>Non-maximal suppression to pick peaks</li>
+</ul>
+<p>Note: $a \circ b$ is <strong>Hadamard product</strong> (element-wise multiplication).</p>
+<hr>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>MIT License</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Feb 10, 2023 16:44 EST
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 Tony Feng
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#overview">Overview</a>
+      <ol>
+        <li><a href="#example-panorama-stitching">Example: Panorama Stitching</a></li>
+        <li><a href="#local-feature-matching">Local Feature Matching</a></li>
+      </ol>
+    </li>
+    <li><a href="#corner-detection">Corner Detection</a>
+      <ol>
+        <li><a href="#basic-idea">Basic idea</a></li>
+        <li><a href="#auto-correlation">Auto-correlation</a></li>
+        <li><a href="#quadratic-surface">Quadratic Surface</a></li>
+        <li><a href="#harris-corner-detector">Harris Corner Detector</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
