@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
+Created on Feb 2nd, 2022
+Last Modified on Feb 9nd, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'><title>[Computer Vision] Fourier Series &amp; Fourier Transform</title>
+
+<link rel='canonical' href='https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/'>
+
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Computer Vision] Fourier Series &amp; Fourier Transform'>
+<meta property='og:description' content='Authored by Tony Feng
+Created on Feb 2nd, 2022
+Last Modified on Feb 9nd, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/'>
+<meta property='og:site_name' content='Tony Feng'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-02-02T11:16:17-05:00'/><meta property='article:modified_time' content='2023-02-09T23:03:55-05:00'/>
+<meta name="twitter:title" content="[Computer Vision] Fourier Series &amp; Fourier Transform">
+<meta name="twitter:description" content="Authored by Tony Feng
+Created on Feb 2nd, 2022
+Last Modified on Feb 9nd, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/Brown_hu1b43bb4664aba7c4309526f1ef45ab91_1767_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Tony Feng</a></h1>
+            <h2 class="site-description">M.Sc. in Computer Science</h2>
+            <h2 class="site-description">Brown University</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://tonyfpy.github.io/about/'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/TonyFPY'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/pinyuanfeng'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/research/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <line x1="3" y1="6" x2="3" y2="19" />
+  <line x1="12" y1="6" x2="12" y2="19" />
+  <line x1="21" y1="6" x2="21" y2="19" />
+</svg>
+                
+                <span>Research</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/projects/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="7 8 3 12 7 16" />
+  <polyline points="17 8 21 12 17 16" />
+  <line x1="14" y1="4" x2="10" y2="20" />
+</svg>
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/computer-vision/" style="background-color: #39cc94; color: #fff;">
+                Computer Vision
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/computer-vision-fourier-series-fourier-transform/">[Computer Vision] Fourier Series &amp; Fourier Transform</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 02, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>Authored by Tony Feng</p>
+<p>Created on Feb 2nd, 2022</p>
+<p>Last Modified on Feb 9nd, 2022</p>
+</blockquote>
+<h2 id="intro">Intro</h2>
+<p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1430 Computer Vision</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
+<hr>
+<h2 id="fourier-series">Fourier Series</h2>
+<h3 id="a-general-idea">A General Idea</h3>
+<p>Any univariate function can be rewritten as a weighted sum of sines and cosines of different frequencies.</p>
+<p>$$F_{Target} = F_{1}+F_{2}+F_{3} \ldots$$</p>
+<p>Here is the <strong>sine-cosine</strong> form</p>
+<p>$$F = \sum_{n=1}^{\infty}\left(a_{n} \cos (n t)+b_{n} \sin (n t)\right)$$</p>
+<h3 id="spatial-and-frequency-domain">Spatial and Frequency Domain</h3>
+<p><img src="/p/computer-vision-fourier-series-fourier-transform/SF.jpg"
+	width="372"
+	height="178"
+	srcset="/p/computer-vision-fourier-series-fourier-transform/SF_hu2d9f041ef587ac7cce011e256b0c0385_9672_480x0_resize_q75_box.jpg 480w, /p/computer-vision-fourier-series-fourier-transform/SF_hu2d9f041ef587ac7cce011e256b0c0385_9672_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="208"
+		data-flex-basis="501px"
+	
+></p>
+<h3 id="amplitude--phase">Amplitude &amp; Phase</h3>
+<p>We can convert ine-cosine representation to <strong>amplitude-phase</strong> form.</p>
+<p>$$F = \sum_{n=1}^{\infty}\left(a_{n} \sin \left(n x+\emptyset_{n}\right)\right)$$</p>
+<p>Amplitude encodes <strong>how much signal</strong> there is at a particular frequency, while Phase encodes <strong>spatial information</strong>. In other words, Amplitude tells you &ldquo;how much&rdquo; and Phase tells you &ldquo;where&rdquo;.</p>
+<hr>
+<h2 id="fourier-transform">Fourier transform</h2>
+<h3 id="computing-the-fourier-transform">Computing the Fourier Transform</h3>
+<p><strong>Continuous</strong></p>
+<p>$$H(\omega)=\int_{-\infty}^{\infty} h(x) e^{-j \omega x} d x$$</p>
+<p><strong>Discrete</strong></p>
+<p>$$H(k)=\frac{1}{N} \sum_{x=0}^{N-1} h(x) e^{-j \frac{2 \pi k x}{N}} \quad ,k=-\frac{k}{2} &hellip; \frac{k}{2}$$</p>
+<h3 id="properties-of-fourier-transforms">Properties of Fourier Transforms</h3>
+<ul>
+<li>Linearity $\mathrm{F}[a x(t)+b y(t)]=a \mathrm{~F}[x(t)]+b \mathrm{~F}[y(t)]$</li>
+<li>Fourier transform of a real signal is <strong>symmetric</strong> about the origin.</li>
+<li>The energy of the signal is the same as the energy of its Fourier transform.</li>
+</ul>
+<h3 id="gaussian-filter-duality">Gaussian Filter Duality</h3>
+<p>Fourier transform of one Gaussian is another Gaussian (with inverse variance).</p>
+<p>Why is this useful?</p>
+<ul>
+<li>Smooth degradation in frequency components</li>
+<li>No sharp cut-off</li>
+<li>No negative values</li>
+<li>Never zero (infinite extent)</li>
+</ul>
+<h3 id="2d-discrete-fourier-transform">2D Discrete Fourier Transform</h3>
+<p>$$F[u, v]=\frac{1}{M N} \sum_{m=0}^{M-1} \sum_{n=0}^{N-1} I[m, n] \cdot e^{-i 2 \pi\left(\frac{u m}{M}+\frac{v n}{N}\right)}$$</p>
+<p><img src="/p/computer-vision-fourier-series-fourier-transform/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-fourier-series-fourier-transform/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-fourier-series-fourier-transform/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+><img src="/p/computer-vision-fourier-series-fourier-transform/2DDFT.jpg"
+	width="627"
+	height="392"
+	srcset="/p/computer-vision-fourier-series-fourier-transform/2DDFT_hu0f77aecba7dbdde634723272c2b72c55_50865_480x0_resize_q75_box.jpg 480w, /p/computer-vision-fourier-series-fourier-transform/2DDFT_hu0f77aecba7dbdde634723272c2b72c55_50865_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="159"
+		data-flex-basis="383px"
+	
+><img src="/p/computer-vision-fourier-series-fourier-transform/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-fourier-series-fourier-transform/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-fourier-series-fourier-transform/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+></p>
+<p>Nyquist frequency is half the sampling rate of the signal. Sampling rate is size of image $M*N$, so Fourier transform images are ($\pm \frac{N}{2} $, $\pm \frac{N}{2} $).</p>
+<p>Image is rotationally symmetric about center because of negative frequencies.</p>
+<p>If we have infinite frequencies, why does the image end?</p>
+<ul>
+<li>Frequencies higher than Nyquist frequency end up falling on an existing sample.</li>
+<li>Nyquist frequency is half the sampling frequency.</li>
+</ul>
+<h3 id="fourier-decomposition-image">Fourier Decomposition Image</h3>
+<p>Intuitively, we can obtain the image by correlating the signal with a set of waves of increasing frequency.</p>
+<ul>
+<li>In 2D, $O(N^2)$ operation</li>
+<li>For <strong>Fast Fourier Transform (FFT)</strong>, $O(NlogN)$ (effective for larger image)</li>
+</ul>
+<p>The first row is set of the Fourier amplitude images and the second row is set of spatial domain imahe.
+<img src="/p/computer-vision-fourier-series-fourier-transform/amplitudematch.jpg"
+	width="697"
+	height="283"
+	srcset="/p/computer-vision-fourier-series-fourier-transform/amplitudematch_huce222094ececc1ef2dc6fb35fb3a164b_59800_480x0_resize_q75_box.jpg 480w, /p/computer-vision-fourier-series-fourier-transform/amplitudematch_huce222094ececc1ef2dc6fb35fb3a164b_59800_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="246"
+		data-flex-basis="591px"
+	
+></p>
+<p>The frequency amplitude of natural images are quite similar. <strong>Most information in the image is carried in the phase, not the amplitude.</strong>
+In Fourier space, Phase is more of the information that we see in the visual world.</p>
+<p><img src="/p/computer-vision-fourier-series-fourier-transform/cheebra.jpg"
+	width="500"
+	height="250"
+	srcset="/p/computer-vision-fourier-series-fourier-transform/cheebra_hudf23f477bf613526b59c8c9b9726af62_56824_480x0_resize_q75_box.jpg 480w, /p/computer-vision-fourier-series-fourier-transform/cheebra_hudf23f477bf613526b59c8c9b9726af62_56824_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="Zebra Phase &#43; Cheetah Amplitude & Cheetah Phase &#43; Zebra Amplitude"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="200"
+		data-flex-basis="480px"
+	
+></p>
+<h3 id="the-convolution-theorem">The Convolution Theorem</h3>
+<p>The Fourier transform of the convolution of two functions is the product of their Fourier transforms.</p>
+<p>$$F[g \otimes h] = F[g]F[h]$$</p>
+<p>Convolution in spatial domain is equivalent to multiplication in frequency domain.</p>
+<p>$$g \otimes h=\mathrm{F}^{-1}[\mathrm{~F}[g] \mathrm{F}[h]]$$</p>
+<p>If convolution is just multiplication in the Fourier domain, isn’t deconvolution just using division?</p>
+<ul>
+<li>Sometimes, it clearly is invertible (e.g. a convolution with an identity filter)</li>
+<li>In one case, it clearly isn&rsquo;t invertible (e.g. convolution with an all zero filter)
+<ul>
+<li><strong>A Gaussian is only zero at infinity, so it is invertible</strong>.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/p/computer-vision-fourier-series-fourier-transform/conv.jpg"
+	width="610"
+	height="350"
+	srcset="/p/computer-vision-fourier-series-fourier-transform/conv_hu9395e367661edb0f9c21ab2dc3961cbf_56034_480x0_resize_q75_box.jpg 480w, /p/computer-vision-fourier-series-fourier-transform/conv_hu9395e367661edb0f9c21ab2dc3961cbf_56034_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="174"
+		data-flex-basis="418px"
+	
+><img src="/p/computer-vision-fourier-series-fourier-transform/deconv.jpg"
+	width="610"
+	height="349"
+	srcset="/p/computer-vision-fourier-series-fourier-transform/deconv_huff484edc0f7480e440782c6f912da8c0_58189_480x0_resize_q75_box.jpg 480w, /p/computer-vision-fourier-series-fourier-transform/deconv_huff484edc0f7480e440782c6f912da8c0_58189_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="174"
+		data-flex-basis="419px"
+	
+></p>
+<h3 id="filtering-in-frequency-domain">Filtering in Frequency Domain</h3>
+<ul>
+<li>Convert image and filter to Fourier domain</li>
+<li>Element-wise multiply their decompositions</li>
+<li>Convert result to spatial domain with inverse Fourier transform</li>
+</ul>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>MIT License</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Feb 09, 2023 23:03 EST
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 Tony Feng
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#fourier-series">Fourier Series</a>
+      <ol>
+        <li><a href="#a-general-idea">A General Idea</a></li>
+        <li><a href="#spatial-and-frequency-domain">Spatial and Frequency Domain</a></li>
+        <li><a href="#amplitude--phase">Amplitude &amp; Phase</a></li>
+      </ol>
+    </li>
+    <li><a href="#fourier-transform">Fourier transform</a>
+      <ol>
+        <li><a href="#computing-the-fourier-transform">Computing the Fourier Transform</a></li>
+        <li><a href="#properties-of-fourier-transforms">Properties of Fourier Transforms</a></li>
+        <li><a href="#gaussian-filter-duality">Gaussian Filter Duality</a></li>
+        <li><a href="#2d-discrete-fourier-transform">2D Discrete Fourier Transform</a></li>
+        <li><a href="#fourier-decomposition-image">Fourier Decomposition Image</a></li>
+        <li><a href="#the-convolution-theorem">The Convolution Theorem</a></li>
+        <li><a href="#filtering-in-frequency-domain">Filtering in Frequency Domain</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

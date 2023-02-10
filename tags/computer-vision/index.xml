@@ -7,20 +7,185 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Thu, 02 Feb 2023 11:16:17 -0500</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>[Computer Vision] Fourier Tranansform</title>
-        <link>https://tonyfpy.github.io/p/computer-vision-fourier-tranansform/</link>
+        <title>[Computer Vision] Fourier Series &amp; Fourier Transform</title>
+        <link>https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/</link>
         <pubDate>Thu, 02 Feb 2023 11:16:17 -0500</pubDate>
         
-        <guid>https://tonyfpy.github.io/p/computer-vision-fourier-tranansform/</guid>
+        <guid>https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Feb 2nd, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on Feb 2nd, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Feb 9nd, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
 &lt;hr&gt;
+&lt;h2 id=&#34;fourier-series&#34;&gt;Fourier Series&lt;/h2&gt;
+&lt;h3 id=&#34;a-general-idea&#34;&gt;A General Idea&lt;/h3&gt;
+&lt;p&gt;Any univariate function can be rewritten as a weighted sum of sines and cosines of different frequencies.&lt;/p&gt;
+&lt;p&gt;$$F_{Target} = F_{1}+F_{2}+F_{3} \ldots$$&lt;/p&gt;
+&lt;p&gt;Here is the &lt;strong&gt;sine-cosine&lt;/strong&gt; form&lt;/p&gt;
+&lt;p&gt;$$F = \sum_{n=1}^{\infty}\left(a_{n} \cos (n t)+b_{n} \sin (n t)\right)$$&lt;/p&gt;
+&lt;h3 id=&#34;spatial-and-frequency-domain&#34;&gt;Spatial and Frequency Domain&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/SF.jpg&#34;
+	width=&#34;372&#34;
+	height=&#34;178&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/SF_hu2d9f041ef587ac7cce011e256b0c0385_9672_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/SF_hu2d9f041ef587ac7cce011e256b0c0385_9672_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;208&#34;
+		data-flex-basis=&#34;501px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;amplitude--phase&#34;&gt;Amplitude &amp;amp; Phase&lt;/h3&gt;
+&lt;p&gt;We can convert ine-cosine representation to &lt;strong&gt;amplitude-phase&lt;/strong&gt; form.&lt;/p&gt;
+&lt;p&gt;$$F = \sum_{n=1}^{\infty}\left(a_{n} \sin \left(n x+\emptyset_{n}\right)\right)$$&lt;/p&gt;
+&lt;p&gt;Amplitude encodes &lt;strong&gt;how much signal&lt;/strong&gt; there is at a particular frequency, while Phase encodes &lt;strong&gt;spatial information&lt;/strong&gt;. In other words, Amplitude tells you &amp;ldquo;how much&amp;rdquo; and Phase tells you &amp;ldquo;where&amp;rdquo;.&lt;/p&gt;
 &lt;hr&gt;
+&lt;h2 id=&#34;fourier-transform&#34;&gt;Fourier transform&lt;/h2&gt;
+&lt;h3 id=&#34;computing-the-fourier-transform&#34;&gt;Computing the Fourier Transform&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Continuous&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$$H(\omega)=\int_{-\infty}^{\infty} h(x) e^{-j \omega x} d x$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Discrete&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$$H(k)=\frac{1}{N} \sum_{x=0}^{N-1} h(x) e^{-j \frac{2 \pi k x}{N}} \quad ,k=-\frac{k}{2} &amp;hellip; \frac{k}{2}$$&lt;/p&gt;
+&lt;h3 id=&#34;properties-of-fourier-transforms&#34;&gt;Properties of Fourier Transforms&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Linearity $\mathrm{F}[a x(t)+b y(t)]=a \mathrm{~F}[x(t)]+b \mathrm{~F}[y(t)]$&lt;/li&gt;
+&lt;li&gt;Fourier transform of a real signal is &lt;strong&gt;symmetric&lt;/strong&gt; about the origin.&lt;/li&gt;
+&lt;li&gt;The energy of the signal is the same as the energy of its Fourier transform.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;gaussian-filter-duality&#34;&gt;Gaussian Filter Duality&lt;/h3&gt;
+&lt;p&gt;Fourier transform of one Gaussian is another Gaussian (with inverse variance).&lt;/p&gt;
+&lt;p&gt;Why is this useful?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Smooth degradation in frequency components&lt;/li&gt;
+&lt;li&gt;No sharp cut-off&lt;/li&gt;
+&lt;li&gt;No negative values&lt;/li&gt;
+&lt;li&gt;Never zero (infinite extent)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2d-discrete-fourier-transform&#34;&gt;2D Discrete Fourier Transform&lt;/h3&gt;
+&lt;p&gt;$$F[u, v]=\frac{1}{M N} \sum_{m=0}^{M-1} \sum_{n=0}^{N-1} I[m, n] \cdot e^{-i 2 \pi\left(\frac{u m}{M}+\frac{v n}{N}\right)}$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/2DDFT.jpg&#34;
+	width=&#34;627&#34;
+	height=&#34;392&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/2DDFT_hu0f77aecba7dbdde634723272c2b72c55_50865_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/2DDFT_hu0f77aecba7dbdde634723272c2b72c55_50865_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;159&#34;
+		data-flex-basis=&#34;383px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Nyquist frequency is half the sampling rate of the signal. Sampling rate is size of image $M*N$, so Fourier transform images are ($\pm \frac{N}{2} $, $\pm \frac{N}{2} $).&lt;/p&gt;
+&lt;p&gt;Image is rotationally symmetric about center because of negative frequencies.&lt;/p&gt;
+&lt;p&gt;If we have infinite frequencies, why does the image end?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Frequencies higher than Nyquist frequency end up falling on an existing sample.&lt;/li&gt;
+&lt;li&gt;Nyquist frequency is half the sampling frequency.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;fourier-decomposition-image&#34;&gt;Fourier Decomposition Image&lt;/h3&gt;
+&lt;p&gt;Intuitively, we can obtain the image by correlating the signal with a set of waves of increasing frequency.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In 2D, $O(N^2)$ operation&lt;/li&gt;
+&lt;li&gt;For &lt;strong&gt;Fast Fourier Transform (FFT)&lt;/strong&gt;, $O(NlogN)$ (effective for larger image)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The first row is set of the Fourier amplitude images and the second row is set of spatial domain imahe.
+&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/amplitudematch.jpg&#34;
+	width=&#34;697&#34;
+	height=&#34;283&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/amplitudematch_huce222094ececc1ef2dc6fb35fb3a164b_59800_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/amplitudematch_huce222094ececc1ef2dc6fb35fb3a164b_59800_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;246&#34;
+		data-flex-basis=&#34;591px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The frequency amplitude of natural images are quite similar. &lt;strong&gt;Most information in the image is carried in the phase, not the amplitude.&lt;/strong&gt;
+In Fourier space, Phase is more of the information that we see in the visual world.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/cheebra.jpg&#34;
+	width=&#34;500&#34;
+	height=&#34;250&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/cheebra_hudf23f477bf613526b59c8c9b9726af62_56824_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/cheebra_hudf23f477bf613526b59c8c9b9726af62_56824_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Zebra Phase &amp;#43; Cheetah Amplitude &amp; Cheetah Phase &amp;#43; Zebra Amplitude&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;200&#34;
+		data-flex-basis=&#34;480px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;the-convolution-theorem&#34;&gt;The Convolution Theorem&lt;/h3&gt;
+&lt;p&gt;The Fourier transform of the convolution of two functions is the product of their Fourier transforms.&lt;/p&gt;
+&lt;p&gt;$$F[g \otimes h] = F[g]F[h]$$&lt;/p&gt;
+&lt;p&gt;Convolution in spatial domain is equivalent to multiplication in frequency domain.&lt;/p&gt;
+&lt;p&gt;$$g \otimes h=\mathrm{F}^{-1}[\mathrm{~F}[g] \mathrm{F}[h]]$$&lt;/p&gt;
+&lt;p&gt;If convolution is just multiplication in the Fourier domain, isn’t deconvolution just using division?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sometimes, it clearly is invertible (e.g. a convolution with an identity filter)&lt;/li&gt;
+&lt;li&gt;In one case, it clearly isn&amp;rsquo;t invertible (e.g. convolution with an all zero filter)
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;A Gaussian is only zero at infinity, so it is invertible&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/conv.jpg&#34;
+	width=&#34;610&#34;
+	height=&#34;350&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/conv_hu9395e367661edb0f9c21ab2dc3961cbf_56034_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/conv_hu9395e367661edb0f9c21ab2dc3961cbf_56034_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;418px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/deconv.jpg&#34;
+	width=&#34;610&#34;
+	height=&#34;349&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/deconv_huff484edc0f7480e440782c6f912da8c0_58189_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/deconv_huff484edc0f7480e440782c6f912da8c0_58189_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;419px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;filtering-in-frequency-domain&#34;&gt;Filtering in Frequency Domain&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Convert image and filter to Fourier domain&lt;/li&gt;
+&lt;li&gt;Element-wise multiply their decompositions&lt;/li&gt;
+&lt;li&gt;Convert result to spatial domain with inverse Fourier transform&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 </description>
         </item>
@@ -56,7 +221,7 @@ $$h[n]=\frac{1}{k} {I}^{T} S[n-k+1: n]$$&lt;/p&gt;
 &lt;h3 id=&#34;2d-filtering&#34;&gt;2D Filtering&lt;/h3&gt;
 &lt;p&gt;For images, we’re interested in filtering along two spatial axes ($x$ and $y$) rather than a single one.&lt;/p&gt;
 &lt;p&gt;$$h[m, n]=\sum_{k, l} f[k, l] S[m+k, n+l]$$&lt;/p&gt;
-&lt;p&gt;The equation says that the filtered value at a location $(m,n)$ is the sum over products of the filtering function $f$ and the image $S$ in a local neighborhood. The size of the window is determined by $k$ and $L$.&lt;/p&gt;
+&lt;p&gt;The equation says that the filtered value at a location $(m,n)$ is the sum over products of the filtering function $f$ and the image $S$ in a local neighborhood. The size of the window is determined by $k$ and $l$.&lt;/p&gt;
 &lt;h3 id=&#34;image-filtering&#34;&gt;Image Filtering&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-image-filtering/IF.jpg&#34;
 	width=&#34;442&#34;
@@ -285,6 +450,31 @@ $$imfilter(I,shift(f)) = shift(imfilter(I,f))$$&lt;/li&gt;
 &lt;p&gt;Speed up = $\frac{PQ}{(P+Q)}$, e.g. 9*9 filter = 4.5 times faster&lt;/p&gt;
 &lt;p&gt;In Gaussian Filters, a 2D Gaussian can be expressed as the product of two functions, a function of $x$ and a function of $y$.&lt;/p&gt;
 &lt;p&gt;$$ G_{\sigma}=\frac{1}{2 \pi \sigma^{2}} e^{-\frac{\left(x^{2}+y^{2}\right)}{2 \sigma^{2}}} =  \left(\frac{1}{2 \pi \sigma^{2}} e^{-\frac{x^{2}}{2 \sigma^{2}}}\right)\left(\frac{1}{2 \pi \sigma^{2}} e^{-\frac{y^{2}}{2 \sigma^{2}}}\right)$$&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;applications-of-filters&#34;&gt;Applications of Filters&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Template matching (SSD or Normxcorr2)
+&lt;ul&gt;
+&lt;li&gt;SSD can be done with linear filters, is sensitive to overall intensity&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Gaussian pyramid
+&lt;ul&gt;
+&lt;li&gt;Coarse-to-fine search, multi-scale detection&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Laplacian pyramid
+&lt;ul&gt;
+&lt;li&gt;Teases apart different frequency bands while keeping spatial information&lt;/li&gt;
+&lt;li&gt;Can be used for compositing in graphics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Downsampling
+&lt;ul&gt;
+&lt;li&gt;Need to sufficiently low-pass before downsampling&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;sampling&#34;&gt;Sampling&lt;/h2&gt;
 &lt;h3 id=&#34;image-pyramid&#34;&gt;Image Pyramid&lt;/h3&gt;

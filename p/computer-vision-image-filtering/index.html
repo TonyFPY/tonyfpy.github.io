@@ -15,7 +15,7 @@ Last Modified on Feb 2nd, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/computer-vision-image-filtering/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-01-31T14:49:27-05:00'/><meta property='article:modified_time' content='2023-02-02T11:16:41-05:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-01-31T14:49:27-05:00'/><meta property='article:modified_time' content='2023-02-09T19:51:27-05:00'/>
 <meta name="twitter:title" content="[Computer Vision] Image Filtering">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Jan 31st, 2022
@@ -342,7 +342,7 @@ Last Modified on Feb 2nd, 2022
 
 
                 <time class="article-time--reading">
-                    5 minute read
+                    6 minute read
                 </time>
             </div>
         
@@ -382,7 +382,7 @@ $$h[n]=\frac{1}{k} {I}^{T} S[n-k+1: n]$$</p>
 <h3 id="2d-filtering">2D Filtering</h3>
 <p>For images, we’re interested in filtering along two spatial axes ($x$ and $y$) rather than a single one.</p>
 <p>$$h[m, n]=\sum_{k, l} f[k, l] S[m+k, n+l]$$</p>
-<p>The equation says that the filtered value at a location $(m,n)$ is the sum over products of the filtering function $f$ and the image $S$ in a local neighborhood. The size of the window is determined by $k$ and $L$.</p>
+<p>The equation says that the filtered value at a location $(m,n)$ is the sum over products of the filtering function $f$ and the image $S$ in a local neighborhood. The size of the window is determined by $k$ and $l$.</p>
 <h3 id="image-filtering">Image Filtering</h3>
 <p><img src="/p/computer-vision-image-filtering/IF.jpg"
 	width="442"
@@ -612,6 +612,31 @@ $$imfilter(I,shift(f)) = shift(imfilter(I,f))$$</li>
 <p>In Gaussian Filters, a 2D Gaussian can be expressed as the product of two functions, a function of $x$ and a function of $y$.</p>
 <p>$$ G_{\sigma}=\frac{1}{2 \pi \sigma^{2}} e^{-\frac{\left(x^{2}+y^{2}\right)}{2 \sigma^{2}}} =  \left(\frac{1}{2 \pi \sigma^{2}} e^{-\frac{x^{2}}{2 \sigma^{2}}}\right)\left(\frac{1}{2 \pi \sigma^{2}} e^{-\frac{y^{2}}{2 \sigma^{2}}}\right)$$</p>
 <hr>
+<h2 id="applications-of-filters">Applications of Filters</h2>
+<ul>
+<li>Template matching (SSD or Normxcorr2)
+<ul>
+<li>SSD can be done with linear filters, is sensitive to overall intensity</li>
+</ul>
+</li>
+<li>Gaussian pyramid
+<ul>
+<li>Coarse-to-fine search, multi-scale detection</li>
+</ul>
+</li>
+<li>Laplacian pyramid
+<ul>
+<li>Teases apart different frequency bands while keeping spatial information</li>
+<li>Can be used for compositing in graphics</li>
+</ul>
+</li>
+<li>Downsampling
+<ul>
+<li>Need to sufficiently low-pass before downsampling</li>
+</ul>
+</li>
+</ul>
+<hr>
 <h2 id="sampling">Sampling</h2>
 <h3 id="image-pyramid">Image Pyramid</h3>
 <p><img src="/p/computer-vision-image-filtering/white.jpg"
@@ -718,7 +743,7 @@ $$imfilter(I,shift(f)) = shift(imfilter(I,f))$$</li>
 
 
         <span>
-            Last updated on Feb 02, 2023 11:16 EST
+            Last updated on Feb 09, 2023 19:51 EST
         </span>
     </section></footer>
 
@@ -889,6 +914,7 @@ $$imfilter(I,shift(f)) = shift(imfilter(I,f))$$</li>
         <li><a href="#separability">Separability</a></li>
       </ol>
     </li>
+    <li><a href="#applications-of-filters">Applications of Filters</a></li>
     <li><a href="#sampling">Sampling</a>
       <ol>
         <li><a href="#image-pyramid">Image Pyramid</a></li>
