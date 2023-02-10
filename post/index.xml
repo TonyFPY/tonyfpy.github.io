@@ -6,7 +6,267 @@
         <description>Recent content in Posts on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 02 Feb 2023 11:16:17 -0500</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 10 Feb 2023 10:54:42 -0500</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Computer Vision] Edge Detection</title>
+        <link>https://tonyfpy.github.io/p/computer-vision-edge-detection/</link>
+        <pubDate>Fri, 10 Feb 2023 10:54:42 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/computer-vision-edge-detection/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Feb 10nd, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Feb 10nd, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
+&lt;p&gt;The process of identifying parts of a digital image with &lt;strong&gt;sharp changes&lt;/strong&gt; (discontinuities) in image intensity.&lt;/p&gt;
+&lt;p&gt;It is helpful to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Recognize objects&lt;/li&gt;
+&lt;li&gt;Reconstruct scenes&lt;/li&gt;
+&lt;li&gt;Edit images (artistically)&lt;/li&gt;
+&lt;li&gt;Recover geometry and viewpoint&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;causes-of-edges&#34;&gt;Causes of Edges&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Surface orientation discontinuity
+&lt;ul&gt;
+&lt;li&gt;Physical edges in the 3D object&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Depth discontinuity
+&lt;ul&gt;
+&lt;li&gt;Viewing objects from a certain perspective&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Surface color discontinuity
+&lt;ul&gt;
+&lt;li&gt;Differences in colors between&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Illumination discontinuity
+&lt;ul&gt;
+&lt;li&gt;Lighting and shadows&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;characterizing-edges&#34;&gt;Characterizing Edges&lt;/h2&gt;
+&lt;h3 id=&#34;gradient&#34;&gt;Gradient&lt;/h3&gt;
+&lt;p&gt;Simple algorithm for edge detection is to find gradient. The first derivative is strongest (i.e. has the highest magnitude) where the intensity changes most rapidly. The sign of the derivative depends on whether the intensity falls from high to low or rises from low to high.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-edge-detection/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/ED.jpg&#34;
+	width=&#34;1102&#34;
+	height=&#34;476&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/ED_hu49b520efb2e95a6ee537b02ec5b1b836_54934_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-edge-detection/ED_hu49b520efb2e95a6ee537b02ec5b1b836_54934_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;231&#34;
+		data-flex-basis=&#34;555px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-edge-detection/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;effects-of-noise&#34;&gt;Effects of Noise&lt;/h3&gt;
+&lt;p&gt;Real images are &lt;strong&gt;noisy&lt;/strong&gt;, which results in lots of noise in the first derivative and starts to overwhelm the peaks. It would be almost impossible to detect where the edge occurred by inspecting the derivative graph with all that noise.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-edge-detection/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/noise.jpg&#34;
+	width=&#34;782&#34;
+	height=&#34;496&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/noise_hu49b520efb2e95a6ee537b02ec5b1b836_93450_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-edge-detection/noise_hu49b520efb2e95a6ee537b02ec5b1b836_93450_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;157&#34;
+		data-flex-basis=&#34;378px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/smooth.jpg&#34;
+	width=&#34;824&#34;
+	height=&#34;578&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/smooth_hu49b520efb2e95a6ee537b02ec5b1b836_99823_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-edge-detection/smooth_hu49b520efb2e95a6ee537b02ec5b1b836_99823_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;142&#34;
+		data-flex-basis=&#34;342px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-edge-detection/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;We can fix this by filtering the signal (image) first to &lt;strong&gt;smooth out the noise&lt;/strong&gt; before computing the derivative. Here, a gaussian filter is common. To find edges, look for peaks in $\frac{\mathrm{d}}{\mathrm{d} x}(f*g)$&lt;/p&gt;
+&lt;h3 id=&#34;derivative-theorem&#34;&gt;Derivative Theorem&lt;/h3&gt;
+&lt;p&gt;$$\frac{d}{d x}(f * g)=f * \frac{d}{d x} g$$&lt;/p&gt;
+&lt;p&gt;This means that we can compute the derivative just on the filter $g$ and convolve the image by the differentiated filter to get the same result. &lt;strong&gt;Instead of convolving the image twice (once to denoise and once to compute the derivative), we only need to convolve once.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;tradeoff&#34;&gt;Tradeoff&lt;/h3&gt;
+&lt;p&gt;Smoothed derivative removes noise, but blurs edge, also finds edges at different frequencies. The bigger the kernel, the more smoothed out the edges of the image are since we start removing lower frequencies.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/SLT.jpg&#34;
+	width=&#34;1478&#34;
+	height=&#34;466&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/SLT_hu49b520efb2e95a6ee537b02ec5b1b836_77045_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-edge-detection/SLT_hu49b520efb2e95a6ee537b02ec5b1b836_77045_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;317&#34;
+		data-flex-basis=&#34;761px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;designing-an-edge-detector&#34;&gt;Designing an Edge Detector&lt;/h2&gt;
+&lt;h3 id=&#34;criteria&#34;&gt;Criteria&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Good detection
+&lt;ul&gt;
+&lt;li&gt;Finding all real edges&lt;/li&gt;
+&lt;li&gt;Ignoring noise or other artifacts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Good localization
+&lt;ul&gt;
+&lt;li&gt;The edges detected must be as close as possible to the true edges&lt;/li&gt;
+&lt;li&gt;Returning one point only for each true edge point&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;cues-of-edge-detection&#34;&gt;Cues of Edge Detection&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Differences in color, intensity, or texture across the boundary&lt;/li&gt;
+&lt;li&gt;Continuity and closure&lt;/li&gt;
+&lt;li&gt;High-level knowledge&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;canny-edge-detector&#34;&gt;Canny Edge Detector&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Filter image with $x$, $y$ derivatives of Gaussian&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/DGF.jpg&#34;
+	width=&#34;382&#34;
+	height=&#34;157&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/DGF_hube11b2e98728249cb58beb349eb32f62_14110_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-edge-detection/DGF_hube11b2e98728249cb58beb349eb32f62_14110_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;243&#34;
+		data-flex-basis=&#34;583px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Find magnitude and orientation of gradient&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$ |G| =\sqrt{G_{x}^{2}+G_{y}^{2}} $$
+$$\theta(x, y) =\arctan \left(\frac{G_{y}}{G_{x}}\right)$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Non-maximum Suppression e.g. Bilinear Interpolation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;BI.jpg&#34; &gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;Hysteresis&amp;rsquo; Thresholding
+&lt;ul&gt;
+&lt;li&gt;Define two thresholds: low and high
+&lt;ul&gt;
+&lt;li&gt;Grad. mag. &amp;gt; high threshold = strong edge&lt;/li&gt;
+&lt;li&gt;Grad. mag. &amp;lt; low threshold = noise&lt;/li&gt;
+&lt;li&gt;In between = weak edge&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Use the high threshold to start edge curves&lt;/li&gt;
+&lt;li&gt;Use the low threshold to continue them into weak edges&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;Follow&amp;rsquo; edges starting from strong edge pixels&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-edge-detection/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/canny.jpg&#34;
+	width=&#34;448&#34;
+	height=&#34;301&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/canny_hu0162cb701aa7ddb57f7a208d7daf3250_70554_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-edge-detection/canny_hu0162cb701aa7ddb57f7a208d7daf3250_70554_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Final Result&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;148&#34;
+		data-flex-basis=&#34;357px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-edge-detection/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-edge-detection/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://justin-liang.com/tutorials/canny/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CANNY EDGE DETECTION&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://towardsdatascience.com/canny-edge-detection-step-by-step-in-python-computer-vision-b49c3a2d8123&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Canny Edge Detection Step by Step in Python — Computer Vision&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Computer Vision] Fourier Series &amp; Fourier Transform</title>
         <link>https://tonyfpy.github.io/p/computer-vision-fourier-series-fourier-transform/</link>
         <pubDate>Thu, 02 Feb 2023 11:16:17 -0500</pubDate>
