@@ -15,7 +15,7 @@ Last Modified on Feb 10nd, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/computer-vision-feature-points-corners/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-02-10T14:42:23-05:00'/><meta property='article:modified_time' content='2023-02-10T16:44:35-05:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-02-10T14:42:23-05:00'/><meta property='article:modified_time' content='2023-02-10T19:32:29-05:00'/>
 <meta name="twitter:title" content="[Computer Vision] Feature Points &amp; Corners">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Feb 10nd, 2022
@@ -551,7 +551,7 @@ Last Modified on Feb 10nd, 2022
 		data-flex-basis="705px"
 	
 ></p>
-<p>We want to decompose M to be able to <strong>analyze the scale of these quadratic surfaces</strong> while <strong>ignoring the rotation</strong>. This means we care that it is a corner or an edge, not which rotation of edge.</p>
+<p>We want to decompose $M$ to be able to <strong>analyze the scale of these quadratic surfaces</strong> while <strong>ignoring the rotation</strong>. This means we care that it is a corner or an edge, not which rotation of edge.</p>
 <p><img src="/p/computer-vision-feature-points-corners/eigenvalues.jpg"
 	width="549"
 	height="273"
@@ -576,8 +576,8 @@ $$C=\operatorname{det}(M)-\alpha \operatorname{trace}(M)^{2}$$</p>
 <h3 id="harris-corner-detector">Harris Corner Detector</h3>
 <ul>
 <li>Input image: computer $M$ at each pixel level</li>
-<li>Compute image derivatives</li>
-<li>Compute $M$ components as squares of derivatives</li>
+<li>Compute image derivatives $$I_{x}$, $I_{y}$</li>
+<li>Compute $M$ components as squares of derivatives $I_{x}^{2}$, $(I_{y}^{2}$</li>
 <li>Gaussian filter $g$ with width $s$: $g\left(I_{x}^{2}\right)$, $g\left(I_{y}^{2}\right)$, $g\left(I_{x} \circ I_{y}\right)$</li>
 <li>Compute cornerness $C=g\left(I_{x}^{2}\right) \circ g\left(I_{y}^{2}\right)-g\left(I_{x} \circ I_{y}\right)^{2} -\alpha\left[g\left(I_{x}^{2}\right)+g\left(I_{y}^{2}\right)\right]^{2}$</li>
 <li>Threshold $C$ to pick high cornerness</li>
@@ -615,7 +615,7 @@ $$C=\operatorname{det}(M)-\alpha \operatorname{trace}(M)^{2}$$</p>
 
 
         <span>
-            Last updated on Feb 10, 2023 16:44 EST
+            Last updated on Feb 10, 2023 19:32 EST
         </span>
     </section></footer>
 
