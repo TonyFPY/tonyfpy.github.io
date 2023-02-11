@@ -190,7 +190,7 @@
 &lt;/li&gt;
 &lt;li&gt;$M$ is square
 &lt;ul&gt;
-&lt;li&gt;Square matrices are diagonalizable if some matrix $R$ exists such that $M = R^{-1}AR$ where $A$ has only diagonal entries and $R$ represents a change of basis.&lt;/li&gt;
+&lt;li&gt;Square matrices are diagonalizable if some matrix $R$ exists such that $M = R^{-1}AR$ where $A$ has only diagonal entries and $R$ represents a change of basis (in 2D, a rotation).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -227,12 +227,17 @@
 &lt;li&gt;Trace is just the sum of its diagonal entries&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Therefore, we can avoid explicit eigenvalue computation by
-$$C=\operatorname{det}(M)-\alpha \operatorname{trace}(M)^{2}$$&lt;/p&gt;
+$$C=\operatorname{det}(A)-\alpha \operatorname{trace}(A)^{2}$$&lt;/p&gt;
+&lt;p&gt;Since $S^{-1}$ is the inverse matrix of $S$, we have $S^{-1}\cdot S = I$&lt;/p&gt;
+&lt;p&gt;$$\operatorname{det}(I) = \operatorname{det}(S\cdot S^{-1}) = \operatorname{det}(S)\cdot \operatorname{det}(S) = 1$$&lt;/p&gt;
+&lt;p&gt;We can now obtain that $\operatorname{det}(M) = \operatorname{det}(A)$&lt;/p&gt;
+&lt;p&gt;Thus,&lt;/p&gt;
+&lt;p&gt;$$C=\operatorname{det}(M)-\alpha \operatorname{trace}(M)^{2}$$&lt;/p&gt;
 &lt;h3 id=&#34;harris-corner-detector&#34;&gt;Harris Corner Detector&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Input image: computer $M$ at each pixel level&lt;/li&gt;
-&lt;li&gt;Compute image derivatives $$I_{x}$, $I_{y}$&lt;/li&gt;
-&lt;li&gt;Compute $M$ components as squares of derivatives $I_{x}^{2}$, $(I_{y}^{2}$&lt;/li&gt;
+&lt;li&gt;Compute image derivatives $I_{x}$, $I_{y}$&lt;/li&gt;
+&lt;li&gt;Compute $M$ components as squares of derivatives $I_{x}^{2}$, $I_{y}^{2}$&lt;/li&gt;
 &lt;li&gt;Gaussian filter $g$ with width $s$: $g\left(I_{x}^{2}\right)$, $g\left(I_{y}^{2}\right)$, $g\left(I_{x} \circ I_{y}\right)$&lt;/li&gt;
 &lt;li&gt;Compute cornerness $C=g\left(I_{x}^{2}\right) \circ g\left(I_{y}^{2}\right)-g\left(I_{x} \circ I_{y}\right)^{2} -\alpha\left[g\left(I_{x}^{2}\right)+g\left(I_{y}^{2}\right)\right]^{2}$&lt;/li&gt;
 &lt;li&gt;Threshold $C$ to pick high cornerness&lt;/li&gt;
