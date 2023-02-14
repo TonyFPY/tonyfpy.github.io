@@ -3,7 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on Feb 10nd, 2022
-Last Modified on Feb 10nd, 2022
+Last Modified on Feb 14nd, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'><title>[Computer Vision] Feature Points &amp; Corners</title>
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/computer-vision-feature-points-corners/'>
@@ -11,15 +11,15 @@ Last Modified on Feb 10nd, 2022
 <link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Computer Vision] Feature Points &amp; Corners'>
 <meta property='og:description' content='Authored by Tony Feng
 Created on Feb 10nd, 2022
-Last Modified on Feb 10nd, 2022
+Last Modified on Feb 14nd, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/computer-vision-feature-points-corners/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-02-10T14:42:23-05:00'/><meta property='article:modified_time' content='2023-02-11T14:41:09-05:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-02-10T14:42:23-05:00'/><meta property='article:modified_time' content='2023-02-14T16:00:05-05:00'/>
 <meta name="twitter:title" content="[Computer Vision] Feature Points &amp; Corners">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Feb 10nd, 2022
-Last Modified on Feb 10nd, 2022
+Last Modified on Feb 14nd, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
@@ -359,7 +359,7 @@ Last Modified on Feb 10nd, 2022
     <blockquote>
 <p>Authored by Tony Feng</p>
 <p>Created on Feb 10nd, 2022</p>
-<p>Last Modified on Feb 10nd, 2022</p>
+<p>Last Modified on Feb 14nd, 2022</p>
 </blockquote>
 <h2 id="intro">Intro</h2>
 <p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1430 Computer Vision</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
@@ -590,6 +590,87 @@ $$C=\operatorname{det}(A)-\alpha \operatorname{trace}(A)^{2}$$</p>
 </ul>
 <p>Note: $a \circ b$ is <strong>Hadamard product</strong> (element-wise multiplication).</p>
 <hr>
+<h2 id="scale-invariant-detection">Scale Invariant Detection</h2>
+<h3 id="invariance--covariance">Invariance &amp; Covariance</h3>
+<p><strong>Invariance</strong>: image is transformed and corner locations do not change.</p>
+<p><strong>Covariance / Equivariance</strong>: if we have two transformed versions of the same image, features should be detected in corresponding locations.</p>
+<h3 id="properties-of-harris-detector">Properties of Harris Detector</h3>
+<ul>
+<li>Corner response is invariant to image rotation
+<ul>
+<li>Ellipse rotates but its shape (i.e. eigenvalues) remains the same</li>
+</ul>
+</li>
+<li>Partial invariance to <strong>affine intensity change</strong>
+<ul>
+<li>Invariance to intensity shift $I \rightarrow I + b$</li>
+<li>Still affected by intensity scaling $I \rightarrow aI$</li>
+</ul>
+</li>
+<li>Non-invariant to image scale</li>
+</ul>
+<p><img src="/p/computer-vision-feature-points-corners/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+><img src="/p/computer-vision-feature-points-corners/scale.jpg"
+	width="752"
+	height="220"
+	srcset="/p/computer-vision-feature-points-corners/scale_hu49b520efb2e95a6ee537b02ec5b1b836_19368_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/scale_hu49b520efb2e95a6ee537b02ec5b1b836_19368_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="341"
+		data-flex-basis="820px"
+	
+><img src="/p/computer-vision-feature-points-corners/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+></p>
+<h3 id="automatic-scale-selection">Automatic Scale Selection</h3>
+<p>For a point in one image, we can consider it as a function of region size</p>
+<p><img src="/p/computer-vision-feature-points-corners/ASS.jpg"
+	width="997"
+	height="390"
+	srcset="/p/computer-vision-feature-points-corners/ASS_hu49b520efb2e95a6ee537b02ec5b1b836_79250_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/ASS_hu49b520efb2e95a6ee537b02ec5b1b836_79250_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="255"
+		data-flex-basis="613px"
+	
+></p>
+<p>For both image, we want to chose a scale that corresponds to the <strong>peak</strong> in both images. It’s likely that the peaks is the best scale for finding the correpsondences.</p>
+<p><img src="/p/computer-vision-feature-points-corners/FR.jpg"
+	width="1352"
+	height="234"
+	srcset="/p/computer-vision-feature-points-corners/FR_hu49b520efb2e95a6ee537b02ec5b1b836_39560_480x0_resize_q75_box.jpg 480w, /p/computer-vision-feature-points-corners/FR_hu49b520efb2e95a6ee537b02ec5b1b836_39560_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="577"
+		data-flex-basis="1386px"
+	
+></p>
+<hr>
 <hr>
 
 </section>
@@ -620,7 +701,7 @@ $$C=\operatorname{det}(A)-\alpha \operatorname{trace}(A)^{2}$$</p>
 
 
         <span>
-            Last updated on Feb 11, 2023 14:41 EST
+            Last updated on Feb 14, 2023 16:00 EST
         </span>
     </section></footer>
 
@@ -787,6 +868,13 @@ $$C=\operatorname{det}(A)-\alpha \operatorname{trace}(A)^{2}$$</p>
         <li><a href="#auto-correlation">Auto-correlation</a></li>
         <li><a href="#quadratic-surface">Quadratic Surface</a></li>
         <li><a href="#harris-corner-detector">Harris Corner Detector</a></li>
+      </ol>
+    </li>
+    <li><a href="#scale-invariant-detection">Scale Invariant Detection</a>
+      <ol>
+        <li><a href="#invariance--covariance">Invariance &amp; Covariance</a></li>
+        <li><a href="#properties-of-harris-detector">Properties of Harris Detector</a></li>
+        <li><a href="#automatic-scale-selection">Automatic Scale Selection</a></li>
       </ol>
     </li>
   </ol>

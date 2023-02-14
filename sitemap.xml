@@ -2,20 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tonyfpy.github.io/p/computer-vision-feature-points-corners/</loc>
-    <lastmod>2023-02-11T14:41:09-05:00</lastmod>
+    <loc>https://tonyfpy.github.io/p/computer-vision-feature-matching/</loc>
+    <lastmod>2023-02-14T14:57:33-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/</loc>
-    <lastmod>2023-02-11T14:41:09-05:00</lastmod>
+    <lastmod>2023-02-14T16:00:05-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/computer-vision/</loc>
-    <lastmod>2023-02-11T14:41:09-05:00</lastmod>
+    <lastmod>2023-02-14T16:00:05-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/post/</loc>
-    <lastmod>2023-02-11T14:41:09-05:00</lastmod>
+    <lastmod>2023-02-14T16:00:05-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/</loc>
-    <lastmod>2023-02-11T14:41:09-05:00</lastmod>
+    <lastmod>2023-02-14T16:00:05-05:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/p/computer-vision-feature-points-corners/</loc>
+    <lastmod>2023-02-14T16:00:05-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/computer-vision-edge-detection/</loc>
     <lastmod>2023-02-10T14:31:42-05:00</lastmod>
@@ -138,10 +141,10 @@
     <lastmod>2022-09-14T14:40:05-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/page/</loc>
-    <lastmod>2023-01-31T20:54:04-05:00</lastmod>
+    <lastmod>2023-02-12T14:47:44-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/research/</loc>
-    <lastmod>2023-01-31T20:54:04-05:00</lastmod>
+    <lastmod>2023-02-12T14:47:44-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/human-centred-tech-design-taxonomy/</loc>
     <lastmod>2022-09-12T22:13:46-04:00</lastmod>

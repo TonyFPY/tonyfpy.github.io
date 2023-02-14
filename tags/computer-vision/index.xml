@@ -6,7 +6,24 @@
         <description>Recent content in Computer Vision on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 10 Feb 2023 14:42:23 -0500</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 14 Feb 2023 14:54:35 -0500</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Computer Vision] Feature Matching</title>
+        <link>https://tonyfpy.github.io/p/computer-vision-feature-matching/</link>
+        <pubDate>Tue, 14 Feb 2023 14:54:35 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/computer-vision-feature-matching/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Feb 14th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Feb 14th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Computer Vision] Feature Points &amp; Corners</title>
         <link>https://tonyfpy.github.io/p/computer-vision-feature-points-corners/</link>
         <pubDate>Fri, 10 Feb 2023 14:42:23 -0500</pubDate>
@@ -15,7 +32,7 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Feb 10nd, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on Feb 10nd, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Feb 14nd, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
@@ -245,6 +262,87 @@ $$C=\operatorname{det}(A)-\alpha \operatorname{trace}(A)^{2}$$&lt;/p&gt;
 &lt;li&gt;Non-maximal suppression to pick peaks&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Note: $a \circ b$ is &lt;strong&gt;Hadamard product&lt;/strong&gt; (element-wise multiplication).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;scale-invariant-detection&#34;&gt;Scale Invariant Detection&lt;/h2&gt;
+&lt;h3 id=&#34;invariance--covariance&#34;&gt;Invariance &amp;amp; Covariance&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Invariance&lt;/strong&gt;: image is transformed and corner locations do not change.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Covariance / Equivariance&lt;/strong&gt;: if we have two transformed versions of the same image, features should be detected in corresponding locations.&lt;/p&gt;
+&lt;h3 id=&#34;properties-of-harris-detector&#34;&gt;Properties of Harris Detector&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Corner response is invariant to image rotation
+&lt;ul&gt;
+&lt;li&gt;Ellipse rotates but its shape (i.e. eigenvalues) remains the same&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Partial invariance to &lt;strong&gt;affine intensity change&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Invariance to intensity shift $I \rightarrow I + b$&lt;/li&gt;
+&lt;li&gt;Still affected by intensity scaling $I \rightarrow aI$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Non-invariant to image scale&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/scale.jpg&#34;
+	width=&#34;752&#34;
+	height=&#34;220&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/scale_hu49b520efb2e95a6ee537b02ec5b1b836_19368_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/scale_hu49b520efb2e95a6ee537b02ec5b1b836_19368_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;341&#34;
+		data-flex-basis=&#34;820px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;automatic-scale-selection&#34;&gt;Automatic Scale Selection&lt;/h3&gt;
+&lt;p&gt;For a point in one image, we can consider it as a function of region size&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/ASS.jpg&#34;
+	width=&#34;997&#34;
+	height=&#34;390&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/ASS_hu49b520efb2e95a6ee537b02ec5b1b836_79250_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/ASS_hu49b520efb2e95a6ee537b02ec5b1b836_79250_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;255&#34;
+		data-flex-basis=&#34;613px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;For both image, we want to chose a scale that corresponds to the &lt;strong&gt;peak&lt;/strong&gt; in both images. It’s likely that the peaks is the best scale for finding the correpsondences.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/FR.jpg&#34;
+	width=&#34;1352&#34;
+	height=&#34;234&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-points-corners/FR_hu49b520efb2e95a6ee537b02ec5b1b836_39560_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-points-corners/FR_hu49b520efb2e95a6ee537b02ec5b1b836_39560_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;577&#34;
+		data-flex-basis=&#34;1386px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;hr&gt;
 </description>
