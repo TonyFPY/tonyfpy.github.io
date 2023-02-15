@@ -7,11 +7,11 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Tue, 14 Feb 2023 14:54:35 -0500</lastBuildDate><atom:link href="https://tonyfpy.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>[Computer Vision] Feature Matching</title>
-        <link>https://tonyfpy.github.io/p/computer-vision-feature-matching/</link>
+        <title>[Computer Vision] Feature Description &amp; Matching</title>
+        <link>https://tonyfpy.github.io/p/computer-vision-feature-description-matching/</link>
         <pubDate>Tue, 14 Feb 2023 14:54:35 -0500</pubDate>
         
-        <guid>https://tonyfpy.github.io/p/computer-vision-feature-matching/</guid>
+        <guid>https://tonyfpy.github.io/p/computer-vision-feature-description-matching/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Feb 14th, 2022&lt;/p&gt;
@@ -20,6 +20,226 @@
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
 &lt;hr&gt;
+&lt;h2 id=&#34;local-feature-description&#34;&gt;Local Feature Description&lt;/h2&gt;
+&lt;p&gt;Before we’re able to start matching points in images, we must first find a way to meaningfully &lt;strong&gt;describe each key point&lt;/strong&gt;. Harris Corners only tell us where the key points are and not what information exists at those points&lt;/p&gt;
+&lt;h3 id=&#34;possible-feature-descriptors&#34;&gt;Possible Feature Descriptors&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Templates
+&lt;ul&gt;
+&lt;li&gt;Intensity, gradients, or other self-defined features&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Histograms
+&lt;ul&gt;
+&lt;li&gt;Color, texture, SIFT descriptors, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;histograms&#34;&gt;Histograms&lt;/h3&gt;
+&lt;p&gt;A histogram is a plot where the x axis corresponds to pixel values (0-255 for 8-bit encoding), and the y axis measures to the frequency of pixels with values corresponding to the x-axis.&lt;/p&gt;
+&lt;p&gt;e.g. at an intensity of 50, we see that there are around 5500 pixels in the image with that intensity).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;scale-invariant-feature-transform&#34;&gt;Scale Invariant Feature Transform&lt;/h2&gt;
+&lt;p&gt;SIFT: At a high level, we want to compute a histogram around each key point using local information.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/SIFT.jpg&#34;
+	width=&#34;1642&#34;
+	height=&#34;390&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/SIFT_hu49b520efb2e95a6ee537b02ec5b1b836_133144_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-description-matching/SIFT_hu49b520efb2e95a6ee537b02ec5b1b836_133144_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;421&#34;
+		data-flex-basis=&#34;1010px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;algorithm&#34;&gt;Algorithm&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Find Harris corners scale-space extrema as feature point locations&lt;/li&gt;
+&lt;li&gt;Corner post-processing
+&lt;ul&gt;
+&lt;li&gt;Subpixel position interpolation&lt;/li&gt;
+&lt;li&gt;Discard low-contrast points&lt;/li&gt;
+&lt;li&gt;Eliminate points along edges&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Orientation estimation per feature point&lt;/li&gt;
+&lt;li&gt;Descriptor extraction&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;scale-space-extrema&#34;&gt;Scale-space Extrema&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Find points whose surrounding patches (at some scale) are distinctive&lt;/li&gt;
+&lt;li&gt;Apply convolution with a Gaussian mask gives some idea of what is going on around a pixel&lt;/li&gt;
+&lt;li&gt;Gaussian masks have a natural scale - their standard deviation
+&lt;ul&gt;
+&lt;li&gt;Difference of Gaussians&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/DoG.jpg&#34;
+	width=&#34;1070&#34;
+	height=&#34;318&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/DoG_hu49b520efb2e95a6ee537b02ec5b1b836_103995_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-description-matching/DoG_hu49b520efb2e95a6ee537b02ec5b1b836_103995_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;336&#34;
+		data-flex-basis=&#34;807px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Automatic Scale Selection&lt;/li&gt;
+&lt;li&gt;Normalize the patch to fix size&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;orientation-estimation&#34;&gt;Orientation Estimation&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Gradient Orientation Histogram&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;To build this histogram, we bin the possible range of gradient orientations/directions (0 to 2pi radians) into a discrete number of bins (8 here) and, for each bin, we count the number of gradients that have those corresponding orientations.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Dominant Orientation $\theta$&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We also compute an average gradient direction (black vector) of all the gradients in the local window; this is the &lt;strong&gt;dominant orientation&lt;/strong&gt; of this neighborhood.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Orientation Normalization&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We then rotate each region’s gradients so that all dominant gradient orientations point in the same direction (e.g. up). This will affect the orientation histogram by &lt;strong&gt;shifting the plot&lt;/strong&gt;. We do this because we want the key point features &lt;strong&gt;to be invariant to rotation&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;keypoint-descriptor&#34;&gt;Keypoint Descriptor&lt;/h3&gt;
+&lt;p&gt;A 16x16 neighbourhood around the keypoint is taken. It is divided into 16 sub-blocks of 4x4 size.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/descriptor.jpg&#34;
+	width=&#34;1116&#34;
+	height=&#34;242&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/descriptor_hu49b520efb2e95a6ee537b02ec5b1b836_56257_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-description-matching/descriptor_hu49b520efb2e95a6ee537b02ec5b1b836_56257_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Actually 16x16, only showing 8x8&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;461&#34;
+		data-flex-basis=&#34;1106px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;For each sub-block, 8 bin orientation histogram is created. So a total of 128 bin values are available.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/SDE.jpg&#34;
+	width=&#34;968&#34;
+	height=&#34;476&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/SDE_hu58ee0901517331e3436221a7560a45c9_70977_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-description-matching/SDE_hu58ee0901517331e3436221a7560a45c9_70977_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;203&#34;
+		data-flex-basis=&#34;488px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;It is represented as a vector to form keypoint descriptor. (16 cells * 8 orientations = 128 dimensional descriptor)&lt;/p&gt;
+&lt;p&gt;In addition to this, several measures are taken to achieve robustness against illumination changes, etc.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One trick we can employ to &lt;strong&gt;reduce the contribution of pixels farther from the keypoint&lt;/strong&gt; is to apply a Gaussian filter over the entire 16x16 window.&lt;/li&gt;
+&lt;li&gt;Clamp all vector values &amp;gt; 0.2 to 0.2&lt;/li&gt;
+&lt;li&gt;Renormalization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;feature-matching&#34;&gt;Feature Matching&lt;/h2&gt;
+&lt;h3 id=&#34;basic-idea&#34;&gt;Basic Idea&lt;/h3&gt;
+&lt;p&gt;It generally refers to computing distance between feature vectors to find correspondence.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Euclidean Distance&lt;/li&gt;
+&lt;li&gt;Cosine Similarity&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;problems&#34;&gt;Problems&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Threshold is hard to pick.&lt;/li&gt;
+&lt;li&gt;Non-distinctive features could have lots of close matches, only one of which is correct.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;nn-distance-ratio&#34;&gt;NN Distance Ratio&lt;/h3&gt;
+&lt;p&gt;Here, we introduce the approach by comparing distances of 2 nearest feature vector neighbor.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If $d_1 \approx  d_2$, ratio $\frac{d_1}{d_2}$. (too close)&lt;/li&gt;
+&lt;li&gt;AS $d_1 \ll d_2$, ratio $\frac{d_1}{d_2}$ tends to 0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Too choose the ratio, we can compute a probability distribution functions of ratios based on keypoints with hand-labeled ground truth.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/NNDR.jpg&#34;
+	width=&#34;525&#34;
+	height=&#34;266&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/NNDR_hu12f06fe6ca17368e0b72f80b710cd939_40089_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-description-matching/NNDR_hu12f06fe6ca17368e0b72f80b710cd939_40089_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;197&#34;
+		data-flex-basis=&#34;473px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-feature-description-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;other-local-descriptors&#34;&gt;Other Local Descriptors&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;SURF&lt;/li&gt;
+&lt;li&gt;Shape Context&lt;/li&gt;
+&lt;li&gt;Self-similarity Descriptor&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 </description>
         </item>
