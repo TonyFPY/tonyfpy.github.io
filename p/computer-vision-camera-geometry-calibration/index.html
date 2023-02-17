@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
+Created on Feb 16th, 2022
+Last Modified on Feb 16th, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'><title>[Computer Vision] Camera Geometry &amp; Calibration</title>
+
+<link rel='canonical' href='https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/'>
+
+<link rel="stylesheet" href="/scss/style.min.eb00024a265e968b72ca9ba79297ca591e365639164dcdbf985ae5694a6c4a3f.css"><meta property='og:title' content='[Computer Vision] Camera Geometry &amp; Calibration'>
+<meta property='og:description' content='Authored by Tony Feng
+Created on Feb 16th, 2022
+Last Modified on Feb 16th, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'>
+<meta property='og:url' content='https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/'>
+<meta property='og:site_name' content='Tony Feng'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-02-16T11:11:12-05:00'/><meta property='article:modified_time' content='2023-02-16T19:33:27-05:00'/>
+<meta name="twitter:title" content="[Computer Vision] Camera Geometry &amp; Calibration">
+<meta name="twitter:description" content="Authored by Tony Feng
+Created on Feb 16th, 2022
+Last Modified on Feb 16th, 2022
+ Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/Brown_hu1b43bb4664aba7c4309526f1ef45ab91_1767_300x0_resize_q75_box.jpeg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Tony Feng</a></h1>
+            <h2 class="site-description">M.Sc. in Computer Science</h2>
+            <h2 class="site-description">Brown University</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://tonyfpy.github.io/about/'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/TonyFPY'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/pinyuanfeng'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="2" />
+  <line x1="8" y1="11" x2="8" y2="16" />
+  <line x1="8" y1="8" x2="8" y2="8.01" />
+  <line x1="12" y1="16" x2="12" y2="11" />
+  <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/research/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <line x1="3" y1="6" x2="3" y2="19" />
+  <line x1="12" y1="6" x2="12" y2="19" />
+  <line x1="21" y1="6" x2="21" y2="19" />
+</svg>
+                
+                <span>Research</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/projects/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="7 8 3 12 7 16" />
+  <polyline points="17 8 21 12 17 16" />
+  <line x1="14" y1="4" x2="10" y2="20" />
+</svg>
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/computer-vision/" style="background-color: #39cc94; color: #fff;">
+                Computer Vision
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/computer-vision-camera-geometry-calibration/">[Computer Vision] Camera Geometry &amp; Calibration</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 16, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>Authored by Tony Feng</p>
+<p>Created on Feb 16th, 2022</p>
+<p>Last Modified on Feb 16th, 2022</p>
+</blockquote>
+<h2 id="intro">Intro</h2>
+<p>This sereis of posts contains a summary of materials and readings from the course <strong>CSCI 1430 Computer Vision</strong> that I&rsquo;ve taken @ <strong>Brown University</strong>. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &ldquo;Notes&rdquo; (what I&rsquo;ve learnt) for study and review only.</p>
+<hr>
+<h2 id="camera-geometry">Camera Geometry</h2>
+<h3 id="parametric-transformation">Parametric Transformation</h3>
+<p>It refers to a transformation $T$ is a coordinate-changing operation so that $p&rsquo; = T(p)$ for any point $p(x,y)$.</p>
+<h3 id="common-transformations">Common Transformations</h3>
+<ul>
+<li>Translation</li>
+<li>Rotation</li>
+<li>Scaling
+<ul>
+<li>Uniform scaling</li>
+<li>Non-uniform scaling</li>
+</ul>
+</li>
+<li>Affine
+<ul>
+<li>A combination of linear transformations, and translations</li>
+<li>Lines map to lines</li>
+<li>Parallel lines remain parallel</li>
+<li>Ratios are preserved</li>
+<li>Closed under composition</li>
+</ul>
+</li>
+<li>Perspective</li>
+<li>Projective
+<ul>
+<li>A combination of affine transformations, and projective warps</li>
+<li>Lines map to lines</li>
+<li>Parallel lines do not necessarily remain parallel</li>
+<li>Ratios are not preserved</li>
+<li>Closed under composition</li>
+<li>Models change of basis</li>
+<li>Projective matrix is defined up to a scale (<strong>8 degrees of freedom</strong>)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/p/computer-vision-camera-geometry-calibration/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+><img src="/p/computer-vision-camera-geometry-calibration/2D_transformations.jpg"
+	width="670"
+	height="384"
+	srcset="/p/computer-vision-camera-geometry-calibration/2D_transformations_hu9d13bb69f3779370c610495059c43802_36996_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/2D_transformations_hu9d13bb69f3779370c610495059c43802_36996_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="174"
+		data-flex-basis="418px"
+	
+><img src="/p/computer-vision-camera-geometry-calibration/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+></p>
+<p><img src="/p/computer-vision-camera-geometry-calibration/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+><img src="/p/computer-vision-camera-geometry-calibration/2D_transformations_1.jpg"
+	width="510"
+	height="168"
+	srcset="/p/computer-vision-camera-geometry-calibration/2D_transformations_1_hu3271957f501ed9fea781a9792822fb6f_17030_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/2D_transformations_1_hu3271957f501ed9fea781a9792822fb6f_17030_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="303"
+		data-flex-basis="728px"
+	
+><img src="/p/computer-vision-camera-geometry-calibration/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Matrix</th>
+<th style="text-align:center">Degree of Freedom</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Translation</td>
+<td style="text-align:center">$\left [I \mid t \right ]_{2\times 3} $</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">Rigid (Euclidean)</td>
+<td style="text-align:center">$\left [R \mid t \right ]_{2\times 3} $</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">Similarity</td>
+<td style="text-align:center">$\left [sR \mid t \right ]_{2\times 3}$</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">Affine</td>
+<td style="text-align:center">$\left [A \right ]_{2\times 3}        $</td>
+<td style="text-align:center">6</td>
+</tr>
+<tr>
+<td style="text-align:center">Projective</td>
+<td style="text-align:center">$\left [\bar{H} \right ]_{2\times 3}  $</td>
+<td style="text-align:center">8</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="camera-projection">Camera Projection</h3>
+<p><img src="/p/computer-vision-camera-geometry-calibration/CP.jpg"
+	width="831"
+	height="342"
+	srcset="/p/computer-vision-camera-geometry-calibration/CP_huce8cb7b219f13d4e45f206a633fb1fdf_30218_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/CP_huce8cb7b219f13d4e45f206a633fb1fdf_30218_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="242"
+		data-flex-basis="583px"
+	
+></p>
+<hr>
+<h2 id="homogeneous-coordinates">Homogeneous Coordinates</h2>
+<p>It&rsquo;s an an alternative coordinate system for projective geometry.</p>
+<h3 id="conversion">Conversion</h3>
+<p>Converting to homogeneous coordinates</p>
+<ul>
+<li>2D image coordinates $(x,y) \Rightarrow (x,y,1)$</li>
+<li>3D scene coordinates $(x,y,z) \Rightarrow (x,y,z,1)$</li>
+</ul>
+<p>Converting from homogeneous coordinates</p>
+<ul>
+<li>2D image coordinates $(x,y,w) \Rightarrow (\frac{x}{w}, \frac{y}{w})$</li>
+<li>3D scene coordinates $(x,y,z,w) \Rightarrow (\frac{x}{w}, \frac{y}{w}, \frac{z}{w})$</li>
+</ul>
+<h3 id="scale-ambiguity">Scale Ambiguity</h3>
+<p><img src="/p/computer-vision-camera-geometry-calibration/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+><img src="/p/computer-vision-camera-geometry-calibration/SA.jpg"
+	width="396"
+	height="183"
+	srcset="/p/computer-vision-camera-geometry-calibration/SA_hu88eb905ea0f9dbc8eff9d19355784a0d_18748_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/SA_hu88eb905ea0f9dbc8eff9d19355784a0d_18748_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="216"
+		data-flex-basis="519px"
+	
+><img src="/p/computer-vision-camera-geometry-calibration/SA2.jpg"
+	width="344"
+	height="300"
+	srcset="/p/computer-vision-camera-geometry-calibration/SA2_hucc37423277e96079fd6b890aed3224b1_14732_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/SA2_hucc37423277e96079fd6b890aed3224b1_14732_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="114"
+		data-flex-basis="275px"
+	
+><img src="/p/computer-vision-camera-geometry-calibration/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+></p>
+<p>This means that no matter how we scale the projection space (i.e. the homogeneous coordinate representation), we do not change the underlying image represented by the coordinates.</p>
+<hr>
+<h2 id="projection-matrix">Projection Matrix</h2>
+<p><img src="/p/computer-vision-camera-geometry-calibration/CPM.jpg"
+	width="850"
+	height="222"
+	srcset="/p/computer-vision-camera-geometry-calibration/CPM_huc2fd62786157e4678915b21978a46458_24425_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/CPM_huc2fd62786157e4678915b21978a46458_24425_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="382"
+		data-flex-basis="918px"
+	
+></p>
+<p>We want to find out where a 3D point $P$ in the scene will be located in the 2D image, and this diagram visualizes that process.</p>
+<h3 id="intrinsic-matrix">Intrinsic Matrix</h3>
+<p>Previously, we have 2 equations $x = \frac{fX}{Z}$ and $y = \frac{fY}{Z}$. They are not linear as we divide the coordinates by $Z$. But we can use <strong>homogeneous coordinates</strong> to manupulate the matrix to derive $x$, $y$ from $X$, $Y$, $Z$.</p>
+<p><img src="/p/computer-vision-camera-geometry-calibration/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+><img src="/p/computer-vision-camera-geometry-calibration/CT.jpg"
+	width="2190"
+	height="430"
+	srcset="/p/computer-vision-camera-geometry-calibration/CT_hu49b520efb2e95a6ee537b02ec5b1b836_66407_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/CT_hu49b520efb2e95a6ee537b02ec5b1b836_66407_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="509"
+		data-flex-basis="1222px"
+	
+><img src="/p/computer-vision-camera-geometry-calibration/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+></p>
+<p>Here, $K$ is camera projection matrix, also called <strong>intrinsic matrix</strong>.</p>
+<p><strong>Assumptions</strong></p>
+<ul>
+<li>
+<p>Optical Center:
+The above expression assumed that the origin in the image plane is at the <strong>principle point</strong> where the $Z$ axis hits the plane. It is not for most case. So, $x = \frac{fX}{Z}+u$ and $y = \frac{fY}{Z}+v$ should be considered.</p>
+</li>
+<li>
+<p>Unit Aspect Ratio:
+Also, different camera sensors have different pixel physical pixel size. Hence, we need to find some way to <strong>convert focal length between physical size and pixels</strong>.</p>
+</li>
+<li>
+<p>Skewness:
+We need to consider <strong>diagnal distortion</strong> of the image plane by adding the parameter $s$.</p>
+</li>
+</ul>
+<p>Now, we can obtain</p>
+<p><img src="/p/computer-vision-camera-geometry-calibration/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+><img src="/p/computer-vision-camera-geometry-calibration/intrinsic.jpg"
+	width="1836"
+	height="366"
+	srcset="/p/computer-vision-camera-geometry-calibration/intrinsic_hu49b520efb2e95a6ee537b02ec5b1b836_33243_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/intrinsic_hu49b520efb2e95a6ee537b02ec5b1b836_33243_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="501"
+		data-flex-basis="1203px"
+	
+><img src="/p/computer-vision-camera-geometry-calibration/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+></p>
+<h3 id="extrinsic-matrix">Extrinsic Matrix</h3>
+<p>So far we assumed that the origin of the 3D coordinate system is located at the pinhole. Because camera may be far from the object and using the position of camera as orgin is not convenient, we like to use world coordinate system in reality to mark the location of an object. We can represent a world point in the camera’s coordinate system by considering the relation between the coordinates of $p$ in camera and world coordinate system.</p>
+<p>$$x_{\text{camera}} = R(x_{\text{world}} - c) = Rx_{\text{world}} - RC = Rx_{\text{world}} - T $$</p>
+<p><img src="/p/computer-vision-camera-geometry-calibration/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+><img src="/p/computer-vision-camera-geometry-calibration/w2c.jpg"
+	width="3854"
+	height="815"
+	srcset="/p/computer-vision-camera-geometry-calibration/w2c_hu26e740fb0f0718cc919bfe81d98535c6_205520_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/w2c_hu26e740fb0f0718cc919bfe81d98535c6_205520_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="472"
+		data-flex-basis="1134px"
+	
+><img src="/p/computer-vision-camera-geometry-calibration/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+></p>
+<!-- \begin{bmatrix}
+X_{\text{camera}} \\
+Y_{\text{camera}} \\
+Z_{\text{camera}} \\
+1
+\end{bmatrix} = \begin{bmatrix}
+R_{1,1}  &R_{1,2}  &R_{1,3}  &t_{x} \\
+R_{2,1}  &R_{2,2}  &R_{2,3}  &t_{y} \\
+R_{3,1}  &R_{3,2}  &R_{3,3}  &t_{z} \\
+0  &0  &0  &1
+\end{bmatrix}\begin{bmatrix}
+X_{\text{world}} \\
+Y_{\text{world}} \\
+Z_{\text{world}} \\
+1
+\end{bmatrix} = \begin{bmatrix}
+R  &t \\
+0  &1
+\end{bmatrix} \begin{bmatrix}
+X_{\text{world}} \\
+Y_{\text{world}} \\
+Z_{\text{world}} \\
+1
+\end{bmatrix} -->
+<h3 id="from-world-to-image-plane">From World to Image Plane</h3>
+<ul>
+<li>Transformation from world coordinates to camera coordinates</li>
+<li>Projection onto ideal image plane</li>
+<li>Applying radial lens distortion $x&rsquo; = \text{warp}(x)$</li>
+<li>Mapping to image plane to pixels</li>
+</ul>
+<p><img src="/p/computer-vision-camera-geometry-calibration/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+><img src="/p/computer-vision-camera-geometry-calibration/w2i.jpg"
+	width="3891"
+	height="787"
+	srcset="/p/computer-vision-camera-geometry-calibration/w2i_hu26e740fb0f0718cc919bfe81d98535c6_186029_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/w2i_hu26e740fb0f0718cc919bfe81d98535c6_186029_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="494"
+		data-flex-basis="1186px"
+	
+><img src="/p/computer-vision-camera-geometry-calibration/white.jpg"
+	width="167"
+	height="291"
+	srcset="/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="57"
+		data-flex-basis="137px"
+	
+></p>
+<!-- Z_{\text{camera}} \begin{bmatrix}
+X_{\text{image}} \\
+Y_{\text{image}} \\
+1
+\end{bmatrix}=\begin{bmatrix}
+f_x  &s  &u  & 0\\
+ 0 & f_y &v &0 \\
+  0& 0 &1  &0
+\end{bmatrix}\begin{bmatrix}
+R_{1,1}  &R_{1,2}  &R_{1,3}  &t_{x} \\
+R_{2,1}  &R_{2,2}  &R_{2,3}  &t_{y} \\
+R_{3,1}  &R_{3,2}  &R_{3,3}  &t_{z} \\
+0  &0  &0  &1
+\end{bmatrix} \begin{bmatrix}
+X_{\text{world}} \\
+Y_{\text{world}} \\
+Z_{\text{world}} \\
+1
+\end{bmatrix} -->
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>MIT License</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Feb 16, 2023 19:33 EST
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2023 Tony Feng
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#camera-geometry">Camera Geometry</a>
+      <ol>
+        <li><a href="#parametric-transformation">Parametric Transformation</a></li>
+        <li><a href="#common-transformations">Common Transformations</a></li>
+        <li><a href="#camera-projection">Camera Projection</a></li>
+      </ol>
+    </li>
+    <li><a href="#homogeneous-coordinates">Homogeneous Coordinates</a>
+      <ol>
+        <li><a href="#conversion">Conversion</a></li>
+        <li><a href="#scale-ambiguity">Scale Ambiguity</a></li>
+      </ol>
+    </li>
+    <li><a href="#projection-matrix">Projection Matrix</a>
+      <ol>
+        <li><a href="#intrinsic-matrix">Intrinsic Matrix</a></li>
+        <li><a href="#extrinsic-matrix">Extrinsic Matrix</a></li>
+        <li><a href="#from-world-to-image-plane">From World to Image Plane</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -6,6 +6,459 @@
         <description>Recent content in Computer Vision on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Computer Vision] Camera Geometry &amp; Calibration</title>
+        <link>https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/</link>
+        <pubDate>Thu, 16 Feb 2023 11:11:12 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Feb 16th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Feb 16th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;camera-geometry&#34;&gt;Camera Geometry&lt;/h2&gt;
+&lt;h3 id=&#34;parametric-transformation&#34;&gt;Parametric Transformation&lt;/h3&gt;
+&lt;p&gt;It refers to a transformation $T$ is a coordinate-changing operation so that $p&amp;rsquo; = T(p)$ for any point $p(x,y)$.&lt;/p&gt;
+&lt;h3 id=&#34;common-transformations&#34;&gt;Common Transformations&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Translation&lt;/li&gt;
+&lt;li&gt;Rotation&lt;/li&gt;
+&lt;li&gt;Scaling
+&lt;ul&gt;
+&lt;li&gt;Uniform scaling&lt;/li&gt;
+&lt;li&gt;Non-uniform scaling&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Affine
+&lt;ul&gt;
+&lt;li&gt;A combination of linear transformations, and translations&lt;/li&gt;
+&lt;li&gt;Lines map to lines&lt;/li&gt;
+&lt;li&gt;Parallel lines remain parallel&lt;/li&gt;
+&lt;li&gt;Ratios are preserved&lt;/li&gt;
+&lt;li&gt;Closed under composition&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Perspective&lt;/li&gt;
+&lt;li&gt;Projective
+&lt;ul&gt;
+&lt;li&gt;A combination of affine transformations, and projective warps&lt;/li&gt;
+&lt;li&gt;Lines map to lines&lt;/li&gt;
+&lt;li&gt;Parallel lines do not necessarily remain parallel&lt;/li&gt;
+&lt;li&gt;Ratios are not preserved&lt;/li&gt;
+&lt;li&gt;Closed under composition&lt;/li&gt;
+&lt;li&gt;Models change of basis&lt;/li&gt;
+&lt;li&gt;Projective matrix is defined up to a scale (&lt;strong&gt;8 degrees of freedom&lt;/strong&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/2D_transformations.jpg&#34;
+	width=&#34;670&#34;
+	height=&#34;384&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/2D_transformations_hu9d13bb69f3779370c610495059c43802_36996_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/2D_transformations_hu9d13bb69f3779370c610495059c43802_36996_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;418px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/2D_transformations_1.jpg&#34;
+	width=&#34;510&#34;
+	height=&#34;168&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/2D_transformations_1_hu3271957f501ed9fea781a9792822fb6f_17030_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/2D_transformations_1_hu3271957f501ed9fea781a9792822fb6f_17030_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;303&#34;
+		data-flex-basis=&#34;728px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Name&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Matrix&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Degree of Freedom&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Translation&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\left [I \mid t \right ]_{2\times 3} $&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Rigid (Euclidean)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\left [R \mid t \right ]_{2\times 3} $&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Similarity&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\left [sR \mid t \right ]_{2\times 3}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Affine&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\left [A \right ]_{2\times 3}        $&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Projective&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\left [\bar{H} \right ]_{2\times 3}  $&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;camera-projection&#34;&gt;Camera Projection&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/CP.jpg&#34;
+	width=&#34;831&#34;
+	height=&#34;342&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/CP_huce8cb7b219f13d4e45f206a633fb1fdf_30218_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/CP_huce8cb7b219f13d4e45f206a633fb1fdf_30218_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;242&#34;
+		data-flex-basis=&#34;583px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;homogeneous-coordinates&#34;&gt;Homogeneous Coordinates&lt;/h2&gt;
+&lt;p&gt;It&amp;rsquo;s an an alternative coordinate system for projective geometry.&lt;/p&gt;
+&lt;h3 id=&#34;conversion&#34;&gt;Conversion&lt;/h3&gt;
+&lt;p&gt;Converting to homogeneous coordinates&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2D image coordinates $(x,y) \Rightarrow (x,y,1)$&lt;/li&gt;
+&lt;li&gt;3D scene coordinates $(x,y,z) \Rightarrow (x,y,z,1)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Converting from homogeneous coordinates&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2D image coordinates $(x,y,w) \Rightarrow (\frac{x}{w}, \frac{y}{w})$&lt;/li&gt;
+&lt;li&gt;3D scene coordinates $(x,y,z,w) \Rightarrow (\frac{x}{w}, \frac{y}{w}, \frac{z}{w})$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;scale-ambiguity&#34;&gt;Scale Ambiguity&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/SA.jpg&#34;
+	width=&#34;396&#34;
+	height=&#34;183&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/SA_hu88eb905ea0f9dbc8eff9d19355784a0d_18748_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/SA_hu88eb905ea0f9dbc8eff9d19355784a0d_18748_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;216&#34;
+		data-flex-basis=&#34;519px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/SA2.jpg&#34;
+	width=&#34;344&#34;
+	height=&#34;300&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/SA2_hucc37423277e96079fd6b890aed3224b1_14732_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/SA2_hucc37423277e96079fd6b890aed3224b1_14732_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;114&#34;
+		data-flex-basis=&#34;275px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This means that no matter how we scale the projection space (i.e. the homogeneous coordinate representation), we do not change the underlying image represented by the coordinates.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;projection-matrix&#34;&gt;Projection Matrix&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/CPM.jpg&#34;
+	width=&#34;850&#34;
+	height=&#34;222&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/CPM_huc2fd62786157e4678915b21978a46458_24425_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/CPM_huc2fd62786157e4678915b21978a46458_24425_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;382&#34;
+		data-flex-basis=&#34;918px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;We want to find out where a 3D point $P$ in the scene will be located in the 2D image, and this diagram visualizes that process.&lt;/p&gt;
+&lt;h3 id=&#34;intrinsic-matrix&#34;&gt;Intrinsic Matrix&lt;/h3&gt;
+&lt;p&gt;Previously, we have 2 equations $x = \frac{fX}{Z}$ and $y = \frac{fY}{Z}$. They are not linear as we divide the coordinates by $Z$. But we can use &lt;strong&gt;homogeneous coordinates&lt;/strong&gt; to manupulate the matrix to derive $x$, $y$ from $X$, $Y$, $Z$.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/CT.jpg&#34;
+	width=&#34;2190&#34;
+	height=&#34;430&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/CT_hu49b520efb2e95a6ee537b02ec5b1b836_66407_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/CT_hu49b520efb2e95a6ee537b02ec5b1b836_66407_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;509&#34;
+		data-flex-basis=&#34;1222px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Here, $K$ is camera projection matrix, also called &lt;strong&gt;intrinsic matrix&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Assumptions&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Optical Center:
+The above expression assumed that the origin in the image plane is at the &lt;strong&gt;principle point&lt;/strong&gt; where the $Z$ axis hits the plane. It is not for most case. So, $x = \frac{fX}{Z}+u$ and $y = \frac{fY}{Z}+v$ should be considered.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unit Aspect Ratio:
+Also, different camera sensors have different pixel physical pixel size. Hence, we need to find some way to &lt;strong&gt;convert focal length between physical size and pixels&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Skewness:
+We need to consider &lt;strong&gt;diagnal distortion&lt;/strong&gt; of the image plane by adding the parameter $s$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now, we can obtain&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/intrinsic.jpg&#34;
+	width=&#34;1836&#34;
+	height=&#34;366&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/intrinsic_hu49b520efb2e95a6ee537b02ec5b1b836_33243_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/intrinsic_hu49b520efb2e95a6ee537b02ec5b1b836_33243_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;501&#34;
+		data-flex-basis=&#34;1203px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;extrinsic-matrix&#34;&gt;Extrinsic Matrix&lt;/h3&gt;
+&lt;p&gt;So far we assumed that the origin of the 3D coordinate system is located at the pinhole. Because camera may be far from the object and using the position of camera as orgin is not convenient, we like to use world coordinate system in reality to mark the location of an object. We can represent a world point in the camera’s coordinate system by considering the relation between the coordinates of $p$ in camera and world coordinate system.&lt;/p&gt;
+&lt;p&gt;$$x_{\text{camera}} = R(x_{\text{world}} - c) = Rx_{\text{world}} - RC = Rx_{\text{world}} - T $$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/w2c.jpg&#34;
+	width=&#34;3854&#34;
+	height=&#34;815&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/w2c_hu26e740fb0f0718cc919bfe81d98535c6_205520_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/w2c_hu26e740fb0f0718cc919bfe81d98535c6_205520_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;472&#34;
+		data-flex-basis=&#34;1134px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;!-- \begin{bmatrix}
+X_{\text{camera}} \\
+Y_{\text{camera}} \\
+Z_{\text{camera}} \\
+1
+\end{bmatrix} = \begin{bmatrix}
+R_{1,1}  &amp;R_{1,2}  &amp;R_{1,3}  &amp;t_{x} \\
+R_{2,1}  &amp;R_{2,2}  &amp;R_{2,3}  &amp;t_{y} \\
+R_{3,1}  &amp;R_{3,2}  &amp;R_{3,3}  &amp;t_{z} \\
+0  &amp;0  &amp;0  &amp;1
+\end{bmatrix}\begin{bmatrix}
+X_{\text{world}} \\
+Y_{\text{world}} \\
+Z_{\text{world}} \\
+1
+\end{bmatrix} = \begin{bmatrix}
+R  &amp;t \\
+0  &amp;1
+\end{bmatrix} \begin{bmatrix}
+X_{\text{world}} \\
+Y_{\text{world}} \\
+Z_{\text{world}} \\
+1
+\end{bmatrix} --&gt;
+&lt;h3 id=&#34;from-world-to-image-plane&#34;&gt;From World to Image Plane&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Transformation from world coordinates to camera coordinates&lt;/li&gt;
+&lt;li&gt;Projection onto ideal image plane&lt;/li&gt;
+&lt;li&gt;Applying radial lens distortion $x&amp;rsquo; = \text{warp}(x)$&lt;/li&gt;
+&lt;li&gt;Mapping to image plane to pixels&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/w2i.jpg&#34;
+	width=&#34;3891&#34;
+	height=&#34;787&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/w2i_hu26e740fb0f0718cc919bfe81d98535c6_186029_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/w2i_hu26e740fb0f0718cc919bfe81d98535c6_186029_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;494&#34;
+		data-flex-basis=&#34;1186px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-geometry-calibration/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;!-- Z_{\text{camera}} \begin{bmatrix}
+X_{\text{image}} \\
+Y_{\text{image}} \\
+1
+\end{bmatrix}=\begin{bmatrix}
+f_x  &amp;s  &amp;u  &amp; 0\\
+ 0 &amp; f_y &amp;v &amp;0 \\
+  0&amp; 0 &amp;1  &amp;0
+\end{bmatrix}\begin{bmatrix}
+R_{1,1}  &amp;R_{1,2}  &amp;R_{1,3}  &amp;t_{x} \\
+R_{2,1}  &amp;R_{2,2}  &amp;R_{2,3}  &amp;t_{y} \\
+R_{3,1}  &amp;R_{3,2}  &amp;R_{3,3}  &amp;t_{z} \\
+0  &amp;0  &amp;0  &amp;1
+\end{bmatrix} \begin{bmatrix}
+X_{\text{world}} \\
+Y_{\text{world}} \\
+Z_{\text{world}} \\
+1
+\end{bmatrix} --&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Computer Vision] Feature Description &amp; Matching</title>
         <link>https://tonyfpy.github.io/p/computer-vision-feature-description-matching/</link>
         <pubDate>Tue, 14 Feb 2023 14:54:35 -0500</pubDate>
