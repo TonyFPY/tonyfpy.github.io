@@ -15,7 +15,7 @@ Last Modified on Feb 23th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/computer-vision-camera-calibration/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-02-23T11:30:15-05:00'/><meta property='article:modified_time' content='2023-02-23T15:47:20-05:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-02-23T11:30:15-05:00'/><meta property='article:modified_time' content='2023-02-23T17:14:16-05:00'/>
 <meta name="twitter:title" content="[Computer Vision] Camera Calibration">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Feb 23th, 2022
@@ -409,30 +409,20 @@ We know the camera parameters and image coordinates of an object, the goal is to
 <p>$$ 0=m_{21} X+m_{22} Y+m_{23} Z+m_{24}-m_{31} v X-m_{32} v Y-m_{33} v Z-m_{34} v $$</p>
 <p>$$\Downarrow $$</p>
 <p><img src="/p/computer-vision-camera-calibration/LSR_2.jpg"
-	width="423"
-	height="213"
-	srcset="/p/computer-vision-camera-calibration/LSR_2_hu00f9d53cd7d739345afaa970fc40dfb0_16644_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-calibration/LSR_2_hu00f9d53cd7d739345afaa970fc40dfb0_16644_1024x0_resize_q75_box.jpg 1024w"
+	width="412"
+	height="233"
+	srcset="/p/computer-vision-camera-calibration/LSR_2_hu20fc0669513e19db4b3c688b4e1953ba_17074_480x0_resize_q75_box.jpg 480w, /p/computer-vision-camera-calibration/LSR_2_hu20fc0669513e19db4b3c688b4e1953ba_17074_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="198"
-		data-flex-basis="476px"
+		data-flex-grow="176"
+		data-flex-basis="424px"
 	
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">M</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
-</span></span><span class="line"><span class="cl"><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><hr>
+<h3 id="rq-decomposition">RQ Decomposition</h3>
+<p>We can decompose $M$ back to $K\left [ R\mid t \right ]$. Here is the <a class="link" href="https://ksimek.github.io/2012/08/14/decompose/"  target="_blank" rel="noopener"
+    ><strong>link</strong></a> for more information.</p>
 <hr>
 
 </section>
@@ -463,7 +453,7 @@ We know the camera parameters and image coordinates of an object, the goal is to
 
 
         <span>
-            Last updated on Feb 23, 2023 15:47 EST
+            Last updated on Feb 23, 2023 17:14 EST
         </span>
     </section></footer>
 
@@ -623,6 +613,7 @@ We know the camera parameters and image coordinates of an object, the goal is to
       <ol>
         <li><a href="#least-squares-regression">Least Squares Regression</a></li>
         <li><a href="#matrix-computation">Matrix Computation</a></li>
+        <li><a href="#rq-decomposition">RQ Decomposition</a></li>
       </ol>
     </li>
   </ol>

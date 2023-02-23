@@ -2,20 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tonyfpy.github.io/p/computer-vision-camera-calibration/</loc>
-    <lastmod>2023-02-23T15:47:20-05:00</lastmod>
+    <loc>https://tonyfpy.github.io/p/computer-vision-stereo-vision/</loc>
+    <lastmod>2023-02-23T17:30:52-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/</loc>
-    <lastmod>2023-02-23T15:47:20-05:00</lastmod>
+    <lastmod>2023-02-23T17:30:52-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/computer-vision/</loc>
-    <lastmod>2023-02-23T15:47:20-05:00</lastmod>
+    <lastmod>2023-02-23T17:30:52-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/post/</loc>
-    <lastmod>2023-02-23T15:47:20-05:00</lastmod>
+    <lastmod>2023-02-23T17:30:52-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/</loc>
-    <lastmod>2023-02-23T15:47:20-05:00</lastmod>
+    <lastmod>2023-02-23T17:30:52-05:00</lastmod>
+  </url><url>
+    <loc>https://tonyfpy.github.io/p/computer-vision-camera-calibration/</loc>
+    <lastmod>2023-02-23T17:14:16-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/computer-vision-camera-geometry/</loc>
     <lastmod>2023-02-23T11:03:17-05:00</lastmod>

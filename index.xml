@@ -6,6 +6,97 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Computer Vision] Stereo Vision</title>
+        <link>https://tonyfpy.github.io/p/computer-vision-stereo-vision/</link>
+        <pubDate>Thu, 23 Feb 2023 17:21:09 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/computer-vision-stereo-vision/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Feb 23th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Feb 23th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;basic-ideas&#34;&gt;Basic Ideas&lt;/h2&gt;
+&lt;p&gt;One case of 3D reconstruction is when we don’t know how far a 3D object is nor the shape of it. But we do know the camera geometry and the projection of that shape onto our images. Now, we’re trying to find what $X$ is.&lt;/p&gt;
+&lt;p&gt;However, multiple points in 3D can result to the same projection!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/goal.jpg&#34;
+	width=&#34;594&#34;
+	height=&#34;340&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/goal_hue07455692750e7c7f0206bbfa357fd8c_20810_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/goal_hue07455692750e7c7f0206bbfa357fd8c_20810_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;419px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;We need one point that is along the lines that is the true $(x, y)$ position. Triangulation uses two images and you try to find the same $x$ point in both images. Since both images represent the same object in space, they would both &lt;strong&gt;intersect at a point&lt;/strong&gt;. The second camera/images fixes the image of $X$ along the line we see.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/stereo.jpg&#34;
+	width=&#34;662&#34;
+	height=&#34;365&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/stereo_huc262580e27ea1f7c1b011d7d15d71961_44322_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/stereo_huc262580e27ea1f7c1b011d7d15d71961_44322_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;181&#34;
+		data-flex-basis=&#34;435px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;167&#34;
+	height=&#34;291&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;57&#34;
+		data-flex-basis=&#34;137px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;In the depth image, brighter means it’s closer to the camera, and darker means it’s farther to the camera.&lt;/p&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Computer Vision] Camera Calibration</title>
         <link>https://tonyfpy.github.io/p/computer-vision-camera-calibration/</link>
         <pubDate>Thu, 23 Feb 2023 11:30:15 -0500</pubDate>
@@ -64,30 +155,20 @@ We know the camera parameters and image coordinates of an object, the goal is to
 &lt;p&gt;$$ 0=m_{21} X+m_{22} Y+m_{23} Z+m_{24}-m_{31} v X-m_{32} v Y-m_{33} v Z-m_{34} v $$&lt;/p&gt;
 &lt;p&gt;$$\Downarrow $$&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-camera-calibration/LSR_2.jpg&#34;
-	width=&#34;423&#34;
-	height=&#34;213&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-calibration/LSR_2_hu00f9d53cd7d739345afaa970fc40dfb0_16644_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-calibration/LSR_2_hu00f9d53cd7d739345afaa970fc40dfb0_16644_1024x0_resize_q75_box.jpg 1024w&#34;
+	width=&#34;412&#34;
+	height=&#34;233&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-camera-calibration/LSR_2_hu20fc0669513e19db4b3c688b4e1953ba_17074_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-camera-calibration/LSR_2_hu20fc0669513e19db4b3c688b4e1953ba_17074_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;198&#34;
-		data-flex-basis=&#34;476px&#34;
+		data-flex-grow=&#34;176&#34;
+		data-flex-basis=&#34;424px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;U&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;V&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linalg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;svd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;M&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;V&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;M&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reshape&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;hr&gt;
+&lt;h3 id=&#34;rq-decomposition&#34;&gt;RQ Decomposition&lt;/h3&gt;
+&lt;p&gt;We can decompose $M$ back to $K\left [ R\mid t \right ]$. Here is the &lt;a class=&#34;link&#34; href=&#34;https://ksimek.github.io/2012/08/14/decompose/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;link&lt;/strong&gt;&lt;/a&gt; for more information.&lt;/p&gt;
 &lt;hr&gt;
 </description>
         </item>
