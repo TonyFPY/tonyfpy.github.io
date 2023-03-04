@@ -15,7 +15,7 @@ Last Modified on Feb 23th, 2022
  Intro This sereis of posts contains a summary of materials and readings from the course CSCI 1430 Computer Vision that I&amp;rsquo;ve taken @ Brown University. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/computer-vision-stereo-vision/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-02-23T17:21:09-05:00'/><meta property='article:modified_time' content='2023-02-23T17:30:52-05:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer Vision' /><meta property='article:published_time' content='2023-02-23T17:21:09-05:00'/><meta property='article:modified_time' content='2023-03-03T23:27:49-05:00'/>
 <meta name="twitter:title" content="[Computer Vision] Stereo Vision">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on Feb 23th, 2022
@@ -342,7 +342,7 @@ Last Modified on Feb 23th, 2022
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    6 minute read
                 </time>
             </div>
         
@@ -368,15 +368,15 @@ Last Modified on Feb 23th, 2022
 <p>One case of 3D reconstruction is when we don’t know how far a 3D object is nor the shape of it. But we do know the camera geometry and the projection of that shape onto our images. Now, we’re trying to find what $X$ is.</p>
 <p>However, multiple points in 3D can result to the same projection!</p>
 <p><img src="/p/computer-vision-stereo-vision/white.jpg"
-	width="167"
-	height="291"
-	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="57"
-		data-flex-basis="137px"
+		data-flex-grow="52"
+		data-flex-basis="126px"
 	
 ><img src="/p/computer-vision-stereo-vision/goal.jpg"
 	width="594"
@@ -390,54 +390,586 @@ Last Modified on Feb 23th, 2022
 		data-flex-basis="419px"
 	
 ><img src="/p/computer-vision-stereo-vision/white.jpg"
-	width="167"
-	height="291"
-	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="57"
-		data-flex-basis="137px"
+		data-flex-grow="52"
+		data-flex-basis="126px"
 	
 ></p>
 <p>We need one point that is along the lines that is the true $(x, y)$ position. Triangulation uses two images and you try to find the same $x$ point in both images. Since both images represent the same object in space, they would both <strong>intersect at a point</strong>. The second camera/images fixes the image of $X$ along the line we see.</p>
 <p><img src="/p/computer-vision-stereo-vision/white.jpg"
-	width="167"
-	height="291"
-	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="57"
-		data-flex-basis="137px"
+		data-flex-grow="52"
+		data-flex-basis="126px"
 	
-><img src="/p/computer-vision-stereo-vision/stereo.jpg"
-	width="662"
-	height="365"
-	srcset="/p/computer-vision-stereo-vision/stereo_huc262580e27ea1f7c1b011d7d15d71961_44322_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/stereo_huc262580e27ea1f7c1b011d7d15d71961_44322_1024x0_resize_q75_box.jpg 1024w"
+><img src="/p/computer-vision-stereo-vision/basics.jpg"
+	width="899"
+	height="479"
+	srcset="/p/computer-vision-stereo-vision/basics_hu2594ec3f71724e3910679d1821897ecd_60283_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/basics_hu2594ec3f71724e3910679d1821897ecd_60283_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="181"
-		data-flex-basis="435px"
+		data-flex-grow="187"
+		data-flex-basis="450px"
 	
 ><img src="/p/computer-vision-stereo-vision/white.jpg"
-	width="167"
-	height="291"
-	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="57"
-		data-flex-basis="137px"
+		data-flex-grow="52"
+		data-flex-basis="126px"
 	
 ></p>
 <p>In the depth image, brighter means it’s closer to the camera, and darker means it’s farther to the camera.</p>
 <hr>
+<h2 id="stereo-geometry">Stereo Geometry</h2>
+<h3 id="parallel-calibrated-cameras">Parallel Calibrated Cameras</h3>
+<p><img src="/p/computer-vision-stereo-vision/SVDE.jpg"
+	width="530"
+	height="165"
+	srcset="/p/computer-vision-stereo-vision/SVDE_hu8bb9144054ccea717bd0ec3d66712d2d_31771_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/SVDE_hu8bb9144054ccea717bd0ec3d66712d2d_31771_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="321"
+		data-flex-basis="770px"
+	
+></p>
+<p>$$ (x_r, y) = (x_l + D(x,y), y)$$</p>
+<p>We assume that the two calibrated cameras (we know intrinsics and extrinsics) are <strong>parallel</strong>. The distance between the right camera and the left camera is called <strong>baseline</strong>.</p>
+<p><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+><img src="/p/computer-vision-stereo-vision/PCC.jpg"
+	width="826"
+	height="571"
+	srcset="/p/computer-vision-stereo-vision/PCC_hu7b98409c306695d126071776a297d111_51396_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/PCC_hu7b98409c306695d126071776a297d111_51396_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="144"
+		data-flex-basis="347px"
+	
+><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+></p>
+<p>Since two images lie on the same plane, the lines $O_l O_r$ and $P_l P_r$ are parallel. Also, $O_l$ and $ O_r$ have the same $y$. This implies $y_l = y_r$</p>
+<p><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+><img src="/p/computer-vision-stereo-vision/SG.jpg"
+	width="506"
+	height="359"
+	srcset="/p/computer-vision-stereo-vision/SG_hu263fa4b19973c887d3e85f353b4e753b_35650_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/SG_hu263fa4b19973c887d3e85f353b4e753b_35650_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="140"
+		data-flex-basis="338px"
+	
+><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+></p>
+<p>$$\frac{T}{Z} = \frac{T + x_r - x_l}{Z - f}$$</p>
+<h3 id="scanline">Scanline</h3>
+<p>For each point $P_l$, how do I get $P_r$? By matching. Patch around $P_l$ should look similar to the patch around $P_r$. We can scan the line and compare patches between two images.</p>
+<p><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+><img src="/p/computer-vision-stereo-vision/scanline.jpg"
+	width="753"
+	height="290"
+	srcset="/p/computer-vision-stereo-vision/scanline_hu0da9ad6546fd93b23a33ab024686c037_61952_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/scanline_hu0da9ad6546fd93b23a33ab024686c037_61952_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="259"
+		data-flex-basis="623px"
+	
+><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+></p>
+<h3 id="matching-cost">Matching Cost</h3>
+<p><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+><img src="/p/computer-vision-stereo-vision/MC.jpg"
+	width="945"
+	height="656"
+	srcset="/p/computer-vision-stereo-vision/MC_huf882c919b76c8a76580fd50669b42b71_126808_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/MC_huf882c919b76c8a76580fd50669b42b71_126808_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="144"
+		data-flex-basis="345px"
+	
+><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+></p>
+<hr>
+<h2 id="epipolar-geometry">Epipolar Geometry</h2>
+<p>Now, we consider it in a general case. The relationship between 2 camera pose is $\left [R | t \right ]$.</p>
+<h3 id="epipolar-line-and-epipole">Epipolar Line and Epipole</h3>
+<p>All points from the projective line $O_l P_l$ project to a line on the right image plane. This time the line is not (necessarily) horizontal.</p>
+<p><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+><img src="/p/computer-vision-stereo-vision/ELE.jpg"
+	width="713"
+	height="463"
+	srcset="/p/computer-vision-stereo-vision/ELE_huba787e5776aa62f7ef29f30b305056ae_49761_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/ELE_huba787e5776aa62f7ef29f30b305056ae_49761_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="153"
+		data-flex-basis="369px"
+	
+><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+></p>
+<p>Points $O_l$, $O_r$ and a point $P$ in 3D lie on a plane. We call this the <strong>epipolar plane</strong>. This plane intersects each image plane in a line. We call these lines <strong>epipolar lines</strong>.</p>
+<p><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+><img src="/p/computer-vision-stereo-vision/epipole.jpg"
+	width="781"
+	height="520"
+	srcset="/p/computer-vision-stereo-vision/epipole_hu052ee7943903075753d5f3bbf3a8b5f7_116687_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/epipole_hu052ee7943903075753d5f3bbf3a8b5f7_116687_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="150"
+		data-flex-basis="360px"
+	
+><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+></p>
+<p>All epipolar lines are converged at a point of each image called <strong>epipole</strong>. Two camera centers and epipoles are on the same line.</p>
+<p>Epipolar geometry is useful because it constrains our search for the matches:</p>
+<ul>
+<li>For each point $P_l$, we need to search for $P_r$ only on a epipolar line.</li>
+<li>All matches lie on lines that intersect in epipoles.</li>
+</ul>
+<h3 id="essential-matrix">Essential Matrix</h3>
+<p>The assumption is that <strong>points are aligned</strong> within camera coordinate axis (calibrated camera).</p>
+<p><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+><img src="/p/computer-vision-stereo-vision/EP.jpg"
+	width="1558"
+	height="788"
+	srcset="/p/computer-vision-stereo-vision/EP_hu49b520efb2e95a6ee537b02ec5b1b836_84333_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/EP_hu49b520efb2e95a6ee537b02ec5b1b836_84333_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="197"
+		data-flex-basis="474px"
+	
+><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+></p>
+<p>$$x^{\prime}= R(x - t)$$
+$$\Rightarrow x^{\prime} R^{-1}= t \times x $$</p>
+<p>Camera-camera transformation is just world-camera transformation. Since three vectors $x$, $t$, $x^{\prime}$ are <strong>co-planar</strong>, then</p>
+<p>$$x^{\top}(t \times x)=0 $$</p>
+<p>$$\Rightarrow (x-t)^{\top}(t \times x)=0 $$</p>
+<p>, where $\times$ is <strong>cross product</strong>. The cross product gives a <strong>normal</strong> to the plane, and taking the dot product of the normal with any vector in the plane gives $0$.</p>
+<p>$$ (x-t)^{\top}(t \times x)=0 $$
+$$\Rightarrow (x^{\prime} R^{-1})^{\top}(t \times x)=0  $$
+$$\Rightarrow ({x^{\prime}}^{\top} {R^{-1}}^{\top})(t \times x)=0  $$
+$$\Rightarrow ({x^{\prime}}^{\top} R)(t \times x)=0  $$</p>
+<p>, where $R$ is <a class="link" href="https://math.libretexts.org/Bookshelves/Differential_Equations/Applied_Linear_Algebra_and_Differential_Equations_%28Chasnov%29/02%3A_II._Linear_Algebra/01%3A_Matrices/1.04%3A_Rotation_Matrices_and_Orthogonal_Matrices"  target="_blank" rel="noopener"
+    ><strong>orthogonal</strong></a>, so $R^{-1} = R^{\top}$. Also, given the cross product, we have</p>
+<p><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+><img src="/p/computer-vision-stereo-vision/CP.jpg"
+	width="1950"
+	height="332"
+	srcset="/p/computer-vision-stereo-vision/CP_hu49b520efb2e95a6ee537b02ec5b1b836_70084_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/CP_hu49b520efb2e95a6ee537b02ec5b1b836_70084_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="587"
+		data-flex-basis="1409px"
+	
+><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+></p>
+<p>$$({x^{\prime}}^{\top} R)(t \times x)=0  $$
+$$\Rightarrow ({x^{\prime}}^{\top} R)([t \times] x)=0  $$
+$$\Rightarrow {x^{\prime}}^{\top} R [t \times] x=0  $$
+$$\Rightarrow {x^{\prime}}^{\top} E x=0  $$</p>
+<p><strong>Properties of Essential Matrix</strong></p>
+<ul>
+<li>Longuet-Higgins equation ${x^{\prime}}^{\top} E x=0$</li>
+<li>Epipolar lines
+<ul>
+<li>$x^{\prime}$ belongs to epipolar line in the right image defined by $l_r = E x$</li>
+<li>$x$ belongs to epipolar line in the left image defined by $l_l = E^{\top} x^{\prime}$</li>
+</ul>
+</li>
+<li>Epipoles
+<ul>
+<li>${e^{\prime}}^{\top} E=0$</li>
+<li>$E e=0$</li>
+</ul>
+</li>
+</ul>
+<h3 id="fundamental-matrix">Fundamental Matrix</h3>
+<p>The Essential matrix operates on image points expressed in
+<strong>normalized camera coordinates</strong>. How do we generalize to uncalibrated cameras (i.e. with unknown intrinsic calibrations)?</p>
+<p>We need to convert the relationship from physical unit level mapping to pixel-level mapping.</p>
+<p>$$ x_c = K^{-1} x_p $$</p>
+<p>, where $x$ is camera point and $\hat{x}$ is image point.</p>
+<p>$${{x_c}^{\prime}}^{\top} E x_c=0$$
+$$\Rightarrow ({{{K^{\prime}}^{-1} {x_p}^{\prime}}})^{\top} E (K^{-1} x_p)=0$$
+$$\Rightarrow ({{x_p}^{\prime}}^{\top} {({K^{\prime}}^{-1}})^{\top}) E (K^{-1} x_p)=0$$</p>
+<p>$$\Rightarrow ({{x_p}^{\prime}}^{\top}) (({{K^{\prime}}^{-1}})^{\top} E K^{-1}) x_p=0$$
+$$\Rightarrow ({{x_p}^{\prime}}^{\top}) F x_p=0$$</p>
+<p><strong>Properties of Essential Matrix</strong></p>
+<ul>
+<li>Longuet-Higgins equation ${x^{\prime}}^{\top} F x=0$</li>
+<li>Epipolar lines
+<ul>
+<li>$x^{\prime}$ belongs to epipolar line in the right image defined by $l_r = F x$</li>
+<li>$x$ belongs to epipolar line in the left image defined by $l_l = F^{\top} x^{\prime}$</li>
+</ul>
+</li>
+<li>Epipoles
+<ul>
+<li>${e^{\prime}}^{\top} F=0$</li>
+<li>$F e=0$</li>
+</ul>
+</li>
+<li>$F$ has 7 DoF
+<ul>
+<li>$3 * 3$</li>
+<li>Homogenous</li>
+<li>Rank = $2$, $\text{det}(F) = 0$</li>
+</ul>
+</li>
+<li>$F$ contains both intrinsic and extrinsic parameters.</li>
+</ul>
+<h3 id="8-point-algorithm">8-point Algorithm</h3>
+<p>Given a set of matched pairs $\{ x_m, {x_m}^{\prime}\}$, how to estimate $F$?</p>
+<p>$${{x_m}^{\prime}}^{\top} F {x_m}=0$$</p>
+<p><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+><img src="/p/computer-vision-stereo-vision/8A.jpg"
+	width="1394"
+	height="306"
+	srcset="/p/computer-vision-stereo-vision/8A_hu49b520efb2e95a6ee537b02ec5b1b836_38272_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/8A_hu49b520efb2e95a6ee537b02ec5b1b836_38272_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="455"
+		data-flex-basis="1093px"
+	
+><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+></p>
+<p><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+><img src="/p/computer-vision-stereo-vision/8A_2.jpg"
+	width="1404"
+	height="486"
+	srcset="/p/computer-vision-stereo-vision/8A_2_hu49b520efb2e95a6ee537b02ec5b1b836_55505_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/8A_2_hu49b520efb2e95a6ee537b02ec5b1b836_55505_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="288"
+		data-flex-basis="693px"
+	
+><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+></p>
+<p>$F$ has $9$ elements, but we don’t care about scaling, so $8$ elements. It turns out it really only has $7$. It uses the fact that the matrix $F$ must be of rank $2$ to fully constrain the matrix. <strong>The constraint is not absolutely unique</strong> and so three different matrices might be returned (See Zisserman &amp; Hartley’s book for details). Therefore, we need at least $8$ pairs.</p>
+<p>How can we solve the equation $Af=0$? $A$ is constraint matrix. To find $f$, we perform <strong>SVD</strong>.</p>
+<ul>
+<li>Normalize points</li>
+<li>Construct the $M * 9$ matrix $A$</li>
+<li>Find the SVD of $A^{\top}A$</li>
+<li>Entries of $F$ are the elements of column of $V$ corresponding to the least singular value</li>
+<li>Enforce rank 2 constraint on $F$</li>
+<li>Un-normalize $F$</li>
+</ul>
+<p><strong>Pros &amp; Cons</strong></p>
+<ul>
+<li>Linear</li>
+<li>Easy to implement</li>
+<li>Fast</li>
+<li>Susceptible to noise</li>
+</ul>
+<h3 id="ransac">RANSAC</h3>
+<p>If we use these outlying matches, our estimate $F$ will be wildly inaccurate.</p>
+<p><strong>RANdom SAmple Consensus</strong></p>
+<ul>
+<li>Sample (randomly) the number of points $s$ required to fit the model</li>
+<li>Solve for model parameters using samples</li>
+<li>Score by the fraction of inliers within a preset threshold of the model</li>
+<li>Repeat 1-3 until the best model is found with high confidence</li>
+</ul>
+<p>Note: We call points that are within a certain threshold of the predicted line &ldquo;inliers&rdquo;. Everything else is an outlier. <strong>Ideally, we want an estimated line/model that maximizes the number of inliers.</strong></p>
+<p><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+><img src="/p/computer-vision-stereo-vision/RANSAC.jpg"
+	width="720"
+	height="302"
+	srcset="/p/computer-vision-stereo-vision/RANSAC_hue1e865826e83441c123bd42d59f64a2c_83651_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/RANSAC_hue1e865826e83441c123bd42d59f64a2c_83651_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="238"
+		data-flex-basis="572px"
+	
+><img src="/p/computer-vision-stereo-vision/white.jpg"
+	width="136"
+	height="259"
+	srcset="/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, /p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+></p>
+<p><strong>Pros &amp; Cons</strong></p>
+<ul>
+<li>Robust to outliers</li>
+<li>Applicable for large number of objective function parameters (than Hough transform)</li>
+<li>Optimization parameters are easier to choose (than Hough transform)</li>
+<li>Computational time grows quickly with fraction of outliers and number of parameters</li>
+<li>Not good for getting multiple fits</li>
+</ul>
+<hr>
+<h2 id="stereo-pipeline">Stereo Pipeline</h2>
+<ul>
+<li>Calibrating cameras</li>
+<li>Rectifying images</li>
+<li>Correspondence</li>
+<li>Estimate depth</li>
+</ul>
+<hr>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a class="link" href="https://math.libretexts.org/Bookshelves/Differential_Equations/Applied_Linear_Algebra_and_Differential_Equations_%28Chasnov%29/02%3A_II._Linear_Algebra/01%3A_Matrices/1.04%3A_Rotation_Matrices_and_Orthogonal_Matrices"  target="_blank" rel="noopener"
+    >Rotation Matrices and Orthogonal Matrices</a></li>
+<li><a class="link" href="https://www.cs.cmu.edu/~16385/s17/Slides/12.2_Essential_Matrix.pdf"  target="_blank" rel="noopener"
+    >Essential Matrix - 16-385 Computer Vision (Kris Kitani @ CMU)</a></li>
+<li><a class="link" href="https://www.cs.cmu.edu/~16385/s17/Slides/12.3_Fundamental_Matrix.pdf"  target="_blank" rel="noopener"
+    >Fundamental Matrix - 16-385 Computer Vision (Kris Kitani @ CMU)</a></li>
+</ul>
 <hr>
 
 </section>
@@ -468,7 +1000,7 @@ Last Modified on Feb 23th, 2022
 
 
         <span>
-            Last updated on Feb 23, 2023 17:30 EST
+            Last updated on Mar 03, 2023 23:27 EST
         </span>
     </section></footer>
 
@@ -624,6 +1156,24 @@ Last Modified on Feb 23th, 2022
   <ol>
     <li><a href="#intro">Intro</a></li>
     <li><a href="#basic-ideas">Basic Ideas</a></li>
+    <li><a href="#stereo-geometry">Stereo Geometry</a>
+      <ol>
+        <li><a href="#parallel-calibrated-cameras">Parallel Calibrated Cameras</a></li>
+        <li><a href="#scanline">Scanline</a></li>
+        <li><a href="#matching-cost">Matching Cost</a></li>
+      </ol>
+    </li>
+    <li><a href="#epipolar-geometry">Epipolar Geometry</a>
+      <ol>
+        <li><a href="#epipolar-line-and-epipole">Epipolar Line and Epipole</a></li>
+        <li><a href="#essential-matrix">Essential Matrix</a></li>
+        <li><a href="#fundamental-matrix">Fundamental Matrix</a></li>
+        <li><a href="#8-point-algorithm">8-point Algorithm</a></li>
+        <li><a href="#ransac">RANSAC</a></li>
+      </ol>
+    </li>
+    <li><a href="#stereo-pipeline">Stereo Pipeline</a></li>
+    <li><a href="#reference">Reference</a></li>
   </ol>
 </nav>
         </div>

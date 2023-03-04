@@ -6,6 +6,15 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>NAME</title>
+        <link>https://tonyfpy.github.io/p/name/</link>
+        <pubDate>Fri, 03 Mar 2023 23:29:42 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/name/</guid>
+        <description>&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Computer Vision] Stereo Vision</title>
         <link>https://tonyfpy.github.io/p/computer-vision-stereo-vision/</link>
         <pubDate>Thu, 23 Feb 2023 17:21:09 -0500</pubDate>
@@ -23,15 +32,15 @@
 &lt;p&gt;One case of 3D reconstruction is when we don’t know how far a 3D object is nor the shape of it. But we do know the camera geometry and the projection of that shape onto our images. Now, we’re trying to find what $X$ is.&lt;/p&gt;
 &lt;p&gt;However, multiple points in 3D can result to the same projection!&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
-	width=&#34;167&#34;
-	height=&#34;291&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;57&#34;
-		data-flex-basis=&#34;137px&#34;
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
 	
 &gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/goal.jpg&#34;
 	width=&#34;594&#34;
@@ -45,54 +54,586 @@
 		data-flex-basis=&#34;419px&#34;
 	
 &gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
-	width=&#34;167&#34;
-	height=&#34;291&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;57&#34;
-		data-flex-basis=&#34;137px&#34;
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;We need one point that is along the lines that is the true $(x, y)$ position. Triangulation uses two images and you try to find the same $x$ point in both images. Since both images represent the same object in space, they would both &lt;strong&gt;intersect at a point&lt;/strong&gt;. The second camera/images fixes the image of $X$ along the line we see.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
-	width=&#34;167&#34;
-	height=&#34;291&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;57&#34;
-		data-flex-basis=&#34;137px&#34;
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
 	
-&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/stereo.jpg&#34;
-	width=&#34;662&#34;
-	height=&#34;365&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/stereo_huc262580e27ea1f7c1b011d7d15d71961_44322_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/stereo_huc262580e27ea1f7c1b011d7d15d71961_44322_1024x0_resize_q75_box.jpg 1024w&#34;
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/basics.jpg&#34;
+	width=&#34;899&#34;
+	height=&#34;479&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/basics_hu2594ec3f71724e3910679d1821897ecd_60283_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/basics_hu2594ec3f71724e3910679d1821897ecd_60283_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;181&#34;
-		data-flex-basis=&#34;435px&#34;
+		data-flex-grow=&#34;187&#34;
+		data-flex-basis=&#34;450px&#34;
 	
 &gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
-	width=&#34;167&#34;
-	height=&#34;291&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1617_1024x0_resize_q75_box.jpg 1024w&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;57&#34;
-		data-flex-basis=&#34;137px&#34;
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;In the depth image, brighter means it’s closer to the camera, and darker means it’s farther to the camera.&lt;/p&gt;
 &lt;hr&gt;
+&lt;h2 id=&#34;stereo-geometry&#34;&gt;Stereo Geometry&lt;/h2&gt;
+&lt;h3 id=&#34;parallel-calibrated-cameras&#34;&gt;Parallel Calibrated Cameras&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/SVDE.jpg&#34;
+	width=&#34;530&#34;
+	height=&#34;165&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/SVDE_hu8bb9144054ccea717bd0ec3d66712d2d_31771_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/SVDE_hu8bb9144054ccea717bd0ec3d66712d2d_31771_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;321&#34;
+		data-flex-basis=&#34;770px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$ (x_r, y) = (x_l + D(x,y), y)$$&lt;/p&gt;
+&lt;p&gt;We assume that the two calibrated cameras (we know intrinsics and extrinsics) are &lt;strong&gt;parallel&lt;/strong&gt;. The distance between the right camera and the left camera is called &lt;strong&gt;baseline&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/PCC.jpg&#34;
+	width=&#34;826&#34;
+	height=&#34;571&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/PCC_hu7b98409c306695d126071776a297d111_51396_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/PCC_hu7b98409c306695d126071776a297d111_51396_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;144&#34;
+		data-flex-basis=&#34;347px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Since two images lie on the same plane, the lines $O_l O_r$ and $P_l P_r$ are parallel. Also, $O_l$ and $ O_r$ have the same $y$. This implies $y_l = y_r$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/SG.jpg&#34;
+	width=&#34;506&#34;
+	height=&#34;359&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/SG_hu263fa4b19973c887d3e85f353b4e753b_35650_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/SG_hu263fa4b19973c887d3e85f353b4e753b_35650_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;140&#34;
+		data-flex-basis=&#34;338px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$\frac{T}{Z} = \frac{T + x_r - x_l}{Z - f}$$&lt;/p&gt;
+&lt;h3 id=&#34;scanline&#34;&gt;Scanline&lt;/h3&gt;
+&lt;p&gt;For each point $P_l$, how do I get $P_r$? By matching. Patch around $P_l$ should look similar to the patch around $P_r$. We can scan the line and compare patches between two images.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/scanline.jpg&#34;
+	width=&#34;753&#34;
+	height=&#34;290&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/scanline_hu0da9ad6546fd93b23a33ab024686c037_61952_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/scanline_hu0da9ad6546fd93b23a33ab024686c037_61952_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;259&#34;
+		data-flex-basis=&#34;623px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;matching-cost&#34;&gt;Matching Cost&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/MC.jpg&#34;
+	width=&#34;945&#34;
+	height=&#34;656&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/MC_huf882c919b76c8a76580fd50669b42b71_126808_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/MC_huf882c919b76c8a76580fd50669b42b71_126808_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;144&#34;
+		data-flex-basis=&#34;345px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;epipolar-geometry&#34;&gt;Epipolar Geometry&lt;/h2&gt;
+&lt;p&gt;Now, we consider it in a general case. The relationship between 2 camera pose is $\left [R | t \right ]$.&lt;/p&gt;
+&lt;h3 id=&#34;epipolar-line-and-epipole&#34;&gt;Epipolar Line and Epipole&lt;/h3&gt;
+&lt;p&gt;All points from the projective line $O_l P_l$ project to a line on the right image plane. This time the line is not (necessarily) horizontal.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/ELE.jpg&#34;
+	width=&#34;713&#34;
+	height=&#34;463&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/ELE_huba787e5776aa62f7ef29f30b305056ae_49761_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/ELE_huba787e5776aa62f7ef29f30b305056ae_49761_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;153&#34;
+		data-flex-basis=&#34;369px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Points $O_l$, $O_r$ and a point $P$ in 3D lie on a plane. We call this the &lt;strong&gt;epipolar plane&lt;/strong&gt;. This plane intersects each image plane in a line. We call these lines &lt;strong&gt;epipolar lines&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/epipole.jpg&#34;
+	width=&#34;781&#34;
+	height=&#34;520&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/epipole_hu052ee7943903075753d5f3bbf3a8b5f7_116687_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/epipole_hu052ee7943903075753d5f3bbf3a8b5f7_116687_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;150&#34;
+		data-flex-basis=&#34;360px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;All epipolar lines are converged at a point of each image called &lt;strong&gt;epipole&lt;/strong&gt;. Two camera centers and epipoles are on the same line.&lt;/p&gt;
+&lt;p&gt;Epipolar geometry is useful because it constrains our search for the matches:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For each point $P_l$, we need to search for $P_r$ only on a epipolar line.&lt;/li&gt;
+&lt;li&gt;All matches lie on lines that intersect in epipoles.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;essential-matrix&#34;&gt;Essential Matrix&lt;/h3&gt;
+&lt;p&gt;The assumption is that &lt;strong&gt;points are aligned&lt;/strong&gt; within camera coordinate axis (calibrated camera).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/EP.jpg&#34;
+	width=&#34;1558&#34;
+	height=&#34;788&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/EP_hu49b520efb2e95a6ee537b02ec5b1b836_84333_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/EP_hu49b520efb2e95a6ee537b02ec5b1b836_84333_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;197&#34;
+		data-flex-basis=&#34;474px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$x^{\prime}= R(x - t)$$
+$$\Rightarrow x^{\prime} R^{-1}= t \times x $$&lt;/p&gt;
+&lt;p&gt;Camera-camera transformation is just world-camera transformation. Since three vectors $x$, $t$, $x^{\prime}$ are &lt;strong&gt;co-planar&lt;/strong&gt;, then&lt;/p&gt;
+&lt;p&gt;$$x^{\top}(t \times x)=0 $$&lt;/p&gt;
+&lt;p&gt;$$\Rightarrow (x-t)^{\top}(t \times x)=0 $$&lt;/p&gt;
+&lt;p&gt;, where $\times$ is &lt;strong&gt;cross product&lt;/strong&gt;. The cross product gives a &lt;strong&gt;normal&lt;/strong&gt; to the plane, and taking the dot product of the normal with any vector in the plane gives $0$.&lt;/p&gt;
+&lt;p&gt;$$ (x-t)^{\top}(t \times x)=0 $$
+$$\Rightarrow (x^{\prime} R^{-1})^{\top}(t \times x)=0  $$
+$$\Rightarrow ({x^{\prime}}^{\top} {R^{-1}}^{\top})(t \times x)=0  $$
+$$\Rightarrow ({x^{\prime}}^{\top} R)(t \times x)=0  $$&lt;/p&gt;
+&lt;p&gt;, where $R$ is &lt;a class=&#34;link&#34; href=&#34;https://math.libretexts.org/Bookshelves/Differential_Equations/Applied_Linear_Algebra_and_Differential_Equations_%28Chasnov%29/02%3A_II._Linear_Algebra/01%3A_Matrices/1.04%3A_Rotation_Matrices_and_Orthogonal_Matrices&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;orthogonal&lt;/strong&gt;&lt;/a&gt;, so $R^{-1} = R^{\top}$. Also, given the cross product, we have&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/CP.jpg&#34;
+	width=&#34;1950&#34;
+	height=&#34;332&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/CP_hu49b520efb2e95a6ee537b02ec5b1b836_70084_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/CP_hu49b520efb2e95a6ee537b02ec5b1b836_70084_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;587&#34;
+		data-flex-basis=&#34;1409px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$({x^{\prime}}^{\top} R)(t \times x)=0  $$
+$$\Rightarrow ({x^{\prime}}^{\top} R)([t \times] x)=0  $$
+$$\Rightarrow {x^{\prime}}^{\top} R [t \times] x=0  $$
+$$\Rightarrow {x^{\prime}}^{\top} E x=0  $$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties of Essential Matrix&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Longuet-Higgins equation ${x^{\prime}}^{\top} E x=0$&lt;/li&gt;
+&lt;li&gt;Epipolar lines
+&lt;ul&gt;
+&lt;li&gt;$x^{\prime}$ belongs to epipolar line in the right image defined by $l_r = E x$&lt;/li&gt;
+&lt;li&gt;$x$ belongs to epipolar line in the left image defined by $l_l = E^{\top} x^{\prime}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Epipoles
+&lt;ul&gt;
+&lt;li&gt;${e^{\prime}}^{\top} E=0$&lt;/li&gt;
+&lt;li&gt;$E e=0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;fundamental-matrix&#34;&gt;Fundamental Matrix&lt;/h3&gt;
+&lt;p&gt;The Essential matrix operates on image points expressed in
+&lt;strong&gt;normalized camera coordinates&lt;/strong&gt;. How do we generalize to uncalibrated cameras (i.e. with unknown intrinsic calibrations)?&lt;/p&gt;
+&lt;p&gt;We need to convert the relationship from physical unit level mapping to pixel-level mapping.&lt;/p&gt;
+&lt;p&gt;$$ x_c = K^{-1} x_p $$&lt;/p&gt;
+&lt;p&gt;, where $x$ is camera point and $\hat{x}$ is image point.&lt;/p&gt;
+&lt;p&gt;$${{x_c}^{\prime}}^{\top} E x_c=0$$
+$$\Rightarrow ({{{K^{\prime}}^{-1} {x_p}^{\prime}}})^{\top} E (K^{-1} x_p)=0$$
+$$\Rightarrow ({{x_p}^{\prime}}^{\top} {({K^{\prime}}^{-1}})^{\top}) E (K^{-1} x_p)=0$$&lt;/p&gt;
+&lt;p&gt;$$\Rightarrow ({{x_p}^{\prime}}^{\top}) (({{K^{\prime}}^{-1}})^{\top} E K^{-1}) x_p=0$$
+$$\Rightarrow ({{x_p}^{\prime}}^{\top}) F x_p=0$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Properties of Essential Matrix&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Longuet-Higgins equation ${x^{\prime}}^{\top} F x=0$&lt;/li&gt;
+&lt;li&gt;Epipolar lines
+&lt;ul&gt;
+&lt;li&gt;$x^{\prime}$ belongs to epipolar line in the right image defined by $l_r = F x$&lt;/li&gt;
+&lt;li&gt;$x$ belongs to epipolar line in the left image defined by $l_l = F^{\top} x^{\prime}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Epipoles
+&lt;ul&gt;
+&lt;li&gt;${e^{\prime}}^{\top} F=0$&lt;/li&gt;
+&lt;li&gt;$F e=0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;$F$ has 7 DoF
+&lt;ul&gt;
+&lt;li&gt;$3 * 3$&lt;/li&gt;
+&lt;li&gt;Homogenous&lt;/li&gt;
+&lt;li&gt;Rank = $2$, $\text{det}(F) = 0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;$F$ contains both intrinsic and extrinsic parameters.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;8-point-algorithm&#34;&gt;8-point Algorithm&lt;/h3&gt;
+&lt;p&gt;Given a set of matched pairs $\{ x_m, {x_m}^{\prime}\}$, how to estimate $F$?&lt;/p&gt;
+&lt;p&gt;$${{x_m}^{\prime}}^{\top} F {x_m}=0$$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/8A.jpg&#34;
+	width=&#34;1394&#34;
+	height=&#34;306&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/8A_hu49b520efb2e95a6ee537b02ec5b1b836_38272_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/8A_hu49b520efb2e95a6ee537b02ec5b1b836_38272_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;455&#34;
+		data-flex-basis=&#34;1093px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/8A_2.jpg&#34;
+	width=&#34;1404&#34;
+	height=&#34;486&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/8A_2_hu49b520efb2e95a6ee537b02ec5b1b836_55505_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/8A_2_hu49b520efb2e95a6ee537b02ec5b1b836_55505_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;288&#34;
+		data-flex-basis=&#34;693px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$F$ has $9$ elements, but we don’t care about scaling, so $8$ elements. It turns out it really only has $7$. It uses the fact that the matrix $F$ must be of rank $2$ to fully constrain the matrix. &lt;strong&gt;The constraint is not absolutely unique&lt;/strong&gt; and so three different matrices might be returned (See Zisserman &amp;amp; Hartley’s book for details). Therefore, we need at least $8$ pairs.&lt;/p&gt;
+&lt;p&gt;How can we solve the equation $Af=0$? $A$ is constraint matrix. To find $f$, we perform &lt;strong&gt;SVD&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Normalize points&lt;/li&gt;
+&lt;li&gt;Construct the $M * 9$ matrix $A$&lt;/li&gt;
+&lt;li&gt;Find the SVD of $A^{\top}A$&lt;/li&gt;
+&lt;li&gt;Entries of $F$ are the elements of column of $V$ corresponding to the least singular value&lt;/li&gt;
+&lt;li&gt;Enforce rank 2 constraint on $F$&lt;/li&gt;
+&lt;li&gt;Un-normalize $F$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Pros &amp;amp; Cons&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linear&lt;/li&gt;
+&lt;li&gt;Easy to implement&lt;/li&gt;
+&lt;li&gt;Fast&lt;/li&gt;
+&lt;li&gt;Susceptible to noise&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ransac&#34;&gt;RANSAC&lt;/h3&gt;
+&lt;p&gt;If we use these outlying matches, our estimate $F$ will be wildly inaccurate.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;RANdom SAmple Consensus&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sample (randomly) the number of points $s$ required to fit the model&lt;/li&gt;
+&lt;li&gt;Solve for model parameters using samples&lt;/li&gt;
+&lt;li&gt;Score by the fraction of inliers within a preset threshold of the model&lt;/li&gt;
+&lt;li&gt;Repeat 1-3 until the best model is found with high confidence&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: We call points that are within a certain threshold of the predicted line &amp;ldquo;inliers&amp;rdquo;. Everything else is an outlier. &lt;strong&gt;Ideally, we want an estimated line/model that maximizes the number of inliers.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/RANSAC.jpg&#34;
+	width=&#34;720&#34;
+	height=&#34;302&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/RANSAC_hue1e865826e83441c123bd42d59f64a2c_83651_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/RANSAC_hue1e865826e83441c123bd42d59f64a2c_83651_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;238&#34;
+		data-flex-basis=&#34;572px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pros &amp;amp; Cons&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Robust to outliers&lt;/li&gt;
+&lt;li&gt;Applicable for large number of objective function parameters (than Hough transform)&lt;/li&gt;
+&lt;li&gt;Optimization parameters are easier to choose (than Hough transform)&lt;/li&gt;
+&lt;li&gt;Computational time grows quickly with fraction of outliers and number of parameters&lt;/li&gt;
+&lt;li&gt;Not good for getting multiple fits&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;stereo-pipeline&#34;&gt;Stereo Pipeline&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Calibrating cameras&lt;/li&gt;
+&lt;li&gt;Rectifying images&lt;/li&gt;
+&lt;li&gt;Correspondence&lt;/li&gt;
+&lt;li&gt;Estimate depth&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://math.libretexts.org/Bookshelves/Differential_Equations/Applied_Linear_Algebra_and_Differential_Equations_%28Chasnov%29/02%3A_II._Linear_Algebra/01%3A_Matrices/1.04%3A_Rotation_Matrices_and_Orthogonal_Matrices&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Rotation Matrices and Orthogonal Matrices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cs.cmu.edu/~16385/s17/Slides/12.2_Essential_Matrix.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Essential Matrix - 16-385 Computer Vision (Kris Kitani @ CMU)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cs.cmu.edu/~16385/s17/Slides/12.3_Fundamental_Matrix.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Fundamental Matrix - 16-385 Computer Vision (Kris Kitani @ CMU)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 </description>
         </item>
