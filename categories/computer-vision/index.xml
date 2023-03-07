@@ -6,6 +6,392 @@
         <description>Recent content in Computer Vision on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/computer-vision/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Computer Vision] Stereo Matching</title>
+        <link>https://tonyfpy.github.io/p/computer-vision-stereo-matching/</link>
+        <pubDate>Tue, 07 Mar 2023 15:15:37 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/computer-vision-stereo-matching/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Mar 7th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Mar 7th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;stereo-pipeline&#34;&gt;Stereo Pipeline&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Calibrating cameras&lt;/li&gt;
+&lt;li&gt;Rectifying images (i.e. 8-point algorithm)&lt;/li&gt;
+&lt;li&gt;Correspondence&lt;/li&gt;
+&lt;li&gt;Estimate depth&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Correspondence here means &lt;strong&gt;dense correspondence&lt;/strong&gt;, i.e. for each point on the left image we find its correspondence on the right.&lt;/p&gt;
+&lt;p&gt;Correspondence allows measurement of &lt;strong&gt;disparity&lt;/strong&gt;: the difference in the image coordinates of the projections of a given world point into each camera.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;basic-stereo-matching&#34;&gt;Basic Stereo Matching&lt;/h2&gt;
+&lt;h3 id=&#34;algorithm&#34;&gt;Algorithm&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Rectify the two stereo images to transform epipolar lines into scanlines&lt;/li&gt;
+&lt;li&gt;For each pixel x in the first image
+&lt;ul&gt;
+&lt;li&gt;Find the corresponding epipolar scanline in the right image&lt;/li&gt;
+&lt;li&gt;Examine all pixels on the scanline and pick the best match $x&#39;$&lt;/li&gt;
+&lt;li&gt;Compute disparity $x - x&amp;rsquo;$ and set depth $ Z = f \frac{T}{x - x&amp;rsquo;}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;effect-of-window-size&#34;&gt;Effect of Window Size&lt;/h3&gt;
+&lt;p&gt;When calculating SSD or Normalised Correlation of an image window is chosen around the point:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Smaller window: more detail but more noise&lt;/li&gt;
+&lt;li&gt;Larger window: Smoother disparity maps but less detail&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;problems&#34;&gt;Problems&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Window size is fixed across the image, but viewed objects differ in size and depth.&lt;/li&gt;
+&lt;li&gt;Uniform regions always match.&lt;/li&gt;
+&lt;li&gt;Values on dense disparity map are only reliable where there is some local variation in intensity e.g. near edges.&lt;/li&gt;
+&lt;li&gt;Dense disparity is computationally expensive in spatial domain.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/WBSM.jpg&#34;
+	width=&#34;476&#34;
+	height=&#34;119&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/WBSM_hu4b01d993797e827ce686cf2d0ff6fa09_24875_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/WBSM_hu4b01d993797e827ce686cf2d0ff6fa09_24875_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;400&#34;
+		data-flex-basis=&#34;960px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;stereo-constraints&#34;&gt;Stereo Constraints&lt;/h2&gt;
+&lt;p&gt;So far, matches are independent for each point. What constraints or priors can we add?&lt;/p&gt;
+&lt;h3 id=&#34;uniqueness&#34;&gt;Uniqueness&lt;/h3&gt;
+&lt;p&gt;For any point in one image, there should be at most one matching point in the other image&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/uniqueness.jpg&#34;
+	width=&#34;590&#34;
+	height=&#34;445&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/uniqueness_hu22c8d4348f19a142ca4ec8420f043108_24635_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/uniqueness_hu22c8d4348f19a142ca4ec8420f043108_24635_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;318px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ordering&#34;&gt;Ordering&lt;/h3&gt;
+&lt;p&gt;Corresponding points should be in the same order in both views for most cases.&lt;/p&gt;
+&lt;p&gt;Ordering constraint doesn&amp;rsquo;t hold when occlusion occurs.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/ordering.jpg&#34;
+	width=&#34;523&#34;
+	height=&#34;405&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/ordering_hu80fa10887dfb9660aa4d45d44659c01c_24248_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/ordering_hu80fa10887dfb9660aa4d45d44659c01c_24248_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;129&#34;
+		data-flex-basis=&#34;309px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/ordering2.jpg&#34;
+	width=&#34;401&#34;
+	height=&#34;327&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/ordering2_huc2bf05fd10c2f74c3f19d1812ad36d6c_20181_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/ordering2_huc2bf05fd10c2f74c3f19d1812ad36d6c_20181_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;122&#34;
+		data-flex-basis=&#34;294px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;smoothness&#34;&gt;Smoothness&lt;/h3&gt;
+&lt;p&gt;We expect disparity values to change slowly (for the most part).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;disparity-space-image&#34;&gt;Disparity Space Image&lt;/h2&gt;
+&lt;h3 id=&#34;idea&#34;&gt;Idea&lt;/h3&gt;
+&lt;p&gt;DSI for one row represents pairwise match scores between patches along that row in the left and right image.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI1.jpg&#34;
+	width=&#34;763&#34;
+	height=&#34;377&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI1_huf61b5a5414bdeb6835262be0f62d18b2_39609_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI1_huf61b5a5414bdeb6835262be0f62d18b2_39609_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;202&#34;
+		data-flex-basis=&#34;485px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;dsi-formation&#34;&gt;DSI Formation&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI2.jpg&#34;
+	width=&#34;800&#34;
+	height=&#34;519&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI2_hu477805887471ae734b9d0b21b7374633_85766_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI2_hu477805887471ae734b9d0b21b7374633_85766_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;154&#34;
+		data-flex-basis=&#34;369px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;goal&#34;&gt;Goal&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI3.jpg&#34;
+	width=&#34;825&#34;
+	height=&#34;543&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI3_hu65fb24e3e58d9f5ea587b34e98e3dd5f_105671_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI3_hu65fb24e3e58d9f5ea587b34e98e3dd5f_105671_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;151&#34;
+		data-flex-basis=&#34;364px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Assigning disparities to all pixels in the left scanline now amount to finding &lt;strong&gt;a connected path&lt;/strong&gt; through DSI. We need to find the minimum cost path through the matrix of all pairwise matches between two corresponding rasters.&lt;/p&gt;
+&lt;h3 id=&#34;correspondence-search&#34;&gt;Correspondence Search&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI4.jpg&#34;
+	width=&#34;839&#34;
+	height=&#34;540&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI4_huc90957df8eeb3e2792b9e492db8797a3_55278_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI4_huc90957df8eeb3e2792b9e492db8797a3_55278_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;155&#34;
+		data-flex-basis=&#34;372px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;As we traverse the scanline there are 3 possibilities&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pixels match, at a cost based on similarity&lt;/li&gt;
+&lt;li&gt;Left occlusion, at a cost associated with an unmatched pixel&lt;/li&gt;
+&lt;li&gt;Right occlusion, at a cost associated with an unmatched pixel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI5.jpg&#34;
+	width=&#34;527&#34;
+	height=&#34;308&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI5_hu65842d54958d038783a2da43d7b84585_26286_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI5_hu65842d54958d038783a2da43d7b84585_26286_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;171&#34;
+		data-flex-basis=&#34;410px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Assuming that row, column of DSI represents right and left image respectively.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI_cost.jpg&#34;
+	width=&#34;708&#34;
+	height=&#34;286&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI_cost_hud0c7ec335da4c34292cf22e5bbd7bb7c_30262_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/DSI_cost_hud0c7ec335da4c34292cf22e5bbd7bb7c_30262_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;247&#34;
+		data-flex-basis=&#34;594px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-matching/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;$$C(i, j) = \text{min}(C(i-1, j-1) + D(i, j), C(i-1, j) + OC, C(i, j-1) + OC) $$&lt;/p&gt;
+&lt;p&gt;, where $C$ means cost, $D$ means dissimilarity, $OC$ means occlusioin constant.&lt;/p&gt;
+&lt;h3 id=&#34;performance&#34;&gt;Performance&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Strengths&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Produces good results in polynomial time&lt;/li&gt;
+&lt;li&gt;Can deal with occlusions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Weaknesses&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Can be hard to find the right cost function&lt;/li&gt;
+&lt;li&gt;Hard to enforce consistency between neighbouring rasters along vertical direction.&lt;/li&gt;
+&lt;li&gt;Must enforce the ordering constraint&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Computer Vision] Stereo Vision</title>
         <link>https://tonyfpy.github.io/p/computer-vision-stereo-vision/</link>
         <pubDate>Thu, 23 Feb 2023 17:21:09 -0500</pubDate>
@@ -14,12 +400,28 @@
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on Feb 23th, 2022&lt;/p&gt;
-&lt;p&gt;Last Modified on Feb 23th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Mar 7th, 2022&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;basic-ideas&#34;&gt;Basic Ideas&lt;/h2&gt;
+&lt;h2 id=&#34;multi-view-geometry&#34;&gt;Multi-view Geometry&lt;/h2&gt;
+&lt;h3 id=&#34;problems&#34;&gt;Problems&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Camera Motion&lt;/li&gt;
+&lt;li&gt;Stereo Correspondence&lt;/li&gt;
+&lt;li&gt;Structure from Motion&lt;/li&gt;
+&lt;li&gt;Optical Flow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;general-pipeline&#34;&gt;General Pipeline&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Calibrating cameras&lt;/li&gt;
+&lt;li&gt;Rectifying images&lt;/li&gt;
+&lt;li&gt;Correspondence&lt;/li&gt;
+&lt;li&gt;Estimate depth&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;stereo-geometry&#34;&gt;Stereo Geometry&lt;/h2&gt;
 &lt;p&gt;One case of 3D reconstruction is when we don’t know how far a 3D object is nor the shape of it. But we do know the camera geometry and the projection of that shape onto our images. Now, we’re trying to find what $X$ is.&lt;/p&gt;
 &lt;p&gt;However, multiple points in 3D can result to the same projection!&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
@@ -93,7 +495,7 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;In the depth image, brighter means it’s closer to the camera, and darker means it’s farther to the camera.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;stereo-geometry&#34;&gt;Stereo Geometry&lt;/h2&gt;
+&lt;h2 id=&#34;calibrated-stereo-case&#34;&gt;Calibrated Stereo Case&lt;/h2&gt;
 &lt;h3 id=&#34;parallel-calibrated-cameras&#34;&gt;Parallel Calibrated Cameras&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/SVDE.jpg&#34;
 	width=&#34;530&#34;
@@ -178,6 +580,7 @@
 		data-flex-basis=&#34;126px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;p&gt;Depth is inversely proportional to disparity.&lt;/p&gt;
 &lt;p&gt;$$\frac{T}{Z} = \frac{T + x_r - x_l}{Z - f}$$&lt;/p&gt;
 &lt;h3 id=&#34;scanline&#34;&gt;Scanline&lt;/h3&gt;
 &lt;p&gt;For each point $P_l$, how do I get $P_r$? By matching. Patch around $P_l$ should look similar to the patch around $P_r$. We can scan the line and compare patches between two images.&lt;/p&gt;
@@ -229,14 +632,14 @@
 	
 &gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/MC.jpg&#34;
 	width=&#34;945&#34;
-	height=&#34;656&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/MC_huf882c919b76c8a76580fd50669b42b71_126808_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/MC_huf882c919b76c8a76580fd50669b42b71_126808_1024x0_resize_q75_box.jpg 1024w&#34;
+	height=&#34;243&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/MC_huf13590dca6a263044442dea6154afe0a_65026_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-stereo-vision/MC_huf13590dca6a263044442dea6154afe0a_65026_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;144&#34;
-		data-flex-basis=&#34;345px&#34;
+		data-flex-grow=&#34;388&#34;
+		data-flex-basis=&#34;933px&#34;
 	
 &gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
 	width=&#34;136&#34;
@@ -467,7 +870,8 @@ $$\Rightarrow ({{x_p}^{\prime}}^{\top}) F x_p=0$$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;$F$ contains both intrinsic and extrinsic parameters.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;8-point-algorithm&#34;&gt;8-point Algorithm&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;8-point-algorithm&#34;&gt;8-point Algorithm&lt;/h2&gt;
 &lt;p&gt;Given a set of matched pairs $\{ x_m, {x_m}^{\prime}\}$, how to estimate $F$?&lt;/p&gt;
 &lt;p&gt;$${{x_m}^{\prime}}^{\top} F {x_m}=0$$&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-stereo-vision/white.jpg&#34;
@@ -555,7 +959,8 @@ $$\Rightarrow ({{x_p}^{\prime}}^{\top}) F x_p=0$$&lt;/p&gt;
 &lt;li&gt;Fast&lt;/li&gt;
 &lt;li&gt;Susceptible to noise&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;ransac&#34;&gt;RANSAC&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;ransac&#34;&gt;RANSAC&lt;/h2&gt;
 &lt;p&gt;If we use these outlying matches, our estimate $F$ will be wildly inaccurate.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;RANdom SAmple Consensus&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -606,14 +1011,6 @@ $$\Rightarrow ({{x_p}^{\prime}}^{\top}) F x_p=0$$&lt;/p&gt;
 &lt;li&gt;Optimization parameters are easier to choose (than Hough transform)&lt;/li&gt;
 &lt;li&gt;Computational time grows quickly with fraction of outliers and number of parameters&lt;/li&gt;
 &lt;li&gt;Not good for getting multiple fits&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;stereo-pipeline&#34;&gt;Stereo Pipeline&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Calibrating cameras&lt;/li&gt;
-&lt;li&gt;Rectifying images&lt;/li&gt;
-&lt;li&gt;Correspondence&lt;/li&gt;
-&lt;li&gt;Estimate depth&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
