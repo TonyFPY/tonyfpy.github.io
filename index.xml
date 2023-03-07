@@ -6,15 +6,6 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>NAME</title>
-        <link>https://tonyfpy.github.io/p/name/</link>
-        <pubDate>Fri, 03 Mar 2023 23:29:42 -0500</pubDate>
-        
-        <guid>https://tonyfpy.github.io/p/name/</guid>
-        <description>&lt;hr&gt;
-</description>
-        </item>
-        <item>
         <title>[Computer Vision] Stereo Vision</title>
         <link>https://tonyfpy.github.io/p/computer-vision-stereo-vision/</link>
         <pubDate>Thu, 23 Feb 2023 17:21:09 -0500</pubDate>
@@ -376,7 +367,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;$$x^{\prime}= R(x - t)$$
-$$\Rightarrow x^{\prime} R^{-1}= t \times x $$&lt;/p&gt;
+$$\Rightarrow x^{\prime} R^{-1}= x - t $$&lt;/p&gt;
 &lt;p&gt;Camera-camera transformation is just world-camera transformation. Since three vectors $x$, $t$, $x^{\prime}$ are &lt;strong&gt;co-planar&lt;/strong&gt;, then&lt;/p&gt;
 &lt;p&gt;$$x^{\top}(t \times x)=0 $$&lt;/p&gt;
 &lt;p&gt;$$\Rightarrow (x-t)^{\top}(t \times x)=0 $$&lt;/p&gt;

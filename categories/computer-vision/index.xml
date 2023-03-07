@@ -367,7 +367,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;$$x^{\prime}= R(x - t)$$
-$$\Rightarrow x^{\prime} R^{-1}= t \times x $$&lt;/p&gt;
+$$\Rightarrow x^{\prime} R^{-1}= x - t $$&lt;/p&gt;
 &lt;p&gt;Camera-camera transformation is just world-camera transformation. Since three vectors $x$, $t$, $x^{\prime}$ are &lt;strong&gt;co-planar&lt;/strong&gt;, then&lt;/p&gt;
 &lt;p&gt;$$x^{\top}(t \times x)=0 $$&lt;/p&gt;
 &lt;p&gt;$$\Rightarrow (x-t)^{\top}(t \times x)=0 $$&lt;/p&gt;
