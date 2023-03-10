@@ -6,6 +6,376 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Computer Vision] Visual Bag of Words</title>
+        <link>https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/</link>
+        <pubDate>Thu, 09 Mar 2023 17:20:54 -0500</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Mar 9th, 2022&lt;/p&gt;
+&lt;p&gt;Last Modified on Mar 9th, 2022&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This sereis of posts contains a summary of materials and readings from the course &lt;strong&gt;CSCI 1430 Computer Vision&lt;/strong&gt; that I&amp;rsquo;ve taken @ &lt;strong&gt;Brown University&lt;/strong&gt;. This course covers the topics of fundamentals of image formation, camera imaging geometry, feature detection and matching, stereo, motion estimation and tracking, image classification, scene understanding, and deep learning with neural networks. I posted these &amp;ldquo;Notes&amp;rdquo; (what I&amp;rsquo;ve learnt) for study and review only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;history-of-recognition&#34;&gt;History of Recognition&lt;/h2&gt;
+&lt;h3 id=&#34;geometric-data&#34;&gt;Geometric Data&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;1960s – early 1990s&lt;/li&gt;
+&lt;li&gt;Camera Position Illumination&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.di.ens.fr/~ponce/mundy.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Recognition as an alignment problem&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;e.g. fitting a model to a transformation between feature pairs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://en.wikipedia.org/wiki/Recognition_by_Components_Theory&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Recognition by components&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;appearance-based-models&#34;&gt;Appearance-based Models&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;1990s&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://towardsdatascience.com/eigenfaces-recovering-humans-from-ghosts-17606c328184&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Eigenfaces&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.inf.ed.ac.uk/teaching/courses/av/LECTURE_NOTES/swainballard91.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Color Histogram&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;sliding-window-approaches&#34;&gt;Sliding Window Approaches&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Mid 1990s&lt;/li&gt;
+&lt;li&gt;sliding window + image pyramid $\rightarrow$ scale + location&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;local-features&#34;&gt;Local Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Late 1990s&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cs.ubc.ca/~lowe/papers/iccv99.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Local features for object instance recognition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.robots.ox.ac.uk/~vgg/publications/papers/philbin07.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Large-scale Image Search&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;parts-and-shape-models&#34;&gt;Parts-and-shape Models&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Early 2000s&lt;/li&gt;
+&lt;li&gt;Model
+&lt;ul&gt;
+&lt;li&gt;Objects as a set of parts&lt;/li&gt;
+&lt;li&gt;Relative locations between parts&lt;/li&gt;
+&lt;li&gt;Appearance of part&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cs.princeton.edu/courses/archive/fall07/cos429/slides/constellation_model.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Constellation Models&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cs.cornell.edu/~dph/papers/pict-struct-ijcv.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pictorial Structure Model&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bags-of-features&#34;&gt;Bags of Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Mid-2000s&lt;/li&gt;
+&lt;li&gt;Origins
+&lt;ul&gt;
+&lt;li&gt;Texture Recognition&lt;/li&gt;
+&lt;li&gt;Bag-of-words models&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;bags-of-featuresforobject-recognition&#34;&gt;Bags of Features	for	Object Recognition&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/BOF.jpg&#34;
+	width=&#34;691&#34;
+	height=&#34;250&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/BOF_hu6f4af37efd2be5ccd5b64b1f81a65c0c_57020_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/BOF_hu6f4af37efd2be5ccd5b64b1f81a65c0c_57020_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;276&#34;
+		data-flex-basis=&#34;663px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;It works pretty	well for image-level classification	and	for	recognizing	object instances.&lt;/p&gt;
+&lt;h3 id=&#34;bags-of-features-steps&#34;&gt;Bags of Features Steps&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Feature extraction
+&lt;ul&gt;
+&lt;li&gt;Regular Grids&lt;/li&gt;
+&lt;li&gt;Interest Regions&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/grid.jpg&#34;
+	width=&#34;380&#34;
+	height=&#34;294&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/grid_huef8f63cd77cf2ccd686ec5455108de73_38789_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/grid_huef8f63cd77cf2ccd686ec5455108de73_38789_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;129&#34;
+		data-flex-basis=&#34;310px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/IPD.jpg&#34;
+	width=&#34;382&#34;
+	height=&#34;298&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/IPD_hu11759e96e1f84686be2ee8b8a33668cf_67218_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/IPD_hu11759e96e1f84686be2ee8b8a33668cf_67218_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;128&#34;
+		data-flex-basis=&#34;307px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Form a &amp;ldquo;visual vocabulary&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/VV.jpg&#34;
+	width=&#34;515&#34;
+	height=&#34;358&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/VV_hu9fd7b909af5ba157e721b62777e287cd_49907_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/VV_hu9fd7b909af5ba157e721b62777e287cd_49907_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;143&#34;
+		data-flex-basis=&#34;345px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Quantize features using visual vocabulary&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/VC.jpg&#34;
+	width=&#34;677&#34;
+	height=&#34;320&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/VC_hu0157d1db0bc937f18b07521996c2be91_40310_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/VC_hu0157d1db0bc937f18b07521996c2be91_40310_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;211&#34;
+		data-flex-basis=&#34;507px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Learn the	visual vocabulary&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/clustering.jpg&#34;
+	width=&#34;575&#34;
+	height=&#34;361&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/clustering_hu285f4099d7c06926fa9bc2e8115c4c68_30897_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/clustering_hu285f4099d7c06926fa9bc2e8115c4c68_30897_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;159&#34;
+		data-flex-basis=&#34;382px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;issues&#34;&gt;Issues&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;How to choose the size of the visual vocbulary?
+&lt;ul&gt;
+&lt;li&gt;Too small: features are not representative&lt;/li&gt;
+&lt;li&gt;Too large: overfitting&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Computational efficiency&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;spatial-pyramid-matching&#34;&gt;Spatial Pyramid Matching&lt;/h2&gt;
+&lt;h3 id=&#34;color-histogram&#34;&gt;Color Histogram&lt;/h3&gt;
+&lt;p&gt;All of these images have the same color histogram. How can we encode the spatial layout?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/CH.jpg&#34;
+	width=&#34;725&#34;
+	height=&#34;353&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/CH_hua5a741c7fb8a408c0e02d98e0d5b4322_62900_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/CH_hua5a741c7fb8a408c0e02d98e0d5b4322_62900_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;205&#34;
+		data-flex-basis=&#34;492px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;pyramids&#34;&gt;Pyramids&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Pyramid is built by using multiple copies of image.&lt;/li&gt;
+&lt;li&gt;Each level in the pyramid is $\frac{1}{4}$ of the size of previous level.&lt;/li&gt;
+&lt;li&gt;The lowest level is of the highest resolution.&lt;/li&gt;
+&lt;li&gt;The highest level is of the lowest resolution.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/pyramid.jpg&#34;
+	width=&#34;782&#34;
+	height=&#34;448&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/pyramid_hu7a33412c6839a384a3d647e788856e07_70006_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/pyramid_hu7a33412c6839a384a3d647e788856e07_70006_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;418px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
         <title>[Computer Vision] Stereo Matching</title>
         <link>https://tonyfpy.github.io/p/computer-vision-stereo-matching/</link>
         <pubDate>Tue, 07 Mar 2023 15:15:37 -0500</pubDate>
