@@ -81,7 +81,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;bags-of-featuresforobject-recognition&#34;&gt;Bags of Features	for	Object Recognition&lt;/h2&gt;
+&lt;h2 id=&#34;bags-of-features-1&#34;&gt;Bags of Features&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/white.jpg&#34;
 	width=&#34;136&#34;
 	height=&#34;259&#34;
@@ -117,7 +117,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;It works pretty	well for image-level classification	and	for	recognizing	object instances.&lt;/p&gt;
-&lt;h3 id=&#34;bags-of-features-steps&#34;&gt;Bags of Features Steps&lt;/h3&gt;
+&lt;h3 id=&#34;steps&#34;&gt;Steps&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Feature extraction
 &lt;ul&gt;
