@@ -19,6 +19,8 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
 &lt;blockquote&gt;
+&lt;p&gt;Title: Adversarial Examples that Fool both Computer Vision and Time-Limited Humans&lt;/p&gt;
+&lt;p&gt;Source: NeurIPS 2018&lt;/p&gt;
 &lt;p&gt;Links: &lt;a class=&#34;link&#34; href=&#34;https://proceedings.neurips.cc/paper/2018/hash/8562ae5e286544710b2e7ebe9858833b-Abstract.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Website&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://proceedings.neurips.cc/paper_files/paper/2018/file/8562ae5e286544710b2e7ebe9858833b-Paper.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;PDF&lt;/a&gt;&lt;/p&gt;
@@ -37,13 +39,13 @@
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;research-questions&#34;&gt;Research Questions&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;The paper aims to answer whether human visual system will be influenced by adversarial examples that fool computer vision models.&lt;/li&gt;
+&lt;li&gt;The paper aims to answer whether &lt;strong&gt;human visual system&lt;/strong&gt; will be influenced by &lt;strong&gt;adversarial examples&lt;/strong&gt; that fool computer vision models.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;how&#34;&gt;How&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Constructing adversarial examples by targeted attack without access to the model’s architecture or parameters.&lt;/li&gt;
 &lt;li&gt;Adapting machine learning models to mimic the initial visual processing of humans.&lt;/li&gt;
-&lt;li&gt;Evaluating classification decisions of human observers in a time-limited setting.&lt;/li&gt;
+&lt;li&gt;Evaluating classification decisions of human observers in a &lt;strong&gt;time-limited&lt;/strong&gt; setting.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;findings&#34;&gt;Findings&lt;/h3&gt;
 &lt;ul&gt;
@@ -52,9 +54,9 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Adversarial examples can deceive computer vision models through subtle image modifications, even transferring across different models to attack inaccessible targets.&lt;/li&gt;
-&lt;li&gt;While humans also exhibit errors to certain inputs (e.g. optical illusions, cognitive biases), these generally do not resemble adversarial examples. Yet no thorough empirical investigation has yet been performed.&lt;/li&gt;
-&lt;li&gt;Recent research shows that CNNs and the primate visual system exhibit similar representation and behavior. This suggests the potential transfer of adversarial examples from computer vision models to humans.&lt;/li&gt;
+&lt;li&gt;Adversarial examples can fool computer vision models through subtle image modifications, even transferring across different models to attack inaccessible targets.&lt;/li&gt;
+&lt;li&gt;While humans also exhibit errors to certain inputs (e.g. &lt;strong&gt;optical illusions&lt;/strong&gt;, &lt;strong&gt;cognitive biases&lt;/strong&gt;), these generally do not resemble adversarial examples. Yet no thorough empirical investigation has yet been performed.&lt;/li&gt;
+&lt;li&gt;Recent research shows that CNNs and the primate visual system exhibit similar representation and behavior. &lt;strong&gt;This suggests the potential transfer of adversarial examples from computer vision models to humans.&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Studying the above question benefits both machine learning and neuroscience, facilitating knowledge exchange between the two fields.
 &lt;ul&gt;
 &lt;li&gt;If the human brain can resist certain adversarial examples, it would imply the existence of a similar mechanism in machine learning security.&lt;/li&gt;
@@ -68,7 +70,7 @@
 &lt;h3 id=&#34;ml-vision-pipeline&#34;&gt;ML Vision Pipeline&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Combining ImageNet images into six coarse categories in three groups: Pets (dog, cat), Vegetables (broccoli, cabbage), Hazard (spider, snake)&lt;/li&gt;
-&lt;li&gt;Training ensemble of 10 CNN models with an additional retinal layer to better match early human visual processing (e.g. spatial blurring)&lt;/li&gt;
+&lt;li&gt;Training ensemble of 10 CNN models with an additional &lt;strong&gt;retinal layer&lt;/strong&gt; to better match early human visual processing (e.g. spatial blurring)&lt;/li&gt;
 &lt;li&gt;Generating targeted adversarial examples that strongly transfer across models&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;human-psychophysics-experiment&#34;&gt;Human Psychophysics Experiment&lt;/h3&gt;
@@ -108,7 +110,7 @@
 &gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;38 subjects classified images into two classes while seated in a fixed chair (two alternative forced choice).&lt;/li&gt;
-&lt;li&gt;Images were displayed for 63ms after a brief fixation period, followed by ten high contrast binary random masks (each lasting 20ms).&lt;/li&gt;
+&lt;li&gt;Images were displayed for 63ms after a brief fixation period, followed by ten h&lt;strong&gt;igh contrast binary random masks&lt;/strong&gt; (each lasting 20ms).&lt;/li&gt;
 &lt;li&gt;Participants had a maximum of 2200ms after the mask disappeared to respond, facilitating the detection of even subtle effects on perception.&lt;/li&gt;
 &lt;li&gt;Each session focused on one of the image groups (Pets, Vegetables, Hazard), with images falling into one of four conditions.
 &lt;ul&gt;
@@ -170,11 +172,11 @@
 &lt;li&gt;Without a time limit, humans still get the correct class, suggesting that:
 &lt;ul&gt;
 &lt;li&gt;The adversarial perturbations do not change the &amp;ldquo;true class&amp;rdquo;.&lt;/li&gt;
-&lt;li&gt;Recurrent connections could add robustness to adversarial examples.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Recurrent connections&lt;/strong&gt; could add robustness to adversarial examples.&lt;/li&gt;
 &lt;li&gt;Adversarial examples do not transfer well from feed-forward to recurrent networks&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Qualitatively, perturbations seem to work by modifying object edges, modifying textures, and taking advantage of dark regions (lager perceptual change for given size perturbation)&lt;/li&gt;
+&lt;li&gt;Qualitatively, perturbations seem to work by modifying object &lt;strong&gt;edges&lt;/strong&gt;, modifying &lt;strong&gt;textures&lt;/strong&gt;, and taking advantage of &lt;strong&gt;dark regions&lt;/strong&gt; (lager perceptual change for given size perturbation)&lt;/li&gt;
 &lt;li&gt;Results open up a lot of questions for further investigation:
 &lt;ul&gt;
 &lt;li&gt;How does transfer depend on $\epsilon$?&lt;/li&gt;
@@ -188,7 +190,7 @@
 &lt;h3 id=&#34;why-time-limited-settings&#34;&gt;Why time-limited settings?&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Brief image presentations prevent humans from achieving perfect accuracy, and even small changes in performance result in noticeable changes in accuracy.&lt;/li&gt;
-&lt;li&gt;Limited time for image processing restricts the utilization of recurrent and top-down processing pathways in the brain. This leads to the brain&amp;rsquo;s processing resembling that of a feedforward artificial neural network.&lt;/li&gt;
+&lt;li&gt;Limited time for image processing restricts the utilization of recurrent and top-down processing pathways in the brain. &lt;strong&gt;This leads to the brain&amp;rsquo;s processing resembling that of a feedforward artificial neural network.&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;how-to-control-the-degree-of-purtubations&#34;&gt;How to control the degree of purtubations?&lt;/h3&gt;
 &lt;ul&gt;

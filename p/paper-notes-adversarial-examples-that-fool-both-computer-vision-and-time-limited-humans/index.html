@@ -4,8 +4,10 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Authored by Tony Feng
 Created on June 23rd, 2023
 Last Modified on July 2nd, 2023
-  Summary  Links: Website, PDF
- Research Questions  The paper aims to answer whether human visual system will be influenced by adversarial examples that fool computer vision models.  How  Constructing adversarial examples by targeted attack without access to the model’s architecture or parameters. Adapting machine learning models to mimic the initial visual processing of humans.'><title>[Paper Notes] Adversarial Examples that Fool both Computer Vision and Time-Limited Humans</title>
+  Summary  Title: Adversarial Examples that Fool both Computer Vision and Time-Limited Humans
+Source: NeurIPS 2018
+Links: Website, PDF
+ Research Questions  The paper aims to answer whether human visual system will be influenced by adversarial examples that fool computer vision models.  How  Constructing adversarial examples by targeted attack without access to the model’s architecture or parameters.'><title>[Paper Notes] Adversarial Examples that Fool both Computer Vision and Time-Limited Humans</title>
 
 <link rel='canonical' href='https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/'>
 
@@ -13,17 +15,21 @@ Last Modified on July 2nd, 2023
 <meta property='og:description' content='Authored by Tony Feng
 Created on June 23rd, 2023
 Last Modified on July 2nd, 2023
-  Summary  Links: Website, PDF
- Research Questions  The paper aims to answer whether human visual system will be influenced by adversarial examples that fool computer vision models.  How  Constructing adversarial examples by targeted attack without access to the model’s architecture or parameters. Adapting machine learning models to mimic the initial visual processing of humans.'>
+  Summary  Title: Adversarial Examples that Fool both Computer Vision and Time-Limited Humans
+Source: NeurIPS 2018
+Links: Website, PDF
+ Research Questions  The paper aims to answer whether human visual system will be influenced by adversarial examples that fool computer vision models.  How  Constructing adversarial examples by targeted attack without access to the model’s architecture or parameters.'>
 <meta property='og:url' content='https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/'>
 <meta property='og:site_name' content='Tony Feng'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Neuro AI' /><meta property='article:published_time' content='2023-06-23T15:38:13-04:00'/><meta property='article:modified_time' content='2023-07-03T16:54:16-04:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Neuro AI' /><meta property='article:published_time' content='2023-06-23T15:38:13-04:00'/><meta property='article:modified_time' content='2023-07-03T17:01:38-04:00'/>
 <meta name="twitter:title" content="[Paper Notes] Adversarial Examples that Fool both Computer Vision and Time-Limited Humans">
 <meta name="twitter:description" content="Authored by Tony Feng
 Created on June 23rd, 2023
 Last Modified on July 2nd, 2023
-  Summary  Links: Website, PDF
- Research Questions  The paper aims to answer whether human visual system will be influenced by adversarial examples that fool computer vision models.  How  Constructing adversarial examples by targeted attack without access to the model’s architecture or parameters. Adapting machine learning models to mimic the initial visual processing of humans.">
+  Summary  Title: Adversarial Examples that Fool both Computer Vision and Time-Limited Humans
+Source: NeurIPS 2018
+Links: Website, PDF
+ Research Questions  The paper aims to answer whether human visual system will be influenced by adversarial examples that fool computer vision models.  How  Constructing adversarial examples by targeted attack without access to the model’s architecture or parameters.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -367,6 +373,8 @@ Last Modified on July 2nd, 2023
 <hr>
 <h2 id="summary">Summary</h2>
 <blockquote>
+<p>Title: Adversarial Examples that Fool both Computer Vision and Time-Limited Humans</p>
+<p>Source: NeurIPS 2018</p>
 <p>Links: <a class="link" href="https://proceedings.neurips.cc/paper/2018/hash/8562ae5e286544710b2e7ebe9858833b-Abstract.html"  target="_blank" rel="noopener"
     >Website</a>, <a class="link" href="https://proceedings.neurips.cc/paper_files/paper/2018/file/8562ae5e286544710b2e7ebe9858833b-Paper.pdf"  target="_blank" rel="noopener"
     >PDF</a></p>
@@ -385,13 +393,13 @@ Last Modified on July 2nd, 2023
 ></p>
 <h3 id="research-questions">Research Questions</h3>
 <ul>
-<li>The paper aims to answer whether human visual system will be influenced by adversarial examples that fool computer vision models.</li>
+<li>The paper aims to answer whether <strong>human visual system</strong> will be influenced by <strong>adversarial examples</strong> that fool computer vision models.</li>
 </ul>
 <h3 id="how">How</h3>
 <ul>
 <li>Constructing adversarial examples by targeted attack without access to the model’s architecture or parameters.</li>
 <li>Adapting machine learning models to mimic the initial visual processing of humans.</li>
-<li>Evaluating classification decisions of human observers in a time-limited setting.</li>
+<li>Evaluating classification decisions of human observers in a <strong>time-limited</strong> setting.</li>
 </ul>
 <h3 id="findings">Findings</h3>
 <ul>
@@ -400,9 +408,9 @@ Last Modified on July 2nd, 2023
 <hr>
 <h2 id="background">Background</h2>
 <ul>
-<li>Adversarial examples can deceive computer vision models through subtle image modifications, even transferring across different models to attack inaccessible targets.</li>
-<li>While humans also exhibit errors to certain inputs (e.g. optical illusions, cognitive biases), these generally do not resemble adversarial examples. Yet no thorough empirical investigation has yet been performed.</li>
-<li>Recent research shows that CNNs and the primate visual system exhibit similar representation and behavior. This suggests the potential transfer of adversarial examples from computer vision models to humans.</li>
+<li>Adversarial examples can fool computer vision models through subtle image modifications, even transferring across different models to attack inaccessible targets.</li>
+<li>While humans also exhibit errors to certain inputs (e.g. <strong>optical illusions</strong>, <strong>cognitive biases</strong>), these generally do not resemble adversarial examples. Yet no thorough empirical investigation has yet been performed.</li>
+<li>Recent research shows that CNNs and the primate visual system exhibit similar representation and behavior. <strong>This suggests the potential transfer of adversarial examples from computer vision models to humans.</strong></li>
 <li>Studying the above question benefits both machine learning and neuroscience, facilitating knowledge exchange between the two fields.
 <ul>
 <li>If the human brain can resist certain adversarial examples, it would imply the existence of a similar mechanism in machine learning security.</li>
@@ -416,7 +424,7 @@ Last Modified on July 2nd, 2023
 <h3 id="ml-vision-pipeline">ML Vision Pipeline</h3>
 <ul>
 <li>Combining ImageNet images into six coarse categories in three groups: Pets (dog, cat), Vegetables (broccoli, cabbage), Hazard (spider, snake)</li>
-<li>Training ensemble of 10 CNN models with an additional retinal layer to better match early human visual processing (e.g. spatial blurring)</li>
+<li>Training ensemble of 10 CNN models with an additional <strong>retinal layer</strong> to better match early human visual processing (e.g. spatial blurring)</li>
 <li>Generating targeted adversarial examples that strongly transfer across models</li>
 </ul>
 <h3 id="human-psychophysics-experiment">Human Psychophysics Experiment</h3>
@@ -456,7 +464,7 @@ Last Modified on July 2nd, 2023
 ></p>
 <ul>
 <li>38 subjects classified images into two classes while seated in a fixed chair (two alternative forced choice).</li>
-<li>Images were displayed for 63ms after a brief fixation period, followed by ten high contrast binary random masks (each lasting 20ms).</li>
+<li>Images were displayed for 63ms after a brief fixation period, followed by ten h<strong>igh contrast binary random masks</strong> (each lasting 20ms).</li>
 <li>Participants had a maximum of 2200ms after the mask disappeared to respond, facilitating the detection of even subtle effects on perception.</li>
 <li>Each session focused on one of the image groups (Pets, Vegetables, Hazard), with images falling into one of four conditions.
 <ul>
@@ -518,11 +526,11 @@ Last Modified on July 2nd, 2023
 <li>Without a time limit, humans still get the correct class, suggesting that:
 <ul>
 <li>The adversarial perturbations do not change the &ldquo;true class&rdquo;.</li>
-<li>Recurrent connections could add robustness to adversarial examples.</li>
+<li><strong>Recurrent connections</strong> could add robustness to adversarial examples.</li>
 <li>Adversarial examples do not transfer well from feed-forward to recurrent networks</li>
 </ul>
 </li>
-<li>Qualitatively, perturbations seem to work by modifying object edges, modifying textures, and taking advantage of dark regions (lager perceptual change for given size perturbation)</li>
+<li>Qualitatively, perturbations seem to work by modifying object <strong>edges</strong>, modifying <strong>textures</strong>, and taking advantage of <strong>dark regions</strong> (lager perceptual change for given size perturbation)</li>
 <li>Results open up a lot of questions for further investigation:
 <ul>
 <li>How does transfer depend on $\epsilon$?</li>
@@ -536,7 +544,7 @@ Last Modified on July 2nd, 2023
 <h3 id="why-time-limited-settings">Why time-limited settings?</h3>
 <ul>
 <li>Brief image presentations prevent humans from achieving perfect accuracy, and even small changes in performance result in noticeable changes in accuracy.</li>
-<li>Limited time for image processing restricts the utilization of recurrent and top-down processing pathways in the brain. This leads to the brain&rsquo;s processing resembling that of a feedforward artificial neural network.</li>
+<li>Limited time for image processing restricts the utilization of recurrent and top-down processing pathways in the brain. <strong>This leads to the brain&rsquo;s processing resembling that of a feedforward artificial neural network.</strong></li>
 </ul>
 <h3 id="how-to-control-the-degree-of-purtubations">How to control the degree of purtubations?</h3>
 <ul>
@@ -573,7 +581,7 @@ Last Modified on July 2nd, 2023
 
 
         <span>
-            Last updated on Jul 03, 2023 16:54 EDT
+            Last updated on Jul 03, 2023 17:01 EDT
         </span>
     </section></footer>
 
