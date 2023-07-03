@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Neuro AI on Tony Feng</title>
+        <link>https://tonyfpy.github.io/categories/neuro-ai/</link>
+        <description>Recent content in Neuro AI on Tony Feng</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language><atom:link href="https://tonyfpy.github.io/categories/neuro-ai/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Paper Notes] Adversarial Examples that Fool both Computer Vision and Time-Limited Humans</title>
+        <link>https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/</link>
+        <pubDate>Fri, 23 Jun 2023 15:38:13 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on June 23rd, 2023&lt;/p&gt;
+&lt;p&gt;Last Modified on July 2nd, 2023&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Links: &lt;a class=&#34;link&#34; href=&#34;https://proceedings.neurips.cc/paper/2018/hash/8562ae5e286544710b2e7ebe9858833b-Abstract.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Website&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://proceedings.neurips.cc/paper_files/paper/2018/file/8562ae5e286544710b2e7ebe9858833b-Paper.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PDF&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/adv.png&#34;
+	width=&#34;764&#34;
+	height=&#34;188&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/adv_huc714c46b84f67528da5fa5d304574d45_139500_480x0_resize_box_3.png 480w, https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/adv_huc714c46b84f67528da5fa5d304574d45_139500_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;406&#34;
+		data-flex-basis=&#34;975px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;research-questions&#34;&gt;Research Questions&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The paper aims to answer whether human visual system will be influenced by adversarial examples that fool computer vision models.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;how&#34;&gt;How&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Constructing adversarial examples by targeted attack without access to the model’s architecture or parameters.&lt;/li&gt;
+&lt;li&gt;Adapting machine learning models to mimic the initial visual processing of humans.&lt;/li&gt;
+&lt;li&gt;Evaluating classification decisions of human observers in a time-limited setting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;findings&#34;&gt;Findings&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;We find that adversarial examples that strongly transfer across computer vision models influence the classifications made by time-limited human observers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Adversarial examples can deceive computer vision models through subtle image modifications, even transferring across different models to attack inaccessible targets.&lt;/li&gt;
+&lt;li&gt;While humans also exhibit errors to certain inputs (e.g. optical illusions, cognitive biases), these generally do not resemble adversarial examples. Yet no thorough empirical investigation has yet been performed.&lt;/li&gt;
+&lt;li&gt;Recent research shows that CNNs and the primate visual system exhibit similar representation and behavior. This suggests the potential transfer of adversarial examples from computer vision models to humans.&lt;/li&gt;
+&lt;li&gt;Studying the above question benefits both machine learning and neuroscience, facilitating knowledge exchange between the two fields.
+&lt;ul&gt;
+&lt;li&gt;If the human brain can resist certain adversarial examples, it would imply the existence of a similar mechanism in machine learning security.&lt;/li&gt;
+&lt;li&gt;If the brain can be fooled by adversarial examples, machine learning security research should focus on designing secure systems despite non-robust components.&lt;/li&gt;
+&lt;li&gt;Studying how adversarial examples affect the brain can enhance our understanding of brain function.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;methods&#34;&gt;Methods&lt;/h2&gt;
+&lt;h3 id=&#34;ml-vision-pipeline&#34;&gt;ML Vision Pipeline&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Combining ImageNet images into six coarse categories in three groups: Pets (dog, cat), Vegetables (broccoli, cabbage), Hazard (spider, snake)&lt;/li&gt;
+&lt;li&gt;Training ensemble of 10 CNN models with an additional retinal layer to better match early human visual processing (e.g. spatial blurring)&lt;/li&gt;
+&lt;li&gt;Generating targeted adversarial examples that strongly transfer across models&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;human-psychophysics-experiment&#34;&gt;Human Psychophysics Experiment&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/exp.png&#34;
+	width=&#34;629&#34;
+	height=&#34;380&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/exp_hu41c331a94e89ba28b60b3b9bd2451bab_69574_480x0_resize_box_3.png 480w, https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/exp_hu41c331a94e89ba28b60b3b9bd2451bab_69574_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;165&#34;
+		data-flex-basis=&#34;397px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;38 subjects classified images into two classes while seated in a fixed chair (two alternative forced choice).&lt;/li&gt;
+&lt;li&gt;Images were displayed for 63ms after a brief fixation period, followed by ten high contrast binary random masks (each lasting 20ms).&lt;/li&gt;
+&lt;li&gt;Participants had a maximum of 2200ms after the mask disappeared to respond, facilitating the detection of even subtle effects on perception.&lt;/li&gt;
+&lt;li&gt;Each session focused on one of the image groups (Pets, Vegetables, Hazard), with images falling into one of four conditions.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;image&lt;/code&gt;: images from ImageNet rescaled to [40, 215] to prevent clipping when perturbations are added.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;adv&lt;/code&gt;: images with adversarial perturbations $\delta_{adv}$ added that made models output the opposite class in the group.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flip&lt;/code&gt;: images $\delta_{adv}$ with flipped vertically before being added. This is a control condition.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;false&lt;/code&gt;: images from ImageNet outside of the two classes in the group, but perturbed towards one of the classes in the group,&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;h3 id=&#34;adversarial-examples-transfer-to-computer-vision-model&#34;&gt;Adversarial Examples Transfer to Computer Vision Model&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Adversarial examples tested on two new models successful for &lt;code&gt;adv&lt;/code&gt; and &lt;code&gt;false&lt;/code&gt; conditions, while &lt;code&gt;flip&lt;/code&gt; images had little effect (validating its use as control).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;adversarial-examples-transfer-to-humans&#34;&gt;Adversarial Examples Transfer to Humans&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;In the &lt;code&gt;false&lt;/code&gt; condition, adversarial perturbations successfully biased human decisions in all three groups by 1%~5%. Response time was inversely correlated to the perceptual bias pattern.&lt;/li&gt;
+&lt;li&gt;In the other setting, humans had similar accuracies on &lt;code&gt;image&lt;/code&gt; and &lt;code&gt;flip&lt;/code&gt; conditions, while being 7% less accurate on &lt;code&gt;adv&lt;/code&gt; images&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/compare.png&#34;
+	width=&#34;859&#34;
+	height=&#34;892&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/compare_hu2fd094695374af4fb3d78ed4f8a53559_376123_480x0_resize_box_3.png 480w, https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/compare_hu2fd094695374af4fb3d78ed4f8a53559_376123_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;96&#34;
+		data-flex-basis=&#34;231px&#34;
+	
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white.jpg&#34;
+	width=&#34;136&#34;
+	height=&#34;259&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;discussion&#34;&gt;Discussion&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Without a time limit, humans still get the correct class, suggesting that:
+&lt;ul&gt;
+&lt;li&gt;The adversarial perturbations do not change the &amp;ldquo;true class&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Recurrent connections could add robustness to adversarial examples.&lt;/li&gt;
+&lt;li&gt;Adversarial examples do not transfer well from feed-forward to recurrent networks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Qualitatively, perturbations seem to work by modifying object edges, modifying textures, and taking advantage of dark regions (lager perceptual change for given size perturbation)&lt;/li&gt;
+&lt;li&gt;Results open up a lot of questions for further investigation:
+&lt;ul&gt;
+&lt;li&gt;How does transfer depend on $\epsilon$?&lt;/li&gt;
+&lt;li&gt;Can retinal layer be removed?&lt;/li&gt;
+&lt;li&gt;How crucial is the model ensembling?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;h3 id=&#34;why-time-limited-settings&#34;&gt;Why time-limited settings?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Brief image presentations prevent humans from achieving perfect accuracy, and even small changes in performance result in noticeable changes in accuracy.&lt;/li&gt;
+&lt;li&gt;Limited time for image processing restricts the utilization of recurrent and top-down processing pathways in the brain. This leads to the brain&amp;rsquo;s processing resembling that of a feedforward artificial neural network.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;how-to-control-the-degree-of-purtubations&#34;&gt;How to control the degree of purtubations?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;We selected a perturbation size that is noticeable on a computer screen but small in relation to the image intensity scale.&lt;/li&gt;
+&lt;li&gt;Specifically, we chose a large value for $\delta_{adv}$ to increase the likelihood of adversarial examples transferring to time-limited humans, while ensuring that the perturbations preserved the image&amp;rsquo;s class according to judgments made by humans without time constraints.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
