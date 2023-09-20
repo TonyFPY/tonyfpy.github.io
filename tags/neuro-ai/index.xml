@@ -6,12 +6,35 @@
         <description>Recent content in Neuro AI on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 23 Jun 2023 15:38:13 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/neuro-ai/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>[Paper Notes] Adversarial Examples that Fool both Computer Vision and Time-Limited Humans</title>
-        <link>https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/</link>
+        <lastBuildDate>Tue, 15 Aug 2023 13:53:36 -0400</lastBuildDate><atom:link href="https://tonyfpy.github.io/tags/neuro-ai/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Readings] Human-Adversarial Visual Question Answering</title>
+        <link>https://tonyfpy.github.io/p/readings-human-adversarial-visual-question-answering/</link>
+        <pubDate>Tue, 15 Aug 2023 13:53:36 -0400</pubDate>
+        
+        <guid>https://tonyfpy.github.io/p/readings-human-adversarial-visual-question-answering/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
+&lt;p&gt;Created on Aug 15th, 2023&lt;/p&gt;
+&lt;p&gt;Last Modified on Aug 15th, 2023&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Title: Human-Adversarial Visual Question Answering&lt;/p&gt;
+&lt;p&gt;Source: NeurIPS 2021&lt;/p&gt;
+&lt;p&gt;Links: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2106.02280.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PDF&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://nips.cc/media/neurips-2021/Slides/26315.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Slides&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
+        <title>[Readings] Adv Examples that Fool both CV and Time-Limited Humans</title>
+        <link>https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/</link>
         <pubDate>Fri, 23 Jun 2023 15:38:13 -0400</pubDate>
         
-        <guid>https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/</guid>
+        <guid>https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;Authored by Tony Feng&lt;/p&gt;
 &lt;p&gt;Created on June 23rd, 2023&lt;/p&gt;
@@ -26,10 +49,10 @@
     &gt;Website&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://proceedings.neurips.cc/paper_files/paper/2018/file/8562ae5e286544710b2e7ebe9858833b-Paper.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;PDF&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/adv.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/adv.png&#34;
 	width=&#34;764&#34;
 	height=&#34;188&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/adv_huc714c46b84f67528da5fa5d304574d45_139500_480x0_resize_box_3.png 480w, https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/adv_huc714c46b84f67528da5fa5d304574d45_139500_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/adv_huc714c46b84f67528da5fa5d304574d45_139500_480x0_resize_box_3.png 480w, https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/adv_huc714c46b84f67528da5fa5d304574d45_139500_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -75,10 +98,10 @@
 &lt;li&gt;Generating targeted adversarial examples that strongly transfer across models&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;human-psychophysics-experiment&#34;&gt;Human Psychophysics Experiment&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/white.jpg&#34;
 	width=&#34;136&#34;
 	height=&#34;259&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -86,10 +109,10 @@
 		data-flex-grow=&#34;52&#34;
 		data-flex-basis=&#34;126px&#34;
 	
-&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/exp.png&#34;
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/exp.png&#34;
 	width=&#34;629&#34;
 	height=&#34;380&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/exp_hu41c331a94e89ba28b60b3b9bd2451bab_69574_480x0_resize_box_3.png 480w, https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/exp_hu41c331a94e89ba28b60b3b9bd2451bab_69574_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/exp_hu41c331a94e89ba28b60b3b9bd2451bab_69574_480x0_resize_box_3.png 480w, https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/exp_hu41c331a94e89ba28b60b3b9bd2451bab_69574_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -97,10 +120,10 @@
 		data-flex-grow=&#34;165&#34;
 		data-flex-basis=&#34;397px&#34;
 	
-&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white.jpg&#34;
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/white.jpg&#34;
 	width=&#34;136&#34;
 	height=&#34;259&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -133,10 +156,10 @@
 &lt;li&gt;In the &lt;code&gt;false&lt;/code&gt; condition, adversarial perturbations successfully biased human decisions in all three groups by 1%~5%. Response time was inversely correlated to the perceptual bias pattern.&lt;/li&gt;
 &lt;li&gt;In the other setting, humans had similar accuracies on &lt;code&gt;image&lt;/code&gt; and &lt;code&gt;flip&lt;/code&gt; conditions, while being 7% less accurate on &lt;code&gt;adv&lt;/code&gt; images&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/white.jpg&#34;
 	width=&#34;136&#34;
 	height=&#34;259&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -144,10 +167,10 @@
 		data-flex-grow=&#34;52&#34;
 		data-flex-basis=&#34;126px&#34;
 	
-&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/compare.png&#34;
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/compare.png&#34;
 	width=&#34;859&#34;
 	height=&#34;892&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/compare_hu2fd094695374af4fb3d78ed4f8a53559_376123_480x0_resize_box_3.png 480w, https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/compare_hu2fd094695374af4fb3d78ed4f8a53559_376123_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/compare_hu2fd094695374af4fb3d78ed4f8a53559_376123_480x0_resize_box_3.png 480w, https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/compare_hu2fd094695374af4fb3d78ed4f8a53559_376123_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -155,10 +178,10 @@
 		data-flex-grow=&#34;96&#34;
 		data-flex-basis=&#34;231px&#34;
 	
-&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white.jpg&#34;
+&gt;&lt;img src=&#34;https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/white.jpg&#34;
 	width=&#34;136&#34;
 	height=&#34;259&#34;
-	srcset=&#34;https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/paper-notes-adversarial-examples-that-fool-both-computer-vision-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_480x0_resize_q75_box.jpg 480w, https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/white_hu36e283984737934d1af0bcfe1c0c61db_1463_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
