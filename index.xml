@@ -6,29 +6,6 @@
         <description>Recent content on Tony Feng</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://tonyfpy.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>[Readings] Human-Adversarial Visual Question Answering</title>
-        <link>https://tonyfpy.github.io/p/readings-human-adversarial-visual-question-answering/</link>
-        <pubDate>Tue, 15 Aug 2023 13:53:36 -0400</pubDate>
-        
-        <guid>https://tonyfpy.github.io/p/readings-human-adversarial-visual-question-answering/</guid>
-        <description>&lt;blockquote&gt;
-&lt;p&gt;Authored by Tony Feng&lt;/p&gt;
-&lt;p&gt;Created on Aug 15th, 2023&lt;/p&gt;
-&lt;p&gt;Last Modified on Aug 15th, 2023&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Title: Human-Adversarial Visual Question Answering&lt;/p&gt;
-&lt;p&gt;Source: NeurIPS 2021&lt;/p&gt;
-&lt;p&gt;Links: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2106.02280.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;PDF&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://nips.cc/media/neurips-2021/Slides/26315.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Slides&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-</description>
-        </item>
-        <item>
         <title>[Readings] Adv Examples that Fool both CV and Time-Limited Humans</title>
         <link>https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/</link>
         <pubDate>Fri, 23 Jun 2023 15:38:13 -0400</pubDate>
@@ -9851,8 +9828,18 @@ $$&lt;/p&gt;
         <pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate>
         
         <guid>https://tonyfpy.github.io/research/</guid>
-        <description>&lt;p&gt;My current research interest lies in &lt;strong&gt;human-AI alignment&lt;/strong&gt; with a focus on visual perception. My past research projects cover the topics of vision, deep learning, cognitive science, and Interactive Systems.&lt;/p&gt;
+        <description>&lt;p&gt;My current research interest lies in &lt;strong&gt;Human &amp;amp; Machine Visual Perception&lt;/strong&gt;. My past research projects cover the topics of vision, deep learning, cognitive science, and Interactive Systems.&lt;/p&gt;
 &lt;h2 id=&#34;papers&#34;&gt;Papers&lt;/h2&gt;
+&lt;h3 id=&#34;harmonization&#34;&gt;Harmonization&lt;/h3&gt;
+&lt;img src=&#34;ClickMe.jpg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;  
+&lt;p&gt;The rapid acceleration of progress in deep neural networks (DNNs) have researched or even surpassed human capacities in vision. However, we&amp;rsquo;ve found that these DNNs have become misaligned with humans in terms of representations, visually-evoked behaviors, robustness and neural responses. We&amp;rsquo;ve developed a training toutines to  align models with biological intelligence to rectify this growing issue.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Advisors&lt;/strong&gt;: &lt;a class=&#34;link&#34; href=&#34;https://serre-lab.clps.brown.edu/person/thomas-serre/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Prof. Thomas Serre&lt;/strong&gt;&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://sites.brown.edu/drewlinsley/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Prof. Drew Linsely&lt;/strong&gt;&lt;/a&gt;&lt;br&gt;
+&lt;strong&gt;Timeline&lt;/strong&gt;: Mar. 2023 - Present&lt;br&gt;
+&lt;strong&gt;Key Words&lt;/strong&gt;: Vision, Alignment, Deep Learning, Visual Cognition&lt;br&gt;
+&lt;strong&gt;Link&lt;/strong&gt;: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2306.03229&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Paper - &lt;em&gt;ArXiv&lt;/em&gt;&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;&#34; &gt;Paper (Coming soon)&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;social-ar&#34;&gt;Social AR&lt;/h3&gt;
 &lt;img src=&#34;MUAR.jpg&#34; align=&#34;left&#34; width=&#34;285px&#34; style=&#34;padding-right: 15px&#34;/&gt;
 &lt;p&gt;Social AR is developed to support real-time multiuser interaction for exploration of cultural heritage. In this research, we believe Social AR that projects cultural heritage objects projected onto the real environment can be a better experience in terms of depth of viewing. The work was carried out at the &lt;a class=&#34;link&#34; href=&#34;https://www.nottingham.edu.cn/en/research-centres/nvidia-joint-lab/about.aspx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -19388,37 +19375,37 @@ e.g. &lt;br/&gt;
         <description>&lt;!-- &lt;img src=&#34;tony.jpg&#34; align=&#34;right&#34; width=&#34;285px&#34; style=&#34;padding-left: 20px&#34;/&gt;
 
 &lt;img src=&#34;white.jpg&#34; align=&#34;right&#34; width=&#34;285px&#34; style=&#34;padding-left: 20px&#34;/&gt; --&gt;
-&lt;img src=&#34;tony.jpg&#34; align=&#34;right&#34; width=&#34;285px&#34; style=&#34; padding-left: 20px&#34;/&gt;
+&lt;!-- &lt;img src=&#34;tony.jpg&#34; align=&#34;right&#34; width=&#34;300px&#34; style=&#34; padding-left: 20px&#34;/&gt; --&gt;
 &lt;!-- &lt;img src=&#34;white.jpg&#34; width=&#34;285px&#34; style=&#34;display: block; margin: auto;&#34;/&gt; --&gt;
 &lt;p&gt;Hi, I am so glad to see you here and thank you for your interests in learning more about me.&lt;/p&gt;
-&lt;p&gt;Currently, I am pursuing a Master of Science degree @ &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.brown.edu/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;p&gt;&lt;strong&gt;INTRO&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I am pursuing a Master of Science degree @ &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.brown.edu/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Brown University, USA&lt;/a&gt;&lt;/strong&gt; (one of the eight private &lt;strong&gt;Ivy League&lt;/strong&gt; universities) with a concentration in Computer Science (AI/ML Research Track). Also, I am a student research assistant @ &lt;a class=&#34;link&#34; href=&#34;https://serre-lab.clps.brown.edu/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;Serre Lab&lt;/strong&gt;&lt;/a&gt; advised by &lt;a class=&#34;link&#34; href=&#34;https://serre-lab.clps.brown.edu/person/thomas-serre/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;Prof. Thomas Serre&lt;/strong&gt;&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://sites.brown.edu/drewlinsley/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;Prof. Drew Linsely&lt;/strong&gt;&lt;/a&gt;. Previously, I completed my undergraduate study @ &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.nottingham.ac.uk/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;University of Nottingham, UK&lt;/a&gt;&lt;/strong&gt; (&lt;strong&gt;top 100&lt;/strong&gt; in QS Global Ranking) with &lt;strong&gt;first-class honors&lt;/strong&gt; in Computer Science with Artificial Intelligence.&lt;/p&gt;
 &lt;!-- I have experiences in software, data, AI, as well as user research. My main interest lies in the exploration of **Human-AI Interaction** with cutting-edge technologies to shape a better user experience. My goal is to build **intelligent interactive systems** that are fit for the strengths and limitations of human cognition, perception and behavior. --&gt;
-&lt;p&gt;My current research interest lies in &lt;strong&gt;human-AI alignment&lt;/strong&gt; with a focus on visual perception. I am seeking to reveal the factors that influence the alignment between human visual features and deep neural network representations, and harness insights from cognitive science and neuroscience (&lt;strong&gt;brain-inspired learning&lt;/strong&gt;) to make AI systems/algorithms more interpretable, robust, and reliable. Specifically, I am interested in the following directions:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;RESEARCH INTERESTS&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;At the heart of human intelligence lies our ability to perceive and interpret complex natural stimuli. Humans can learn structured representations by distilling out the important features from high-dimensional sensory data, while machines often struggle with this, especially when faced with ambiguous scenes, subtle cues, or unseen situations. Hence, I argue that current machine vision algorithms do not adequately capture the intricacies of the human visual system and thus fail to reasonably explain relevant visual phenomena. Recognizing the gaps, I’ve developed a broad interest in &lt;strong&gt;Human &amp;amp; Machine Visual Perception&lt;/strong&gt;. There are some open questions I am particularly interested in:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Explainability&lt;/strong&gt;:
-&lt;ul&gt;
-&lt;li&gt;What explicit and implicit visual information are learned by humans and machines?&lt;/li&gt;
-&lt;li&gt;How do they prioritize and process visual cues differently to drive decision making?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interpretability&lt;/strong&gt;: How do humans and machines interpret visual stimuli and construct visual representations?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Robustness&lt;/strong&gt;: How robust are biological and artificial vision to out-of-distribution and adversarial data?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Compositionality&lt;/strong&gt;: How can human perception shed light on compositional understanding algorithms?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Abstraction&lt;/strong&gt;: How can humans and machines generalize visual concepts from specific instances to broader categories?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Alignment&lt;/strong&gt;: How can we build models that align with human visual perception with less supervision?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Robustness&lt;/strong&gt;:
-&lt;ul&gt;
-&lt;li&gt;To what degree are human perception robust to adversarial attacks and out-of-distributed data?&lt;/li&gt;
-&lt;li&gt;How to implement models that are resistant to these inputs without compromising its performance on IID data?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Alignment&lt;/strong&gt;:
-&lt;ul&gt;
-&lt;li&gt;How to build computational models that can &amp;ldquo;see&amp;rdquo; like humans?&lt;/li&gt;
-&lt;li&gt;Can we teach these models with less human annotation?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;These questions, which are at the intersection of &lt;strong&gt;AI, Brain and Cognition (ABC)&lt;/strong&gt;, have significantly guided my academic pursuits. My goal is to translate insights from &lt;strong&gt;cognitive science&lt;/strong&gt; and &lt;strong&gt;neuroscience&lt;/strong&gt; to push the frontiers of AI, thereby deepening our understanding of how cognition drives the inner workings of the brain and the outer ways we behave.&lt;/p&gt;
+&lt;!-- My current research interest lies in **human-AI alignment** with a focus on visual perception. I am seeking to reveal the factors that influence the alignment between human visual features and deep neural network representations, and harness insights from cognitive science and neuroscience (**brain-inspired learning**) to make AI systems/algorithms more interpretable, robust, and reliable. Specifically, I am interested in the following directions:
+- **Explainability**: 
+  - What explicit and implicit visual information are learned by humans and machines? 
+  - How do they prioritize and process visual cues differently to drive decision making?
+- **Robustness**: 
+  - To what degree are human perception robust to adversarial attacks and out-of-distributed data?
+  - How to implement models that are resistant to these inputs without compromising its performance on IID data?
+- **Alignment**: 
+  - How to build computational models that can &#34;see&#34; like humans? 
+  - Can we teach these models with less human annotation? --&gt;
 &lt;p&gt;&lt;strong&gt;EDUCATION&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;M.Sc. Computer Science @ &lt;a class=&#34;link&#34; href=&#34;https://www.brown.edu/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -19437,7 +19424,7 @@ e.g. &lt;br/&gt;
 &lt;li&gt;Student Research Assistant @ &lt;a class=&#34;link&#34; href=&#34;https://deepdrive.berkeley.edu/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;Berkeley DeepDrive&lt;/strong&gt;&lt;/a&gt; (University of California, Berkeley), &lt;em&gt;06/2020 - 09/2020&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Industry EXPERIENCES&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;INDUSTRIAL EXPERIENCES&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Research &amp;amp; Development Engineer Intern (Automobile Software) @ &lt;a class=&#34;link&#34; href=&#34;https://www.nio.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;NIO, Inc.&lt;/strong&gt;&lt;/a&gt;, &lt;em&gt;11/2021 - 08/2022&lt;/em&gt;&lt;/li&gt;

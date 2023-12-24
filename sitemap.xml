@@ -2,25 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tonyfpy.github.io/p/readings-human-adversarial-visual-question-answering/</loc>
-    <lastmod>2023-08-15T13:56:29-04:00</lastmod>
+    <loc>https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/</loc>
+    <lastmod>2023-08-14T13:22:23-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/categories/</loc>
-    <lastmod>2023-08-15T13:56:29-04:00</lastmod>
+    <lastmod>2023-08-14T13:22:23-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/computer-vision/</loc>
-    <lastmod>2023-08-15T13:56:29-04:00</lastmod>
+    <lastmod>2023-08-14T13:22:23-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/neuro-ai/</loc>
-    <lastmod>2023-08-15T13:56:29-04:00</lastmod>
+    <lastmod>2023-08-14T13:22:23-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/post/</loc>
-    <lastmod>2023-08-15T13:56:29-04:00</lastmod>
+    <lastmod>2023-08-14T13:22:23-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/tags/</loc>
-    <lastmod>2023-08-15T13:56:29-04:00</lastmod>
-  </url><url>
-    <loc>https://tonyfpy.github.io/p/readings-adv-examples-that-fool-both-cv-and-time-limited-humans/</loc>
     <lastmod>2023-08-14T13:22:23-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/computer-vision-visual-bag-of-words/</loc>
@@ -165,10 +162,10 @@
     <lastmod>2022-09-14T14:40:05-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/page/</loc>
-    <lastmod>2023-09-20T00:14:07-04:00</lastmod>
+    <lastmod>2023-12-24T02:08:56-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/research/</loc>
-    <lastmod>2023-09-19T23:36:31-04:00</lastmod>
+    <lastmod>2023-12-24T02:08:56-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/p/human-centred-tech-design-taxonomy/</loc>
     <lastmod>2022-09-12T22:13:46-04:00</lastmod>
@@ -315,7 +312,7 @@
     <lastmod>2022-04-22T10:49:50-04:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/about/</loc>
-    <lastmod>2023-09-20T00:14:07-04:00</lastmod>
+    <lastmod>2023-12-24T01:46:37-05:00</lastmod>
   </url><url>
     <loc>https://tonyfpy.github.io/projects/</loc>
     <lastmod>2022-09-12T21:11:21-04:00</lastmod>
